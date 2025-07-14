@@ -187,10 +187,37 @@
     </div>
   </div>
 </section>
+<section id="contacto" style="padding: 50px 20px;">
+  <h2 style="text-align:center;">Contáctanos</h2>
+  <form onsubmit="enviarWhatsApp(event)" style="max-width: 500px; margin: auto; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" required style="width: 100%; padding: 10px; margin-bottom: 15px;"><br>
 
+    <label for="correo">Correo electrónico:</label><br>
+    <input type="email" id="correo" name="correo" required style="width: 100%; padding: 10px; margin-bottom: 15px;"><br>
+
+    <label for="mensaje">Mensaje:</label><br>
+    <textarea id="mensaje" name="mensaje" rows="5" required style="width: 100%; padding: 10px; margin-bottom: 20px;"></textarea><br>
+
+    <button type="submit" style="background-color: #111; color: white; padding: 12px 20px; border: none; cursor: pointer; border-radius: 5px;">Enviar por WhatsApp</button>
+  </form>
+</section>
 <footer>
   <p>&copy; 2025 Page Creator Cabo - Todos los derechos reservados</p>
 </footer>
+<script>
+  function enviarWhatsApp(e) {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const correo = document.getElementById('correo').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
 
+    const texto = `Hola, soy *${nombre}*.\nCorreo: *${correo}*\n\nMensaje:\n${mensaje}`;
+    const numero = "524241181978";
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+
+    window.open(url, '_blank');
+  }
+</script>
 </body>
 </html>
