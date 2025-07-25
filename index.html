@@ -16,32 +16,13 @@
     }
 
     header {
-      position: relative;
-      background: url('Images/Bannerpagecreato.png') center center / cover no-repeat;
-      height: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
+      background: url('Images/BannerBrujulaCompleto.png') center center / cover no-repeat;
+      height: 400px;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       overflow: hidden;
-    }
-
-    .header-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .header-content h1 {
-      font-size: 3rem;
-      margin: 0;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-    }
-
-    .header-content p {
-      font-size: 1.3rem;
-      margin-top: 10px;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
     }
 
     nav {
@@ -50,12 +31,25 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    nav img {
+      height: 40px;
+      margin: 5px 0;
+    }
+
+    .nav-links {
+      display: flex;
     }
 
     nav a {
       color: #f4f4f4;
       text-decoration: none;
-      padding: 15px 25px;
+      padding: 15px 20px;
       display: inline-block;
       font-weight: 600;
       transition: background 0.3s;
@@ -141,29 +135,41 @@
       padding: 20px 0;
       margin-top: 50px;
     }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      nav a {
+        width: 100%;
+        padding: 12px;
+      }
+
+      header {
+        height: 250px;
+        background-size: contain;
+      }
+    }
   </style>
 </head>
 <body>
 
-<header style="
-  background: url('Images/mardesitiosbanner.png') center center / cover no-repeat;
-  height: 400px;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-">
-</header>
-
-
-
+<header></header>
 
 <nav>
-  <a href="#about">¿Quiénes somos?</a>
-  <a href="#servicios">Páginas disponibles</a>
-  <a href="portafolio.html">Ver portafolio completo</a>
-  <a href="#contacto">Contacto</a>
+  <img src="Images/mardesitiosbanner.png" alt="Logo Mar de Sitios" />
+  <div class="nav-links">
+    <a href="#about">¿Quiénes somos?</a>
+    <a href="#servicios">Páginas disponibles</a>
+    <a href="portafolio.html">Ver portafolio completo</a>
+    <a href="#contacto">Contacto</a>
+  </div>
 </nav>
 
 <section id="about">
@@ -188,24 +194,29 @@
     </div>
     <div class="card">
       <img src="Images/ejemplopremium.png" alt="Página Web Opción 2">
-      <h3 class="page-title">Pagina Web mas personalizada</h3>
+      <h3 class="page-title">Página Web más personalizada</h3>
       <p class="page-price">$1,200 MXN</p>
       <p class="page-contact">📞 624-118-1978</p>
     </div>
-    <!-- Agrega más tarjetas según tus servicios -->
   </div>
 </section>
-<section id="about">
+
+<section>
   <h2>Acerca de las opciones disponibles</h2>
   <div class="card1">
-    <p>Las paginas mostradas solo son un ejemplo base, mas no el resultado final, son personalizables conforme a la opcion que se eliga, tienen diferentes funciones al gusto del propietario.</p>
+    <p>Las páginas mostradas solo son un ejemplo base, no el resultado final. Son personalizables conforme a la opción que se elija y tienen diferentes funciones adaptadas al gusto del cliente.</p>
   </div>
 </section>
-  
+
 <section id="contacto">
   <h2>Contacto</h2>
-  <p style="text-align:center;">📞 Tel: 624-118-1978<br>📧 Email: tuemail@gmail.com<br>📍 Los Cabos, B.C.S.</p>
+  <p style="text-align:center;">
+    📞 Tel: 624-118-1978<br>
+    📧 Email: tuemail@gmail.com<br>
+    📍 Los Cabos, B.C.S.
+  </p>
 </section>
+
 <section id="redes-sociales" style="padding: 50px 20px; background-color: #111; color: white; text-align: center;">
   <h2 style="font-size: 2rem; margin-bottom: 10px;">Redes Sociales</h2>
   <p style="font-size: 1rem;">Síguenos y mantente al día con nuestras novedades</p>
@@ -216,9 +227,9 @@
     <a href="https://www.linkedin.com/in/tuusuario" target="_blank" style="color: #0077b5;"><i class="fab fa-linkedin"></i></a>
   </div>
 </section>
-</section>
+
 <footer>
-  <p>&copy; 2025 Page Creator Cabo - Todos los derechos reservados</p>
+  <p>&copy; 2025 Mar de Sitios - Todos los derechos reservados</p>
 </footer>
 
 </body>
