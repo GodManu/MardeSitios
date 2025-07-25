@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mar de Sitios</title>
+  <title>Portafolio - Mar de Sitios</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -13,6 +13,10 @@
       background-color: #f4f4f4;
       color: #333;
     }
+    header {
+      background: url('Images/mardesitiosbanner.png') center center / cover no-repeat;
+      height: 250px;
+    }
     nav {
       background-color: #111;
       text-align: center;
@@ -20,30 +24,16 @@
       top: 0;
       z-index: 100;
     }
-    nav img {
-      height: 40px;
-      vertical-align: middle;
-      margin-right: 15px;
-    }
     nav a {
       color: #f4f4f4;
       text-decoration: none;
-      padding: 15px 20px;
+      padding: 15px 25px;
       display: inline-block;
       font-weight: 600;
       transition: background 0.3s;
     }
     nav a:hover {
       background-color: #222;
-    }
-    header {
-      background: url('Images/mardesitiosbanner.png') center center / cover no-repeat;
-      height: 400px;
-      width: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      overflow: hidden;
     }
     section {
       padding: 50px 20px;
@@ -54,6 +44,12 @@
       margin-bottom: 30px;
       color: #111;
     }
+    .page-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
     .card {
       background: #fff;
       border-radius: 12px;
@@ -62,17 +58,25 @@
       padding: 20px;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      margin: 15px;
     }
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
-    .page-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .page-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .page-contact {
+      font-size: 0.95rem;
+      color: #666;
     }
     footer {
       background-color: #111;
@@ -86,86 +90,48 @@
 <body>
 
 <nav>
-  <img src="Images/logo_mar_de_sitios.png" alt="Logo Mar de Sitios">
-  <a href="#beneficios">¿Por qué una web?</a>
-  <a href="#proceso">Proceso</a>
-  <a href="#planes">Planes</a>
-  <a href="#estadisticas">Resultados</a>
-  <a href="#oferta">Promoción</a>
-  <a href="portafolio.html">Portafolio</a>
+  <a href="index.html">Inicio</a>
+  <a href="#portafolio">Portafolio</a>
+  <a href="#testimonios">Testimonios</a>
 </nav>
 
-<header></header>
-
-<section id="beneficios">
-  <h2>¿Por qué tener una página web?</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 30px;">
-    <div style="max-width: 300px; text-align: center;">
-      <h3>🌐 Presencia 24/7</h3>
-      <p>Tu negocio disponible todo el tiempo, sin depender de redes sociales.</p>
-    </div>
-    <div style="max-width: 300px; text-align: center;">
-      <h3>🚀 Imagen Profesional</h3>
-      <p>Proyecta confianza, orden y calidad desde el primer vistazo.</p>
-    </div>
-    <div style="max-width: 300px; text-align: center;">
-      <h3>💳 Más clientes</h3>
-      <p>Una web bien hecha aumenta tus oportunidades de venta.</p>
-    </div>
-  </div>
-</section>
-
-<section id="proceso" style="background-color: #f4f4f4;">
-  <h2>¿Cómo es el proceso?</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
-    <div style="max-width: 280px; text-align: center;">
-      <h3>1️⃣ Hablamos</h3>
-      <p>Te escucho y entendemos qué necesitas exactamente.</p>
-    </div>
-    <div style="max-width: 280px; text-align: center;">
-      <h3>2️⃣ Diseño</h3>
-      <p>Creo un diseño funcional, atractivo y que se adapte a tu marca.</p>
-    </div>
-    <div style="max-width: 280px; text-align: center;">
-      <h3>3️⃣ Entrega y ajustes</h3>
-      <p>Te lo entrego listo para usar. ¡Y si quieres cambios, los hacemos!</p>
-    </div>
-  </div>
-</section>
-
-<section id="planes">
-  <h2>Planes disponibles</h2>
+<section id="portafolio">
+  <h2>Páginas realizadas</h2>
   <div class="page-list">
     <div class="card">
-      <h3>🐚 Plan Básico</h3>
-      <p>$800 MXN</p>
-      <p>Sitio de 1 sección, diseño básico pero funcional</p>
+      <img src="Images/LOSCABOSMOTORSPAGE.png" alt="Page 1">
+      <h3 class="page-title">Los Cabos Motors</h3>
+      <p class="page-contact"><a href="https://godmanu.github.io/LosCabosMotors/">Ver sitio</a></p>
     </div>
     <div class="card">
-      <h3>🌊 Plan Profesional</h3>
-      <p>$1,200 MXN</p>
-      <p>Sitio con múltiples secciones, diseño personalizado</p>
+      <img src="Images/NUTRITIONPAGE.png" alt="Page 2">
+      <h3 class="page-title">Otterfit Nutrition</h3>
+      <p class="page-contact"><a href="https://godmanu.github.io/OtterfitNutrition/">Ver sitio</a></p>
     </div>
     <div class="card">
-      <h3>🏝️ Plan Premium</h3>
-      <p>$1,800 MXN</p>
-      <p>Diseño + logo + integración con redes sociales y hosting</p>
+      <img src="Images/portafolio3.jpg" alt="Page 3">
+      <h3 class="page-title">Vacío</h3>
+      <p class="page-contact"><a href="#">Ver sitio</a></p>
     </div>
   </div>
 </section>
 
-<section id="estadisticas" style="background-color: #f4f4f4;">
-  <h2>Resultados</h2>
-  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 60px; font-size: 1.2rem;">
-    <div><strong>+10</strong> sitios web entregados</div>
-    <div><strong>100%</strong> de clientes satisfechos</div>
-    <div><strong>72 hrs</strong> promedio de entrega</div>
+<section id="testimonios">
+  <h2>Testimonios</h2>
+  <div class="page-list">
+    <div class="card">
+      <p>"La verdad estoy sorprendido, es mi primer página web y me gusta bastante cómo quedó, tiene un toque agresivo/elegante."</p>
+      <p class="page-title">— Manuel Serrato</p>
+    </div>
+    <div class="card">
+      <p>"Me sorprendió demasiado la velocidad y cómo se fueron añadiendo las ideas que fui planteando al momento de querer elaborar mi página. ¡Recomiendo demasiado el servicio, muy rápido y efectivo!"</p>
+      <p class="page-title">— Benito Meraz</p>
+    </div>
+    <div class="card">
+      <p>"En espera."</p>
+      <p class="page-title">— Testigo</p>
+    </div>
   </div>
-</section>
-
-<section id="oferta" style="background-color: #111; color: white; text-align: center;">
-  <h2>🔥 ¡Promoción limitada!</h2>
-  <p>Contrata tu sitio web antes del <strong>31 de agosto</strong> y obtén <strong>10% de descuento</strong> en cualquier plan.</p>
 </section>
 
 <footer>
