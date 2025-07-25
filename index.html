@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mar de Sitios</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -14,7 +13,29 @@
       background-color: #f4f4f4;
       color: #333;
     }
-
+    nav {
+      background-color: #111;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav img {
+      height: 40px;
+      vertical-align: middle;
+      margin-right: 15px;
+    }
+    nav a {
+      color: #f4f4f4;
+      text-decoration: none;
+      padding: 15px 20px;
+      display: inline-block;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background-color: #222;
+    }
     header {
       background: url('Images/mardesitiosbanner.png') center center / cover no-repeat;
       height: 400px;
@@ -24,70 +45,15 @@
       background-repeat: no-repeat;
       overflow: hidden;
     }
-
-    nav {
-      background-color: #111;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-
-    nav img {
-      height: 40px;
-      margin: 5px 0;
-    }
-
-    .nav-links {
-      display: flex;
-    }
-
-    nav a {
-      color: #f4f4f4;
-      text-decoration: none;
-      padding: 15px 20px;
-      display: inline-block;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
-
-    nav a:hover {
-      background-color: #222;
-    }
-
     section {
       padding: 50px 20px;
     }
-
     h2 {
       text-align: center;
       font-size: 2rem;
       margin-bottom: 30px;
       color: #111;
     }
-
-    .card1 {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      max-width: 800px;
-      padding: 30px;
-      margin: auto;
-      text-align: center;
-      color: #333;
-    }
-
-    .page-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-
     .card {
       background: #fff;
       border-radius: 12px;
@@ -96,38 +62,18 @@
       padding: 20px;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin: 15px;
     }
-
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 15px;
+    .page-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
     }
-
-    .page-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-    }
-
-    .page-price {
-      font-size: 1.1rem;
-      color: #bba000;
-      font-weight: bold;
-      margin: 10px 0;
-    }
-
-    .page-contact {
-      font-size: 0.95rem;
-      color: #666;
-    }
-
     footer {
       background-color: #111;
       color: white;
@@ -135,97 +81,91 @@
       padding: 20px 0;
       margin-top: 50px;
     }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-      }
-
-      .nav-links {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      nav a {
-        width: 100%;
-        padding: 12px;
-      }
-
-      header {
-        height: 250px;
-        background-size: contain;
-      }
-    }
   </style>
 </head>
 <body>
 
-<header></header>
-
 <nav>
-  <img src="Images/logomardesitios.png" alt="Logo Mar de Sitios" />
-  <div class="nav-links">
-    <a href="#about">¿Quiénes somos?</a>
-    <a href="#servicios">Páginas disponibles</a>
-    <a href="portafolio.html">Ver portafolio completo</a>
-    <a href="#contacto">Contacto</a>
-  </div>
+  <img src="Images/logo_mar_de_sitios.png" alt="Logo Mar de Sitios">
+  <a href="#beneficios">¿Por qué una web?</a>
+  <a href="#proceso">Proceso</a>
+  <a href="#planes">Planes</a>
+  <a href="#estadisticas">Resultados</a>
+  <a href="#oferta">Promoción</a>
+  <a href="portafolio.html">Portafolio</a>
 </nav>
 
-<section id="about">
-  <h2>¿Quiénes somos?</h2>
-  <div class="card1">
-    <p>
-      En Mar de Sitios somos un pequeño estudio digital dedicado a la creación de sitios web modernos, funcionales y totalmente personalizados. Apoyamos a emprendedores, marcas personales y negocios que buscan destacar en internet con un sitio que represente su identidad.
-      <br><br>
-      También ofrecemos soluciones digitales como diseños prediseñados, landing pages y asesoría para que tu proyecto tenga presencia profesional desde el primer día.
-    </p>
+<header></header>
+
+<section id="beneficios">
+  <h2>¿Por qué tener una página web?</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 30px;">
+    <div style="max-width: 300px; text-align: center;">
+      <h3>🌐 Presencia 24/7</h3>
+      <p>Tu negocio disponible todo el tiempo, sin depender de redes sociales.</p>
+    </div>
+    <div style="max-width: 300px; text-align: center;">
+      <h3>🚀 Imagen Profesional</h3>
+      <p>Proyecta confianza, orden y calidad desde el primer vistazo.</p>
+    </div>
+    <div style="max-width: 300px; text-align: center;">
+      <h3>💳 Más clientes</h3>
+      <p>Una web bien hecha aumenta tus oportunidades de venta.</p>
+    </div>
   </div>
 </section>
 
-<section id="servicios">
-  <h2>Páginas disponibles</h2>
+<section id="proceso" style="background-color: #f4f4f4;">
+  <h2>¿Cómo es el proceso?</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
+    <div style="max-width: 280px; text-align: center;">
+      <h3>1️⃣ Hablamos</h3>
+      <p>Te escucho y entendemos qué necesitas exactamente.</p>
+    </div>
+    <div style="max-width: 280px; text-align: center;">
+      <h3>2️⃣ Diseño</h3>
+      <p>Creo un diseño funcional, atractivo y que se adapte a tu marca.</p>
+    </div>
+    <div style="max-width: 280px; text-align: center;">
+      <h3>3️⃣ Entrega y ajustes</h3>
+      <p>Te lo entrego listo para usar. ¡Y si quieres cambios, los hacemos!</p>
+    </div>
+  </div>
+</section>
+
+<section id="planes">
+  <h2>Planes disponibles</h2>
   <div class="page-list">
     <div class="card">
-      <img src="Images/ejemplobasico.png" alt="Página Web Opción 1">
-      <h3 class="page-title">Página Web Básica</h3>
-      <p class="page-price">$800 MXN</p>
-      <p class="page-contact">📞 624-118-1978</p>
+      <h3>🐚 Plan Básico</h3>
+      <p>$800 MXN</p>
+      <p>Sitio de 1 sección, diseño básico pero funcional</p>
     </div>
     <div class="card">
-      <img src="Images/ejemplopremium.png" alt="Página Web Opción 2">
-      <h3 class="page-title">Página Web más personalizada</h3>
-      <p class="page-price">$1,200 MXN</p>
-      <p class="page-contact">📞 624-118-1978</p>
+      <h3>🌊 Plan Profesional</h3>
+      <p>$1,200 MXN</p>
+      <p>Sitio con múltiples secciones, diseño personalizado</p>
+    </div>
+    <div class="card">
+      <h3>🏝️ Plan Premium</h3>
+      <p>$1,800 MXN</p>
+      <p>Diseño + logo + integración con redes sociales y hosting</p>
     </div>
   </div>
 </section>
 
-<section>
-  <h2>Acerca de las opciones disponibles</h2>
-  <div class="card1">
-    <p>Las páginas mostradas solo son un ejemplo base, no el resultado final. Son personalizables conforme a la opción que se elija y tienen diferentes funciones adaptadas al gusto del cliente.</p>
+<section id="estadisticas" style="background-color: #f4f4f4;">
+  <h2>Resultados</h2>
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 60px; font-size: 1.2rem;">
+    <div><strong>+10</strong> sitios web entregados</div>
+    <div><strong>100%</strong> de clientes satisfechos</div>
+    <div><strong>72 hrs</strong> promedio de entrega</div>
   </div>
 </section>
 
-<section id="contacto">
-  <h2>Contacto</h2>
-  <p style="text-align:center;">
-    📞 Tel: 624-118-1978<br>
-    📧 Email: tuemail@gmail.com<br>
-    📍 Los Cabos, B.C.S.
-  </p>
-</section>
-
-<section id="redes-sociales" style="padding: 50px 20px; background-color: #111; color: white; text-align: center;">
-  <h2 style="font-size: 2rem; margin-bottom: 10px;">Redes Sociales</h2>
-  <p style="font-size: 1rem;">Síguenos y mantente al día con nuestras novedades</p>
-  <div style="margin-top: 25px; display: flex; justify-content: center; gap: 30px; font-size: 28px;">
-    <a href="https://www.facebook.com/tuusuario" target="_blank" style="color: #3b5998;"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/tuusuario" target="_blank" style="color: #e4405f;"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@tuusuario" target="_blank" style="color: #000000;"><i class="fab fa-tiktok"></i></a>
-    <a href="https://www.linkedin.com/in/tuusuario" target="_blank" style="color: #0077b5;"><i class="fab fa-linkedin"></i></a>
-  </div>
+<section id="oferta" style="background-color: #111; color: white; text-align: center;">
+  <h2>🔥 ¡Promoción limitada!</h2>
+  <p>Contrata tu sitio web antes del <strong>31 de agosto</strong> y obtén <strong>10% de descuento</strong> en cualquier plan.</p>
 </section>
 
 <footer>
