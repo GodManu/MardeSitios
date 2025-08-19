@@ -3,140 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mar de Sitios - Creador de Páginas Web</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <title>Mar de Sitios - Creamos tu página ideal</title>
+  <meta name="description" content="Diseño de páginas web profesionales en Los Cabos. Haz crecer tu negocio con una presencia online llamativa y efectiva.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f7f9fc;
       color: #333;
     }
-
     header {
-      position: relative;
-      background: url('Images/mardesitiosbanner.png') center center / cover no-repeat;
-      height: 270px;
+      background-image: url('Images/mardesitiosbanner.png');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      position: relative;
     }
-
     header::before {
       content: "";
       position: absolute;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.4);
-      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.4);
     }
-
     .header-content {
       position: relative;
-      z-index: 2;
       color: white;
-    }
-
-    .header-content h1 {
-      font-size: 2.8rem;
-      margin: 0;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-    }
-
-    nav {
-      background-color: #111;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
     }
-
+    .header-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+    .header-content p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    nav {
+      background-color: #0a2540;
+      text-align: center;
+    }
     nav a {
-      color: white;
-      text-decoration: none;
-      padding: 15px 25px;
+      color: #fff;
+      padding: 15px 20px;
       display: inline-block;
+      text-decoration: none;
       font-weight: 600;
-      transition: background 0.3s;
     }
-
     nav a:hover {
-      background-color: #222;
+      background-color: #163b61;
     }
-
     section {
-      padding: 50px 20px;
-      max-width: 1000px;
+      padding: 60px 20px;
+      max-width: 1100px;
       margin: auto;
     }
-
     h2 {
       text-align: center;
       font-size: 2rem;
-      margin-bottom: 30px;
-      color: #111;
+      margin-bottom: 40px;
+      color: #0a2540;
     }
-
-    .content {
-      font-size: 1.1rem;
-      line-height: 1.6;
+    .descripcion {
       text-align: center;
-      max-width: 800px;
-      margin: auto;
+      font-size: 1.2rem;
+      max-width: 900px;
+      margin: 0 auto 40px;
     }
-
     .planes {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
-      margin-top: 30px;
     }
-
     .plan {
-      background: #fff;
-      padding: 25px;
+      background-color: white;
       border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      width: 280px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      width: 300px;
+      padding: 30px;
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s;
     }
-
     .plan:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
-
     .plan h3 {
-      margin-bottom: 10px;
-      font-size: 1.4rem;
+      color: #0a2540;
+      margin-bottom: 15px;
     }
-
-    .plan p {
-      font-size: 1rem;
-      color: #555;
+    .plan ul {
+      list-style: none;
+      margin-bottom: 20px;
     }
-
-    .plan button {
-      margin-top: 15px;
-      background-color: #111;
+    .plan ul li {
+      margin: 10px 0;
+    }
+    .plan a {
+      display: inline-block;
+      background-color: #0a2540;
       color: white;
       padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
     }
-
+    .plan a:hover {
+      background-color: #163b61;
+    }
     footer {
-      background-color: #111;
+      background-color: #0a2540;
       color: white;
       text-align: center;
       padding: 20px 0;
+      margin-top: 60px;
+    }
+    .slogan {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 30px;
+      color: #0a2540;
     }
   </style>
 </head>
@@ -144,7 +141,8 @@
 
 <header>
   <div class="header-content">
-    <h1>Diseñamos tu presencia digital</h1>
+    <h1>Mar de Sitios</h1>
+    <p>Diseñamos tu página ideal desde Los Cabos para el mundo</p>
   </div>
 </header>
 
@@ -156,74 +154,49 @@
 </nav>
 
 <section>
-  <h2>¿Quiénes somos?</h2>
-  <div class="content">
-    <p>En <strong>Mar de Sitios</strong> creamos páginas web impactantes y funcionales para negocios, marcas personales y tiendas en línea. Somos una agencia digital en Los Cabos con la misión de ayudarte a destacar en internet y aumentar tus ventas.</p>
-  </div>
+  <h2>Tu página web, sin complicaciones</h2>
+  <p class="descripcion">
+    En <strong>Mar de Sitios</strong> transformamos ideas en páginas web profesionales, elegantes y efectivas. Ya sea que necesites una página informativa, una tienda en línea o un portafolio visual, nosotros lo hacemos realidad. Trabajamos rápido, adaptado a tu presupuesto, y con diseños únicos que enamoran a tus clientes.
+  </p>
+  <p class="slogan">🌊 "Navega al éxito con tu propia página web" 🌊</p>
 </section>
 
 <section id="planes">
-  <h2>Elige tu plan ideal</h2>
+  <h2>Planes para todos los gustos</h2>
   <div class="planes">
     <div class="plan">
-      <h3>Landing Express</h3>
-      <p>Una sola página informativa, rápida y elegante.</p>
-      <button onclick="contactar('Landing Express')">Me interesa</button>
+      <h3>Plan Básico</h3>
+      <ul>
+        <li>1 sección</li>
+        <li>Diseño responsive</li>
+        <li>Formulario de contacto</li>
+      </ul>
+      <a href="https://wa.me/524241181978?text=Hola!%20Estoy%20interesado%20en%20el%20Plan%20Básico%20de%20Mar%20de%20Sitios.">Cotizar</a>
     </div>
     <div class="plan">
-      <h3>Sitio Web Profesional</h3>
-      <p>Tu sitio completo con varias secciones y formulario.</p>
-      <button onclick="contactar('Sitio Web Profesional')">Lo necesito</button>
+      <h3>Plan Profesional</h3>
+      <ul>
+        <li>Hasta 4 secciones</li>
+        <li>Animaciones y diseño avanzado</li>
+        <li>Optimización móvil</li>
+      </ul>
+      <a href="https://wa.me/524241181978?text=Hola!%20Quiero%20saber%20más%20del%20Plan%20Profesional%20de%20Mar%20de%20Sitios.">Cotizar</a>
     </div>
     <div class="plan">
-      <h3>Tienda Online</h3>
-      <p>Catálogo de productos, carrito y pasarela de pagos.</p>
-      <button onclick="contactar('Tienda Online')">¡Comenzamos!</button>
+      <h3>Plan Avanzado</h3>
+      <ul>
+        <li>Tienda en línea o catálogo</li>
+        <li>Integración con redes sociales</li>
+        <li>Soporte continuo</li>
+      </ul>
+      <a href="https://wa.me/524241181978?text=Hola!%20Estoy%20interesado%20en%20el%20Plan%20Avanzado%20para%20mi%20negocio.">Cotizar</a>
     </div>
-  </div>
-</section>
-
-<section id="contacto">
-  <h2>¿Listo para empezar?</h2>
-  <div class="content">
-    <p>Contáctanos por WhatsApp y transforma tu idea en un sitio web real.</p>
-    <p><a href="https://wa.me/526241181978" target="_blank">📲 52 424 118 1978</a></p>
   </div>
 </section>
 
 <footer>
-  <p>&copy; 2025 Mar de Sitios - Diseño Web Profesional</p>
+  <p>&copy; 2025 Mar de Sitios - Diseñado con 💻 en Los Cabos</p>
 </footer>
-
-<a href="https://wa.me/526241181978" target="_blank" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  padding: 12px;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  width: 48px;
-  height: 48px;">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
-    <path d="M20.52 3.48A11.64 11.64 0 0012 0C5.37 0 .06 5.31.06 11.88c0 2.1.55 4.17 1.6 5.97L0 24l6.37-1.65a11.9 11.9 0 005.63 1.44h.01c6.63 0 11.94-5.31 11.94-11.88 0-3.18-1.24-6.17-3.43-8.33zm-8.52 17.46a9.91 9.91 0 01-5.06-1.39l-.36-.21-3.77 1 1-3.69-.23-.38a9.95 9.95 0 014.36-16.7 9.92 9.92 0 019.33 2.44 9.8 9.8 0 012.9 7.02c0 5.43-4.49 9.83-10.97 9.83zm5.07-7.4c-.27-.13-1.6-.79-1.84-.88-.25-.1-.43-.13-.62.13s-.71.87-.87 1.05c-.16.17-.31.19-.58.06-.27-.13-1.14-.42-2.18-1.35-.8-.7-1.34-1.56-1.5-1.83-.15-.27-.02-.42.12-.55.12-.13.27-.31.4-.47.13-.16.17-.26.27-.44.1-.17.05-.31-.02-.44-.07-.13-.62-1.5-.85-2.05-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.54-.01-.18 0-.46.07-.7.34-.25.27-.95.92-.95 2.25 0 1.33.97 2.62 1.11 2.8.14.18 1.92 2.92 4.65 4.1.65.28 1.16.45 1.56.58.65.2 1.24.17 1.71.1.52-.08 1.6-.65 1.83-1.28.22-.62.22-1.15.16-1.27-.05-.13-.19-.2-.41-.33z"/>
-  </svg>
-</a>
-
-<script>
-  function contactar(plan) {
-    const mensaje = `Hola, me interesa el plan *${plan}* que vi en tu página web. ¿Me puedes dar más información?`;
-    const numero = "5206241181978";
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, '_blank');
-  }
-</script>
 
 </body>
 </html>
-
