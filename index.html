@@ -4,157 +4,109 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mar de Sitios</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f4f4f4;
-      color: #333;
+      color: #222;
     }
 
     header {
-      background: url('Images/BannerBrujulaCompleto.png') center center / cover no-repeat;
-      height: 400px;
-      width: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      overflow: hidden;
+      background: url('Images/mardesitiosbanner.png') no-repeat center center / cover;
+      height: 300px;
     }
 
     nav {
       background-color: #111;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-
-    nav img {
-      height: 40px;
-      margin: 5px 0;
-    }
-
-    .nav-links {
-      display: flex;
+      padding: 15px 0;
     }
 
     nav a {
-      color: #f4f4f4;
+      color: white;
       text-decoration: none;
       padding: 15px 20px;
       display: inline-block;
-      font-weight: 600;
-      transition: background 0.3s;
+      transition: 0.3s;
+      font-weight: bold;
     }
 
     nav a:hover {
-      background-color: #222;
+      background-color: #333;
     }
 
     section {
       padding: 50px 20px;
+      text-align: center;
     }
 
     h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 30px;
+      font-size: 2.4rem;
+      margin-bottom: 20px;
       color: #111;
     }
 
-    .card1 {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      max-width: 800px;
-      padding: 30px;
-      margin: auto;
-      text-align: center;
-      color: #333;
-    }
-
-    .page-list {
+    .plans {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
+      gap: 40px;
     }
 
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      width: 300px;
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .plan {
+      background: white;
+      border: 2px solid #0077cc;
+      border-radius: 15px;
+      padding: 30px;
+      width: 280px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    .plan:hover {
+      transform: scale(1.05);
     }
 
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 15px;
+    .plan h3 {
+      font-size: 1.8rem;
+      color: #0077cc;
+      margin-bottom: 10px;
     }
 
-    .page-title {
-      font-size: 1.4rem;
-      font-weight: 600;
+    .plan p {
+      margin: 5px 0;
+      color: #444;
     }
 
-    .page-price {
-      font-size: 1.1rem;
-      color: #bba000;
+    .plan .price {
+      font-size: 1.6rem;
       font-weight: bold;
-      margin: 10px 0;
+      color: #111;
+      margin: 15px 0;
     }
 
-    .page-contact {
-      font-size: 0.95rem;
-      color: #666;
+    .plan button {
+      background: #0077cc;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .plan button:hover {
+      background: #005fa3;
     }
 
     footer {
       background-color: #111;
       color: white;
       text-align: center;
-      padding: 20px 0;
-      margin-top: 50px;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-      }
-
-      .nav-links {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      nav a {
-        width: 100%;
-        padding: 12px;
-      }
-
-      header {
-        height: 250px;
-        background-size: contain;
-      }
+      padding: 30px 0;
     }
   </style>
 </head>
@@ -163,73 +115,46 @@
 <header></header>
 
 <nav>
-  <img src="Images/logo_mar_de_sitios.png" alt="Logo Mar de Sitios" />
-  <div class="nav-links">
-    <a href="#about">¿Quiénes somos?</a>
-    <a href="#servicios">Páginas disponibles</a>
-    <a href="portafolio.html">Ver portafolio completo</a>
-    <a href="#contacto">Contacto</a>
-  </div>
+  <a href="index.html">Inicio</a>
+  <a href="portafolio.html">Portafolio</a>
+  <a href="#precios">Planes</a>
+  <a href="#contacto">Contacto</a>
 </nav>
 
-<section id="about">
-  <h2>¿Quiénes somos?</h2>
-  <div class="card1">
-    <p>
-      En Mar de Sitios somos un pequeño estudio digital dedicado a la creación de sitios web modernos, funcionales y totalmente personalizados. Apoyamos a emprendedores, marcas personales y negocios que buscan destacar en internet con un sitio que represente su identidad.
-      <br><br>
-      También ofrecemos soluciones digitales como diseños prediseñados, landing pages y asesoría para que tu proyecto tenga presencia profesional desde el primer día.
-    </p>
-  </div>
-</section>
-
-<section id="servicios">
-  <h2>Páginas disponibles</h2>
-  <div class="page-list">
-    <div class="card">
-      <img src="Images/ejemplobasico.png" alt="Página Web Opción 1">
-      <h3 class="page-title">Página Web Básica</h3>
-      <p class="page-price">$800 MXN</p>
-      <p class="page-contact">📞 624-118-1978</p>
+<section id="precios">
+  <h2>Planes y Precios</h2>
+  <div class="plans">
+    <div class="plan">
+      <h3>Plan Básico</h3>
+      <p>Ideal para una landing simple</p>
+      <p>1 Sección</p>
+      <p>Diseño moderno</p>
+      <p class="price">$799 MXN</p>
+      <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Básico'">Contratar</button>
     </div>
-    <div class="card">
-      <img src="Images/ejemplopremium.png" alt="Página Web Opción 2">
-      <h3 class="page-title">Página Web más personalizada</h3>
-      <p class="page-price">$1,200 MXN</p>
-      <p class="page-contact">📞 624-118-1978</p>
+
+    <div class="plan">
+      <h3>Plan Profesional</h3>
+      <p>Para negocios establecidos</p>
+      <p>3-5 Secciones</p>
+      <p>Formulario + Portafolio</p>
+      <p class="price">$1,499 MXN</p>
+      <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Profesional'">Contratar</button>
     </div>
-  </div>
-</section>
 
-<section>
-  <h2>Acerca de las opciones disponibles</h2>
-  <div class="card1">
-    <p>Las páginas mostradas solo son un ejemplo base, no el resultado final. Son personalizables conforme a la opción que se elija y tienen diferentes funciones adaptadas al gusto del cliente.</p>
-  </div>
-</section>
-
-<section id="contacto">
-  <h2>Contacto</h2>
-  <p style="text-align:center;">
-    📞 Tel: 624-118-1978<br>
-    📧 Email: tuemail@gmail.com<br>
-    📍 Los Cabos, B.C.S.
-  </p>
-</section>
-
-<section id="redes-sociales" style="padding: 50px 20px; background-color: #111; color: white; text-align: center;">
-  <h2 style="font-size: 2rem; margin-bottom: 10px;">Redes Sociales</h2>
-  <p style="font-size: 1rem;">Síguenos y mantente al día con nuestras novedades</p>
-  <div style="margin-top: 25px; display: flex; justify-content: center; gap: 30px; font-size: 28px;">
-    <a href="https://www.facebook.com/tuusuario" target="_blank" style="color: #3b5998;"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/tuusuario" target="_blank" style="color: #e4405f;"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@tuusuario" target="_blank" style="color: #000000;"><i class="fab fa-tiktok"></i></a>
-    <a href="https://www.linkedin.com/in/tuusuario" target="_blank" style="color: #0077b5;"><i class="fab fa-linkedin"></i></a>
+    <div class="plan">
+      <h3>Plan Premium</h3>
+      <p>Tu negocio con presencia completa</p>
+      <p>Página completa + Galería + Rifa o tienda</p>
+      <p>Adaptado a tus ideas</p>
+      <p class="price">$2,499 MXN</p>
+      <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Premium'">Contratar</button>
+    </div>
   </div>
 </section>
 
 <footer>
-  <p>&copy; 2025 Mar de Sitios - Todos los derechos reservados</p>
+  <p>&copy; 2025 Mar de Sitios - Creación de páginas web profesionales</p>
 </footer>
 
 </body>
