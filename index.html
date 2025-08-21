@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mar de Sitios - Creador de Páginas Web</title>
+  <title>Mar de Sitios</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -15,35 +16,13 @@
     }
 
     header {
-      position: relative;
-      background: url('Images/mardesitiosbanner.png') center center / cover no-repeat;
-      height: 270px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
+      background: url('Images/BannerBrujulaCompleto.png') center center / cover no-repeat;
+      height: 400px;
       width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.4);
-      z-index: 1;
-    }
-
-    .header-content {
-      position: relative;
-      z-index: 2;
-      color: white;
-    }
-
-    .header-content h1 {
-      font-size: 2.8rem;
-      margin: 0;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
     }
 
     nav {
@@ -52,12 +31,25 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    nav img {
+      height: 40px;
+      margin: 5px 0;
+    }
+
+    .nav-links {
+      display: flex;
     }
 
     nav a {
-      color: white;
+      color: #f4f4f4;
       text-decoration: none;
-      padding: 15px 25px;
+      padding: 15px 20px;
       display: inline-block;
       font-weight: 600;
       transition: background 0.3s;
@@ -69,8 +61,6 @@
 
     section {
       padding: 50px 20px;
-      max-width: 1000px;
-      margin: auto;
     }
 
     h2 {
@@ -80,56 +70,62 @@
       color: #111;
     }
 
-    .content {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      text-align: center;
+    .card1 {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       max-width: 800px;
+      padding: 30px;
       margin: auto;
+      text-align: center;
+      color: #333;
     }
 
-    .planes {
+    .page-list {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
-      margin-top: 30px;
     }
 
-    .plan {
+    .card {
       background: #fff;
-      padding: 25px;
       border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      width: 280px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      width: 300px;
+      padding: 20px;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .plan:hover {
+    .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    .plan h3 {
-      margin-bottom: 10px;
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .page-title {
       font-size: 1.4rem;
+      font-weight: 600;
     }
 
-    .plan p {
-      font-size: 1rem;
-      color: #555;
+    .page-price {
+      font-size: 1.1rem;
+      color: #bba000;
+      font-weight: bold;
+      margin: 10px 0;
     }
 
-    .plan button {
-      margin-top: 15px;
-      background-color: #111;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 1rem;
+    .page-contact {
+      font-size: 0.95rem;
+      color: #666;
     }
 
     footer {
@@ -137,92 +133,104 @@
       color: white;
       text-align: center;
       padding: 20px 0;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      nav a {
+        width: 100%;
+        padding: 12px;
+      }
+
+      header {
+        height: 250px;
+        background-size: contain;
+      }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="header-content">
-    <h1>Diseñamos tu presencia digital</h1>
-  </div>
-</header>
+<header></header>
 
 <nav>
-  <a href="index.html">Inicio</a>
-  <a href="portafolio.html">Portafolio</a>
-  <a href="#planes">Planes</a>
-  <a href="#contacto">Contacto</a>
+  <img src="Images/logo_mar_de_sitios.png" alt="Logo Mar de Sitios" />
+  <div class="nav-links">
+    <a href="#about">¿Quiénes somos?</a>
+    <a href="#servicios">Páginas disponibles</a>
+    <a href="portafolio.html">Ver portafolio completo</a>
+    <a href="#contacto">Contacto</a>
+  </div>
 </nav>
 
-<section>
+<section id="about">
   <h2>¿Quiénes somos?</h2>
-  <div class="content">
-    <p>En <strong>Mar de Sitios</strong> creamos páginas web impactantes y funcionales para negocios, marcas personales y tiendas en línea. Somos una agencia digital en Los Cabos con la misión de ayudarte a destacar en internet y aumentar tus ventas.</p>
+  <div class="card1">
+    <p>
+      En Mar de Sitios somos un pequeño estudio digital dedicado a la creación de sitios web modernos, funcionales y totalmente personalizados. Apoyamos a emprendedores, marcas personales y negocios que buscan destacar en internet con un sitio que represente su identidad.
+      <br><br>
+      También ofrecemos soluciones digitales como diseños prediseñados, landing pages y asesoría para que tu proyecto tenga presencia profesional desde el primer día.
+    </p>
   </div>
 </section>
 
-<section id="planes">
-  <h2>Elige tu plan ideal</h2>
-  <div class="planes">
-    <div class="plan">
-      <h3>Landing Express</h3>
-      <p>Una sola página informativa, rápida y elegante.</p>
-      <button onclick="contactar('Landing Express')">Me interesa</button>
+<section id="servicios">
+  <h2>Páginas disponibles</h2>
+  <div class="page-list">
+    <div class="card">
+      <img src="Images/ejemplobasico.png" alt="Página Web Opción 1">
+      <h3 class="page-title">Página Web Básica</h3>
+      <p class="page-price">$800 MXN</p>
+      <p class="page-contact">📞 624-118-1978</p>
     </div>
-    <div class="plan">
-      <h3>Sitio Web Profesional</h3>
-      <p>Tu sitio completo con varias secciones y formulario.</p>
-      <button onclick="contactar('Sitio Web Profesional')">Lo necesito</button>
+    <div class="card">
+      <img src="Images/ejemplopremium.png" alt="Página Web Opción 2">
+      <h3 class="page-title">Página Web más personalizada</h3>
+      <p class="page-price">$1,200 MXN</p>
+      <p class="page-contact">📞 624-118-1978</p>
     </div>
-    <div class="plan">
-      <h3>Tienda Online</h3>
-      <p>Catálogo de productos, carrito y pasarela de pagos.</p>
-      <button onclick="contactar('Tienda Online')">¡Comenzamos!</button>
-    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Acerca de las opciones disponibles</h2>
+  <div class="card1">
+    <p>Las páginas mostradas solo son un ejemplo base, no el resultado final. Son personalizables conforme a la opción que se elija y tienen diferentes funciones adaptadas al gusto del cliente.</p>
   </div>
 </section>
 
 <section id="contacto">
-  <h2>¿Listo para empezar?</h2>
-  <div class="content">
-    <p>Contáctanos por WhatsApp y transforma tu idea en un sitio web real.</p>
-    <p><a href="https://wa.me/524241181978" target="_blank">📲 52 424 118 1978</a></p>
+  <h2>Contacto</h2>
+  <p style="text-align:center;">
+    📞 Tel: 624-118-1978<br>
+    📧 Email: tuemail@gmail.com<br>
+    📍 Los Cabos, B.C.S.
+  </p>
+</section>
+
+<section id="redes-sociales" style="padding: 50px 20px; background-color: #111; color: white; text-align: center;">
+  <h2 style="font-size: 2rem; margin-bottom: 10px;">Redes Sociales</h2>
+  <p style="font-size: 1rem;">Síguenos y mantente al día con nuestras novedades</p>
+  <div style="margin-top: 25px; display: flex; justify-content: center; gap: 30px; font-size: 28px;">
+    <a href="https://www.facebook.com/tuusuario" target="_blank" style="color: #3b5998;"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/tuusuario" target="_blank" style="color: #e4405f;"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@tuusuario" target="_blank" style="color: #000000;"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.linkedin.com/in/tuusuario" target="_blank" style="color: #0077b5;"><i class="fab fa-linkedin"></i></a>
   </div>
 </section>
 
 <footer>
-  <p>&copy; 2025 Mar de Sitios - Diseño Web Profesional</p>
+  <p>&copy; 2025 Mar de Sitios - Todos los derechos reservados</p>
 </footer>
-
-<a href="https://wa.me/524241181978" target="_blank" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  padding: 12px;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  width: 48px;
-  height: 48px;">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
-    <path d="M20.52 3.48A11.64 11.64 0 0012 0C5.37 0 .06 5.31.06 11.88c0 2.1.55 4.17 1.6 5.97L0 24l6.37-1.65a11.9 11.9 0 005.63 1.44h.01c6.63 0 11.94-5.31 11.94-11.88 0-3.18-1.24-6.17-3.43-8.33zm-8.52 17.46a9.91 9.91 0 01-5.06-1.39l-.36-.21-3.77 1 1-3.69-.23-.38a9.95 9.95 0 014.36-16.7 9.92 9.92 0 019.33 2.44 9.8 9.8 0 012.9 7.02c0 5.43-4.49 9.83-10.97 9.83zm5.07-7.4c-.27-.13-1.6-.79-1.84-.88-.25-.1-.43-.13-.62.13s-.71.87-.87 1.05c-.16.17-.31.19-.58.06-.27-.13-1.14-.42-2.18-1.35-.8-.7-1.34-1.56-1.5-1.83-.15-.27-.02-.42.12-.55.12-.13.27-.31.4-.47.13-.16.17-.26.27-.44.1-.17.05-.31-.02-.44-.07-.13-.62-1.5-.85-2.05-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.54-.01-.18 0-.46.07-.7.34-.25.27-.95.92-.95 2.25 0 1.33.97 2.62 1.11 2.8.14.18 1.92 2.92 4.65 4.1.65.28 1.16.45 1.56.58.65.2 1.24.17 1.71.1.52-.08 1.6-.65 1.83-1.28.22-.62.22-1.15.16-1.27-.05-.13-.19-.2-.41-.33z"/>
-  </svg>
-</a>
-
-<script>
-  function contactar(plan) {
-    const mensaje = `Hola, me interesa el plan *${plan}* que vi en tu página web. ¿Me puedes dar más información?`;
-    const numero = "524241181978";
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, '_blank');
-  }
-</script>
 
 </body>
 </html>
