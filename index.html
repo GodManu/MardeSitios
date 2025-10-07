@@ -6,40 +6,32 @@
   <title>Mar de Sitios</title>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap" rel="stylesheet"/>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Raleway', sans-serif;
       background-color: #fefefe;
       color: #111;
+      scroll-behavior: smooth;
     }
-
     header {
       background-image: url('Images/mardesitiosbanner.png');
       background-size: cover;
       background-position: center;
-      height: 320px;
+      height: 300px;
     }
-
     nav {
       background-color: #001F3F;
       text-align: center;
       padding: 15px 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
-
     nav a {
       color: #fff;
       text-decoration: none;
       margin: 0 25px;
       font-weight: bold;
-      font-size: 1rem;
       transition: 0.3s;
     }
-
     nav a:hover {
       color: #FFD700;
     }
@@ -51,10 +43,18 @@
     }
 
     h2 {
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       color: #001F3F;
-      margin-bottom: 30px;
       text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .intro {
+      text-align: center;
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 50px;
+      color: #444;
     }
 
     .plans {
@@ -65,35 +65,31 @@
     }
 
     .plan {
-      background-color: white;
+      background: white;
       border: 1px solid #ccc;
       border-radius: 15px;
       padding: 30px;
       width: 280px;
       text-align: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .plan:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
     }
 
     .plan h3 {
       color: #0077cc;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       margin-bottom: 10px;
     }
 
-    .plan p {
-      color: #444;
-      margin: 6px 0;
-      font-size: 0.95rem;
-    }
+    .plan p { margin: 6px 0; font-size: 0.95rem; color: #444; }
 
     .price {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: bold;
       color: #001F3F;
       margin: 20px 0;
@@ -105,21 +101,70 @@
       border: none;
       border-radius: 8px;
       padding: 12px 22px;
-      cursor: pointer;
       font-size: 1rem;
-      transition: background 0.3s ease;
+      cursor: pointer;
+      transition: background 0.3s;
     }
 
     .plan button:hover {
       background-color: #005fa3;
     }
 
+    /* FORMULARIO */
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+    }
+
+    form button {
+      background-color: #001F3F;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #003366;
+    }
+
+    .wa-button {
+      display: inline-block;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .wa-button a {
+      background: #25d366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
+
     footer {
       background-color: #001F3F;
       color: white;
       text-align: center;
-      padding: 25px 10px;
-      font-size: 0.9rem;
+      padding: 30px 10px;
     }
   </style>
 </head>
@@ -128,11 +173,16 @@
 <header></header>
 
 <nav>
-  <a href="index.html">Inicio</a>
+  <a href="#inicio">Inicio</a>
   <a href="portafolio.html">Portafolio</a>
   <a href="#precios">Planes</a>
   <a href="#contacto">Contacto</a>
 </nav>
+
+<section id="inicio">
+  <h2>Diseño web que impacta</h2>
+  <p class="intro">En <strong>Mar de Sitios</strong> creamos páginas web visualmente atractivas, funcionales y optimizadas para ayudarte a destacar. Ya sea que necesites una landing page, un portafolio profesional o una tienda completa, tenemos un plan para ti.</p>
+</section>
 
 <section id="precios">
   <h2>Planes y Precios</h2>
@@ -140,34 +190,45 @@
     <div class="plan">
       <h3>Plan Básico</h3>
       <p>Landing page profesional</p>
-      <p>1 sección | Rápida entrega</p>
-      <p>Diseño adaptable</p>
+      <p>1 sección | Entrega rápida</p>
+      <p>Diseño responsive</p>
       <p class="price">$799 MXN</p>
       <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Básico'">Solicitar</button>
     </div>
     <div class="plan">
       <h3>Plan Profesional</h3>
       <p>Ideal para negocios y marcas</p>
-      <p>3-5 secciones</p>
-      <p>Formulario y Portafolio</p>
+      <p>3-5 secciones | Formulario + Portafolio</p>
       <p class="price">$1,499 MXN</p>
       <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Profesional'">Solicitar</button>
     </div>
     <div class="plan">
       <h3>Plan Premium</h3>
-      <p>Todo incluido + Tienda o Rifa</p>
-      <p>Galería, productos, ideas personalizadas</p>
-      <p>Optimizado y moderno</p>
+      <p>Web completa personalizada</p>
+      <p>Galería, productos, tienda, rifas y más</p>
       <p class="price">$2,499 MXN</p>
       <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Premium'">Solicitar</button>
     </div>
   </div>
 </section>
 
+<section id="contacto">
+  <h2>¿Listo para tener tu propia página web?</h2>
+  <form action="https://formsubmit.co/tu_correo@ejemplo.com" method="POST">
+    <input type="text" name="name" placeholder="Tu nombre" required>
+    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+    <textarea name="message" rows="5" placeholder="Cuéntame qué necesitas..." required></textarea>
+    <button type="submit">Enviar mensaje</button>
+  </form>
+
+  <div class="wa-button">
+    <a href="https://wa.me/524241181978?text=Hola,%20estoy%20interesado%20en%20una%20página%20web" target="_blank">💬 Escríbeme por WhatsApp</a>
+  </div>
+</section>
+
 <footer>
-  &copy; 2025 Mar de Sitios — Diseños web que impactan.
+  &copy; 2025 Mar de Sitios – Páginas web profesionales en Los Cabos
 </footer>
 
 </body>
 </html>
-
