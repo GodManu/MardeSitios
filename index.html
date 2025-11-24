@@ -4,45 +4,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mar de Sitios</title>
-  <link rel="icon" href="Images/logomardesitios.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="Images/logomardesitios.png">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
-      font-family: 'Raleway', sans-serif;
-      color: #222;
-      background: #fefefe;
-      scroll-behavior: smooth;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      color: #111;
     }
 
     header {
-      height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Images/mardesitiosbanner1.png') center/cover no-repeat;
+      height: 40vh;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Images/mardesitiosbanner1.png') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      color: #fff;
+      color: white;
     }
 
     header h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      animation: fadeInDown 1.5s ease;
+      font-size: 2.4rem;
+      margin: 0;
     }
 
     nav {
-      background-color: #001F3F;
-      padding: 15px 0;
-      text-align: center;
+      background-color: #002244;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
     }
 
     nav a {
-      color: white;
+      color: #fff;
       text-decoration: none;
       margin: 0 20px;
       font-weight: bold;
@@ -50,116 +51,112 @@
     }
 
     nav a:hover {
-      color: #FFD700;
+      color: #00BFFF;
     }
 
     section {
       padding: 60px 20px;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: auto;
     }
 
     h2 {
-      font-size: 2.4rem;
-      color: #001F3F;
+      font-size: 2rem;
       text-align: center;
-      margin-bottom: 25px;
+      color: #002244;
+      margin-bottom: 20px;
     }
 
     .intro {
       text-align: center;
       font-size: 1.1rem;
-      color: #444;
-      margin-bottom: 40px;
+      max-width: 800px;
+      margin: 0 auto 50px;
+      color: #333;
     }
 
     .plans {
       display: flex;
       flex-wrap: wrap;
-      gap: 30px;
       justify-content: center;
+      gap: 30px;
     }
 
     .plan {
-      background: #fff;
-      border: 2px solid #0077cc;
-      border-radius: 12px;
-      padding: 25px;
-      width: 290px;
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      width: 280px;
       text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
 
     .plan:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
     }
 
     .plan h3 {
-      font-size: 1.6rem;
       color: #0077cc;
       margin-bottom: 10px;
     }
 
     .plan p {
-      font-size: 0.95rem;
       margin: 5px 0;
-      color: #555;
+      font-size: 0.95rem;
+      color: #444;
     }
 
     .price {
-      font-size: 1.4rem;
-      color: #001F3F;
+      font-size: 1.5rem;
+      color: #002244;
       margin: 20px 0;
-      font-weight: bold;
     }
 
     .plan button {
-      background-color: #0077cc;
+      background: #0077cc;
       color: white;
+      padding: 12px 22px;
       border: none;
       border-radius: 8px;
-      padding: 10px 20px;
-      font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s ease;
+      font-size: 1rem;
     }
 
     .plan button:hover {
-      background-color: #005fa3;
+      background: #005fa3;
     }
 
     form {
-      background: #fff;
-      padding: 30px;
       max-width: 600px;
-      margin: auto;
-      border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
 
     form input, form textarea {
       width: 100%;
       padding: 15px;
       margin-bottom: 20px;
-      border-radius: 8px;
       border: 1px solid #ccc;
-      font-family: 'Raleway';
+      border-radius: 8px;
       font-size: 1rem;
     }
 
     form button {
-      background-color: #001F3F;
+      background: #002244;
       color: white;
+      padding: 12px 20px;
       border: none;
-      padding: 12px 25px;
-      font-size: 1rem;
       border-radius: 8px;
+      font-size: 1rem;
       cursor: pointer;
     }
 
     form button:hover {
-      background-color: #003366;
+      background: #003366;
     }
 
     .wa-button {
@@ -168,58 +165,47 @@
     }
 
     .wa-button a {
-      background-color: #25d366;
+      background: #25d366;
       color: white;
-      padding: 12px 25px;
+      padding: 12px 20px;
+      border-radius: 50px;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 50px;
       display: inline-block;
     }
 
     footer {
-      background-color: #001F3F;
+      background-color: #002244;
       color: white;
       text-align: center;
       padding: 30px 10px;
-      margin-top: 50px;
     }
 
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Botón flotante de WhatsApp */
+    /* Botón flotante WhatsApp */
     .whatsapp-float {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 25px;
+      right: 25px;
       background-color: #25d366;
       color: white;
-      border-radius: 50%;
-      width: 55px;
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      z-index: 999;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      font-size: 22px;
+      padding: 14px 18px;
+      border-radius: 50px;
       text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      z-index: 999;
     }
+
+    .whatsapp-float:hover {
+      background-color: #1ebe5d;
+    }
+
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Tu sitio comienza aquí</h1>
+  <h1>Diseñamos tu sitio con impacto</h1>
 </header>
 
 <nav>
@@ -230,7 +216,8 @@
 </nav>
 
 <section id="inicio">
-  <p class="intro">Creamos sitios web visualmente impactantes y funcionales para destacar tu presencia digital. Desde landing pages hasta tiendas en línea, adaptadas a tus ideas y necesidades.</p>
+  <h2>Tu página web profesional, desde Los Cabos</h2>
+  <p class="intro">En <strong>Mar de Sitios</strong> creamos sitios web personalizados, visuales y modernos para negocios, marcas personales y emprendedores que quieren crecer con presencia digital de calidad.</p>
 </section>
 
 <section id="precios">
@@ -238,22 +225,23 @@
   <div class="plans">
     <div class="plan">
       <h3>Plan Básico</h3>
-      <p>Landing page moderna</p>
-      <p>1 sección | Responsive</p>
+      <p>Landing page profesional</p>
+      <p>1 sección | Entrega rápida</p>
+      <p>Diseño responsive</p>
       <p class="price">$1,250 MXN</p>
       <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Básico'">Solicitar</button>
     </div>
     <div class="plan">
       <h3>Plan Profesional</h3>
-      <p>Negocios y marcas</p>
-      <p>3-5 secciones + Formulario</p>
+      <p>Ideal para negocios y marcas</p>
+      <p>3-5 secciones | Formulario + Portafolio</p>
       <p class="price">$1,950 MXN</p>
       <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Profesional'">Solicitar</button>
     </div>
     <div class="plan">
       <h3>Plan Premium</h3>
       <p>Web completa personalizada</p>
-      <p>Galería | Tienda | Rifa</p>
+      <p>Galería, tienda, rifas y más</p>
       <p class="price">$3,500 MXN</p>
       <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Premium'">Solicitar</button>
     </div>
@@ -261,22 +249,23 @@
 </section>
 
 <section id="contacto">
-  <h2>Contáctame</h2>
+  <h2>¿Listo para tener tu propia página web?</h2>
   <form action="https://formsubmit.co/tu_correo@ejemplo.com" method="POST">
     <input type="text" name="name" placeholder="Tu nombre" required>
     <input type="email" name="email" placeholder="Tu correo electrónico" required>
     <textarea name="message" rows="5" placeholder="Cuéntame qué necesitas..." required></textarea>
     <button type="submit">Enviar mensaje</button>
   </form>
+
   <div class="wa-button">
     <a href="https://wa.me/524241181978?text=Hola,%20estoy%20interesado%20en%20una%20página%20web" target="_blank">💬 Escríbeme por WhatsApp</a>
   </div>
 </section>
 
-<a class="whatsapp-float" href="https://wa.me/524241181978" target="_blank">💬</a>
+<a class="whatsapp-float" href="https://wa.me/524241181978?text=Hola,%20quiero%20una%20página%20web%20con%20Mar%20de%20Sitios" target="_blank">💬</a>
 
 <footer>
-  &copy; 2025 Mar de Sitios – Páginas web profesionales en Los Cabos
+  &copy; 2025 Mar de Sitios – Páginas web profesionales desde Los Cabos, B.C.S.
 </footer>
 
 </body>
