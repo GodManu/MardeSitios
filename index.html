@@ -2,234 +2,211 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mar de Sitios</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="icon" href="Images/logomardesitios.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'Poppins', sans-serif;
       line-height: 1.6;
-      color: #111;
+      color: #333;
     }
 
-    /* HEADER CON FONDO MARINO */
-    .hero {
-      background: linear-gradient(to bottom, #002e5d, #003c85, #004aad, #007bb5, #00aacc);
+    header {
+      background: linear-gradient(to bottom, #0b1b4d, #092366, #023b80, #02638c);
       color: white;
+      padding: 80px 20px 100px;
       text-align: center;
-      padding: 100px 20px 60px;
+      position: relative;
     }
 
-    .hero h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
     }
 
-    .hero p {
+    header p {
       font-size: 1.2rem;
-      margin-top: 15px;
+      font-weight: 300;
+      margin-top: 10px;
     }
 
-    /* SECCION AMARILLA */
-    .about {
-      background-color: #fbd234;
-      padding: 50px 20px;
-      text-align: center;
-      font-size: 1.1rem;
-    }
-
-    .about strong {
-      color: #111;
-    }
-
-    .about em {
-      font-style: normal;
-      font-weight: 700;
-    }
-
-    /* PLANES Y PRECIOS */
-    .plans-section {
-      background-color: #00b6c4;
+    section {
       padding: 60px 20px;
       text-align: center;
     }
 
-    .plans-section h2 {
-      font-size: 2rem;
+    .intro {
+      background: #fdd835;
+      color: #000;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .intro strong {
+      color: #222;
+    }
+
+    .planes {
+      background: #00acc1;
+    }
+
+    .planes h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
       margin-bottom: 40px;
-      color: white;
     }
 
-    .plans {
+    .card-container {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 25px;
+      flex-wrap: wrap;
+      gap: 30px;
     }
 
-    .plan {
+    .card {
       background-color: white;
-      border-radius: 15px;
       padding: 25px;
-      width: 270px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      width: 280px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
 
-    .plan h3 {
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
       font-size: 1.4rem;
-      color: #111;
-      margin-bottom: 10px;
+      color: #333;
     }
 
-    .plan p {
-      font-size: 0.95rem;
-      color: #555;
+    .card p {
+      font-size: 0.9rem;
       margin: 6px 0;
+      color: #666;
     }
 
     .price {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: bold;
-      color: #111;
-      margin: 20px 0;
+      margin: 15px 0;
+      color: #000;
     }
 
-    .plan button {
-      background-color: #d6002f;
+    .card button {
+      background-color: #e53935;
       color: white;
-      padding: 12px 22px;
+      padding: 10px 18px;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      border-radius: 30px;
       font-weight: bold;
+      cursor: pointer;
     }
 
-    .plan button:hover {
-      background-color: #a00024;
-    }
-
-    /* CONTACTO */
-    .contact {
-      background-color: #f25f8b;
-      padding: 60px 20px;
-      text-align: center;
+    .contacto {
+      background: #ec407a;
       color: white;
     }
 
-    .contact h2 {
+    .contacto h2 {
       font-size: 2rem;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     form {
+      background: white;
       max-width: 500px;
       margin: 0 auto;
-      background: white;
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-      color: #111;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: left;
     }
 
-    input, textarea {
+    form input, form textarea {
       width: 100%;
-      padding: 12px;
       margin-bottom: 20px;
+      padding: 15px;
       border: 1px solid #ccc;
-      border-radius: 6px;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    button[type="submit"] {
-      background-color: #663399;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      font-size: 1rem;
       border-radius: 8px;
-      cursor: pointer;
-      width: 100%;
+      font-family: inherit;
+      font-size: 1rem;
     }
 
-    button[type="submit"]:hover {
-      background-color: #4b2473;
+    form button {
+      width: 100%;
+      background: #673ab7;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     footer {
-      background-color: #111;
+      background: #222;
       color: white;
       text-align: center;
-      padding: 20px;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .plans {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
+      padding: 20px 10px;
     }
   </style>
 </head>
 <body>
 
-  <section class="hero">
-    <h1>Tu sitio <br> comienza aquí</h1>
+  <header>
+    <h1>Mar de Sitios</h1>
+    <p>Tu sitio comienza aquí</p>
+  </header>
+
+  <section class="intro">
+    <p>Creemos sitios web visualmente impactantes y funcionales para destacar tu presencia digital. <strong>Desde landing pages hasta tiendas en línea</strong>, adaptadas a tus ideas y necesidades.</p>
   </section>
 
-  <section class="about">
-    <p>
-      Creamos sitios web visualmente impactantes y funcionales para destacar tu presencia digital.
-      <strong>Desde <em>landing pages</em> hasta <em>tiendas en línea</em></strong>, adaptadas a tus ideas y necesidades.
-    </p>
-  </section>
-
-  <section class="plans-section">
+  <section class="planes">
     <h2>Planes y Precios</h2>
-    <div class="plans">
-      <div class="plan">
+    <div class="card-container">
+      <div class="card">
         <h3>Plan Básico</h3>
         <p>Landing page moderna</p>
         <p>1 sección | Responsive</p>
-        <p class="price">$1,250 MXN</p>
+        <div class="price">$1,250 MXN</div>
         <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Básico'">Solicitar</button>
       </div>
-
-      <div class="plan">
+      <div class="card">
         <h3>Plan Profesional</h3>
-        <p>2 a 5 secciones + Formulario</p>
-        <p class="price">$1,950 MXN</p>
+        <p>2 - 5 secciones + Formulario</p>
+        <div class="price">$1,950 MXN</div>
         <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Profesional'">Solicitar</button>
       </div>
-
-      <div class="plan">
+      <div class="card">
         <h3>Plan Premium</h3>
         <p>Web completa personalizada</p>
         <p>Galería | Tienda | Rifa</p>
-        <p class="price">$3,300 MXN</p>
+        <div class="price">$3,300 MXN</div>
         <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Premium'">Solicitar</button>
       </div>
     </div>
   </section>
 
-  <section class="contact">
+  <section class="contacto">
     <h2>Contáctame</h2>
     <form action="https://formsubmit.co/tu_correo@ejemplo.com" method="POST">
       <input type="text" name="name" placeholder="Tu nombre" required>
       <input type="email" name="email" placeholder="Tu correo electrónico" required>
-      <textarea name="message" rows="5" placeholder="Cuéntame qué necesitas..." required></textarea>
+      <textarea name="message" placeholder="Cuéntame qué necesitas..." rows="5" required></textarea>
       <button type="submit">Enviar mensaje</button>
     </form>
   </section>
 
   <footer>
-    &copy; 2025 Mar de Sitios – Páginas web profesionales
+    &copy; 2025 Mar de Sitios – Creación de páginas web impactantes
   </footer>
 
 </body>
