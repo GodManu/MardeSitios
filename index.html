@@ -2,137 +2,116 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mar de Sitios</title>
+  <link rel="icon" href="Images/logomardesitios.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="Images/logomardesitios.png">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'Raleway', sans-serif;
-      background-color: #fefefe;
-      color: #111;
+      color: #222;
+      background: #fefefe;
       scroll-behavior: smooth;
     }
 
-    .site-banner {
-      width: 100%;
+    header {
       height: 100vh;
-      background-image: url('Images/bannernuevo.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Images/mardesitiosbanner1.png') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .banner-content {
       text-align: center;
-      color: white;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 40px;
-      border-radius: 12px;
+      color: #fff;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
       animation: fadeInDown 1.5s ease;
-    }
-
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-50px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .banner-content h1 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-    }
-
-    .banner-buttons a {
-      text-decoration: none;
-      color: white;
-      background: #0077cc;
-      padding: 14px 28px;
-      margin: 10px;
-      display: inline-block;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-
-    .banner-buttons a:hover {
-      background: #005fa3;
     }
 
     nav {
       background-color: #001F3F;
-      text-align: center;
       padding: 15px 0;
+      text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
     nav a {
-      color: #fff;
+      color: white;
       text-decoration: none;
-      margin: 0 25px;
+      margin: 0 20px;
       font-weight: bold;
       transition: 0.3s;
     }
 
-    nav a:hover { color: #FFD700; }
+    nav a:hover {
+      color: #FFD700;
+    }
 
     section {
       padding: 60px 20px;
-      max-width: 1200px;
+      max-width: 1100px;
       margin: auto;
     }
 
     h2 {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       color: #001F3F;
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     .intro {
       text-align: center;
       font-size: 1.1rem;
-      max-width: 800px;
-      margin: 0 auto 50px;
       color: #444;
+      margin-bottom: 40px;
     }
 
     .plans {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 30px;
+      justify-content: center;
     }
 
     .plan {
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 15px;
-      padding: 30px;
-      width: 280px;
+      background: #fff;
+      border: 2px solid #0077cc;
+      border-radius: 12px;
+      padding: 25px;
+      width: 290px;
       text-align: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
     }
 
     .plan:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
     }
 
-    .plan h3 { color: #0077cc; font-size: 1.6rem; margin-bottom: 10px; }
-    .plan p { margin: 6px 0; font-size: 0.95rem; color: #444; }
+    .plan h3 {
+      font-size: 1.6rem;
+      color: #0077cc;
+      margin-bottom: 10px;
+    }
+
+    .plan p {
+      font-size: 0.95rem;
+      margin: 5px 0;
+      color: #555;
+    }
+
     .price {
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 1.4rem;
       color: #001F3F;
       margin: 20px 0;
+      font-weight: bold;
     }
 
     .plan button {
@@ -140,44 +119,48 @@
       color: white;
       border: none;
       border-radius: 8px;
-      padding: 12px 22px;
+      padding: 10px 20px;
       font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s ease;
     }
 
-    .plan button:hover { background-color: #005fa3; }
+    .plan button:hover {
+      background-color: #005fa3;
+    }
 
     form {
-      max-width: 600px;
-      margin: 0 auto;
       background: #fff;
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     }
 
     form input, form textarea {
       width: 100%;
       padding: 15px;
       margin-bottom: 20px;
-      border: 1px solid #ccc;
       border-radius: 8px;
-      font-family: 'Raleway', sans-serif;
+      border: 1px solid #ccc;
+      font-family: 'Raleway';
       font-size: 1rem;
     }
 
     form button {
       background-color: #001F3F;
       color: white;
-      padding: 12px 20px;
       border: none;
-      border-radius: 8px;
+      padding: 12px 25px;
       font-size: 1rem;
+      border-radius: 8px;
       cursor: pointer;
     }
 
-    form button:hover { background-color: #003366; }
+    form button:hover {
+      background-color: #003366;
+    }
 
     .wa-button {
       text-align: center;
@@ -185,12 +168,13 @@
     }
 
     .wa-button a {
-      background: #25d366;
+      background-color: #25d366;
       color: white;
-      padding: 12px 20px;
-      border-radius: 50px;
+      padding: 12px 25px;
       text-decoration: none;
       font-weight: bold;
+      border-radius: 50px;
+      display: inline-block;
     }
 
     footer {
@@ -198,19 +182,44 @@
       color: white;
       text-align: center;
       padding: 30px 10px;
+      margin-top: 50px;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Botón flotante de WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      z-index: 999;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 
-<header class="site-banner">
-  <div class="banner-content">
-    <h1>Diseño web que conecta con tu cliente</h1>
-    <div class="banner-buttons">
-      <a href="#precios">Ver planes</a>
-      <a href="#contacto">Contáctame</a>
-    </div>
-  </div>
+<header>
+  <h1>Tu sitio comienza aquí</h1>
 </header>
 
 <nav>
@@ -221,8 +230,7 @@
 </nav>
 
 <section id="inicio">
-  <h2>¿Qué es Mar de Sitios?</h2>
-  <p class="intro">Somos especialistas en el diseño de páginas web profesionales, modernas y optimizadas. Conecta tu idea con el mundo digital y haz que tu negocio destaque con presencia online.</p>
+  <p class="intro">Creamos sitios web visualmente impactantes y funcionales para destacar tu presencia digital. Desde landing pages hasta tiendas en línea, adaptadas a tus ideas y necesidades.</p>
 </section>
 
 <section id="precios">
@@ -230,23 +238,22 @@
   <div class="plans">
     <div class="plan">
       <h3>Plan Básico</h3>
-      <p>Landing page profesional</p>
-      <p>1 sección | Entrega rápida</p>
-      <p>Diseño responsive</p>
+      <p>Landing page moderna</p>
+      <p>1 sección | Responsive</p>
       <p class="price">$1,250 MXN</p>
       <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Básico'">Solicitar</button>
     </div>
     <div class="plan">
       <h3>Plan Profesional</h3>
-      <p>Ideal para negocios y marcas</p>
-      <p>3-5 secciones | Formulario + Portafolio</p>
+      <p>Negocios y marcas</p>
+      <p>3-5 secciones + Formulario</p>
       <p class="price">$1,950 MXN</p>
       <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Profesional'">Solicitar</button>
     </div>
     <div class="plan">
       <h3>Plan Premium</h3>
       <p>Web completa personalizada</p>
-      <p>Galería, productos, tienda, rifas y más</p>
+      <p>Galería | Tienda | Rifa</p>
       <p class="price">$3,500 MXN</p>
       <button onclick="window.location.href='https://wa.me/524241181978?text=Hola,%20quiero%20el%20Plan%20Premium'">Solicitar</button>
     </div>
@@ -254,18 +261,19 @@
 </section>
 
 <section id="contacto">
-  <h2>¿Listo para tener tu propia página web?</h2>
+  <h2>Contáctame</h2>
   <form action="https://formsubmit.co/tu_correo@ejemplo.com" method="POST">
     <input type="text" name="name" placeholder="Tu nombre" required>
     <input type="email" name="email" placeholder="Tu correo electrónico" required>
     <textarea name="message" rows="5" placeholder="Cuéntame qué necesitas..." required></textarea>
     <button type="submit">Enviar mensaje</button>
   </form>
-
   <div class="wa-button">
     <a href="https://wa.me/524241181978?text=Hola,%20estoy%20interesado%20en%20una%20página%20web" target="_blank">💬 Escríbeme por WhatsApp</a>
   </div>
 </section>
+
+<a class="whatsapp-float" href="https://wa.me/524241181978" target="_blank">💬</a>
 
 <footer>
   &copy; 2025 Mar de Sitios – Páginas web profesionales en Los Cabos
