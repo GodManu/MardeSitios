@@ -19,14 +19,15 @@
       color: #fff;
       scroll-behavior: smooth;
     }
+
     .top-banner {
-  width: 100%;
-  height: 120px;              /* aquí controlas lo DELGADO del banner */
-  background-image: url('Images/bannermardesitios.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+      width: 100%;
+      height: 120px;              /* aquí controlas lo DELGADO del banner */
+      background-image: url('Images/bannermardesitios.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
     /* NAV */
     nav {
@@ -121,32 +122,11 @@
       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
     }
 
-    .project-thumb {
+    .project-card img {
       width: 100%;
-      height: 170px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    /* aquí puedes cambiar las imágenes por las tuyas reales */
-    .p-loscabos {
-      background-image: url("Images/loscabosmotors-thumb.png");
-    }
-    .p-kidz4x4 {
-      background-image: url("Images/kidz4x4-thumb.png");
-    }
-    .p-yocookies {
-      background-image: url("Images/yocookies-thumb.png");
-    }
-    .p-ridewme {
-      background-image: url("Images/ridewme-thumb.png");
-    }
-    .p-otterfit {
-      background-image: url("Images/otterfit-thumb.png");
-    }
-    .p-generico {
-      background-image: url("Images/proyecto-generico-thumb.png");
+      height: 180px;
+      object-fit: cover;
+      display: block;
     }
 
     .project-body {
@@ -288,9 +268,9 @@
   </style>
 </head>
 <body>
-  
-<div class="top-banner"></div>
-  
+
+  <div class="top-banner"></div>
+
   <nav>
     <a href="index.html">Inicio</a>
     <a href="portafolio.html">Portafolio</a>
@@ -330,7 +310,7 @@
 
     <div class="portfolio-grid">
       <article class="project-card">
-        <div class="project-thumb p-loscabos"></div>
+        <img src="Images/LOSCABOSMOTORSPAGE.png" alt="Los Cabos Motors">
         <div class="project-body">
           <h3 class="project-title">Los Cabos Motors</h3>
           <p class="project-type">Sitio para venta de autos</p>
@@ -342,10 +322,10 @@
             <a href="https://loscabosmotors.com" target="_blank" rel="noopener noreferrer">Ver sitio</a>
           </p>
         </div>
- </article>
+      </article>
 
       <article class="project-card">
-        <div class="project-thumb p-ridewme"></div>
+        <img src="Images/RIDEWMECABOPAGE.png" alt="Ride W Me Cabo">
         <div class="project-body">
           <h3 class="project-title">Ride W Me Cabo</h3>
           <p class="project-type">Transporte privado</p>
@@ -357,11 +337,10 @@
             <a href="https://ridewmecabo.com" target="_blank" rel="noopener noreferrer">Ver sitio</a>
           </p>
         </div>
-        
       </article>
 
       <article class="project-card">
-        <div class="project-thumb p-kidz4x4"></div>
+        <img src="Images/KIDZ4X4PAGE.png" alt="KIDZ4X4">
         <div class="project-body">
           <h3 class="project-title">KIDZ4X4</h3>
           <p class="project-type">Renta y venta de carritos eléctricos</p>
@@ -376,7 +355,7 @@
       </article>
 
       <article class="project-card">
-        <div class="project-thumb p-yocookies"></div>
+        <img src="Images/YOCOOKIESPAGE.png" alt="YoCookies">
         <div class="project-body">
           <h3 class="project-title">YoCookies</h3>
           <p class="project-type">Repostería & postres</p>
@@ -388,11 +367,10 @@
             <a href="https://godmanu.github.io/YoCookies/" target="_blank" rel="noopener noreferrer">Ver sitio</a>
           </p>
         </div>
-     
       </article>
 
       <article class="project-card">
-        <div class="project-thumb p-otterfit"></div>
+        <img src="Images/OTTERFITPAGE.png" alt="Otterfit Nutrition">
         <div class="project-body">
           <h3 class="project-title">Otterfit Nutrition</h3>
           <p class="project-type">Marca de nutrición</p>
@@ -407,7 +385,7 @@
       </article>
 
       <article class="project-card">
-        <div class="project-thumb p-generico"></div>
+        <img src="Images/PROXIMOSITIO.png" alt="Próximo sitio">
         <div class="project-body">
           <h3 class="project-title">Tu proyecto puede ir aquí</h3>
           <p class="project-type">Sitio a medida</p>
