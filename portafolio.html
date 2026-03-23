@@ -4,9 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio | Mar de Sitios</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="Images/logomardesitios.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --primary-dark: #051923;
+      --ocean-blue: #006494;
+      --cyan-light: #24ceea;
+      --white: #ffffff;
+      --text-gray: #b0c4de;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,261 +22,233 @@
 
     body {
       font-family: "Poppins", sans-serif;
-      background-color: #031728;
-      color: #fff;
-      scroll-behavior: smooth;
+      background-color: var(--primary-dark);
+      color: var(--white);
+      line-height: 1.6;
     }
 
-    .top-banner {
-      width: 100%;
-      height: 120px;              /* aquí controlas lo DELGADO del banner */
-      background-image: url('Images/bannermardesitios.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    /* NAV */
+    /* NAV UNIFICADA */
     nav {
-      background-color: #001f3f;
-      padding: 12px 20px;
-      text-align: center;
+      background-color: rgba(5, 25, 35, 0.95);
+      padding: 15px 5%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     nav a {
-      color: #ffffff;
+      color: var(--white);
       text-decoration: none;
-      margin: 0 18px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      transition: color 0.2s ease;
+      margin: 0 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: #f4bb33;
+      color: var(--cyan-light);
     }
 
     /* HERO PORTAFOLIO */
     .hero {
       position: relative;
+      height: 60vh;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 70px 20px 80px;
-      background: radial-gradient(circle at top, #0b3d91 0, #052850 45%, #031728 100%);
-      overflow: hidden;
+      background: linear-gradient(rgba(5, 25, 35, 0.75), rgba(5, 25, 35, 0.75)), 
+                  url('Images/banner-mar-tecnologia.png'); /* Usa el banner generado */
+      background-size: cover;
+      background-position: center;
+      padding: 20px;
     }
 
     .hero-title {
-      font-size: 2.6rem;
+      font-size: clamp(2.5rem, 6vw, 4rem);
       font-weight: 700;
-      margin-bottom: 10px;
-      animation: floatUp 0.7s ease-out;
+    }
+
+    .hero-title span {
+      color: var(--cyan-light);
     }
 
     .hero-subtitle {
-      font-size: 1.05rem;
-      max-width: 650px;
-      margin: 0 auto;
-      opacity: 0.85;
-      animation: fadeIn 1s ease-out;
-    }
-
-    .hero-waves {
-      position: absolute;
-      inset: 50% 0 0;
-      pointer-events: none;
-      z-index: -1;
+      margin-top: 15px;
+      font-size: 1.1rem;
+      max-width: 700px;
+      font-weight: 300;
+      color: var(--text-gray);
     }
 
     /* SECCIÓN PROYECTOS */
     .portfolio-section {
-      position: relative;
-      background-color: #f4f4f6;
-      color: #111;
-      padding: 80px 20px 90px;
+      padding: 100px 5%;
+      background: #f8f9fa; /* Fondo claro para que resalten los trabajos */
+      color: #333;
     }
 
     .portfolio-section h2 {
       text-align: center;
-      font-size: 2.1rem;
-      margin-bottom: 35px;
-      color: #001f3f;
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+      color: var(--primary-dark);
     }
 
     .portfolio-grid {
-      max-width: 1150px;
+      max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
     }
 
     .project-card {
-      background-color: #ffffff;
-      border-radius: 16px;
+      background: white;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      border: 1px solid #eee;
     }
 
     .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+      transform: translateY(-12px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      border-color: var(--cyan-light);
+    }
+
+    .project-img-container {
+      overflow: hidden;
+      height: 220px;
     }
 
     .project-card img {
       width: 100%;
-      height: 180px;
+      height: 100%;
       object-fit: cover;
-      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
     }
 
     .project-body {
-      padding: 18px 20px 20px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+      padding: 30px;
     }
 
     .project-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #0077b6;
+      font-size: 1.4rem;
+      color: var(--ocean-blue);
+      margin-bottom: 5px;
     }
 
     .project-type {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #999;
       font-weight: 600;
-      color: #555;
+      margin-bottom: 15px;
+      display: block;
     }
 
     .project-desc {
-      font-size: 0.9rem;
-      color: #444;
-      margin-top: 4px;
-      flex: 1;
-    }
-
-    .project-link {
-      margin-top: 12px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 20px;
     }
 
     .project-link a {
-      color: #c6432f;
+      color: var(--ocean-blue);
       text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.3s;
     }
 
     .project-link a:hover {
-      text-decoration: underline;
+      color: var(--cyan-light);
     }
 
-    /* ONDA INFERIOR HACIA TESTIMONIOS */
-    .portfolio-wave-bottom {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -1px;
-    }
-
-    /* TESTIMONIOS */
+    /* TESTIMONIOS (ESTILO OCEÁNICO PROFUNDO) */
     .testimonials {
-      position: relative;
-      background-color: #007b8f;
-      color: #fdfdfd;
-      padding: 80px 20px;
+      padding: 100px 5%;
+      background: linear-gradient(180deg, var(--primary-dark) 0%, #082d3d 100%);
       text-align: center;
     }
 
     .testimonials h2 {
-      font-size: 2.1rem;
-      margin-bottom: 35px;
+      font-size: 2.2rem;
+      margin-bottom: 50px;
     }
 
     .testimonials-grid {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
     }
 
     .testimonial-card {
-      background-color: rgba(3, 23, 40, 0.9);
-      border-radius: 16px;
-      padding: 20px 18px;
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
-      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 40px 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: background 0.3s;
+    }
+
+    .testimonial-card:hover {
+      background: rgba(255, 255, 255, 0.07);
     }
 
     .testimonial-text {
-      margin-bottom: 12px;
-      opacity: 0.95;
+      font-style: italic;
+      color: var(--text-gray);
+      margin-bottom: 25px;
+      font-size: 1rem;
     }
 
     .testimonial-author {
       font-weight: 700;
-      font-size: 0.95rem;
+      color: var(--cyan-light);
     }
 
     .testimonial-role {
       font-size: 0.8rem;
-      opacity: 0.8;
+      color: #668899;
     }
 
-    /* FOOTER */
     footer {
-      background-color: #24160f;
+      padding: 40px;
       text-align: center;
-      padding: 18px 10px;
-      font-size: 0.86rem;
-      color: #f8e2c8;
+      background: #031117;
+      font-size: 0.9rem;
+      color: #555;
     }
 
-    /* ANIMACIONES */
-    @keyframes floatUp {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 768px) {
-      .hero-title {
-        font-size: 2.2rem;
-      }
-
-      nav a {
-        margin: 0 10px;
-        font-size: 0.85rem;
-      }
+      .hero-title { font-size: 2.5rem; }
+      nav { flex-wrap: wrap; }
+      nav a { margin: 5px 10px; }
     }
   </style>
 </head>
 <body>
-
-  <div class="top-banner"></div>
 
   <nav>
     <a href="index.html">Inicio</a>
@@ -278,109 +257,90 @@
     <a href="index.html#contacto">Contacto</a>
   </nav>
 
-  <!-- HERO PORTAFOLIO -->
   <section class="hero">
-    <h1 class="hero-title">Portafolio</h1>
+    <h1 class="hero-title">Nuestra <span>Estela</span></h1>
     <p class="hero-subtitle">
-      Algunos de los sitios creados con Mar de Sitios para clientes y proyectos en Los Cabos y otras partes de México.
+      Explora los proyectos que han transformado la presencia digital de negocios en Los Cabos. Calidad, velocidad y diseño de vanguardia.
     </p>
-
-    <!-- ondas azules del hero -->
-    <div class="hero-waves">
-      <svg width="100%" height="240" viewBox="0 0 1440 240" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="waveBlueP1" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#012b4f"/>
-            <stop offset="100%" stop-color="#005577"/>
-          </linearGradient>
-          <linearGradient id="waveBlueP2" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#004870"/>
-            <stop offset="100%" stop-color="#00789a"/>
-          </linearGradient>
-        </defs>
-        <path fill="url(#waveBlueP1)" d="M0,140 C160,190 320,200 480,185 C640,170 800,120 960,120 C1120,120 1280,160 1440,185 L1440,240 L0,240 Z" opacity="0.9"/>
-        <path fill="url(#waveBlueP2)" d="M0,160 C160,205 320,210 480,195 C640,180 800,140 960,140 C1120,140 1280,175 1440,195 L1440,240 L0,240 Z" opacity="0.9"/>
-      </svg>
-    </div>
   </section>
 
-  <!-- PROYECTOS -->
   <section class="portfolio-section">
-    <h2>Proyectos realizados</h2>
+    <h2>Proyectos Destacados</h2>
 
     <div class="portfolio-grid">
       <article class="project-card">
-        <img src="Images/LOSCABOSMOTORSPAGE.png" alt="Los Cabos Motors">
+        <div class="project-img-container">
+          <img src="Images/LOSCABOSMOTORSPAGE.png" alt="Los Cabos Motors">
+        </div>
         <div class="project-body">
+          <span class="project-type">Automotriz Luxury</span>
           <h3 class="project-title">Los Cabos Motors</h3>
-          <p class="project-type">Sitio para venta de autos</p>
           <p class="project-desc">
-            Página enfocada en autos deportivos y de alto valor. Secciones de vehículos, galería,
-            llamados a WhatsApp y diseño oscuro/agresivo combinado con detalles elegantes.
+            Diseño agresivo y elegante para la compra-venta de autos de alta gama. Optimizado para mostrar cada detalle técnico y visual.
           </p>
           <p class="project-link">
-            <a href="https://loscabosmotors.com" target="_blank" rel="noopener noreferrer">Ver sitio</a>
+            <a href="https://loscabosmotors.com" target="_blank">EXPLORAR SITIO →</a>
           </p>
         </div>
       </article>
 
       <article class="project-card">
-        <img src="Images/RIDEWMECABOPAGE.png" alt="Ride W Me Cabo">
+        <div class="project-img-container">
+          <img src="Images/RIDEWMECABOPAGE.png" alt="Ride W Me Cabo">
+        </div>
         <div class="project-body">
+          <span class="project-type">Turismo & Transporte</span>
           <h3 class="project-title">Ride W Me Cabo</h3>
-          <p class="project-type">Transporte privado</p>
           <p class="project-desc">
-            Página pensada para turistas y residentes que buscan transporte cómodo y seguro
-            en Los Cabos. Secciones de servicios, contacto y formulario de reserva.
+            Plataforma intuitiva para servicios de transporte privado. Enfoque en la facilidad de reserva y confianza para el turista.
           </p>
           <p class="project-link">
-            <a href="https://ridewmecabo.com" target="_blank" rel="noopener noreferrer">Ver sitio</a>
+            <a href="https://ridewmecabo.com" target="_blank">EXPLORAR SITIO →</a>
           </p>
         </div>
       </article>
-    </div>
 
-    <!-- onda hacia testimonios -->
-    <svg class="portfolio-wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
-      <path fill="#007b8f" d="M0,64L60,74.7C120,85,240,107,360,112C480,117,600,107,720,96C840,85,960,75,1080,80C1200,85,1320,107,1380,117.3L1440,128L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
-    </svg>
+      <article class="project-card" style="border-style: dashed; background: transparent;">
+        <div class="project-body" style="text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+          <h3 class="project-title" style="color: #ccc;">Tu Proyecto Aquí</h3>
+          <p class="project-desc">Estamos listos para llevar tu marca al siguiente nivel digital.</p>
+          <a href="index.html#contacto" class="project-link" style="color: var(--cyan-light); text-decoration: none; font-weight: 700;">¡EMPEZAR AHORA!</a>
+        </div>
+      </article>
+    </div>
   </section>
 
-  <!-- TESTIMONIOS -->
   <section class="testimonials">
-    <h2>Lo que dicen de Mar de Sitios</h2>
+    <h2>Confianza en el Puerto</h2>
     <div class="testimonials-grid">
       <article class="testimonial-card">
         <p class="testimonial-text">
-          “Mi primera página web superó lo que tenía en mente. Se ve agresiva, elegante
-          y transmite justo el estilo de mis autos.”
+          “Mi primera página web superó lo que tenía en mente. Se ve agresiva, elegante y transmite justo el estilo de mis autos.”
         </p>
         <p class="testimonial-author">Manuel Serrato</p>
-        <p class="testimonial-role">Los Cabos Motors</p>
+        <p class="testimonial-role">Fundador, Los Cabos Motors</p>
       </article>
 
       <article class="testimonial-card">
         <p class="testimonial-text">
-          “Muy rápido y muy claro todo el proceso. Aportó ideas mientras armábamos la página
-          y quedó perfecta para mi marca.”
+          “Muy rápido y claro. Aportó ideas mientras armábamos la página y quedó perfecta para mi marca personal.”
         </p>
         <p class="testimonial-author">Benito Meraz</p>
-        <p class="testimonial-role">Emprendedor</p>
+        <p class="testimonial-role">Emprendedor Digital</p>
       </article>
 
       <article class="testimonial-card">
         <p class="testimonial-text">
-          “Quiero que mi proyecto sea el siguiente en este portafolio. Me gustó el estilo de diseño
-          y que se adapta al negocio.”
+          “La atención al detalle y la capacidad de entender lo que el mercado de Los Cabos necesita es lo que los hace diferentes.”
         </p>
-        <p class="testimonial-author">Próximo cliente</p>
-        <p class="testimonial-role">Tu marca aquí</p>
+        <p class="testimonial-author">Próximo Cliente</p>
+        <p class="testimonial-role">Tu Éxito Aquí</p>
       </article>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Mar de Sitios – Diseño web profesional desde Los Cabos, B.C.S.
+    &copy; 2026 Mar de Sitios – Innovación Web desde Los Cabos, B.C.S.
   </footer>
 
 </body>
