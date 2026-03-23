@@ -3,10 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mar de Sitios</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="Images/logomardesitios.png" />
+  <title>Mar de Sitios | Diseño Web en Los Cabos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --primary-dark: #051923;
+      --ocean-blue: #006494;
+      --cyan-light: #24ceea;
+      --white: #ffffff;
+      --accent-gold: #f4bb33;
+      --text-gray: #e0e0e0;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,319 +23,232 @@
 
     body {
       font-family: "Poppins", sans-serif;
-      background-color: #0b2b39;
-      color: #fff;
-      scroll-behavior: smooth;
+      background-color: var(--primary-dark);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    .top-banner {
-  width: 100%;
-  height: 120px;              /* aquí controlas lo DELGADO del banner */
-  background-image: url('Images/bannermardesitios.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 
-
-    /* NAV */
+    /* NAV MEJORADA */
     nav {
-      background-color: #001f3f;
-      padding: 12px 20px;
-      text-align: center;
+      background-color: rgba(5, 25, 35, 0.95);
+      padding: 15px 5%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     nav a {
-      color: #ffffff;
+      color: var(--white);
       text-decoration: none;
-      margin: 0 18px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      transition: color 0.2s ease;
+      margin: 0 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: #f4bb33;
+      color: var(--cyan-light);
     }
 
-    /* ---------- SECCIÓN HERO ---------- */
+    /* SECCIÓN HERO CON IMAGEN DE FONDO */
     .hero {
       position: relative;
+      height: 80vh;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 90px 20px 80px;
-      background: radial-gradient(circle at top, #0b3d91 0, #052850 40%, #031728 100%);
-      overflow: hidden;
+      background: linear-gradient(rgba(5, 25, 35, 0.7), rgba(5, 25, 35, 0.7)), 
+                  url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600'); /* Aquí puedes poner tu imagen Images/bannermardesitios.png */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 20px;
     }
 
     .hero-title {
-      font-size: 3.2rem;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
       font-weight: 700;
-      line-height: 1.1;
-      animation: floatUp 0.8s ease-out;
+      line-height: 1;
+      text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .hero-title span {
+      color: var(--cyan-light);
     }
 
     .hero-subtitle {
-      margin-top: 10px;
-      font-size: 1.1rem;
-      opacity: 0.85;
-      animation: fadeIn 1.1s ease-out;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      max-width: 600px;
+      font-weight: 300;
+      color: var(--text-gray);
     }
 
-    /* Ondas azules dentro del hero */
-    .hero-waves {
-      position: absolute;
-      inset: 40% 0 0;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    /* ---------- SECCIÓN AMARILLA (ABOUT) ---------- */
+    /* SECCIÓN ABOUT REFINADA */
     .about {
-      position: relative;
-      background-color: #f4bb33; /* amarillo cálido */
-      color: #2a220a;
+      padding: 100px 10%;
       text-align: center;
-      padding: 70px 20px 80px;
+      background: linear-gradient(180deg, var(--primary-dark) 0%, #0a2d3d 100%);
     }
 
     .about p {
-      max-width: 850px;
+      max-width: 800px;
       margin: 0 auto;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      font-weight: 500;
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #b0c4de;
     }
 
-    /* Onda inferior de la sección amarilla hacia el turquesa */
-    .about-wave-bottom {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -1px;
-    }
-
-    /* ---------- SECCIÓN PLANES ---------- */
+    /* SECCIÓN PLANES (ESTILO MODERNO) */
     .pricing {
-      position: relative;
-      background-color: #007b8f; /* turquesa */
-      padding: 80px 20px 120px;
-      text-align: center;
+      padding: 100px 5%;
+      background-color: #f8f9fa;
+      color: #333;
     }
 
     .pricing h2 {
-      font-size: 2.3rem;
-      margin-bottom: 40px;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: var(--primary-dark);
     }
 
     .plans {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
     .plan-card {
-      background-color: #ffffff;
-      color: #222;
-      border-radius: 16px;
-      padding: 25px 24px 30px;
-      width: 280px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-      text-align: left;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid #eee;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
     }
 
     .plan-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.3);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: var(--cyan-light);
     }
 
     .plan-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .plan-card p {
-      font-size: 0.95rem;
-      margin: 4px 0;
-      color: #000000;
+      font-size: 1.5rem;
+      color: var(--ocean-blue);
+      margin-bottom: 15px;
     }
 
     .plan-price {
-      font-size: 1.4rem;
+      font-size: 2rem;
       font-weight: 700;
-      margin: 16px 0 18px;
-      color: #111;
-    }
-
-    .plan-button {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 999px;
-      border: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      background-color: #c6432f;
-      color: #fff;
-      transition: background 0.25s ease;
-    }
-
-    .plan-button:hover {
-      background-color: #9d2f20;
-    }
-
-    /* Onda inferior de la sección de precios hacia el color tierra */
-    .pricing-wave-bottom {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -1px;
-    }
-
-    /* ---------- SECCIÓN CONTACTO (TIERRA) ---------- */
-    .contact {
-      position: relative;
-      background-color: #b26a2b; /* color tierra */
-      padding: 90px 20px 80px;
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: 2.2rem;
-      margin-bottom: 25px;
-    }
-
-    .contact p {
-      max-width: 600px;
-      margin: 0 auto 30px;
-    }
-
-    .contact-form {
-      max-width: 480px;
-      margin: 0 auto;
-      background-color: #ffffff;
-      border-radius: 20px;
-      padding: 30px 25px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
-      text-align: left;
+      margin: 20px 0;
       color: #222;
     }
 
-    .contact-form label {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-      display: block;
+    .plan-features {
+      list-style: none;
+      margin-bottom: 30px;
+      flex-grow: 1;
     }
 
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      margin-bottom: 16px;
-      font-family: "Poppins", sans-serif;
+    .plan-features li {
+      margin-bottom: 12px;
       font-size: 0.95rem;
+      color: #666;
     }
 
-    .contact-form textarea {
-      resize: vertical;
-      min-height: 110px;
-    }
-
-    .contact-form button[type="submit"] {
-      width: 100%;
-      background-color: #5e2f91;
+    .plan-button {
+      background-color: var(--ocean-blue);
       color: white;
+      padding: 15px;
       border: none;
-      border-radius: 999px;
-      padding: 12px 20px;
+      border-radius: 10px;
       font-weight: 600;
       cursor: pointer;
-      font-size: 1rem;
-      transition: background 0.25s ease;
-    }
-
-    .contact-form button[type="submit"]:hover {
-      background-color: #492572;
-    }
-
-    .contact-wa {
-      margin-top: 20px;
-      display: inline-block;
-      background-color: #25d366;
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
+      transition: background 0.3s ease;
       text-decoration: none;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .plan-button:hover {
+      background-color: var(--cyan-light);
+    }
+
+    /* FORMULARIO DE CONTACTO */
+    .contact {
+      padding: 100px 10%;
+      background-color: var(--primary-dark);
+    }
+
+    .contact-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 20px;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: white;
+      margin-bottom: 20px;
+      outline: none;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 15px;
+      background: var(--cyan-light);
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
     }
 
     footer {
-      background-color: #24160f;
+      padding: 40px;
       text-align: center;
-      padding: 18px 10px;
-      font-size: 0.85rem;
-      color: #f8e2c8;
+      background: #031117;
+      font-size: 0.9rem;
+      color: #666;
     }
 
-    /* ---------- ANIMACIONES ---------- */
-    @keyframes floatUp {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px) {
-      .hero-title {
-        font-size: 2.4rem;
-      }
-
-      .plans {
-        gap: 20px;
-      }
-
-      .plan-card {
-        width: 100%;
-        max-width: 330px;
-      }
-
-      nav a {
-        margin: 0 10px;
-        font-size: 0.85rem;
-      }
+      .contact-container { grid-template-columns: 1fr; }
+      nav { flex-wrap: wrap; }
+      nav a { margin: 5px 10px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="top-banner"></div>
-  <!-- NAV -->
   <nav>
     <a href="#inicio">Inicio</a>
     <a href="portafolio.html">Portafolio</a>
@@ -335,123 +256,77 @@
     <a href="#contacto">Contacto</a>
   </nav>
 
-  <!-- HERO -->
   <section class="hero" id="inicio">
-    <h1 class="hero-title">Mar de<br>Sitios</h1>
-    <p class="hero-subtitle">Diseño web moderno y personalizado desde Los Cabos, B.C.S.</p>
-
-    <!-- Ondas azules del hero -->
-    <div class="hero-waves">
-      <svg width="100%" height="260" viewBox="0 0 1440 260" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="waveBlue1" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#012b4f"/>
-            <stop offset="100%" stop-color="#005577"/>
-          </linearGradient>
-          <linearGradient id="waveBlue2" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#004870"/>
-            <stop offset="100%" stop-color="#00789a"/>
-          </linearGradient>
-          <linearGradient id="waveBlue3" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#006a8c"/>
-            <stop offset="100%" stop-color="#00a6b9"/>
-          </linearGradient>
-        </defs>
-        <path fill="url(#waveBlue1)" d="M0,160 C160,210 320,210 480,180 C640,150 800,90 960,100 C1120,110 1280,190 1440,210 L1440,260 L0,260 Z" opacity="0.9"/>
-        <path fill="url(#waveBlue2)" d="M0,170 C160,230 320,230 480,200 C640,170 800,120 960,130 C1120,140 1280,210 1440,230 L1440,260 L0,260 Z" opacity="0.85"/>
-        <path fill="url(#waveBlue3)" d="M0,190 C160,240 320,240 480,220 C640,200 800,150 960,155 C1120,160 1280,225 1440,240 L1440,260 L0,260 Z" opacity="0.9"/>
-      </svg>
-    </div>
+    <h1 class="hero-title">Mar de <span>Sitios</span></h1>
+    <p class="hero-subtitle">Creamos experiencias digitales de alto impacto desde Los Cabos, B.C.S. Diseño moderno para marcas con visión.</p>
   </section>
 
-  <!-- SECCIÓN AMARILLA / DESCRIPCIÓN -->
   <section class="about">
     <p>
-      Creamos sitios web visualmente impactantes y funcionales para destacar tu presencia digital.
-      Desde landing pages hasta sitios completos con galerías, reservas o tienda en línea,
-      adaptados a tus ideas, tu marca y el mercado de Los Cabos.
+      En un mercado tan competitivo como el de Los Cabos, tu presencia digital no solo debe existir, debe destacar. Especialistas en desarrollo web funcional y estético.
     </p>
-
-    <!-- Onda hacia el turquesa -->
-    <svg class="about-wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
-      <path fill="#007b8f" d="M0,64L60,74.7C120,85,240,107,360,112C480,117,600,107,720,96C840,85,960,75,1080,80C1200,85,1320,107,1380,117.3L1440,128L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
-    </svg>
   </section>
 
-  <!-- PLANES Y PRECIOS -->
   <section class="pricing" id="precios">
-    <h2>Planes y Precios</h2>
-
+    <h2>Nuestros Planes</h2>
     <div class="plans">
-      <article class="plan-card" style="background:#f26a3d;">
+      <article class="plan-card">
         <h3 class="plan-title">Plan Básico</h3>
-        <p>Landing page moderna para mostrar tu servicio o producto.</p>
-        <p>1 sección principal con botón a WhatsApp o redes.</p>
+        <ul class="plan-features">
+          <li>✔ Landing page de alto impacto</li>
+          <li>✔ Optimización móvil (Responsive)</li>
+          <li>✔ Botón directo a WhatsApp</li>
+          <li>✔ Entrega en 5 días hábiles</li>
+        </ul>
         <p class="plan-price">$2,000 MXN</p>
-        <button class="plan-button" onclick="window.location.href='https://wa.me/526241181978?text=Hola,%20quiero%20más%20info%20del%20Plan%20Básico%20de%20Mar%20de%20Sitios'">
-          Solicitar
-        </button>
+        <a href="https://wa.me/526241181978?text=Hola, quiero más info del Plan Básico" class="plan-button">Solicitar Ahora</a>
       </article>
 
-      <article class="plan-card" style="background:#f4a51f;">
+      <article class="plan-card" style="border-color: var(--cyan-light); transform: scale(1.05);">
         <h3 class="plan-title">Plan Profesional</h3>
-        <p>De 3 a 5 secciones a elegir: Inicio, Nosotros, Servicios, Portafolio, Contacto, etc.</p>
-        <p>Diseño pensado para negocios locales, marcas personales o proyectos serios.</p>
+        <ul class="plan-features">
+          <li>✔ Hasta 5 Secciones personalizadas</li>
+          <li>✔ Diseño SEO Friendly</li>
+          <li>✔ Formulario de contacto avanzado</li>
+          <li>✔ Integración de Redes Sociales</li>
+        </ul>
         <p class="plan-price">$3,800 MXN</p>
-        <button class="plan-button" onclick="window.location.href='https://wa.me/526241181978?text=Hola,%20me%20interesa%20el%20Plan%20Profesional%20de%20Mar%20de%20Sitios'">
-          Solicitar
-        </button>
+        <a href="https://wa.me/526241181978?text=Hola, me interesa el Plan Profesional" class="plan-button">Solicitar Ahora</a>
       </article>
 
-      <article class="plan-card" style="background:#2639b8; color:#000000;">
+      <article class="plan-card">
         <h3 class="plan-title">Plan Premium</h3>
-        <p>Sitio completo para empresas, inmobiliarias, tours, autos u otros proyectos grandes.</p>
-        <p>Secciones y funciones a elegir: galería, reservas, catálogo, rifas, blog o tienda básica.</p>
+        <ul class="plan-features">
+          <li>✔ E-commerce o Sistema de Reservas</li>
+          <li>✔ Blog autogestionable</li>
+          <li>✔ Galerías de lujo o catálogos</li>
+          <li>✔ Soporte técnico prioritario</li>
+        </ul>
         <p class="plan-price">$6,200 MXN</p>
-        <button class="plan-button" onclick="window.location.href='https://wa.me/526241181978?text=Hola,%20quiero%20cotizar%20el%20Plan%20Premium%20de%20Mar%20de%20Sitios'">
-          Solicitar
-        </button>
+        <a href="https://wa.me/526241181978?text=Hola, quiero cotizar el Plan Premium" class="plan-button">Cotizar Proyecto</a>
       </article>
     </div>
-
-    <!-- Onda hacia el color tierra -->
-    <svg class="pricing-wave-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
-      <path fill="#b26a2b" d="M0,32L60,48C120,64,240,96,360,112C480,128,600,128,720,117.3C840,107,960,85,1080,80C1200,75,1320,85,1380,90.7L1440,96L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
-    </svg>
   </section>
 
-  <!-- CONTACTO -->
   <section class="contact" id="contacto">
-    <h2>Contáctame</h2>
-    <p>
-      Cuéntame qué tipo de sitio necesitas y te ayudo a elegir el plan ideal para tu proyecto en Los Cabos.
-    </p>
-
-    <form class="contact-form" action="https://formsubmit.co/tu_correo@ejemplo.com" method="POST">
-      <label for="nombre">Tu nombre</label>
-      <input type="text" id="nombre" name="name" placeholder="Escribe tu nombre" required />
-
-      <label for="correo">Tu correo electrónico</label>
-      <input type="email" id="correo" name="email" placeholder="ejemplo@correo.com" required />
-
-      <label for="mensaje">Cuéntame qué necesitas...</label>
-      <textarea id="mensaje" name="message" placeholder="Ejemplo: quiero una página para renta de autos en Los Cabos" required></textarea>
-
-      <button type="submit">Enviar mensaje</button>
-    </form>
-
-    <a
-      class="contact-wa"
-      href="https://wa.me/526241181978?text=Hola,%20vengo%20de%20Mar%20de%20Sitios%20y%20quiero%20información%20sobre%20una%20página%20web"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      💬 Hablar por WhatsApp
-    </a>
+    <div class="contact-container">
+      <div>
+        <h2>¿Listo para zarpar?</h2>
+        <p style="margin-top: 20px; color: #b0c4de;">Cuéntame sobre tu idea y hagámosla realidad. Respondo en menos de 24 horas.</p>
+        <br>
+        <a href="https://wa.me/526241181978" style="color: var(--cyan-light); text-decoration: none; font-weight: 700;">💬 O mándame un WhatsApp directo</a>
+      </div>
+      <form class="contact-form" action="https://formsubmit.co/tu_correo@ejemplo.com" method="POST">
+        <input type="text" name="name" placeholder="Tu Nombre" required />
+        <input type="email" name="email" placeholder="Tu Correo" required />
+        <textarea name="message" rows="4" placeholder="¿Cómo puedo ayudarte?" required></textarea>
+        <button type="submit">Enviar Propuesta</button>
+      </form>
+    </div>
   </section>
 
   <footer>
-    &copy; 2025 Mar de Sitios – Diseño web profesional desde Los Cabos, B.C.S.
+    &copy; 2026 Mar de Sitios – Innovación Web desde Los Cabos, B.C.S.
   </footer>
 
 </body>
