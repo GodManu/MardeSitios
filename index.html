@@ -3,332 +3,785 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mar de Sitios | Diseño Web en Los Cabos</title>
+  <title>Mar de Sitios | Diseño y Desarrollo Web en Los Cabos</title>
+  <meta name="description" content="Diseño y desarrollo de páginas web profesionales en Los Cabos, B.C.S. Sitios modernos, rápidos y optimizados para móviles. Web design in Los Cabos." />
   <link rel="icon" type="image/png" href="Images/favicon-ola.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary-dark: #051923;
+      --primary-dark: #04161f;
+      --deep: #051923;
       --ocean-blue: #006494;
+      --ocean-mid: #0a7ea4;
       --cyan-light: #24ceea;
+      --cyan-soft: #5fe0f5;
       --white: #ffffff;
       --accent-gold: #f4bb33;
-      --text-gray: #e0e0e0;
+      --text-gray: #c4d4dd;
+      --surface-light: #f6f9fb;
+      --ink: #1c2a31;
+      --ink-soft: #5a6b73;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: "Poppins", sans-serif;
       background-color: var(--primary-dark);
       color: var(--white);
-      line-height: 1.6;
+      line-height: 1.65;
       overflow-x: hidden;
     }
 
-    /* NAV MEJORADA */
+    h1, h2, h3, .brand { font-family: "Sora", sans-serif; }
+
+    /* ===== NAV ===== */
     nav {
-      background-color: rgba(5, 25, 35, 0.95);
-      padding: 15px 5%;
+      background-color: rgba(4, 22, 31, 0.85);
+      padding: 16px 6%;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    nav a {
+    .brand {
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
       color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 9px;
       text-decoration: none;
-      margin: 0 20px;
-      font-size: 0.9rem;
+    }
+    .brand .wave { color: var(--cyan-light); font-size: 1.4rem; }
+    .brand span { color: var(--cyan-light); }
+
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+
+    nav a.link {
+      color: var(--text-gray);
+      text-decoration: none;
+      padding: 8px 14px;
+      font-size: 0.82rem;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: color 0.3s ease;
+      border-radius: 8px;
+      transition: color 0.25s ease, background 0.25s ease;
     }
+    nav a.link:hover { color: var(--white); background: rgba(36, 206, 234, 0.12); }
 
-    nav a:hover {
-      color: var(--cyan-light);
+    .lang-toggle {
+      display: flex;
+      margin-left: 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 30px;
+      overflow: hidden;
     }
+    .lang-toggle button {
+      background: transparent;
+      color: var(--text-gray);
+      border: none;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: all 0.25s ease;
+    }
+    .lang-toggle button.active { background: var(--cyan-light); color: var(--primary-dark); }
 
-    /* SECCIÓN HERO CON IMAGEN DE FONDO */
+    /* ===== HERO ===== */
     .hero {
       position: relative;
-      height: 80vh;
-      min-height: 500px;
+      min-height: 92vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(rgba(5, 25, 35, 0.7), rgba(5, 25, 35, 0.7)), 
-                  url('Images/banner-mar-tecnologia.png'); /* Aquí puedes poner tu imagen Images/bannermardesitios.png */
+      background: linear-gradient(rgba(4, 22, 31, 0.78), rgba(4, 22, 31, 0.92)),
+                  url('Images/banner-mar-tecnologia.png');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
-      padding: 20px;
+      padding: 40px 20px;
+      overflow: hidden;
     }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -1px; left: 0; width: 100%; height: 120px;
+      background: linear-gradient(to top, var(--primary-dark), transparent);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(36, 206, 234, 0.12);
+      border: 1px solid rgba(36, 206, 234, 0.35);
+      color: var(--cyan-soft);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      backdrop-filter: blur(6px);
+    }
+    .hero-badge .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--cyan-light);
+      box-shadow: 0 0 10px var(--cyan-light);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.35;} }
 
     .hero-title {
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      font-weight: 700;
-      line-height: 1;
-      text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+      font-size: clamp(2.8rem, 9vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -1.5px;
+      text-shadow: 0 8px 40px rgba(0,0,0,0.5);
     }
-
     .hero-title span {
-      color: var(--cyan-light);
+      background: linear-gradient(120deg, var(--cyan-light), var(--accent-gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero-subtitle {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      max-width: 600px;
+      margin: 26px auto 0;
+      font-size: clamp(1rem, 2.4vw, 1.3rem);
+      max-width: 640px;
       font-weight: 300;
       color: var(--text-gray);
     }
 
-    /* SECCIÓN ABOUT REFINADA */
-    .about {
-      padding: 100px 10%;
-      text-align: center;
-      background: linear-gradient(180deg, var(--primary-dark) 0%, #0a2d3d 100%);
+    .hero-cta {
+      margin-top: 40px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .about p {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      font-weight: 300;
-      color: #b0c4de;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     }
-
-    /* SECCIÓN PLANES (ESTILO MODERNO) */
-    .pricing {
-      padding: 100px 5%;
-      background-color: #f8f9fa;
-      color: #333;
-    }
-
-    .pricing h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 50px;
+    .btn-primary {
+      background: linear-gradient(120deg, var(--cyan-light), var(--ocean-mid));
       color: var(--primary-dark);
+      box-shadow: 0 10px 30px rgba(36, 206, 234, 0.3);
     }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(36, 206, 234, 0.45); }
+    .btn-ghost {
+      background: rgba(255,255,255,0.06);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
+
+    .hero-stats {
+      margin-top: 56px;
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .stat strong {
+      display: block;
+      font-family: "Sora", sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--cyan-light);
+    }
+    .stat span { font-size: 0.8rem; color: var(--text-gray); letter-spacing: 0.5px; }
+
+    /* ===== ABOUT / FEATURES ===== */
+    .about {
+      padding: 110px 8% 90px;
+      text-align: center;
+      position: relative;
+    }
+    .section-tag {
+      color: var(--cyan-light);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .about h2 {
+      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+      font-weight: 700;
+      max-width: 760px;
+      margin: 0 auto 22px;
+      letter-spacing: -0.5px;
+    }
+    .about > p {
+      max-width: 680px;
+      margin: 0 auto 64px;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--text-gray);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 36px 28px;
+      text-align: left;
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    }
+    .feature:hover { transform: translateY(-8px); border-color: rgba(36,206,234,0.4); background: rgba(36,206,234,0.05); }
+    .feature .icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, rgba(36,206,234,0.2), rgba(0,100,148,0.2));
+      margin-bottom: 20px;
+    }
+    .feature h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; }
+    .feature p { font-size: 0.95rem; color: var(--text-gray); font-weight: 300; }
+
+    /* ===== PRICING ===== */
+    .pricing {
+      padding: 110px 5%;
+      background: var(--surface-light);
+      color: var(--ink);
+    }
+    .pricing-head { text-align: center; max-width: 680px; margin: 0 auto 60px; }
+    .pricing-head .section-tag { color: var(--ocean-blue); }
+    .pricing-head h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--primary-dark);
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .pricing-head p { color: var(--ink-soft); font-size: 1.05rem; }
 
     .plans {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 28px;
+      max-width: 1180px;
       margin: 0 auto;
+      align-items: stretch;
     }
 
     .plan-card {
       background: white;
-      border-radius: 20px;
-      padding: 40px 30px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      border: 1px solid #eee;
+      border-radius: 22px;
+      padding: 42px 32px;
+      box-shadow: 0 14px 40px rgba(5, 25, 35, 0.08);
+      border: 1px solid #e7edf1;
       display: flex;
       flex-direction: column;
-      transition: all 0.3s ease;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .plan-card:hover { transform: translateY(-10px); box-shadow: 0 28px 55px rgba(5, 25, 35, 0.15); }
+
+    .plan-card.featured {
+      border: 2px solid var(--cyan-light);
+      box-shadow: 0 24px 55px rgba(36, 206, 234, 0.22);
+      transform: scale(1.03);
+    }
+    .plan-card.featured:hover { transform: scale(1.03) translateY(-10px); }
+
+    .plan-flag {
+      position: absolute;
+      top: -14px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(120deg, var(--cyan-light), var(--ocean-mid));
+      color: var(--primary-dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 30px;
+      white-space: nowrap;
     }
 
-    .plan-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      border-color: var(--cyan-light);
-    }
-
-    .plan-title {
-      font-size: 1.5rem;
-      color: var(--ocean-blue);
-      margin-bottom: 15px;
-    }
+    .plan-title { font-size: 1.35rem; color: var(--primary-dark); font-weight: 700; margin-bottom: 4px; }
+    .plan-tagline { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 22px; min-height: 38px; }
 
     .plan-price {
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 20px 0;
-      color: #222;
+      font-family: "Sora", sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1;
     }
+    .plan-price small { font-size: 0.95rem; font-weight: 500; color: var(--ink-soft); }
+    .plan-price-note { font-size: 0.78rem; color: var(--ink-soft); margin: 8px 0 26px; }
 
-    .plan-features {
-      list-style: none;
-      margin-bottom: 30px;
-      flex-grow: 1;
-    }
-
+    .plan-features { list-style: none; margin-bottom: 32px; flex-grow: 1; }
     .plan-features li {
-      margin-bottom: 12px;
-      font-size: 0.95rem;
-      color: #666;
+      margin-bottom: 13px;
+      font-size: 0.92rem;
+      color: #44555d;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
     }
+    .plan-features li::before {
+      content: "✓";
+      color: var(--ocean-mid);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .plan-features li.muted { color: #b3bfc6; }
+    .plan-features li.muted::before { content: "—"; color: #cfd8dd; }
 
     .plan-button {
-      background-color: var(--ocean-blue);
+      background: var(--primary-dark);
       color: white;
       padding: 15px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       font-weight: 600;
+      font-size: 0.95rem;
       cursor: pointer;
-      transition: background 0.3s ease;
       text-decoration: none;
       text-align: center;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
-
-    .plan-button:hover {
-      background-color: var(--cyan-light);
+    .plan-button:hover { background: var(--ocean-blue); transform: translateY(-2px); }
+    .plan-card.featured .plan-button {
+      background: linear-gradient(120deg, var(--cyan-light), var(--ocean-mid));
+      color: var(--primary-dark);
     }
+    .plan-card.featured .plan-button:hover { filter: brightness(1.05); }
 
-    /* FORMULARIO DE CONTACTO */
-    .contact {
-      padding: 100px 10%;
-      background-color: var(--primary-dark);
+    .pricing-foot {
+      text-align: center;
+      margin-top: 46px;
+      color: var(--ink-soft);
+      font-size: 0.92rem;
     }
+    .pricing-foot a { color: var(--ocean-blue); font-weight: 600; text-decoration: none; }
 
+    /* ===== PROCESS ===== */
+    .process { padding: 110px 8%; text-align: center; }
+    .process h2 { font-size: clamp(1.8rem, 4.5vw, 2.8rem); margin-bottom: 60px; letter-spacing: -0.5px; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .step { text-align: left; position: relative; padding-top: 14px; }
+    .step .num {
+      font-family: "Sora", sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: rgba(36,206,234,0.18);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .step h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .step p { font-size: 0.92rem; color: var(--text-gray); font-weight: 300; }
+
+    /* ===== CONTACT ===== */
+    .contact { padding: 110px 8%; background: linear-gradient(180deg, var(--primary-dark), #07212e); }
     .contact-container {
-      max-width: 900px;
+      max-width: 980px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 56px;
+      align-items: center;
     }
+    .contact-info h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 18px; letter-spacing: -0.5px; }
+    .contact-info p { color: var(--text-gray); font-size: 1.05rem; font-weight: 300; margin-bottom: 30px; }
+    .contact-channels a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--white);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: color 0.25s ease;
+    }
+    .contact-channels a:hover { color: var(--cyan-light); }
+    .contact-channels .ch-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: rgba(36,206,234,0.12);
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .contact-channels small { display: block; color: var(--ink-soft); font-size: 0.78rem; }
 
     .contact-form {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 40px;
-      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 42px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
     }
-
+    .contact-form label {
+      display: block; font-size: 0.8rem; color: var(--text-gray);
+      margin-bottom: 7px; letter-spacing: 0.5px;
+    }
     .contact-form input, .contact-form textarea {
       width: 100%;
-      padding: 12px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
+      padding: 13px 14px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
       color: white;
       margin-bottom: 20px;
       outline: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.25s ease;
     }
-
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--cyan-light); }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: #6d8089; }
     .contact-form button {
       width: 100%;
-      padding: 15px;
-      background: var(--cyan-light);
+      padding: 16px;
+      background: linear-gradient(120deg, var(--cyan-light), var(--ocean-mid));
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       font-weight: 700;
+      font-size: 1rem;
+      color: var(--primary-dark);
       cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease;
     }
+    .contact-form button:hover { transform: translateY(-2px); filter: brightness(1.05); }
 
+    /* ===== FOOTER ===== */
     footer {
-      padding: 40px;
-      text-align: center;
-      background: #031117;
-      font-size: 0.9rem;
-      color: #666;
+      padding: 50px 8% 36px;
+      background: #020d12;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-grid {
+      max-width: 1080px;
+      margin: 0 auto 30px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+    }
+    .footer-grid .brand { font-size: 1.05rem; }
+    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .footer-links a { color: var(--text-gray); text-decoration: none; font-size: 0.88rem; transition: color 0.25s; }
+    .footer-links a:hover { color: var(--cyan-light); }
+    .footer-copy { text-align: center; font-size: 0.82rem; color: #4a5b63; }
+
+    /* ===== REVEAL ===== */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 860px) {
+      .contact-container { grid-template-columns: 1fr; gap: 40px; }
+      .plan-card.featured { transform: none; }
+      .plan-card.featured:hover { transform: translateY(-10px); }
+    }
+    @media (max-width: 720px) {
+      nav { flex-direction: column; gap: 12px; padding: 14px 5%; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      nav a.link { padding: 6px 10px; font-size: 0.72rem; }
+      .hero-stats { gap: 32px; }
+      .lang-toggle { margin-left: 0; }
     }
 
-    @media (max-width: 768px) {
-      .contact-container { grid-template-columns: 1fr; }
-      nav { flex-wrap: wrap; }
-      nav a { margin: 5px 10px; }
-    }
+    /* Language visibility: hide inactive language. JS sets display inline so we just toggle a class root. */
+    body:not(.en) [data-en] { display: none !important; }
+    body.en [data-es] { display: none !important; }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="portafolio.html">Portafolio</a>
-    <a href="#precios">Planes</a>
-    <a href="#contacto">Contacto</a>
+    <a href="index.html" class="brand"><span class="wave">🌊</span> Mar de <span>Sitios</span></a>
+    <div class="nav-links">
+      <a href="#inicio" class="link" data-es>Inicio</a><a href="#inicio" class="link" data-en>Home</a>
+      <a href="portafolio.html" class="link" data-es>Portafolio</a><a href="portafolio.html" class="link" data-en>Portfolio</a>
+      <a href="#precios" class="link" data-es>Planes</a><a href="#precios" class="link" data-en>Pricing</a>
+      <a href="#proceso" class="link" data-es>Proceso</a><a href="#proceso" class="link" data-en>Process</a>
+      <a href="#contacto" class="link" data-es>Contacto</a><a href="#contacto" class="link" data-en>Contact</a>
+      <div class="lang-toggle">
+        <button id="btn-es" class="active" onclick="setLang('es')">ES</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero" id="inicio">
-    <h1 class="hero-title">Mar de <span>Sitios</span></h1>
-    <p class="hero-subtitle">Creamos experiencias digitales de alto impacto desde Los Cabos, B.C.S. Diseño moderno para marcas con visión.</p>
-  </section>
-
-  <section class="about">
-    <p>
-      En un mercado tan competitivo como el de Los Cabos, tu presencia digital no solo debe existir, debe destacar. Especialistas en desarrollo web funcional y estético.
-    </p>
-  </section>
-
-  <section class="pricing" id="precios">
-    <h2>Nuestros Planes</h2>
-    <div class="plans">
-      <article class="plan-card">
-        <h3 class="plan-title">Plan Básico</h3>
-        <ul class="plan-features">
-          <li>✔ Landing page de alto impacto</li>
-          <li>✔ Optimización móvil (Responsive)</li>
-          <li>✔ Botón directo a WhatsApp</li>
-          <li>✔ Entrega en 5 días hábiles</li>
-        </ul>
-        <p class="plan-price">$4,000 MXN</p>
-        <a href="https://wa.me/526241181978?text=Hola, quiero más info del Plan Básico" class="plan-button">Solicitar Ahora</a>
-      </article>
-
-      <article class="plan-card" style="border-color: var(--cyan-light); transform: scale(1.05);">
-        <h3 class="plan-title">Plan Profesional</h3>
-        <ul class="plan-features">
-          <li>✔ Hasta 5 Secciones personalizadas</li>
-          <li>✔ Diseño SEO Friendly</li>
-          <li>✔ Formulario de contacto avanzado</li>
-          <li>✔ Integración de Redes Sociales</li>
-        </ul>
-        <p class="plan-price">$8,800 MXN</p>
-        <a href="https://wa.me/526241181978?text=Hola, me interesa el Plan Profesional" class="plan-button">Solicitar Ahora</a>
-      </article>
-
-      <article class="plan-card">
-        <h3 class="plan-title">Plan Premium</h3>
-        <ul class="plan-features">
-          <li>✔ E-commerce o Sistema de Reservas</li>
-          <li>✔ Blog autogestionable</li>
-          <li>✔ Galerías de lujo o catálogos</li>
-          <li>✔ Soporte técnico prioritario</li>
-        </ul>
-        <p class="plan-price">$14,500 MXN</p>
-        <a href="https://wa.me/526241181978?text=Hola, quiero cotizar el Plan Premium" class="plan-button">Cotizar Proyecto</a>
-      </article>
+    <div class="hero-badge"><span class="dot"></span><span data-es>Diseño web desde Los Cabos, B.C.S.</span><span data-en>Web design from Los Cabos, B.C.S.</span></div>
+    <h1 class="hero-title" data-es>Mar de <span>Sitios</span></h1>
+    <h1 class="hero-title" data-en>Mar de <span>Sitios</span></h1>
+    <p class="hero-subtitle" data-es>Creamos experiencias digitales de alto impacto para marcas con visión. Sitios rápidos, elegantes y diseñados para vender.</p>
+    <p class="hero-subtitle" data-en>We build high-impact digital experiences for brands with vision. Fast, elegant websites designed to convert.</p>
+    <div class="hero-cta">
+      <a href="#precios" class="btn btn-primary" data-es>Ver planes →</a>
+      <a href="#precios" class="btn btn-primary" data-en>View pricing →</a>
+      <a href="portafolio.html" class="btn btn-ghost" data-es>Ver portafolio</a>
+      <a href="portafolio.html" class="btn btn-ghost" data-en>See our work</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><strong>5 días</strong><span data-es>Entrega promedio</span><span data-en>Avg. delivery</span></div>
+      <div class="stat"><strong>100%</strong><span data-es>Responsive</span><span data-en>Mobile-ready</span></div>
+      <div class="stat"><strong>&lt;24h</strong><span data-es>Respuesta</span><span data-en>Response time</span></div>
     </div>
   </section>
 
+  <!-- ABOUT + FEATURES -->
+  <section class="about reveal">
+    <span class="section-tag" data-es>Por qué nosotros</span><span class="section-tag" data-en>Why us</span>
+    <h2 data-es>En Los Cabos no basta con existir en línea. Hay que destacar.</h2>
+    <h2 data-en>In Los Cabos, being online isn't enough. You have to stand out.</h2>
+    <p data-es>Somos especialistas en desarrollo web funcional y estético. Combinamos diseño de vanguardia con velocidad y estrategia para que tu negocio gane clientes, no solo visitas.</p>
+    <p data-en>We specialize in web development that's both functional and beautiful. We blend cutting-edge design with speed and strategy so your business gains clients, not just visits.</p>
+
+    <div class="features">
+      <div class="feature">
+        <div class="icon">⚡</div>
+        <h3 data-es>Velocidad real</h3><h3 data-en>Real speed</h3>
+        <p data-es>Sitios ligeros y optimizados que cargan en segundos, incluso con datos móviles.</p>
+        <p data-en>Lightweight, optimized sites that load in seconds, even on mobile data.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">📱</div>
+        <h3 data-es>100% Responsive</h3><h3 data-en>100% Responsive</h3>
+        <p data-es>Se ven impecables en celular, tablet y escritorio. La mayoría de tus clientes navegan desde el teléfono.</p>
+        <p data-en>Flawless on phone, tablet and desktop. Most of your clients browse from their phone.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">💬</div>
+        <h3 data-es>WhatsApp directo</h3><h3 data-en>Direct WhatsApp</h3>
+        <p data-es>Conectamos tu sitio con WhatsApp para que los clientes te escriban con un solo clic.</p>
+        <p data-en>We wire your site to WhatsApp so clients can reach you in a single tap.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🔍</div>
+        <h3 data-es>Listo para Google</h3><h3 data-en>Google-ready</h3>
+        <p data-es>Estructura SEO friendly para que te encuentren cuando busquen tu servicio en la zona.</p>
+        <p data-en>SEO-friendly structure so people find you when they search for your service locally.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="precios">
+    <div class="pricing-head reveal">
+      <span class="section-tag" data-es>Inversión</span><span class="section-tag" data-en>Investment</span>
+      <h2 data-es>Planes claros, sin sorpresas</h2><h2 data-en>Clear plans, no surprises</h2>
+      <p data-es>Precios pensados para el mercado de Los Cabos. Pago único; hosting y dominio se cotizan aparte (aprox. $1,500–$2,500 MXN al año).</p>
+      <p data-en>Pricing built for the Los Cabos market. One-time fee; hosting and domain quoted separately (approx. $1,500–$2,500 MXN/year).</p>
+    </div>
+
+    <div class="plans">
+      <!-- ESSENTIAL -->
+      <article class="plan-card reveal">
+        <h3 class="plan-title" data-es>Esencial</h3><h3 class="plan-title" data-en>Essential</h3>
+        <p class="plan-tagline" data-es>Una landing potente para presencia inmediata.</p>
+        <p class="plan-tagline" data-en>A powerful landing page for instant presence.</p>
+        <div class="plan-price">$5,500 <small>MXN</small></div>
+        <p class="plan-price-note" data-es>Pago único · Entrega en 5 días</p>
+        <p class="plan-price-note" data-en>One-time · 5-day delivery</p>
+        <ul class="plan-features">
+          <li data-es>Landing page de una sección</li><li data-en>Single-section landing page</li>
+          <li data-es>Diseño 100% responsive</li><li data-en>100% responsive design</li>
+          <li data-es>Botón directo a WhatsApp</li><li data-en>Direct WhatsApp button</li>
+          <li data-es>Galería de fotos básica</li><li data-en>Basic photo gallery</li>
+          <li data-es>Dominio + hosting (guía de configuración)</li><li data-en>Domain + hosting setup guide</li>
+          <li class="muted" data-es>Múltiples páginas</li><li class="muted" data-en>Multiple pages</li>
+          <li class="muted" data-es>Sistema de reservas</li><li class="muted" data-en>Booking system</li>
+        </ul>
+        <a href="https://wa.me/526241181978?text=Hola,%20quiero%20info%20del%20Plan%20Esencial%20de%20Mar%20de%20Sitios" class="plan-button" data-es>Solicitar ahora</a>
+        <a href="https://wa.me/526241181978?text=Hi,%20I'd%20like%20info%20about%20the%20Essential%20Plan" class="plan-button" data-en>Get started</a>
+      </article>
+
+      <!-- PROFESSIONAL -->
+      <article class="plan-card featured reveal">
+        <span class="plan-flag" data-es>★ Más solicitado</span><span class="plan-flag" data-en>★ Most popular</span>
+        <h3 class="plan-title" data-es>Profesional</h3><h3 class="plan-title" data-en>Professional</h3>
+        <p class="plan-tagline" data-es>Sitio completo para negocios que quieren crecer.</p>
+        <p class="plan-tagline" data-en>A complete site for businesses ready to grow.</p>
+        <div class="plan-price">$12,500 <small>MXN</small></div>
+        <p class="plan-price-note" data-es>Pago único · Entrega en 7–10 días</p>
+        <p class="plan-price-note" data-en>One-time · 7–10 day delivery</p>
+        <ul class="plan-features">
+          <li data-es>Hasta 5 páginas personalizadas</li><li data-en>Up to 5 custom pages</li>
+          <li data-es>Diseño a medida de tu marca</li><li data-en>Custom branded design</li>
+          <li data-es>Optimización SEO local</li><li data-en>Local SEO optimization</li>
+          <li data-es>Formulario de contacto avanzado</li><li data-en>Advanced contact form</li>
+          <li data-es>Integración de redes y Google Maps</li><li data-en>Social media + Google Maps</li>
+          <li data-es>Galerías y animaciones premium</li><li data-en>Premium galleries & animations</li>
+          <li data-es>2 rondas de ajustes incluidas</li><li data-en>2 revision rounds included</li>
+        </ul>
+        <a href="https://wa.me/526241181978?text=Hola,%20me%20interesa%20el%20Plan%20Profesional%20de%20Mar%20de%20Sitios" class="plan-button" data-es>Solicitar ahora</a>
+        <a href="https://wa.me/526241181978?text=Hi,%20I'm%20interested%20in%20the%20Professional%20Plan" class="plan-button" data-en>Get started</a>
+      </article>
+
+      <!-- PREMIUM -->
+      <article class="plan-card reveal">
+        <h3 class="plan-title" data-es>Premium</h3><h3 class="plan-title" data-en>Premium</h3>
+        <p class="plan-tagline" data-es>Para hospitalidad, real estate y e-commerce.</p>
+        <p class="plan-tagline" data-en>For hospitality, real estate & e-commerce.</p>
+        <div class="plan-price">$22,000 <small>MXN</small></div>
+        <p class="plan-price-note" data-es>Desde · Cotización según alcance</p>
+        <p class="plan-price-note" data-en>Starting at · Scope-based quote</p>
+        <ul class="plan-features">
+          <li data-es>E-commerce o sistema de reservas</li><li data-en>E-commerce or booking system</li>
+          <li data-es>Páginas ilimitadas</li><li data-en>Unlimited pages</li>
+          <li data-es>Catálogos y galerías de lujo</li><li data-en>Luxury catalogs & galleries</li>
+          <li data-es>Sitio 100% bilingüe (ES/EN)</li><li data-en>Fully bilingual site (ES/EN)</li>
+          <li data-es>Panel autogestionable / blog</li><li data-en>Self-managed CMS / blog</li>
+          <li data-es>Soporte prioritario 30 días</li><li data-en>30-day priority support</li>
+          <li data-es>Estrategia y asesoría incluida</li><li data-en>Strategy & consulting included</li>
+        </ul>
+        <a href="https://wa.me/526241181978?text=Hola,%20quiero%20cotizar%20el%20Plan%20Premium%20de%20Mar%20de%20Sitios" class="plan-button" data-es>Cotizar proyecto</a>
+        <a href="https://wa.me/526241181978?text=Hi,%20I'd%20like%20a%20quote%20for%20the%20Premium%20Plan" class="plan-button" data-en>Request a quote</a>
+      </article>
+    </div>
+
+    <p class="pricing-foot">
+      <span data-es>¿Necesitas algo distinto? <a href="#contacto">Cuéntanos tu idea</a> y armamos un plan a tu medida.</span>
+      <span data-en>Need something different? <a href="#contacto">Tell us your idea</a> and we'll tailor a plan for you.</span>
+    </p>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process reveal" id="proceso">
+    <span class="section-tag" data-es>Cómo trabajamos</span><span class="section-tag" data-en>How we work</span>
+    <h2 data-es>De la idea al sitio en 4 pasos</h2><h2 data-en>From idea to live site in 4 steps</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <h3 data-es>Conversamos</h3><h3 data-en>We talk</h3>
+        <p data-es>Nos cuentas tu idea por WhatsApp. Definimos objetivos, estilo y contenido.</p>
+        <p data-en>You share your idea over WhatsApp. We define goals, style and content.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h3 data-es>Diseñamos</h3><h3 data-en>We design</h3>
+        <p data-es>Creamos una propuesta visual alineada a tu marca y mercado.</p>
+        <p data-en>We craft a visual proposal aligned to your brand and market.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h3 data-es>Ajustamos</h3><h3 data-en>We refine</h3>
+        <p data-es>Revisamos juntos y pulimos cada detalle hasta dejarlo perfecto.</p>
+        <p data-en>We review together and polish every detail until it's just right.</p>
+      </div>
+      <div class="step">
+        <div class="num">04</div>
+        <h3 data-es>Lanzamos</h3><h3 data-en>We launch</h3>
+        <p data-es>Publicamos tu sitio y te dejamos listo para recibir clientes.</p>
+        <p data-en>We publish your site and hand it over ready to win clients.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
   <section class="contact" id="contacto">
     <div class="contact-container">
-      <div>
-        <h2>¿Listo para zarpar?</h2>
-        <p style="margin-top: 20px; color: #b0c4de;">Cuéntame sobre tu idea y hagámosla realidad. Respondo en menos de 24 horas.</p>
-        <br>
-        <a href="https://wa.me/526241181978" style="color: var(--cyan-light); text-decoration: none; font-weight: 700;">💬 O mándame un WhatsApp directo</a>
+      <div class="contact-info reveal">
+        <h2 data-es>¿Listo para zarpar?</h2><h2 data-en>Ready to set sail?</h2>
+        <p data-es>Cuéntanos sobre tu proyecto y hagámoslo realidad. Respondemos en menos de 24 horas.</p>
+        <p data-en>Tell us about your project and let's make it happen. We reply in under 24 hours.</p>
+        <div class="contact-channels">
+          <a href="https://wa.me/526241181978">
+            <span class="ch-icon">💬</span>
+            <span>WhatsApp<small data-es>Escríbenos directo · respuesta rápida</small><small data-en>Message us directly · fast reply</small></span>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener">
+            <span class="ch-icon">📸</span>
+            <span>Instagram<small data-es>Mira nuestros últimos proyectos</small><small data-en>See our latest projects</small></span>
+          </a>
+        </div>
       </div>
-      <form class="contact-form" action="https://formsubmit.co/tu_correo@ejemplo.com" method="POST">
-        <input type="text" name="name" placeholder="Tu Nombre" required />
-        <input type="email" name="email" placeholder="Tu Correo" required />
-        <textarea name="message" rows="4" placeholder="¿Cómo puedo ayudarte?" required></textarea>
-        <button type="submit">Enviar Propuesta</button>
+
+      <form class="contact-form reveal" action="https://formsubmit.co/tu_correo@ejemplo.com" method="POST">
+        <label data-es>Nombre</label><label data-en>Name</label>
+        <input type="text" name="name" placeholder="Tu nombre" required />
+        <label data-es>Correo</label><label data-en>Email</label>
+        <input type="email" name="email" placeholder="tu@correo.com" required />
+        <label data-es>Cuéntanos tu idea</label><label data-en>Tell us your idea</label>
+        <textarea name="message" rows="4" placeholder="¿Cómo podemos ayudarte?" required></textarea>
+        <button type="submit" data-es>Enviar propuesta</button>
+        <button type="submit" data-en>Send proposal</button>
       </form>
     </div>
   </section>
 
   <footer>
-    &copy; 2026 Mar de Sitios – Innovación Web desde Los Cabos, B.C.S.
+    <div class="footer-grid">
+      <a href="index.html" class="brand"><span class="wave">🌊</span> Mar de <span>Sitios</span></a>
+      <div class="footer-links">
+        <a href="#inicio" data-es>Inicio</a><a href="#inicio" data-en>Home</a>
+        <a href="portafolio.html" data-es>Portafolio</a><a href="portafolio.html" data-en>Portfolio</a>
+        <a href="#precios" data-es>Planes</a><a href="#precios" data-en>Pricing</a>
+        <a href="https://wa.me/526241181978">WhatsApp</a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 Mar de Sitios — <span data-es>Innovación web desde Los Cabos, B.C.S.</span><span data-en>Web innovation from Los Cabos, B.C.S.</span></p>
   </footer>
 
+  <script>
+    function setLang(lang) {
+      document.body.classList.toggle('en', lang === 'en');
+      document.documentElement.lang = lang;
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      try { localStorage.setItem('mds-lang', lang); } catch(e) {}
+    }
+    (function() {
+      var saved = 'es';
+      try { saved = localStorage.getItem('mds-lang') || 'es'; } catch(e) {}
+      setLang(saved);
+    })();
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
 </body>
 </html>
