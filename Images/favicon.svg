@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a3346"/>
+      <stop offset="1" stop-color="#04161f"/>
+    </linearGradient>
+    <linearGradient id="waveTop" x1="0.2" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#5fe0f5"/>
+      <stop offset="0.5" stop-color="#24ceea"/>
+      <stop offset="1" stop-color="#0a7ea4"/>
+    </linearGradient>
+    <linearGradient id="waveBack" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a7ea4"/>
+      <stop offset="1" stop-color="#006494"/>
+    </linearGradient>
+    <linearGradient id="foam" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d8f6fc"/>
+    </linearGradient>
+  </defs>
+
+  <!-- rounded background -->
+  <rect x="0" y="0" width="64" height="64" rx="15" fill="url(#bg)"/>
+
+  <!-- deep back swell -->
+  <path d="M2 46 C14 40, 22 50, 34 46 C44 43, 52 36, 62 40 L62 64 L2 64 Z"
+        fill="url(#waveBack)" opacity="0.6"/>
+
+  <!-- breaking wave: the barrel -->
+  <path d="M8 50
+           C8 36, 18 24, 34 24
+           C46 24, 54 31, 54 40
+           C54 33, 47 29, 40 30
+           C32 31, 27 38, 28 46
+           C29 52, 35 55, 41 53
+           C36 58, 27 58, 21 54
+           C14 49, 12 40, 18 33
+           C13 38, 12 45, 15 51 Z"
+        fill="url(#waveTop)"/>
+
+  <!-- curling foam crest -->
+  <path d="M34 24
+           C44 23, 52 28, 54 36
+           C50 31, 43 29, 38 31
+           C42 28, 41 25, 34 24 Z"
+        fill="url(#foam)"/>
+
+  <!-- spray dots -->
+  <circle cx="50" cy="27" r="2.4" fill="url(#foam)"/>
+  <circle cx="56" cy="32" r="1.6" fill="#ffffff" opacity="0.9"/>
+  <circle cx="53" cy="22" r="1.4" fill="#ffffff" opacity="0.8"/>
+
+  <!-- base waterline -->
+  <path d="M2 52 C16 47, 24 55, 36 51 C46 48, 54 44, 62 47 L62 64 L2 64 Z"
+        fill="url(#waveTop)" opacity="0.85"/>
+</svg>
