@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portafolio | Mar de Sitios</title>
-  <meta name="description" content="Proyectos web realizados por Mar de Sitios en Los Cabos, B.C.S. Real estate, hospitalidad, turismo y más." />
+  <title>Portafolio · Mar de Sitios</title>
+  <meta name="description" content="Proyectos web de Mar de Sitios en Los Cabos, B.C.S. Automotriz, editorial, turismo y más." />
   <link rel="icon" type="image/svg+xml" href="Images/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon-16.png" />
@@ -12,231 +12,152 @@
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --primary-dark: #04161f;
-      --ocean-blue: #006494;
-      --ocean-mid: #0a7ea4;
-      --cyan-light: #24ceea;
-      --cyan-soft: #5fe0f5;
-      --white: #ffffff;
-      --accent-gold: #f4bb33;
-      --text-gray: #c4d4dd;
-      --surface-light: #f6f9fb;
-      --ink: #1c2a31;
-      --ink-soft: #5a6b73;
+      --teal: #18787f; --teal-deep: #0d4f54; --teal-soft: #4aa3a8;
+      --ink: #0f2b30; --ink-2: #0a2024;
+      --sand: #efe7d7; --cream: #faf7f0;
+      --gold: #c9a24c; --gold-light: #ddbd73;
+      --text: #16242a; --text-mid: #5b6a70; --text-soft: #8a979c;
+      --line: rgba(15,43,48,0.12); --white: #ffffff;
+      --shadow-soft: 0 24px 60px rgba(15,43,48,0.10);
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
 
-    body {
-      font-family: "Poppins", sans-serif;
-      background-color: var(--primary-dark);
-      color: var(--white);
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
-    h1, h2, h3, .brand { font-family: "Sora", sans-serif; }
+    .eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: inline-flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+    .eyebrow::before { content: ''; width: 34px; height: 1px; background: var(--gold); display: block; }
+    .eyebrow.center { justify-content: center; }
+    .eyebrow.light { color: var(--gold-light); }
+    .section-title { font-size: clamp(2.1rem, 4vw, 3.2rem); line-height: 1.12; color: var(--ink); letter-spacing: -0.01em; }
 
-    /* ===== NAV ===== */
-    nav {
-      background-color: rgba(4, 22, 31, 0.85);
-      padding: 16px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .brand {
-      font-weight: 800; font-size: 1.15rem; letter-spacing: 0.5px;
-      color: var(--white); display: flex; align-items: center; gap: 9px; text-decoration: none;
-    }
-    .brand .wave { color: var(--cyan-light); font-size: 1.4rem; }
-    .brand span { color: var(--cyan-light); }
-    .nav-links { display: flex; align-items: center; gap: 6px; }
-    nav a.link {
-      color: var(--text-gray); text-decoration: none; padding: 8px 14px;
-      font-size: 0.82rem; font-weight: 500; text-transform: uppercase;
-      letter-spacing: 1px; border-radius: 8px; transition: color 0.25s ease, background 0.25s ease;
-    }
-    nav a.link:hover { color: var(--white); background: rgba(36, 206, 234, 0.12); }
-    .lang-toggle { display: flex; margin-left: 12px; border: 1px solid rgba(255,255,255,0.18); border-radius: 30px; overflow: hidden; }
-    .lang-toggle button {
-      background: transparent; color: var(--text-gray); border: none; padding: 6px 14px;
-      font-size: 0.78rem; font-weight: 700; cursor: pointer; letter-spacing: 0.5px; transition: all 0.25s ease;
-    }
-    .lang-toggle button.active { background: var(--cyan-light); color: var(--primary-dark); }
+    .btn { display: inline-flex; align-items: center; gap: 10px; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; padding: 15px 34px; border-radius: 2px; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: background .3s, color .3s, border-color .3s, transform .3s; }
+    .btn-gold { background: var(--gold); color: var(--ink); }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-teal { background: var(--teal); color: #fff; }
+    .btn-teal:hover { background: var(--teal-deep); transform: translateY(-2px); }
+    .btn-outline { border-color: var(--line); color: var(--ink); background: transparent; }
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+    .btn-ghost-light { border: 1px solid rgba(255,255,255,0.35); color: #fff; }
+    .btn-ghost-light:hover { border-color: var(--gold); background: rgba(201,162,76,0.12); }
 
-    /* ===== HERO ===== */
-    .hero {
-      position: relative;
-      min-height: 56vh;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center;
-      background: linear-gradient(rgba(4, 22, 31, 0.78), rgba(4, 22, 31, 0.93)),
-                  url('Images/banner-mar-tecnologia.png');
-      background-size: cover; background-position: center;
-      padding: 60px 20px;
-    }
-    .hero::after {
-      content: ""; position: absolute; bottom: -1px; left: 0; width: 100%; height: 100px;
-      background: linear-gradient(to top, var(--primary-dark), transparent); pointer-events: none;
-    }
-    .hero-tag {
-      color: var(--cyan-light); font-weight: 600; font-size: 0.8rem;
-      letter-spacing: 3px; text-transform: uppercase; margin-bottom: 18px;
-    }
-    .hero-title {
-      font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; letter-spacing: -1px;
-    }
-    .hero-title span {
-      background: linear-gradient(120deg, var(--cyan-light), var(--accent-gold));
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .hero-subtitle {
-      margin-top: 18px; font-size: clamp(1rem, 2.2vw, 1.2rem); max-width: 660px;
-      font-weight: 300; color: var(--text-gray);
-    }
+    /* NAV (shared) */
+    nav { position: fixed; inset: 0 0 auto 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; transition: background .4s, padding .4s, box-shadow .4s, border-color .4s; border-bottom: 1px solid transparent; }
+    nav.scrolled { background: rgba(250,247,240,0.92); backdrop-filter: blur(12px); padding: 12px 40px; border-bottom: 1px solid var(--line); }
+    .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-brand .logo-plate { display: flex; align-items: center; justify-content: center; background: var(--cream); border-radius: 50%; padding: 6px; width: 48px; height: 48px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,0.18); transition: all .4s; }
+    nav.scrolled .nav-brand .logo-plate { width: 42px; height: 42px; box-shadow: none; }
+    .nav-brand .logo-plate img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .nav-brand .bmark { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: #fff; letter-spacing: 0.04em; transition: color .4s; white-space: nowrap; }
+    nav.scrolled .nav-brand .bmark { color: var(--ink); }
+    .nav-brand .bmark b { font-weight: 600; color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 30px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; transition: color .3s; }
+    nav.scrolled .nav-links a { color: var(--text-mid); }
+    .nav-links a:hover { color: var(--gold); }
+    nav.scrolled .nav-links a:hover { color: var(--teal); }
+    .nav-cta { font-size: 0.7rem; padding: 11px 22px; }
+    .lang-toggle { display: flex; border: 1px solid rgba(255,255,255,0.4); border-radius: 2px; overflow: hidden; }
+    nav.scrolled .lang-toggle { border-color: var(--line); }
+    .lang-toggle button { background: transparent; border: none; cursor: pointer; padding: 6px 11px; font-family: 'Inter', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; color: rgba(255,255,255,0.75); transition: all .25s; }
+    nav.scrolled .lang-toggle button { color: var(--text-soft); }
+    .lang-toggle button.active { background: var(--gold); color: var(--ink); }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .nav-burger span { width: 24px; height: 2px; background: #fff; transition: background .4s; }
+    nav.scrolled .nav-burger span { background: var(--ink); }
 
-    /* ===== PORTFOLIO ===== */
-    .portfolio-section { padding: 100px 5% 90px; }
-    .portfolio-head { text-align: center; max-width: 700px; margin: 0 auto 60px; }
-    .portfolio-head .section-tag {
-      color: var(--cyan-light); font-weight: 600; font-size: 0.8rem;
-      letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 14px;
-    }
-    .portfolio-head h2 { font-size: clamp(1.9rem, 5vw, 2.8rem); letter-spacing: -0.5px; margin-bottom: 14px; }
-    .portfolio-head p { color: var(--text-gray); font-weight: 300; font-size: 1.05rem; }
+    /* HERO */
+    .hero { position: relative; min-height: 64vh; display: flex; align-items: center; padding: 150px 0 90px; overflow: hidden; background: radial-gradient(120% 90% at 80% 10%, rgba(201,162,76,0.10), transparent 55%), linear-gradient(155deg, var(--ink) 0%, var(--ink-2) 60%, #06181b 100%); }
+    .hero::before { content: ''; position: absolute; inset: 0; opacity: .5; background-image: repeating-linear-gradient(0deg, transparent, transparent 46px, rgba(255,255,255,0.025) 47px), repeating-linear-gradient(90deg, transparent, transparent 46px, rgba(255,255,255,0.025) 47px); }
+    .hero .wrap { position: relative; z-index: 2; }
+    .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.05; color: #fff; letter-spacing: -0.01em; margin-bottom: 24px; max-width: 16ch; }
+    .hero h1 .accent { color: var(--gold-light); font-style: italic; }
+    .hero p { font-size: 1.02rem; font-weight: 300; color: rgba(255,255,255,0.72); max-width: 54ch; line-height: 1.85; }
+    .hero-meta { display: flex; gap: 40px; margin-top: 44px; flex-wrap: wrap; }
+    .hero-meta .m { display: flex; flex-direction: column; }
+    .hero-meta .m b { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold-light); font-weight: 500; line-height: 1; }
+    .hero-meta .m span { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 6px; }
 
-    .portfolio-grid {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 34px;
-    }
-    .project-card {
-      background: rgba(255,255,255,0.03);
-      border-radius: 22px; overflow: hidden;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
-      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-      border: 1px solid rgba(255,255,255,0.08);
-      display: flex; flex-direction: column;
-    }
-    .project-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 28px 55px rgba(0, 0, 0, 0.4);
-      border-color: rgba(36, 206, 234, 0.45);
-    }
-    .project-img-container { overflow: hidden; height: 230px; position: relative; }
-    .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-    .project-card:hover img { transform: scale(1.08); }
-    .project-img-container::after {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(4,22,31,0.6), transparent 55%);
-    }
-    .project-body { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
-    .project-type {
-      font-size: 0.74rem; text-transform: uppercase; letter-spacing: 1.5px;
-      color: var(--cyan-light); font-weight: 700; margin-bottom: 12px; display: block;
-    }
-    .project-title { font-size: 1.45rem; color: var(--white); margin-bottom: 10px; }
-    .project-desc { font-size: 0.95rem; color: var(--text-gray); font-weight: 300; margin-bottom: 24px; flex-grow: 1; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
-    .project-tags span {
-      font-size: 0.72rem; padding: 5px 12px; border-radius: 30px;
-      background: rgba(36,206,234,0.1); color: var(--cyan-soft); border: 1px solid rgba(36,206,234,0.2);
-    }
-    .project-link a {
-      color: var(--white); text-decoration: none; font-weight: 700; font-size: 0.9rem;
-      display: inline-flex; align-items: center; gap: 7px; transition: gap 0.25s ease, color 0.25s ease;
-    }
-    .project-link a:hover { color: var(--cyan-light); gap: 12px; }
+    /* PROJECTS — editorial alternating rows */
+    .work { padding: 120px 0; background: var(--cream); }
+    .work-head { max-width: 640px; margin-bottom: 80px; }
+    .work-head .section-title { margin-bottom: 18px; }
+    .work-head p { color: var(--text-mid); font-weight: 300; }
 
-    .project-card.cta-card {
-      border-style: dashed; border-color: rgba(36,206,234,0.4); background: transparent;
-      align-items: center; justify-content: center; text-align: center; padding: 50px 30px;
-    }
-    .project-card.cta-card:hover { transform: translateY(-12px); background: rgba(36,206,234,0.04); }
-    .cta-card .plus {
-      width: 60px; height: 60px; border-radius: 50%;
-      border: 2px solid var(--cyan-light); color: var(--cyan-light);
-      display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
-      margin: 0 auto 22px;
-    }
-    .cta-card h3 { font-size: 1.4rem; margin-bottom: 10px; }
-    .cta-card p { color: var(--text-gray); font-weight: 300; margin-bottom: 24px; }
-    .cta-card a.btn {
-      display: inline-block; background: linear-gradient(120deg, var(--cyan-light), var(--ocean-mid));
-      color: var(--primary-dark); padding: 13px 28px; border-radius: 40px;
-      text-decoration: none; font-weight: 600; transition: transform 0.2s ease;
-    }
-    .cta-card a.btn:hover { transform: translateY(-2px); }
+    .project { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; margin-bottom: 110px; }
+    .project:last-child { margin-bottom: 0; }
+    .project.flip .project-media { order: 2; }
+    .project-media { position: relative; border-radius: 4px; overflow: hidden; box-shadow: var(--shadow-soft); background: var(--ink); aspect-ratio: 16 / 11; }
+    .project-media img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .8s ease; }
+    .project-media:hover img { transform: scale(1.04); }
+    .project-num { position: absolute; top: 18px; left: 22px; z-index: 2; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.9); letter-spacing: 0.1em; background: rgba(15,43,48,0.45); backdrop-filter: blur(4px); padding: 4px 12px; border-radius: 2px; }
 
-    /* ===== TESTIMONIALS ===== */
-    .testimonials {
-      padding: 100px 5%;
-      background: var(--surface-light);
-      color: var(--ink); text-align: center;
-    }
-    .testimonials .section-tag {
-      color: var(--ocean-blue); font-weight: 600; font-size: 0.8rem;
-      letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 14px;
-    }
-    .testimonials h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); color: var(--primary-dark); margin-bottom: 50px; letter-spacing: -0.5px; }
-    .testimonials-grid {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px;
-    }
-    .testimonial-card {
-      background: white; padding: 38px 32px; border-radius: 20px; text-align: left;
-      border: 1px solid #e7edf1; box-shadow: 0 10px 30px rgba(5,25,35,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .testimonial-card:hover { transform: translateY(-8px); box-shadow: 0 20px 45px rgba(5,25,35,0.12); }
-    .testimonial-stars { color: var(--accent-gold); margin-bottom: 16px; font-size: 1rem; letter-spacing: 2px; }
-    .testimonial-text { color: #44555d; margin-bottom: 24px; font-size: 1rem; }
-    .testimonial-author { font-weight: 700; color: var(--primary-dark); }
-    .testimonial-role { font-size: 0.82rem; color: var(--ink-soft); }
+    .project-sector { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); font-weight: 700; margin-bottom: 16px; }
+    .project-body h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); color: var(--ink); line-height: 1.1; margin-bottom: 16px; }
+    .project-body > p { font-size: 0.95rem; color: var(--text-mid); font-weight: 300; line-height: 1.85; margin-bottom: 24px; max-width: 48ch; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+    .project-tags span { font-size: 0.7rem; letter-spacing: 0.04em; padding: 6px 14px; border: 1px solid var(--line); border-radius: 30px; color: var(--text-mid); }
+    .project-link { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .project-link::after { content: ''; width: 22px; height: 1px; background: var(--gold); transition: width .3s; }
+    .project-link:hover { color: var(--teal); }
+    .project-link:hover::after { width: 36px; }
 
-    /* ===== CTA BANNER ===== */
-    .cta-banner {
-      padding: 90px 8%; text-align: center;
-      background: linear-gradient(135deg, var(--ocean-blue), var(--primary-dark));
-    }
-    .cta-banner h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); margin-bottom: 16px; letter-spacing: -0.5px; }
-    .cta-banner p { color: var(--text-gray); font-weight: 300; max-width: 560px; margin: 0 auto 32px; font-size: 1.05rem; }
-    .cta-banner a {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: linear-gradient(120deg, var(--cyan-light), var(--cyan-soft));
-      color: var(--primary-dark); padding: 16px 36px; border-radius: 40px;
-      text-decoration: none; font-weight: 700; font-size: 1rem;
-      box-shadow: 0 12px 35px rgba(36,206,234,0.3); transition: transform 0.25s ease;
-    }
-    .cta-banner a:hover { transform: translateY(-3px); }
+    /* CTA next project */
+    .next-cta { padding: 110px 0; background: linear-gradient(160deg, var(--teal-deep) 0%, var(--ink) 100%); text-align: center; position: relative; overflow: hidden; }
+    .next-cta::before { content: ''; position: absolute; inset: 0; opacity: .5; background-image: repeating-linear-gradient(0deg, transparent, transparent 46px, rgba(255,255,255,0.03) 47px); }
+    .next-cta .wrap { position: relative; z-index: 2; }
+    .next-cta h2 { font-size: clamp(2rem, 4vw, 3rem); color: #fff; margin-bottom: 18px; }
+    .next-cta p { color: rgba(255,255,255,0.7); font-weight: 300; max-width: 52ch; margin: 0 auto 36px; }
+    .next-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-    /* ===== FOOTER ===== */
-    footer { padding: 50px 8% 36px; background: #020d12; border-top: 1px solid rgba(255,255,255,0.06); }
-    .footer-grid {
-      max-width: 1080px; margin: 0 auto 30px; display: flex;
-      justify-content: space-between; flex-wrap: wrap; gap: 24px; align-items: center;
-    }
-    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
-    .footer-links a { color: var(--text-gray); text-decoration: none; font-size: 0.88rem; transition: color 0.25s; }
-    .footer-links a:hover { color: var(--cyan-light); }
-    .footer-copy { text-align: center; font-size: 0.82rem; color: #4a5b63; }
+    /* TESTIMONIALS */
+    .testimonials { padding: 110px 0; background: var(--white); }
+    .testimonials-head { text-align: center; margin-bottom: 56px; }
+    .testimonials-head h2 { color: var(--ink); font-size: clamp(2rem, 3.6vw, 2.8rem); }
+    .tgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .tcard { background: var(--cream); border: 1px solid var(--line); border-radius: 4px; padding: 38px 34px; }
+    .tcard .quote { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--gold); line-height: 0.5; margin-bottom: 20px; display: block; height: 22px; }
+    .tcard p { font-size: 0.94rem; color: var(--text); font-weight: 300; font-style: italic; line-height: 1.8; margin-bottom: 26px; }
+    .tcard .t-author { font-weight: 600; color: var(--ink); font-size: 0.9rem; }
+    .tcard .t-role { font-size: 0.76rem; color: var(--text-soft); margin-top: 3px; }
 
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    /* FOOTER (shared) */
+    footer { background: var(--ink-2); padding: 70px 0 30px; }
+    .footer-top { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; padding-bottom: 46px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-brand { max-width: 300px; }
+    .footer-brand .fb-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #fff; letter-spacing: 0.04em; margin-bottom: 14px; }
+    .footer-brand .fb-name b { color: var(--gold); font-weight: 600; }
+    .footer-brand p { font-size: 0.82rem; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.8; }
+    .footer-cols { display: flex; gap: 70px; flex-wrap: wrap; }
+    .footer-col h4 { font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; font-weight: 600; }
+    .footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 12px; font-weight: 300; transition: color .3s; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-bottom p { font-size: 0.74rem; color: rgba(255,255,255,0.35); font-weight: 300; }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .reveal { opacity: 1 !important; transform: none !important; } }
 
-    @media (max-width: 720px) {
-      nav { flex-direction: column; gap: 12px; padding: 14px 5%; }
-      .nav-links { flex-wrap: wrap; justify-content: center; }
-      nav a.link { padding: 6px 10px; font-size: 0.72rem; }
-      .lang-toggle { margin-left: 0; }
+    @media (max-width: 960px) {
+      .project, .project.flip { grid-template-columns: 1fr; gap: 28px; margin-bottom: 72px; }
+      .project.flip .project-media { order: 0; }
+    }
+    @media (max-width: 860px) {
+      .wrap { padding: 0 24px; }
+      nav, nav.scrolled { padding: 14px 24px; }
+      .nav-right { position: fixed; inset: 0 0 0 auto; width: min(80vw, 320px); background: var(--ink); flex-direction: column; align-items: flex-start; justify-content: center; gap: 30px; padding: 40px; transform: translateX(100%); transition: transform .4s; box-shadow: -20px 0 50px rgba(0,0,0,0.3); }
+      .nav-right.open { transform: translateX(0); }
+      .nav-links { flex-direction: column; gap: 22px; }
+      .nav-links a, nav.scrolled .nav-links a { color: rgba(255,255,255,0.85); font-size: 0.85rem; }
+      .nav-burger { display: flex; z-index: 210; }
+      .tgrid { grid-template-columns: 1fr; }
+      .work, .testimonials, .next-cta { padding: 80px 0; }
     }
 
     body:not(.en) [data-en] { display: none !important; }
@@ -245,175 +166,223 @@
 </head>
 <body>
 
-  <nav>
-    <a href="index.html" class="brand"><span class="wave">🌊</span> Mar de <span>Sitios</span></a>
-    <div class="nav-links">
-      <a href="index.html" class="link" data-es>Inicio</a><a href="index.html" class="link" data-en>Home</a>
-      <a href="portafolio.html" class="link" data-es>Portafolio</a><a href="portafolio.html" class="link" data-en>Portfolio</a>
-      <a href="index.html#precios" class="link" data-es>Planes</a><a href="index.html#precios" class="link" data-en>Pricing</a>
-      <a href="index.html#contacto" class="link" data-es>Contacto</a><a href="index.html#contacto" class="link" data-en>Contact</a>
+  <nav id="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="logo-plate"><img src="Images/compass-mark.png" alt="Mar de Sitios" onerror="this.parentElement.style.display='none'" /></span>
+      <span class="bmark">Mar de <b>Sitios</b></span>
+    </a>
+    <button class="nav-burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+    <div class="nav-right" id="navRight">
+      <ul class="nav-links">
+        <li><a href="index.html#beneficios" data-es>Servicios</a><a href="index.html#beneficios" data-en>Services</a></li>
+        <li><a href="portafolio.html" data-es>Proyectos</a><a href="portafolio.html" data-en>Work</a></li>
+        <li><a href="index.html#paquetes" data-es>Paquetes</a><a href="index.html#paquetes" data-en>Pricing</a></li>
+        <li><a href="index.html#proceso" data-es>Proceso</a><a href="index.html#proceso" data-en>Process</a></li>
+        <li><a href="index.html#faq" data-es>Preguntas</a><a href="index.html#faq" data-en>FAQ</a></li>
+      </ul>
       <div class="lang-toggle">
         <button id="btn-es" class="active" onclick="setLang('es')">ES</button>
         <button id="btn-en" onclick="setLang('en')">EN</button>
       </div>
+      <a href="index.html#contacto" class="btn btn-gold nav-cta" data-es>Cotiza tu proyecto</a>
+      <a href="index.html#contacto" class="btn btn-gold nav-cta" data-en>Get a quote</a>
     </div>
   </nav>
 
-  <section class="hero">
-    <p class="hero-tag" data-es>Nuestro trabajo</p><p class="hero-tag" data-en>Our work</p>
-    <h1 class="hero-title" data-es>Nuestra <span>Estela</span></h1>
-    <h1 class="hero-title" data-en>Our <span>Wake</span></h1>
-    <p class="hero-subtitle" data-es>Proyectos que han transformado la presencia digital de negocios en Los Cabos. Calidad, velocidad y diseño de vanguardia.</p>
-    <p class="hero-subtitle" data-en>Projects that transformed the digital presence of businesses across Los Cabos. Quality, speed and cutting-edge design.</p>
-  </section>
-
-  <section class="portfolio-section">
-    <div class="portfolio-head reveal">
-      <span class="section-tag" data-es>Portafolio</span><span class="section-tag" data-en>Portfolio</span>
-      <h2 data-es>Proyectos destacados</h2><h2 data-en>Featured projects</h2>
-      <p data-es>Una selección de sitios que hemos diseñado y desarrollado para marcas de la región.</p>
-      <p data-en>A selection of sites we've designed and built for brands across the region.</p>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow light" data-es>Portafolio</div><div class="eyebrow light" data-en>Portfolio</div>
+      <h1 data-es>Nuestra <span class="accent">estela</span></h1>
+      <h1 data-en>Our <span class="accent">wake</span></h1>
+      <p data-es>Proyectos que ya están en línea, ayudando a negocios de Los Cabos a verse profesionales y recibir contactos. Cada uno, diseñado a la medida.</p>
+      <p data-en>Live projects helping Los Cabos businesses look professional and receive contacts. Each one, tailored from scratch.</p>
+      <div class="hero-meta">
+        <div class="m"><b>3</b><span data-es>Sectores</span><span data-en>Sectors</span></div>
+        <div class="m"><b>ES · EN</b><span data-es>Sitios bilingües</span><span data-en>Bilingual sites</span></div>
+        <div class="m"><b>100%</b><span data-es>A la medida</span><span data-en>Custom-built</span></div>
+      </div>
     </div>
+  </header>
 
-    <div class="portfolio-grid">
+  <!-- PROJECTS -->
+  <section class="work">
+    <div class="wrap">
+      <div class="work-head reveal">
+        <div class="eyebrow" data-es>Proyectos destacados</div><div class="eyebrow" data-en>Selected work</div>
+        <h2 class="section-title" data-es>Trabajo real, en línea</h2><h2 class="section-title" data-en>Real work, live online</h2>
+        <p data-es>Una selección de sitios diseñados y desarrollados para marcas de la región.</p>
+        <p data-en>A selection of sites designed and built for brands across the region.</p>
+      </div>
 
-      <!-- GABRIEL HENKEL (NUEVO) -->
-      <article class="project-card reveal">
-        <div class="project-img-container">
-          <img src="Images/pagegabrielhenkel.png" alt="La Hacienda de las Rosas - Gabriel Henkel">
-        </div>
+      <!-- 1 · Los Cabos Motors -->
+      <article class="project reveal">
+        <a href="https://loscabosmotors.com" target="_blank" rel="noopener" class="project-media">
+          <span class="project-num">01</span>
+          <img src="Images/pagecabosmotors.png" alt="Los Cabos Motors" />
+        </a>
         <div class="project-body">
-          <span class="project-type" data-es>Editorial · Literatura</span><span class="project-type" data-en>Publishing · Literature</span>
-          <h3 class="project-title">La Hacienda de las Rosas</h3>
-          <p class="project-desc" data-es>Landing bilingüe para la novela de Gabriel Henkel. Cuenta regresiva al lanzamiento, pétalos animados y una estética de hacienda vintage en tonos vino y oro.</p>
-          <p class="project-desc" data-en>Bilingual landing page for Gabriel Henkel's novel. Countdown to release, animated rose petals and a vintage hacienda aesthetic in wine and gold tones.</p>
+          <div class="project-sector" data-es>Automotriz · Compra-venta</div><div class="project-sector" data-en>Automotive · Marketplace</div>
+          <h2>Los Cabos Motors</h2>
+          <p data-es>Un sitio elegante y directo para la compra-venta de autos de alta gama. Cada vehículo se presenta con su ficha, galería y precio, y el cliente contacta al instante por WhatsApp.</p>
+          <p data-en>An elegant, direct site for buying and selling high-end cars. Each vehicle gets its own listing, gallery and price, and clients reach out instantly via WhatsApp.</p>
+          <div class="project-tags">
+            <span data-es>Fichas de vehículos</span><span data-en>Vehicle listings</span>
+            <span data-es>Galería</span><span data-en>Gallery</span>
+            <span>WhatsApp</span>
+            <span data-es>Responsive</span><span data-en>Responsive</span>
+          </div>
+          <a href="https://loscabosmotors.com" target="_blank" rel="noopener" class="project-link" data-es>Ver sitio en vivo</a>
+          <a href="https://loscabosmotors.com" target="_blank" rel="noopener" class="project-link" data-en>View live site</a>
+        </div>
+      </article>
+
+      <!-- 2 · Gabriel Henkel -->
+      <article class="project flip reveal">
+        <a href="https://gabrielhenkel.com/" target="_blank" rel="noopener" class="project-media">
+          <span class="project-num">02</span>
+          <img src="Images/pagegabrielhenkel.png" alt="La Hacienda de las Rosas — Gabriel Henkel" />
+        </a>
+        <div class="project-body">
+          <div class="project-sector" data-es>Editorial · Literatura</div><div class="project-sector" data-en>Publishing · Literature</div>
+          <h2>La Hacienda de las Rosas</h2>
+          <p data-es>Landing bilingüe para la novela de Gabriel Henkel. Cuenta regresiva al lanzamiento, pétalos animados y una estética de hacienda vintage en tonos vino y oro que envuelve al lector.</p>
+          <p data-en>A bilingual landing page for Gabriel Henkel's novel. A release countdown, animated petals and a vintage hacienda aesthetic in wine and gold tones that draws the reader in.</p>
           <div class="project-tags">
             <span data-es>Bilingüe</span><span data-en>Bilingual</span>
             <span data-es>Cuenta regresiva</span><span data-en>Countdown</span>
             <span data-es>Animaciones</span><span data-en>Animations</span>
           </div>
-          <p class="project-link"><a href="https://gabrielhenkel.com/" target="_blank" rel="noopener"><span data-es>Explorar sitio</span><span data-en>Explore site</span> →</a></p>
+          <a href="https://gabrielhenkel.com/" target="_blank" rel="noopener" class="project-link" data-es>Ver sitio en vivo</a>
+          <a href="https://gabrielhenkel.com/" target="_blank" rel="noopener" class="project-link" data-en>View live site</a>
         </div>
       </article>
 
-      <!-- LOS CABOS MOTORS -->
-      <article class="project-card reveal">
-        <div class="project-img-container">
-          <img src="Images/pagecabosmotors.png" alt="Los Cabos Motors">
-        </div>
+      <!-- 3 · Ride W Me Cabo -->
+      <article class="project reveal">
+        <a href="https://ridewmecabo.com" target="_blank" rel="noopener" class="project-media">
+          <span class="project-num">03</span>
+          <img src="Images/pagerwmc.png" alt="Ride W Me Cabo" />
+        </a>
         <div class="project-body">
-          <span class="project-type" data-es>Automotriz · Luxury</span><span class="project-type" data-en>Automotive · Luxury</span>
-          <h3 class="project-title">Los Cabos Motors</h3>
-          <p class="project-desc" data-es>Diseño agresivo y elegante para compra-venta de autos de alta gama. Optimizado para mostrar cada detalle técnico y visual.</p>
-          <p class="project-desc" data-en>Bold, elegant design for buying and selling high-end vehicles. Optimized to showcase every technical and visual detail.</p>
+          <div class="project-sector" data-es>Turismo · Transporte privado</div><div class="project-sector" data-en>Tourism · Private transport</div>
+          <h2>Ride W Me Cabo</h2>
+          <p data-es>Plataforma clara para servicios de transporte privado dirigidos al turista. El diseño prioriza la facilidad para reservar y transmitir confianza desde el primer momento.</p>
+          <p data-en>A clear platform for private transport aimed at travelers. The design puts easy booking first and builds trust from the very first moment.</p>
           <div class="project-tags">
-            <span>Luxury</span><span>Responsive</span><span data-es>Galería</span><span data-en>Gallery</span>
+            <span data-es>Reservas</span><span data-en>Booking</span>
+            <span data-es>Turismo</span><span data-en>Tourism</span>
+            <span>WhatsApp</span>
+            <span data-es>Responsive</span><span data-en>Responsive</span>
           </div>
-          <p class="project-link"><a href="https://loscabosmotors.com" target="_blank" rel="noopener"><span data-es>Explorar sitio</span><span data-en>Explore site</span> →</a></p>
+          <a href="https://ridewmecabo.com" target="_blank" rel="noopener" class="project-link" data-es>Ver sitio en vivo</a>
+          <a href="https://ridewmecabo.com" target="_blank" rel="noopener" class="project-link" data-en>View live site</a>
         </div>
       </article>
-
-      <!-- RIDE W ME CABO -->
-      <article class="project-card reveal">
-        <div class="project-img-container">
-          <img src="Images/pagerwmc.png" alt="Ride W Me Cabo">
-        </div>
-        <div class="project-body">
-          <span class="project-type" data-es>Turismo · Transporte</span><span class="project-type" data-en>Tourism · Transport</span>
-          <h3 class="project-title">Ride W Me Cabo</h3>
-          <p class="project-desc" data-es>Plataforma intuitiva para servicios de transporte privado. Enfoque en la facilidad de reserva y la confianza del turista.</p>
-          <p class="project-desc" data-en>Intuitive platform for private transport services. Focused on easy booking and traveler trust.</p>
-          <div class="project-tags">
-            <span data-es>Reservas</span><span data-en>Booking</span><span data-es>Turismo</span><span data-en>Tourism</span><span>WhatsApp</span>
-          </div>
-          <p class="project-link"><a href="https://ridewmecabo.com" target="_blank" rel="noopener"><span data-es>Explorar sitio</span><span data-en>Explore site</span> →</a></p>
-        </div>
-      </article>
-
-      <!-- CTA CARD -->
-      <article class="project-card cta-card reveal">
-        <div>
-          <div class="plus">+</div>
-          <h3 data-es>Tu proyecto aquí</h3><h3 data-en>Your project here</h3>
-          <p data-es>Estamos listos para llevar tu marca al siguiente nivel digital.</p>
-          <p data-en>We're ready to take your brand to the next digital level.</p>
-          <a href="index.html#contacto" class="btn" data-es>¡Empezar ahora!</a>
-          <a href="index.html#contacto" class="btn" data-en>Start now!</a>
-        </div>
-      </article>
-
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
   <section class="testimonials">
-    <span class="section-tag" data-es>Testimonios</span><span class="section-tag" data-en>Testimonials</span>
-    <h2 data-es>Confianza en el puerto</h2><h2 data-en>Trusted at port</h2>
-    <div class="testimonials-grid">
-      <article class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text" data-es>"Mi primera página web superó lo que tenía en mente. Se ve agresiva, elegante y transmite justo el estilo de mis autos."</p>
-        <p class="testimonial-text" data-en>"My first website went beyond what I had in mind. It looks bold, elegant and captures exactly the style of my cars."</p>
-        <p class="testimonial-author">Manuel Serrato</p>
-        <p class="testimonial-role" data-es>Fundador, Los Cabos Motors</p><p class="testimonial-role" data-en>Founder, Los Cabos Motors</p>
-      </article>
-
-      <article class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text" data-es>"Muy rápido y claro. Aportó ideas mientras armábamos la página y quedó perfecta para mi marca personal."</p>
-        <p class="testimonial-text" data-en>"Fast and clear. He brought ideas as we built the page and it turned out perfect for my personal brand."</p>
-        <p class="testimonial-author">Benito Meraz</p>
-        <p class="testimonial-role" data-es>Emprendedor Digital</p><p class="testimonial-role" data-en>Digital Entrepreneur</p>
-      </article>
-
-      <article class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text" data-es>"La atención al detalle y entender lo que el mercado de Los Cabos necesita es lo que los hace diferentes."</p>
-        <p class="testimonial-text" data-en>"Their attention to detail and understanding of what the Los Cabos market needs is what sets them apart."</p>
-        <p class="testimonial-author" data-es>Próximo Cliente</p><p class="testimonial-author" data-en>Next Client</p>
-        <p class="testimonial-role" data-es>Tu éxito aquí</p><p class="testimonial-role" data-en>Your success here</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- CTA BANNER -->
-  <section class="cta-banner reveal">
-    <h2 data-es>¿Te gusta lo que ves?</h2><h2 data-en>Like what you see?</h2>
-    <p data-es>Hagamos que tu negocio sea el próximo proyecto destacado de Mar de Sitios.</p>
-    <p data-en>Let's make your business the next featured project from Mar de Sitios.</p>
-    <a href="https://wa.me/526241181978?text=Hola,%20vi%20su%20portafolio%20y%20quiero%20una%20página"><span data-es>💬 Hablemos por WhatsApp</span><span data-en>💬 Let's chat on WhatsApp</span></a>
-  </section>
-
-  <footer>
-    <div class="footer-grid">
-      <a href="index.html" class="brand"><span class="wave">🌊</span> Mar de <span>Sitios</span></a>
-      <div class="footer-links">
-        <a href="index.html" data-es>Inicio</a><a href="index.html" data-en>Home</a>
-        <a href="portafolio.html" data-es>Portafolio</a><a href="portafolio.html" data-en>Portfolio</a>
-        <a href="index.html#precios" data-es>Planes</a><a href="index.html#precios" data-en>Pricing</a>
-        <a href="https://wa.me/526241181978">WhatsApp</a>
+    <div class="wrap">
+      <div class="testimonials-head reveal">
+        <div class="eyebrow center" data-es>Testimonios</div><div class="eyebrow center" data-en>Testimonials</div>
+        <h2 data-es>Confianza en el puerto</h2><h2 data-en>Trusted at port</h2>
+      </div>
+      <div class="tgrid reveal">
+        <div class="tcard">
+          <span class="quote">"</span>
+          <p data-es>Mi primera página web superó lo que tenía en mente. Se ve elegante y transmite justo el estilo de mis autos.</p>
+          <p data-en>My first website went beyond what I had in mind. It looks elegant and captures exactly the style of my cars.</p>
+          <div class="t-author">Manuel Serrato</div>
+          <div class="t-role" data-es>Fundador, Los Cabos Motors</div><div class="t-role" data-en>Founder, Los Cabos Motors</div>
+        </div>
+        <div class="tcard">
+          <span class="quote">"</span>
+          <p data-es>Muy rápido y claro. Aportó ideas mientras armábamos la página y quedó perfecta para mi marca personal.</p>
+          <p data-en>Fast and clear. He brought ideas as we built the page and it turned out perfect for my personal brand.</p>
+          <div class="t-author">Benito Meraz</div>
+          <div class="t-role" data-es>Emprendedor digital</div><div class="t-role" data-en>Digital entrepreneur</div>
+        </div>
+        <div class="tcard">
+          <span class="quote">"</span>
+          <p data-es>Entendió lo que mi proyecto necesitaba y lo tradujo en un sitio bilingüe que se ve profesional.</p>
+          <p data-en>He understood what my project needed and turned it into a bilingual site that looks professional.</p>
+          <div class="t-author">Gabriel Henkel</div>
+          <div class="t-role" data-es>Autor, La Hacienda de las Rosas</div><div class="t-role" data-en>Author, La Hacienda de las Rosas</div>
+        </div>
       </div>
     </div>
-    <p class="footer-copy">© 2026 Mar de Sitios — <span data-es>Innovación web desde Los Cabos, B.C.S.</span><span data-en>Web innovation from Los Cabos, B.C.S.</span></p>
+  </section>
+
+  <!-- NEXT CTA -->
+  <section class="next-cta">
+    <div class="wrap">
+      <div class="eyebrow center light" data-es>Tu proyecto</div><div class="eyebrow center light" data-en>Your project</div>
+      <h2 data-es>¿Listo para ser el próximo?</h2><h2 data-en>Ready to be next?</h2>
+      <p data-es>Hagamos que tu negocio tenga una página que inspire confianza y genere contactos. Cuéntanos tu idea y te enviamos una propuesta.</p>
+      <p data-en>Let's give your business a site that earns trust and brings in contacts. Tell us your idea and we'll send a proposal.</p>
+      <div class="next-actions">
+        <a href="index.html#paquetes" class="btn btn-gold" data-es>Ver paquetes</a>
+        <a href="index.html#paquetes" class="btn btn-gold" data-en>See pricing</a>
+        <a href="https://wa.me/526241181978?text=Hola,%20vi%20el%20portafolio%20y%20quiero%20una%20página" class="btn btn-ghost-light" data-es>Escríbenos por WhatsApp</a>
+        <a href="https://wa.me/526241181978?text=Hi,%20I%20saw%20the%20portfolio%20and%20I%20want%20a%20website" class="btn btn-ghost-light" data-en>Message us on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="fb-name">Mar de <b>Sitios</b></div>
+          <p data-es>Estudio de diseño y desarrollo web en Los Cabos. Creación y venta de páginas web personalizadas.</p>
+          <p data-en>Web design and development studio in Los Cabos. Custom websites, built and sold with care.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4 data-es>Navegación</h4><h4 data-en>Navigate</h4>
+            <a href="index.html#beneficios" data-es>Servicios</a><a href="index.html#beneficios" data-en>Services</a>
+            <a href="portafolio.html" data-es>Proyectos</a><a href="portafolio.html" data-en>Work</a>
+            <a href="index.html#paquetes" data-es>Paquetes</a><a href="index.html#paquetes" data-en>Pricing</a>
+            <a href="index.html" data-es>Inicio</a><a href="index.html" data-en>Home</a>
+          </div>
+          <div class="footer-col">
+            <h4 data-es>Contacto</h4><h4 data-en>Contact</h4>
+            <a href="https://wa.me/526241181978">WhatsApp</a>
+            <a href="mailto:serratoleyva@gmail.com">Email</a>
+            <a href="index.html#contacto" data-es>Cotizar proyecto</a><a href="index.html#contacto" data-en>Get a quote</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Mar de Sitios — <span data-es>Innovación web desde Los Cabos, B.C.S.</span><span data-en>Web innovation from Los Cabos, B.C.S.</span></p>
+        <p>Los Cabos · Baja California Sur · México</p>
+      </div>
+    </div>
   </footer>
 
   <script>
-    function setLang(lang) {
+    function setLang(lang){
       document.body.classList.toggle('en', lang === 'en');
       document.documentElement.lang = lang;
-      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      try { localStorage.setItem('mds-lang', lang); } catch(e) {}
+      var es=document.getElementById('btn-es'), en=document.getElementById('btn-en');
+      if(es&&en){ es.classList.toggle('active', lang==='es'); en.classList.toggle('active', lang==='en'); }
+      try{ localStorage.setItem('mds-lang', lang);}catch(e){}
     }
-    (function() {
-      var saved = 'es';
-      try { saved = localStorage.getItem('mds-lang') || 'es'; } catch(e) {}
-      setLang(saved);
-    })();
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    (function(){ var s='es'; try{ s=localStorage.getItem('mds-lang')||'es'; }catch(e){} setLang(s); })();
+
+    var nav=document.getElementById('nav');
+    function onScroll(){ nav.classList.toggle('scrolled', window.scrollY>40); }
+    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+    var burger=document.getElementById('burger'), navRight=document.getElementById('navRight');
+    burger.addEventListener('click', function(){ navRight.classList.toggle('open'); });
+    navRight.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ navRight.classList.remove('open'); }); });
+
+    var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } }); }, {threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   </script>
 </body>
 </html>
