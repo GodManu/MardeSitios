@@ -96,6 +96,10 @@
     .project-media img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .8s ease; }
     .project-media:hover img { transform: scale(1.04); }
     .project-num { position: absolute; top: 18px; left: 22px; z-index: 2; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.9); letter-spacing: 0.1em; background: rgba(15,43,48,0.45); backdrop-filter: blur(4px); padding: 4px 12px; border-radius: 2px; }
+    .project-media.no-link { cursor: default; }
+    .project-badge { position: absolute; top: 18px; right: 18px; z-index: 2; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: var(--ink); background: var(--gold-light); padding: 6px 12px; border-radius: 2px; }
+    .project-note { display: inline-flex; align-items: center; gap: 10px; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-soft); font-weight: 600; }
+    .project-note::before { content: ''; width: 22px; height: 1px; background: var(--gold); }
 
     .project-sector { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); font-weight: 700; margin-bottom: 16px; }
     .project-body h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); color: var(--ink); line-height: 1.1; margin-bottom: 16px; }
@@ -198,7 +202,7 @@
       <p data-es>Proyectos que ya están en línea, ayudando a negocios de Los Cabos a verse profesionales y recibir contactos. Cada uno, diseñado a la medida.</p>
       <p data-en>Live projects helping Los Cabos businesses look professional and receive contacts. Each one, tailored from scratch.</p>
       <div class="hero-meta">
-        <div class="m"><b>3</b><span data-es>Sectores</span><span data-en>Sectors</span></div>
+        <div class="m"><b>4</b><span data-es>Sectores</span><span data-en>Sectors</span></div>
         <div class="m"><b>ES · EN</b><span data-es>Sitios bilingües</span><span data-en>Bilingual sites</span></div>
         <div class="m"><b>100%</b><span data-es>A la medida</span><span data-en>Custom-built</span></div>
       </div>
@@ -246,11 +250,11 @@
         <div class="project-body">
           <div class="project-sector" data-es>Editorial · Literatura</div><div class="project-sector" data-en>Publishing · Literature</div>
           <h2>La Hacienda de las Rosas</h2>
-          <p data-es>Landing bilingüe para la novela de Gabriel Henkel. Cuenta regresiva al lanzamiento, pétalos animados y una estética de hacienda vintage en tonos vino y oro que envuelve al lector.</p>
-          <p data-en>A bilingual landing page for Gabriel Henkel's novel. A release countdown, animated petals and a vintage hacienda aesthetic in wine and gold tones that draws the reader in.</p>
+          <p data-es>Landing bilingüe para la novela de Gabriel Henkel. Tipografía caligráfica, pétalos de rosa animados y enlaces de compra directa en una estética elegante que envuelve al lector.</p>
+          <p data-en>A bilingual landing page for Gabriel Henkel's novel. Calligraphic type, animated rose petals and direct purchase links in an elegant aesthetic that draws the reader in.</p>
           <div class="project-tags">
             <span data-es>Bilingüe</span><span data-en>Bilingual</span>
-            <span data-es>Cuenta regresiva</span><span data-en>Countdown</span>
+            <span data-es>Compra en Amazon</span><span data-en>Buy on Amazon</span>
             <span data-es>Animaciones</span><span data-en>Animations</span>
           </div>
           <a href="https://gabrielhenkel.com/" target="_blank" rel="noopener" class="project-link" data-es>Ver sitio en vivo</a>
@@ -277,6 +281,29 @@
           </div>
           <a href="https://ridewmecabo.com" target="_blank" rel="noopener" class="project-link" data-es>Ver sitio en vivo</a>
           <a href="https://ridewmecabo.com" target="_blank" rel="noopener" class="project-link" data-en>View live site</a>
+        </div>
+      </article>
+
+      <!-- 4 · Real Estate (sample) -->
+      <article class="project flip reveal">
+        <div class="project-media no-link">
+          <span class="project-num">04</span>
+          <span class="project-badge" data-es>Proyecto de muestra</span><span class="project-badge" data-en>Sample project</span>
+          <img src="Images/pagerealestate.png" alt="Real Estate Page — sitio de bienes raíces de lujo" />
+        </div>
+        <div class="project-body">
+          <div class="project-sector" data-es>Bienes raíces · Lujo</div><div class="project-sector" data-en>Real estate · Luxury</div>
+          <h2>Real Estate Page</h2>
+          <p data-es>Un concepto de sitio para agentes y propiedades de lujo en Los Cabos: portada a pantalla completa, tipografía elegante y una presentación que transmite exclusividad y confianza.</p>
+          <p data-en>A site concept for luxury agents and listings in Los Cabos: a full-screen hero, elegant typography and a presentation that conveys exclusivity and trust.</p>
+          <div class="project-tags">
+            <span data-es>Propiedades</span><span data-en>Listings</span>
+            <span data-es>Diseño de lujo</span><span data-en>Luxury design</span>
+            <span data-es>Pantalla completa</span><span data-en>Full-screen</span>
+            <span data-es>Responsive</span><span data-en>Responsive</span>
+          </div>
+          <span class="project-note" data-es>Ejemplo de diseño · Disponible bajo cotización</span>
+          <span class="project-note" data-en>Design example · Available on request</span>
         </div>
       </article>
     </div>
