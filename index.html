@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mar de Sitios | Diseño y Desarrollo Web en Los Cabos</title>
-  <meta name="description" content="Diseño y desarrollo de páginas web profesionales en Los Cabos, B.C.S. Sitios modernos, rápidos y optimizados para móviles. Web design in Los Cabos." />
+  <title>Mar de Sitios · Diseño y Desarrollo Web en Los Cabos</title>
+  <meta name="description" content="Estudio de diseño y desarrollo web en Los Cabos, B.C.S. Sitios profesionales que inspiran confianza y generan contactos. Web design studio in Los Cabos." />
   <link rel="icon" type="image/svg+xml" href="Images/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon-16.png" />
@@ -12,780 +12,1064 @@
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --primary-dark: #04161f;
-      --deep: #051923;
-      --ocean-blue: #006494;
-      --ocean-mid: #0a7ea4;
-      --cyan-light: #24ceea;
-      --cyan-soft: #5fe0f5;
-      --white: #ffffff;
-      --accent-gold: #f4bb33;
-      --text-gray: #c4d4dd;
-      --surface-light: #f6f9fb;
-      --ink: #1c2a31;
-      --ink-soft: #5a6b73;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal: #18787f;            /* del logo */
+      --teal-deep: #0d4f54;
+      --teal-soft: #4aa3a8;
+      --ink: #0f2b30;             /* secciones oscuras (mar profundo) */
+      --ink-2: #0a2024;
+      --sand: #efe7d7;
+      --cream: #faf7f0;
+      --gold: #c9a24c;
+      --gold-light: #ddbd73;
+      --text: #16242a;
+      --text-mid: #5b6a70;
+      --text-soft: #8a979c;
+      --line: rgba(15,43,48,0.12);
+      --white: #ffffff;
+      --shadow-soft: 0 24px 60px rgba(15,43,48,0.10);
+      --shadow-card: 0 14px 40px rgba(15,43,48,0.08);
+    }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: "Poppins", sans-serif;
-      background-color: var(--primary-dark);
-      color: var(--white);
-      line-height: 1.65;
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    h1, h2, h3, .brand { font-family: "Sora", sans-serif; }
+    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
 
-    /* ===== NAV ===== */
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+
+    /* eyebrow / section tag */
+    .eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); font-weight: 600;
+      display: inline-flex; align-items: center; gap: 14px; margin-bottom: 22px;
+    }
+    .eyebrow::before { content: ''; width: 34px; height: 1px; background: var(--gold); display: block; }
+    .eyebrow.center { justify-content: center; }
+    .eyebrow.light { color: var(--gold-light); }
+
+    .section-title {
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      line-height: 1.12; color: var(--ink); letter-spacing: -0.01em;
+    }
+    .section-intro { color: var(--text-mid); font-size: 1rem; font-weight: 300; max-width: 52ch; }
+
+    /* buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Inter', sans-serif; font-size: 0.74rem; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      padding: 15px 34px; border-radius: 2px; text-decoration: none; cursor: pointer;
+      border: 1px solid transparent; transition: background .3s, color .3s, border-color .3s, transform .3s;
+    }
+    .btn-gold { background: var(--gold); color: var(--ink); }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-teal { background: var(--teal); color: #fff; }
+    .btn-teal:hover { background: var(--teal-deep); transform: translateY(-2px); }
+    .btn-outline { border-color: var(--line); color: var(--ink); background: transparent; }
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+    .btn-ghost-light { border: 1px solid rgba(255,255,255,0.35); color: #fff; }
+    .btn-ghost-light:hover { border-color: var(--gold); background: rgba(201,162,76,0.12); }
+
+    /* ─────────── NAV ─────────── */
     nav {
-      background-color: rgba(4, 22, 31, 0.85);
-      padding: 16px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: fixed; inset: 0 0 auto 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 40px; transition: background .4s, padding .4s, box-shadow .4s, border-color .4s;
+      border-bottom: 1px solid transparent;
     }
-
-    .brand {
-      font-weight: 800;
-      font-size: 1.15rem;
-      letter-spacing: 0.5px;
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      text-decoration: none;
+    nav.scrolled {
+      background: rgba(250,247,240,0.92); backdrop-filter: blur(12px);
+      padding: 12px 40px; border-bottom: 1px solid var(--line);
     }
-    .brand .wave { color: var(--cyan-light); font-size: 1.4rem; }
-    .brand span { color: var(--cyan-light); }
-
-    .nav-links { display: flex; align-items: center; gap: 6px; }
-
-    nav a.link {
-      color: var(--text-gray);
-      text-decoration: none;
-      padding: 8px 14px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-radius: 8px;
-      transition: color 0.25s ease, background 0.25s ease;
+    .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-brand .logo-plate {
+      display: flex; align-items: center; justify-content: center;
+      background: var(--cream); border-radius: 50%; padding: 6px;
+      width: 48px; height: 48px; flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18); transition: width .4s, height .4s, background .4s, box-shadow .4s;
     }
-    nav a.link:hover { color: var(--white); background: rgba(36, 206, 234, 0.12); }
-
-    .lang-toggle {
-      display: flex;
-      margin-left: 12px;
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 30px;
-      overflow: hidden;
+    nav.scrolled .nav-brand .logo-plate { width: 42px; height: 42px; box-shadow: none; }
+    .nav-brand .logo-plate img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; }
+    .nav-brand .bmark {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: #fff;
+      letter-spacing: 0.04em; transition: color .4s; white-space: nowrap;
     }
+    nav.scrolled .nav-brand .bmark { color: var(--ink); }
+    .nav-brand .bmark b { font-weight: 600; color: var(--gold); }
+
+    .nav-right { display: flex; align-items: center; gap: 30px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
+      color: rgba(255,255,255,0.85); text-decoration: none; transition: color .3s;
+    }
+    nav.scrolled .nav-links a { color: var(--text-mid); }
+    .nav-links a:hover { color: var(--gold); }
+    nav.scrolled .nav-links a:hover { color: var(--teal); }
+
+    .nav-cta { font-size: 0.7rem; padding: 11px 22px; }
+
+    .lang-toggle { display: flex; border: 1px solid rgba(255,255,255,0.4); border-radius: 2px; overflow: hidden; }
+    nav.scrolled .lang-toggle { border-color: var(--line); }
     .lang-toggle button {
-      background: transparent;
-      color: var(--text-gray);
-      border: none;
-      padding: 6px 14px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      cursor: pointer;
-      letter-spacing: 0.5px;
-      transition: all 0.25s ease;
+      background: transparent; border: none; cursor: pointer; padding: 6px 11px;
+      font-family: 'Inter', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.75); transition: all .25s;
     }
-    .lang-toggle button.active { background: var(--cyan-light); color: var(--primary-dark); }
+    nav.scrolled .lang-toggle button { color: var(--text-soft); }
+    .lang-toggle button.active { background: var(--gold); color: var(--ink); }
 
-    /* ===== HERO ===== */
+    /* hamburger */
+    .nav-burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .nav-burger span { width: 24px; height: 2px; background: #fff; transition: background .4s; }
+    nav.scrolled .nav-burger span { background: var(--ink); }
+
+    /* ─────────── HERO ─────────── */
     .hero {
-      position: relative;
-      min-height: 92vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(rgba(4, 22, 31, 0.78), rgba(4, 22, 31, 0.92)),
-                  url('Images/banner-mar-tecnologia.png');
-      background-size: cover;
-      background-position: center;
-      padding: 40px 20px;
-      overflow: hidden;
+      position: relative; min-height: 100vh; display: flex; align-items: center;
+      padding: 130px 0 70px; overflow: hidden;
+      background:
+        radial-gradient(120% 90% at 78% 15%, rgba(201,162,76,0.10), transparent 55%),
+        linear-gradient(155deg, var(--ink) 0%, var(--ink-2) 58%, #06181b 100%);
     }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: -1px; left: 0; width: 100%; height: 120px;
-      background: linear-gradient(to top, var(--primary-dark), transparent);
+    /* faint map/contour lines */
+    .hero::before {
+      content: ''; position: absolute; inset: 0; opacity: 0.5;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 46px, rgba(255,255,255,0.025) 47px),
+        repeating-linear-gradient(90deg, transparent, transparent 46px, rgba(255,255,255,0.025) 47px);
       pointer-events: none;
     }
+    .hero-grid {
+      position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1.12fr;
+      gap: 40px; align-items: center; width: 100%;
+    }
+    .hero-copy { max-width: 560px; }
+    .hero h1 {
+      font-size: clamp(2.7rem, 5vw, 4.4rem); line-height: 1.06; color: var(--white);
+      letter-spacing: -0.01em; margin-bottom: 26px;
+    }
+    .hero h1 .accent { color: var(--gold-light); font-style: italic; }
+    .hero-sub {
+      font-size: 1.02rem; font-weight: 300; color: rgba(255,255,255,0.72);
+      line-height: 1.85; max-width: 46ch; margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 44px; }
+    .hero-trust { display: flex; gap: 34px; flex-wrap: wrap; }
+    .hero-trust .t-item { display: flex; flex-direction: column; }
+    .hero-trust .t-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold-light); line-height: 1;
+    }
+    .hero-trust .t-label { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 6px; }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(36, 206, 234, 0.12);
-      border: 1px solid rgba(36, 206, 234, 0.35);
-      color: var(--cyan-soft);
-      padding: 8px 18px;
-      border-radius: 30px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-      backdrop-filter: blur(6px);
-    }
-    .hero-badge .dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--cyan-light);
-      box-shadow: 0 0 10px var(--cyan-light);
-      animation: pulse 1.8s infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.35;} }
+    .hero-visual { position: relative; }
+    .hero-visual img { width: 100%; height: auto; display: block; }
 
-    .hero-title {
-      font-size: clamp(2.8rem, 9vw, 5.5rem);
-      font-weight: 800;
-      line-height: 1.02;
-      letter-spacing: -1.5px;
-      text-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    .hero-scroll {
+      position: absolute; left: 40px; bottom: 30px; z-index: 3;
+      display: flex; align-items: center; gap: 12px;
+      font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45);
     }
-    .hero-title span {
-      background: linear-gradient(120deg, var(--cyan-light), var(--accent-gold));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    .hero-scroll .line { width: 46px; height: 1px; background: linear-gradient(to right, var(--gold), transparent); }
 
-    .hero-subtitle {
-      margin: 26px auto 0;
-      font-size: clamp(1rem, 2.4vw, 1.3rem);
-      max-width: 640px;
-      font-weight: 300;
-      color: var(--text-gray);
-    }
+    /* one-time load animation */
+    .anim { opacity: 0; transform: translateY(26px); animation: heroIn .9s cubic-bezier(.2,.7,.3,1) forwards; }
+    .anim.d1 { animation-delay: .15s; } .anim.d2 { animation-delay: .3s; }
+    .anim.d3 { animation-delay: .45s; } .anim.d4 { animation-delay: .6s; }
+    .hero-visual.anim { transform: translateY(26px) scale(.98); animation: heroInScale 1.1s .35s cubic-bezier(.2,.7,.3,1) forwards; }
+    @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+    @keyframes heroInScale { to { opacity: 1; transform: translateY(0) scale(1); } }
 
-    .hero-cta {
-      margin-top: 40px;
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
+    /* ─────────── LOGO STRIP / POSITIONING ─────────── */
+    .positioning { background: var(--teal-deep); padding: 22px 0; }
+    .positioning .wrap { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .positioning p {
+      font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(255,255,255,0.8); font-weight: 500; display: flex; align-items: center; gap: 12px;
     }
+    .positioning p .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold-light); }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 15px 32px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-    }
-    .btn-primary {
-      background: linear-gradient(120deg, var(--cyan-light), var(--ocean-mid));
-      color: var(--primary-dark);
-      box-shadow: 0 10px 30px rgba(36, 206, 234, 0.3);
-    }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(36, 206, 234, 0.45); }
-    .btn-ghost {
-      background: rgba(255,255,255,0.06);
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.25);
-    }
-    .btn-ghost:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
-
-    .hero-stats {
-      margin-top: 56px;
-      display: flex;
-      gap: 50px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .stat strong {
-      display: block;
-      font-family: "Sora", sans-serif;
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--cyan-light);
-    }
-    .stat span { font-size: 0.8rem; color: var(--text-gray); letter-spacing: 0.5px; }
-
-    /* ===== ABOUT / FEATURES ===== */
-    .about {
-      padding: 110px 8% 90px;
-      text-align: center;
+    /* ─────────── BENEFITS ─────────── */
+    .benefits { padding: 120px 0; background: var(--cream); }
+    .benefits-head { max-width: 640px; margin-bottom: 68px; }
+    .benefits-head .section-title { margin-bottom: 20px; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--line); border: 1px solid var(--line); }
+    .benefit {
+      background: var(--cream); padding: 46px 42px; transition: background .4s;
       position: relative;
     }
-    .section-tag {
-      color: var(--cyan-light);
-      font-weight: 600;
-      font-size: 0.8rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      display: block;
-    }
-    .about h2 {
-      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
-      font-weight: 700;
-      max-width: 760px;
-      margin: 0 auto 22px;
-      letter-spacing: -0.5px;
-    }
-    .about > p {
-      max-width: 680px;
-      margin: 0 auto 64px;
-      font-size: 1.1rem;
-      font-weight: 300;
-      color: var(--text-gray);
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-    .feature {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 36px 28px;
-      text-align: left;
-      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
-    }
-    .feature:hover { transform: translateY(-8px); border-color: rgba(36,206,234,0.4); background: rgba(36,206,234,0.05); }
-    .feature .icon {
-      width: 52px; height: 52px;
-      border-radius: 14px;
+    .benefit:hover { background: var(--white); }
+    .benefit .b-icon {
+      width: 46px; height: 46px; color: var(--teal); margin-bottom: 24px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem;
-      background: linear-gradient(135deg, rgba(36,206,234,0.2), rgba(0,100,148,0.2));
-      margin-bottom: 20px;
     }
-    .feature h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; }
-    .feature p { font-size: 0.95rem; color: var(--text-gray); font-weight: 300; }
+    .benefit .b-icon svg { width: 100%; height: 100%; stroke: var(--teal); stroke-width: 1.4; fill: none; }
+    .benefit h3 { font-size: 1.5rem; color: var(--ink); margin-bottom: 12px; }
+    .benefit p { font-size: 0.9rem; color: var(--text-mid); font-weight: 300; line-height: 1.85; }
 
-    /* ===== PRICING ===== */
-    .pricing {
-      padding: 110px 5%;
-      background: var(--surface-light);
-      color: var(--ink);
+    /* ─────────── SHOWCASE (device band) ─────────── */
+    .showcase { background: linear-gradient(160deg, var(--ink) 0%, var(--ink-2) 100%); padding: 110px 0; position: relative; overflow: hidden; }
+    .showcase::before {
+      content: ''; position: absolute; inset: 0; opacity: .5;
+      background-image: repeating-linear-gradient(0deg, transparent, transparent 46px, rgba(255,255,255,0.02) 47px), repeating-linear-gradient(90deg, transparent, transparent 46px, rgba(255,255,255,0.02) 47px);
     }
-    .pricing-head { text-align: center; max-width: 680px; margin: 0 auto 60px; }
-    .pricing-head .section-tag { color: var(--ocean-blue); }
-    .pricing-head h2 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      color: var(--primary-dark);
-      letter-spacing: -0.5px;
-      margin-bottom: 16px;
-    }
-    .pricing-head p { color: var(--ink-soft); font-size: 1.05rem; }
+    .showcase .wrap { position: relative; z-index: 2; }
+    .showcase-head { text-align: center; max-width: 620px; margin: 0 auto 60px; }
+    .showcase-head h2 { color: #fff; font-size: clamp(2rem, 3.6vw, 3rem); margin-bottom: 18px; }
+    .showcase-head p { color: rgba(255,255,255,0.6); font-weight: 300; font-size: 0.98rem; }
+    .showcase-visual { max-width: 980px; margin: 0 auto; }
+    .showcase-visual img { width: 100%; height: auto; display: block; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.4)); }
 
-    .plans {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 28px;
-      max-width: 1180px;
-      margin: 0 auto;
-      align-items: stretch;
+    /* ─────────── PORTFOLIO ─────────── */
+    .portfolio { padding: 120px 0; background: var(--white); }
+    .portfolio-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: 60px; flex-wrap: wrap; }
+    .portfolio-head .section-title { max-width: 14ch; }
+    .portfolio-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px; }
+    .pcard {
+      position: relative; overflow: hidden; border-radius: 3px; text-decoration: none;
+      background: var(--ink); display: block; min-height: 300px;
     }
-
-    .plan-card {
-      background: white;
-      border-radius: 22px;
-      padding: 42px 32px;
-      box-shadow: 0 14px 40px rgba(5, 25, 35, 0.08);
-      border: 1px solid #e7edf1;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .pcard.feature { grid-row: span 2; min-height: 624px; }
+    .pcard img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .8s ease; position: absolute; inset: 0; }
+    .pcard:hover img { transform: scale(1.05); }
+    .pcard-overlay {
+      position: absolute; inset: 0; z-index: 2; padding: 34px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      background: linear-gradient(to top, rgba(10,32,36,0.92) 0%, rgba(10,32,36,0.15) 55%, transparent 80%);
+      transition: background .4s;
     }
-    .plan-card:hover { transform: translateY(-10px); box-shadow: 0 28px 55px rgba(5, 25, 35, 0.15); }
+    .pcard:hover .pcard-overlay { background: linear-gradient(to top, rgba(10,32,36,0.95) 0%, rgba(10,32,36,0.35) 65%, rgba(10,32,36,0.1) 100%); }
+    .pcard-sector { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 10px; }
+    .pcard h3 { font-size: 1.7rem; color: #fff; line-height: 1.1; margin-bottom: 8px; }
+    .pcard.feature h3 { font-size: 2.3rem; }
+    .pcard p { font-size: 0.85rem; color: rgba(255,255,255,0.72); font-weight: 300; max-width: 46ch; margin-bottom: 16px; opacity: 0; max-height: 0; overflow: hidden; transition: opacity .4s, max-height .4s; }
+    .pcard.feature p { opacity: 0.8; max-height: 100px; }
+    .pcard:hover p { opacity: 0.85; max-height: 120px; }
+    .pcard .go { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+    .pcard .go::after { content: ''; width: 18px; height: 1px; background: var(--gold); transition: width .3s; }
+    .pcard:hover .go::after { width: 30px; }
 
-    .plan-card.featured {
-      border: 2px solid var(--cyan-light);
-      box-shadow: 0 24px 55px rgba(36, 206, 234, 0.22);
-      transform: scale(1.03);
+    /* ─────────── PRICING ─────────── */
+    .pricing { padding: 120px 0; background: var(--sand); }
+    .pricing-head { text-align: center; max-width: 640px; margin: 0 auto 70px; }
+    .pricing-head .section-title { margin-bottom: 18px; }
+    .pricing-head p { color: var(--text-mid); font-weight: 300; }
+
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+    .plan {
+      background: var(--white); border: 1px solid var(--line); border-radius: 4px;
+      padding: 44px 34px; display: flex; flex-direction: column; position: relative;
+      transition: transform .4s, box-shadow .4s;
     }
-    .plan-card.featured:hover { transform: scale(1.03) translateY(-10px); }
-
+    .plan:hover { transform: translateY(-6px); box-shadow: var(--shadow-soft); }
+    .plan.featured { border: 1px solid var(--teal); box-shadow: var(--shadow-soft); }
     .plan-flag {
-      position: absolute;
-      top: -14px; left: 50%; transform: translateX(-50%);
-      background: linear-gradient(120deg, var(--cyan-light), var(--ocean-mid));
-      color: var(--primary-dark);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 6px 18px;
-      border-radius: 30px;
-      white-space: nowrap;
+      position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%);
+      background: var(--teal); color: #fff; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; padding: 7px 18px; border-radius: 2px; white-space: nowrap;
     }
+    .plan-name { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); font-weight: 700; margin-bottom: 20px; }
+    .plan-price { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--ink); line-height: 1; }
+    .plan-price small { font-size: 0.9rem; color: var(--text-soft); font-family: 'Inter', sans-serif; font-weight: 500; }
+    .plan-terms { font-size: 0.72rem; letter-spacing: 0.06em; color: var(--text-soft); margin: 8px 0 22px; text-transform: uppercase; }
+    .plan-desc { font-size: 0.9rem; color: var(--text-mid); font-weight: 300; line-height: 1.75; padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--line); min-height: 92px; }
+    .plan-feats { list-style: none; margin-bottom: 30px; flex-grow: 1; }
+    .plan-feats li { font-size: 0.86rem; color: var(--text); font-weight: 300; padding: 8px 0 8px 26px; position: relative; line-height: 1.5; }
+    .plan-feats li::before {
+      content: ''; position: absolute; left: 0; top: 13px; width: 13px; height: 13px;
+      background: no-repeat center/contain;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2318787f' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+    }
+    .plan-note { font-size: 0.74rem; color: var(--text-soft); font-weight: 300; font-style: italic; margin: -12px 0 24px; line-height: 1.6; }
+    .plan .btn { justify-content: center; width: 100%; }
+    .plan-delivery { text-align: center; font-size: 0.72rem; color: var(--text-soft); margin-top: 16px; letter-spacing: 0.04em; }
 
-    .plan-title { font-size: 1.35rem; color: var(--primary-dark); font-weight: 700; margin-bottom: 4px; }
-    .plan-tagline { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 22px; min-height: 38px; }
+    /* advanced + addons + maintenance */
+    .extras { margin-top: 24px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; }
+    .advanced {
+      background: linear-gradient(155deg, var(--ink) 0%, var(--ink-2) 100%); color: #fff;
+      border-radius: 4px; padding: 46px 42px; position: relative; overflow: hidden;
+    }
+    .advanced::before { content: ''; position: absolute; inset: 0; opacity: .6; background-image: repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.03) 41px); }
+    .advanced > * { position: relative; z-index: 2; }
+    .advanced .plan-name { color: var(--gold-light); }
+    .advanced h3 { font-size: 1.9rem; margin: 6px 0 4px; }
+    .advanced .a-price { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold-light); margin-bottom: 18px; }
+    .advanced p { font-size: 0.9rem; color: rgba(255,255,255,0.7); font-weight: 300; margin-bottom: 24px; max-width: 48ch; }
+    .advanced .a-feats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; margin-bottom: 28px; }
+    .advanced .a-feats li { list-style: none; font-size: 0.84rem; color: rgba(255,255,255,0.82); font-weight: 300; padding-left: 20px; position: relative; }
+    .advanced .a-feats li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .advanced .a-clar { font-size: 0.76rem; font-style: italic; color: rgba(255,255,255,0.55); margin-bottom: 26px; }
 
-    .plan-price {
-      font-family: "Sora", sans-serif;
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: var(--ink);
-      line-height: 1;
+    .maintenance {
+      background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 46px 40px;
+      display: flex; flex-direction: column;
     }
-    .plan-price small { font-size: 0.95rem; font-weight: 500; color: var(--ink-soft); }
-    .plan-price-note { font-size: 0.78rem; color: var(--ink-soft); margin: 8px 0 26px; }
+    .maintenance .plan-name { color: var(--teal); }
+    .maintenance .m-price { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; color: var(--ink); line-height: 1; margin-bottom: 4px; }
+    .maintenance .m-price small { font-size: 0.85rem; color: var(--text-soft); font-family: 'Inter'; font-weight: 500; }
+    .maintenance p.m-sub { font-size: 0.86rem; color: var(--text-mid); font-weight: 300; margin: 12px 0 22px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+    .maintenance ul { list-style: none; flex-grow: 1; margin-bottom: 22px; }
+    .maintenance li { font-size: 0.84rem; color: var(--text); font-weight: 300; padding: 6px 0 6px 24px; position: relative; }
+    .maintenance li::before { content: ''; position: absolute; left: 0; top: 12px; width: 12px; height: 12px; background: no-repeat center/contain; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2318787f' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E"); }
+    .maintenance .m-note { font-size: 0.74rem; font-style: italic; color: var(--text-soft); line-height: 1.6; }
 
-    .plan-features { list-style: none; margin-bottom: 32px; flex-grow: 1; }
-    .plan-features li {
-      margin-bottom: 13px;
-      font-size: 0.92rem;
-      color: #44555d;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .plan-features li::before {
-      content: "✓";
-      color: var(--ocean-mid);
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-    .plan-features li.muted { color: #b3bfc6; }
-    .plan-features li.muted::before { content: "—"; color: #cfd8dd; }
+    /* add-ons */
+    .addons { margin-top: 24px; background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 46px 42px; }
+    .addons-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 30px; flex-wrap: wrap; }
+    .addons-head h3 { font-size: 1.8rem; color: var(--ink); }
+    .addons-head p { font-size: 0.86rem; color: var(--text-mid); font-weight: 300; }
+    .addons-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--line); border: 1px solid var(--line); }
+    .addon { background: var(--white); padding: 22px 26px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .addon .a-name { font-size: 0.9rem; color: var(--text); font-weight: 400; }
+    .addon .a-name span { display: block; font-size: 0.76rem; color: var(--text-soft); font-weight: 300; margin-top: 3px; }
+    .addon .a-cost { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--teal); white-space: nowrap; }
 
-    .plan-button {
-      background: var(--primary-dark);
-      color: white;
-      padding: 15px;
-      border: none;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    .plan-button:hover { background: var(--ocean-blue); transform: translateY(-2px); }
-    .plan-card.featured .plan-button {
-      background: linear-gradient(120deg, var(--cyan-light), var(--ocean-mid));
-      color: var(--primary-dark);
-    }
-    .plan-card.featured .plan-button:hover { filter: brightness(1.05); }
+    /* conditions */
+    .conditions { margin-top: 48px; padding: 34px 42px; background: transparent; border: 1px dashed var(--line); border-radius: 4px; }
+    .conditions h4 { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-soft); font-weight: 600; margin-bottom: 18px; }
+    .conditions ul { list-style: none; columns: 2; column-gap: 40px; }
+    .conditions li { font-size: 0.8rem; color: var(--text-mid); font-weight: 300; padding: 5px 0 5px 18px; position: relative; break-inside: avoid; }
+    .conditions li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
 
-    .pricing-foot {
-      text-align: center;
-      margin-top: 46px;
-      color: var(--ink-soft);
-      font-size: 0.92rem;
-    }
-    .pricing-foot a { color: var(--ocean-blue); font-weight: 600; text-decoration: none; }
+    /* ─────────── PROCESS (real sequence → numbered) ─────────── */
+    .process { padding: 120px 0; background: var(--ink); color: #fff; position: relative; overflow: hidden; }
+    .process::before { content: ''; position: absolute; inset: 0; opacity: .5; background-image: repeating-linear-gradient(0deg, transparent, transparent 46px, rgba(255,255,255,0.02) 47px); }
+    .process .wrap { position: relative; z-index: 2; }
+    .process-head { max-width: 560px; margin-bottom: 64px; }
+    .process-head h2 { color: #fff; font-size: clamp(2rem, 3.6vw, 3rem); margin-bottom: 16px; }
+    .process-head p { color: rgba(255,255,255,0.6); font-weight: 300; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); }
+    .step { background: var(--ink); padding: 40px 30px; position: relative; }
+    .step .s-num { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; color: var(--gold); line-height: 1; margin-bottom: 20px; }
+    .step h3 { font-size: 1.4rem; color: #fff; margin-bottom: 10px; }
+    .step p { font-size: 0.84rem; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.8; }
 
-    /* ===== PROCESS ===== */
-    .process { padding: 110px 8%; text-align: center; }
-    .process h2 { font-size: clamp(1.8rem, 4.5vw, 2.8rem); margin-bottom: 60px; letter-spacing: -0.5px; }
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-    .step { text-align: left; position: relative; padding-top: 14px; }
-    .step .num {
-      font-family: "Sora", sans-serif;
-      font-size: 3rem;
-      font-weight: 800;
-      color: rgba(36,206,234,0.18);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .step h3 { font-size: 1.15rem; margin-bottom: 8px; }
-    .step p { font-size: 0.92rem; color: var(--text-gray); font-weight: 300; }
+    /* ─────────── TESTIMONIALS ─────────── */
+    .testimonials { padding: 110px 0; background: var(--cream); }
+    .testimonials-head { text-align: center; margin-bottom: 56px; }
+    .testimonials-head h2 { color: var(--ink); font-size: clamp(2rem, 3.6vw, 2.8rem); }
+    .tgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .tcard { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 38px 34px; }
+    .tcard .quote { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--gold); line-height: 0.5; margin-bottom: 20px; display: block; height: 22px; }
+    .tcard p { font-size: 0.94rem; color: var(--text); font-weight: 300; font-style: italic; line-height: 1.8; margin-bottom: 26px; }
+    .tcard .t-author { font-weight: 600; color: var(--ink); font-size: 0.9rem; }
+    .tcard .t-role { font-size: 0.76rem; color: var(--text-soft); margin-top: 3px; }
 
-    /* ===== CONTACT ===== */
-    .contact { padding: 110px 8%; background: linear-gradient(180deg, var(--primary-dark), #07212e); }
-    .contact-container {
-      max-width: 980px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: center;
+    /* ─────────── FAQ ─────────── */
+    .faq { padding: 120px 0; background: var(--white); }
+    .faq-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 60px; align-items: start; }
+    .faq-intro .section-title { margin-bottom: 18px; }
+    .faq-intro p { color: var(--text-mid); font-weight: 300; font-size: 0.95rem; margin-bottom: 26px; }
+    .faq-list { border-top: 1px solid var(--line); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q {
+      width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+      padding: 26px 40px 26px 0; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--ink);
+      display: flex; justify-content: space-between; align-items: center; gap: 20px; position: relative;
     }
-    .contact-info h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 18px; letter-spacing: -0.5px; }
-    .contact-info p { color: var(--text-gray); font-size: 1.05rem; font-weight: 300; margin-bottom: 30px; }
-    .contact-channels a {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      color: var(--white);
-      text-decoration: none;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      transition: color 0.25s ease;
-    }
-    .contact-channels a:hover { color: var(--cyan-light); }
-    .contact-channels .ch-icon {
-      width: 42px; height: 42px; border-radius: 12px;
-      background: rgba(36,206,234,0.12);
-      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-    .contact-channels small { display: block; color: var(--ink-soft); font-size: 0.78rem; }
+    .faq-q .plus { position: relative; width: 16px; height: 16px; flex-shrink: 0; }
+    .faq-q .plus::before, .faq-q .plus::after { content: ''; position: absolute; background: var(--teal); transition: transform .3s; }
+    .faq-q .plus::before { top: 7px; left: 0; width: 16px; height: 2px; }
+    .faq-q .plus::after { top: 0; left: 7px; width: 2px; height: 16px; }
+    .faq-item.open .plus::after { transform: rotate(90deg); opacity: 0; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+    .faq-a p { padding: 0 0 26px; font-size: 0.9rem; color: var(--text-mid); font-weight: 300; line-height: 1.85; max-width: 60ch; }
 
-    .contact-form {
-      background: rgba(255, 255, 255, 0.04);
-      padding: 42px;
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .contact-form label {
-      display: block; font-size: 0.8rem; color: var(--text-gray);
-      margin-bottom: 7px; letter-spacing: 0.5px;
-    }
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 13px 14px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 10px;
-      color: white;
-      margin-bottom: 20px;
-      outline: none;
-      font-family: inherit;
-      font-size: 0.95rem;
-      transition: border-color 0.25s ease;
-    }
-    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--cyan-light); }
-    .contact-form input::placeholder, .contact-form textarea::placeholder { color: #6d8089; }
-    .contact-form button {
-      width: 100%;
-      padding: 16px;
-      background: linear-gradient(120deg, var(--cyan-light), var(--ocean-mid));
-      border: none;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--primary-dark);
-      cursor: pointer;
-      transition: transform 0.2s ease, filter 0.2s ease;
-    }
-    .contact-form button:hover { transform: translateY(-2px); filter: brightness(1.05); }
+    /* ─────────── CONTACT ─────────── */
+    .contact { display: grid; grid-template-columns: 1fr 1fr; min-height: 620px; }
+    .contact-info { background: linear-gradient(160deg, var(--teal-deep) 0%, var(--ink) 100%); padding: 96px 70px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+    .contact-info::before { content: ''; position: absolute; inset: 0; opacity: .5; background-image: repeating-linear-gradient(0deg, transparent, transparent 44px, rgba(255,255,255,0.03) 45px); }
+    .contact-info > * { position: relative; z-index: 2; }
+    .contact-info h2 { font-size: clamp(2rem, 3vw, 2.8rem); color: #fff; margin-bottom: 20px; }
+    .contact-info > p { color: rgba(255,255,255,0.7); font-weight: 300; margin-bottom: 44px; max-width: 42ch; }
+    .cdetail { display: flex; align-items: center; gap: 18px; margin-bottom: 22px; text-decoration: none; }
+    .cdetail .ci { width: 44px; height: 44px; border: 1px solid rgba(201,162,76,0.35); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold-light); }
+    .cdetail .ci svg { width: 19px; height: 19px; stroke: var(--gold-light); fill: none; stroke-width: 1.5; }
+    .cdetail span { display: block; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 3px; }
+    .cdetail p { font-size: 0.92rem; color: rgba(255,255,255,0.85); font-weight: 300; transition: color .3s; }
+    a.cdetail:hover p { color: #fff; }
 
-    /* ===== FOOTER ===== */
-    footer {
-      padding: 50px 8% 36px;
-      background: #020d12;
-      border-top: 1px solid rgba(255,255,255,0.06);
+    .contact-form { background: var(--cream); padding: 96px 70px; display: flex; flex-direction: column; justify-content: center; }
+    .contact-form h3 { font-size: 1.9rem; color: var(--ink); margin-bottom: 8px; }
+    .contact-form .cf-sub { font-size: 0.86rem; color: var(--text-mid); font-weight: 300; margin-bottom: 36px; }
+    .fgroup { display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px; }
+    .fgroup label { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-mid); font-weight: 600; }
+    .fgroup input, .fgroup select, .fgroup textarea {
+      border: none; border-bottom: 1px solid var(--line); background: transparent; padding: 11px 0;
+      font-family: 'Inter', sans-serif; font-size: 0.92rem; font-weight: 300; color: var(--text); outline: none;
+      transition: border-color .3s;
     }
-    .footer-grid {
-      max-width: 1080px;
-      margin: 0 auto 30px;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 24px;
-      align-items: center;
-    }
-    .footer-grid .brand { font-size: 1.05rem; }
-    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
-    .footer-links a { color: var(--text-gray); text-decoration: none; font-size: 0.88rem; transition: color 0.25s; }
-    .footer-links a:hover { color: var(--cyan-light); }
-    .footer-copy { text-align: center; font-size: 0.82rem; color: #4a5b63; }
+    .fgroup input:focus, .fgroup select:focus, .fgroup textarea:focus { border-color: var(--teal); }
+    .fgroup textarea { resize: vertical; min-height: 80px; }
+    .contact-form .btn { align-self: flex-start; margin-top: 12px; }
 
-    /* ===== REVEAL ===== */
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    /* ─────────── FOOTER ─────────── */
+    footer { background: var(--ink-2); padding: 70px 0 30px; }
+    .footer-top { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; padding-bottom: 46px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-brand { max-width: 300px; }
+    .footer-brand .fb-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #fff; letter-spacing: 0.04em; margin-bottom: 14px; }
+    .footer-brand .fb-name b { color: var(--gold); font-weight: 600; }
+    .footer-brand p { font-size: 0.82rem; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.8; }
+    .footer-cols { display: flex; gap: 70px; flex-wrap: wrap; }
+    .footer-col h4 { font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; font-weight: 600; }
+    .footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 12px; font-weight: 300; transition: color .3s; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-bottom p { font-size: 0.74rem; color: rgba(255,255,255,0.35); font-weight: 300; }
+
+    /* ─────────── SCROLL REVEAL ─────────── */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 860px) {
-      .contact-container { grid-template-columns: 1fr; gap: 40px; }
-      .plan-card.featured { transform: none; }
-      .plan-card.featured:hover { transform: translateY(-10px); }
-    }
-    @media (max-width: 720px) {
-      nav { flex-direction: column; gap: 12px; padding: 14px 5%; }
-      .nav-links { flex-wrap: wrap; justify-content: center; }
-      nav a.link { padding: 6px 10px; font-size: 0.72rem; }
-      .hero-stats { gap: 32px; }
-      .lang-toggle { margin-left: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .reveal, .anim { opacity: 1 !important; transform: none !important; }
     }
 
-    /* Language visibility: hide inactive language. JS sets display inline so we just toggle a class root. */
+    /* ─────────── MOBILE ─────────── */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+      .hero-copy { max-width: 100%; }
+      .hero-visual { max-width: 620px; }
+      .extras { grid-template-columns: 1fr; }
+      .advanced .a-feats { grid-template-columns: 1fr 1fr; }
+      .faq-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+    @media (max-width: 860px) {
+      .wrap { padding: 0 24px; }
+      nav, nav.scrolled { padding: 14px 24px; }
+      .nav-right { position: fixed; inset: 0 0 0 auto; width: min(80vw, 320px); background: var(--ink); flex-direction: column; align-items: flex-start; justify-content: center; gap: 30px; padding: 40px; transform: translateX(100%); transition: transform .4s; box-shadow: -20px 0 50px rgba(0,0,0,0.3); }
+      .nav-right.open { transform: translateX(0); }
+      .nav-links { flex-direction: column; gap: 22px; }
+      .nav-links a, nav.scrolled .nav-links a { color: rgba(255,255,255,0.85); font-size: 0.85rem; }
+      .nav-burger { display: flex; z-index: 210; }
+      nav.menu-open .nav-burger span { background: #fff; }
+      .benefits-grid, .plans, .tgrid, .steps, .addons-list { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .pcard.feature { grid-row: auto; min-height: 340px; }
+      .pcard.feature p, .pcard p { opacity: 0.85; max-height: 120px; }
+      .conditions ul { columns: 1; }
+      .advanced .a-feats { grid-template-columns: 1fr; }
+      .contact { grid-template-columns: 1fr; }
+      .contact-info, .contact-form { padding: 64px 32px; }
+      .benefits, .portfolio, .pricing, .process, .faq, .testimonials { padding: 80px 0; }
+      .hero-scroll { display: none; }
+    }
+    @media (max-width: 480px) {
+      .plan-price { font-size: 2.4rem; }
+      .addon { flex-direction: column; align-items: flex-start; gap: 6px; }
+    }
+
+    /* language visibility */
     body:not(.en) [data-en] { display: none !important; }
     body.en [data-es] { display: none !important; }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="index.html" class="brand"><span class="wave">🌊</span> Mar de <span>Sitios</span></a>
-    <div class="nav-links">
-      <a href="#inicio" class="link" data-es>Inicio</a><a href="#inicio" class="link" data-en>Home</a>
-      <a href="portafolio.html" class="link" data-es>Portafolio</a><a href="portafolio.html" class="link" data-en>Portfolio</a>
-      <a href="#precios" class="link" data-es>Planes</a><a href="#precios" class="link" data-en>Pricing</a>
-      <a href="#proceso" class="link" data-es>Proceso</a><a href="#proceso" class="link" data-en>Process</a>
-      <a href="#contacto" class="link" data-es>Contacto</a><a href="#contacto" class="link" data-en>Contact</a>
+  <!-- ══ NAV ══ -->
+  <nav id="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="logo-plate"><img src="Images/compass-mark.png" alt="Mar de Sitios" onerror="this.parentElement.style.display='none'" /></span>
+      <span class="bmark">Mar de <b>Sitios</b></span>
+    </a>
+    <button class="nav-burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+    <div class="nav-right" id="navRight">
+      <ul class="nav-links">
+        <li><a href="#beneficios" data-es>Servicios</a><a href="#beneficios" data-en>Services</a></li>
+        <li><a href="#portafolio" data-es>Proyectos</a><a href="#portafolio" data-en>Work</a></li>
+        <li><a href="#paquetes" data-es>Paquetes</a><a href="#paquetes" data-en>Pricing</a></li>
+        <li><a href="#proceso" data-es>Proceso</a><a href="#proceso" data-en>Process</a></li>
+        <li><a href="#faq" data-es>Preguntas</a><a href="#faq" data-en>FAQ</a></li>
+      </ul>
       <div class="lang-toggle">
         <button id="btn-es" class="active" onclick="setLang('es')">ES</button>
         <button id="btn-en" onclick="setLang('en')">EN</button>
       </div>
+      <a href="#contacto" class="btn btn-gold nav-cta" data-es>Cotiza tu proyecto</a>
+      <a href="#contacto" class="btn btn-gold nav-cta" data-en>Get a quote</a>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <div class="hero-badge"><span class="dot"></span><span data-es>Diseño web desde Los Cabos, B.C.S.</span><span data-en>Web design from Los Cabos, B.C.S.</span></div>
-    <h1 class="hero-title" data-es>Mar de <span>Sitios</span></h1>
-    <h1 class="hero-title" data-en>Mar de <span>Sitios</span></h1>
-    <p class="hero-subtitle" data-es>Creamos experiencias digitales de alto impacto para marcas con visión. Sitios rápidos, elegantes y diseñados para vender.</p>
-    <p class="hero-subtitle" data-en>We build high-impact digital experiences for brands with vision. Fast, elegant websites designed to convert.</p>
-    <div class="hero-cta">
-      <a href="#precios" class="btn btn-primary" data-es>Ver planes →</a>
-      <a href="#precios" class="btn btn-primary" data-en>View pricing →</a>
-      <a href="portafolio.html" class="btn btn-ghost" data-es>Ver portafolio</a>
-      <a href="portafolio.html" class="btn btn-ghost" data-en>See our work</a>
+  <!-- ══ HERO ══ -->
+  <header class="hero" id="inicio">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow anim" data-es>Estudio de diseño web · Los Cabos, B.C.S.</div>
+          <div class="eyebrow anim" data-en>Web design studio · Los Cabos, B.C.S.</div>
+          <h1 class="anim d1" data-es>Tu negocio merece una página que <span class="accent">inspire confianza</span> y genere contactos.</h1>
+          <h1 class="anim d1" data-en>Your business deserves a website that <span class="accent">earns trust</span> and brings you clients.</h1>
+          <p class="hero-sub anim d2" data-es>Diseñamos y desarrollamos sitios a la medida para negocios de Los Cabos: rápidos, claros y pensados para que tus clientes te encuentren y te escriban.</p>
+          <p class="hero-sub anim d2" data-en>We design and build custom websites for Los Cabos businesses — fast, clear, and made so your clients find you and reach out.</p>
+          <div class="hero-actions anim d3">
+            <a href="#paquetes" class="btn btn-gold" data-es>Ver paquetes</a>
+            <a href="#paquetes" class="btn btn-gold" data-en>See pricing</a>
+            <a href="#portafolio" class="btn btn-ghost-light" data-es>Explorar proyectos</a>
+            <a href="#portafolio" class="btn btn-ghost-light" data-en>Explore work</a>
+          </div>
+          <div class="hero-trust anim d4">
+            <div class="t-item"><span class="t-num">5–7</span><span class="t-label" data-es>Días de entrega</span><span class="t-label" data-en>Day delivery</span></div>
+            <div class="t-item"><span class="t-num">100%</span><span class="t-label" data-es>Adaptable a móvil</span><span class="t-label" data-en>Mobile-ready</span></div>
+            <div class="t-item"><span class="t-num">ES · EN</span><span class="t-label" data-es>Sitios bilingües</span><span class="t-label" data-en>Bilingual sites</span></div>
+          </div>
+        </div>
+        <div class="hero-visual anim">
+          <img src="Images/hero-mockup.png" alt="Sitios reales de Mar de Sitios en computadora y celular" />
+        </div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><strong>5 días</strong><span data-es>Entrega promedio</span><span data-en>Avg. delivery</span></div>
-      <div class="stat"><strong>100%</strong><span data-es>Responsive</span><span data-en>Mobile-ready</span></div>
-      <div class="stat"><strong>&lt;24h</strong><span data-es>Respuesta</span><span data-en>Response time</span></div>
-    </div>
-  </section>
+    <div class="hero-scroll"><span class="line"></span><span data-es>Desliza</span><span data-en>Scroll</span></div>
+  </header>
 
-  <!-- ABOUT + FEATURES -->
-  <section class="about reveal">
-    <span class="section-tag" data-es>Por qué nosotros</span><span class="section-tag" data-en>Why us</span>
-    <h2 data-es>En Los Cabos no basta con existir en línea. Hay que destacar.</h2>
-    <h2 data-en>In Los Cabos, being online isn't enough. You have to stand out.</h2>
-    <p data-es>Somos especialistas en desarrollo web funcional y estético. Combinamos diseño de vanguardia con velocidad y estrategia para que tu negocio gane clientes, no solo visitas.</p>
-    <p data-en>We specialize in web development that's both functional and beautiful. We blend cutting-edge design with speed and strategy so your business gains clients, not just visits.</p>
-
-    <div class="features">
-      <div class="feature">
-        <div class="icon">⚡</div>
-        <h3 data-es>Velocidad real</h3><h3 data-en>Real speed</h3>
-        <p data-es>Sitios ligeros y optimizados que cargan en segundos, incluso con datos móviles.</p>
-        <p data-en>Lightweight, optimized sites that load in seconds, even on mobile data.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">📱</div>
-        <h3 data-es>100% Responsive</h3><h3 data-en>100% Responsive</h3>
-        <p data-es>Se ven impecables en celular, tablet y escritorio. La mayoría de tus clientes navegan desde el teléfono.</p>
-        <p data-en>Flawless on phone, tablet and desktop. Most of your clients browse from their phone.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">💬</div>
-        <h3 data-es>WhatsApp directo</h3><h3 data-en>Direct WhatsApp</h3>
-        <p data-es>Conectamos tu sitio con WhatsApp para que los clientes te escriban con un solo clic.</p>
-        <p data-en>We wire your site to WhatsApp so clients can reach you in a single tap.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">🔍</div>
-        <h3 data-es>Listo para Google</h3><h3 data-en>Google-ready</h3>
-        <p data-es>Estructura SEO friendly para que te encuentren cuando busquen tu servicio en la zona.</p>
-        <p data-en>SEO-friendly structure so people find you when they search for your service locally.</p>
-      </div>
+  <!-- ══ POSITIONING STRIP ══ -->
+  <section class="positioning">
+    <div class="wrap">
+      <p><span class="dot"></span><span data-es>Diseño a la medida</span><span data-en>Custom design</span></p>
+      <p><span class="dot"></span><span data-es>Optimizado para móvil</span><span data-en>Mobile-optimized</span></p>
+      <p><span class="dot"></span><span data-es>Contacto directo por WhatsApp</span><span data-en>Direct WhatsApp contact</span></p>
+      <p><span class="dot"></span><span data-es>Carga rápida</span><span data-en>Fast loading</span></p>
     </div>
   </section>
 
-  <!-- PRICING -->
-  <section class="pricing" id="precios">
-    <div class="pricing-head reveal">
-      <span class="section-tag" data-es>Inversión</span><span class="section-tag" data-en>Investment</span>
-      <h2 data-es>Planes claros, sin sorpresas</h2><h2 data-en>Clear plans, no surprises</h2>
-      <p data-es>Precios pensados para el mercado de Los Cabos. Pago único; hosting y dominio se cotizan aparte (aprox. $1,500–$2,500 MXN al año).</p>
-      <p data-en>Pricing built for the Los Cabos market. One-time fee; hosting and domain quoted separately (approx. $1,500–$2,500 MXN/year).</p>
-    </div>
-
-    <div class="plans">
-      <!-- ESSENTIAL -->
-      <article class="plan-card reveal">
-        <h3 class="plan-title" data-es>Esencial</h3><h3 class="plan-title" data-en>Essential</h3>
-        <p class="plan-tagline" data-es>Una landing potente para presencia inmediata.</p>
-        <p class="plan-tagline" data-en>A powerful landing page for instant presence.</p>
-        <div class="plan-price">$5,500 <small>MXN</small></div>
-        <p class="plan-price-note" data-es>Pago único · Entrega en 5 días</p>
-        <p class="plan-price-note" data-en>One-time · 5-day delivery</p>
-        <ul class="plan-features">
-          <li data-es>Landing page de una sección</li><li data-en>Single-section landing page</li>
-          <li data-es>Diseño 100% responsive</li><li data-en>100% responsive design</li>
-          <li data-es>Botón directo a WhatsApp</li><li data-en>Direct WhatsApp button</li>
-          <li data-es>Galería de fotos básica</li><li data-en>Basic photo gallery</li>
-          <li data-es>Dominio + hosting (guía de configuración)</li><li data-en>Domain + hosting setup guide</li>
-          <li class="muted" data-es>Múltiples páginas</li><li class="muted" data-en>Multiple pages</li>
-          <li class="muted" data-es>Sistema de reservas</li><li class="muted" data-en>Booking system</li>
-        </ul>
-        <a href="https://wa.me/526241181978?text=Hola,%20quiero%20info%20del%20Plan%20Esencial%20de%20Mar%20de%20Sitios" class="plan-button" data-es>Solicitar ahora</a>
-        <a href="https://wa.me/526241181978?text=Hi,%20I'd%20like%20info%20about%20the%20Essential%20Plan" class="plan-button" data-en>Get started</a>
-      </article>
-
-      <!-- PROFESSIONAL -->
-      <article class="plan-card featured reveal">
-        <span class="plan-flag" data-es>★ Más solicitado</span><span class="plan-flag" data-en>★ Most popular</span>
-        <h3 class="plan-title" data-es>Profesional</h3><h3 class="plan-title" data-en>Professional</h3>
-        <p class="plan-tagline" data-es>Sitio completo para negocios que quieren crecer.</p>
-        <p class="plan-tagline" data-en>A complete site for businesses ready to grow.</p>
-        <div class="plan-price">$12,500 <small>MXN</small></div>
-        <p class="plan-price-note" data-es>Pago único · Entrega en 7–10 días</p>
-        <p class="plan-price-note" data-en>One-time · 7–10 day delivery</p>
-        <ul class="plan-features">
-          <li data-es>Hasta 5 páginas personalizadas</li><li data-en>Up to 5 custom pages</li>
-          <li data-es>Diseño a medida de tu marca</li><li data-en>Custom branded design</li>
-          <li data-es>Optimización SEO local</li><li data-en>Local SEO optimization</li>
-          <li data-es>Formulario de contacto avanzado</li><li data-en>Advanced contact form</li>
-          <li data-es>Integración de redes y Google Maps</li><li data-en>Social media + Google Maps</li>
-          <li data-es>Galerías y animaciones premium</li><li data-en>Premium galleries & animations</li>
-          <li data-es>2 rondas de ajustes incluidas</li><li data-en>2 revision rounds included</li>
-        </ul>
-        <a href="https://wa.me/526241181978?text=Hola,%20me%20interesa%20el%20Plan%20Profesional%20de%20Mar%20de%20Sitios" class="plan-button" data-es>Solicitar ahora</a>
-        <a href="https://wa.me/526241181978?text=Hi,%20I'm%20interested%20in%20the%20Professional%20Plan" class="plan-button" data-en>Get started</a>
-      </article>
-
-      <!-- PREMIUM -->
-      <article class="plan-card reveal">
-        <h3 class="plan-title" data-es>Premium</h3><h3 class="plan-title" data-en>Premium</h3>
-        <p class="plan-tagline" data-es>Para hospitalidad, real estate y e-commerce.</p>
-        <p class="plan-tagline" data-en>For hospitality, real estate & e-commerce.</p>
-        <div class="plan-price">$22,000 <small>MXN</small></div>
-        <p class="plan-price-note" data-es>Desde · Cotización según alcance</p>
-        <p class="plan-price-note" data-en>Starting at · Scope-based quote</p>
-        <ul class="plan-features">
-          <li data-es>E-commerce o sistema de reservas</li><li data-en>E-commerce or booking system</li>
-          <li data-es>Páginas ilimitadas</li><li data-en>Unlimited pages</li>
-          <li data-es>Catálogos y galerías de lujo</li><li data-en>Luxury catalogs & galleries</li>
-          <li data-es>Sitio 100% bilingüe (ES/EN)</li><li data-en>Fully bilingual site (ES/EN)</li>
-          <li data-es>Panel autogestionable / blog</li><li data-en>Self-managed CMS / blog</li>
-          <li data-es>Soporte prioritario 30 días</li><li data-en>30-day priority support</li>
-          <li data-es>Estrategia y asesoría incluida</li><li data-en>Strategy & consulting included</li>
-        </ul>
-        <a href="https://wa.me/526241181978?text=Hola,%20quiero%20cotizar%20el%20Plan%20Premium%20de%20Mar%20de%20Sitios" class="plan-button" data-es>Cotizar proyecto</a>
-        <a href="https://wa.me/526241181978?text=Hi,%20I'd%20like%20a%20quote%20for%20the%20Premium%20Plan" class="plan-button" data-en>Request a quote</a>
-      </article>
-    </div>
-
-    <p class="pricing-foot">
-      <span data-es>¿Necesitas algo distinto? <a href="#contacto">Cuéntanos tu idea</a> y armamos un plan a tu medida.</span>
-      <span data-en>Need something different? <a href="#contacto">Tell us your idea</a> and we'll tailor a plan for you.</span>
-    </p>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="process reveal" id="proceso">
-    <span class="section-tag" data-es>Cómo trabajamos</span><span class="section-tag" data-en>How we work</span>
-    <h2 data-es>De la idea al sitio en 4 pasos</h2><h2 data-en>From idea to live site in 4 steps</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="num">01</div>
-        <h3 data-es>Conversamos</h3><h3 data-en>We talk</h3>
-        <p data-es>Nos cuentas tu idea por WhatsApp. Definimos objetivos, estilo y contenido.</p>
-        <p data-en>You share your idea over WhatsApp. We define goals, style and content.</p>
+  <!-- ══ BENEFITS ══ -->
+  <section class="benefits" id="beneficios">
+    <div class="wrap">
+      <div class="benefits-head reveal">
+        <div class="eyebrow" data-es>Por qué una página bien hecha</div>
+        <div class="eyebrow" data-en>Why a well-made site</div>
+        <h2 class="section-title" data-es>Más que verse bien: trabaja para tu negocio</h2>
+        <h2 class="section-title" data-en>More than good looks — it works for your business</h2>
       </div>
-      <div class="step">
-        <div class="num">02</div>
-        <h3 data-es>Diseñamos</h3><h3 data-en>We design</h3>
-        <p data-es>Creamos una propuesta visual alineada a tu marca y mercado.</p>
-        <p data-en>We craft a visual proposal aligned to your brand and market.</p>
-      </div>
-      <div class="step">
-        <div class="num">03</div>
-        <h3 data-es>Ajustamos</h3><h3 data-en>We refine</h3>
-        <p data-es>Revisamos juntos y pulimos cada detalle hasta dejarlo perfecto.</p>
-        <p data-en>We review together and polish every detail until it's just right.</p>
-      </div>
-      <div class="step">
-        <div class="num">04</div>
-        <h3 data-es>Lanzamos</h3><h3 data-en>We launch</h3>
-        <p data-es>Publicamos tu sitio y te dejamos listo para recibir clientes.</p>
-        <p data-en>We publish your site and hand it over ready to win clients.</p>
+      <div class="benefits-grid reveal">
+        <div class="benefit">
+          <div class="b-icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21 8 14 2 9.4h7.6z"/></svg></div>
+          <h3 data-es>Presencia profesional</h3><h3 data-en>Professional presence</h3>
+          <p data-es>Una imagen sólida y confiable desde el primer clic. Tu negocio se ve serio y listo para competir.</p>
+          <p data-en>A solid, trustworthy image from the first click. Your business looks credible and ready to compete.</p>
+        </div>
+        <div class="benefit">
+          <div class="b-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+          <h3 data-es>Información clara</h3><h3 data-en>Clear information</h3>
+          <p data-es>Tus servicios, precios y datos, fáciles de encontrar. Menos preguntas repetidas, más clientes decididos.</p>
+          <p data-en>Your services, prices and details, easy to find. Fewer repeat questions, more decided clients.</p>
+        </div>
+        <div class="benefit">
+          <div class="b-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h3 data-es>Contacto directo</h3><h3 data-en>Direct contact</h3>
+          <p data-es>Botón a WhatsApp, formularios y redes. Tus clientes te escriben en el momento justo, con un solo toque.</p>
+          <p data-en>WhatsApp button, forms and social links. Clients reach you at the right moment, in one tap.</p>
+        </div>
+        <div class="benefit">
+          <div class="b-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+          <h3 data-es>Experiencia móvil</h3><h3 data-en>Mobile experience</h3>
+          <p data-es>La mayoría navega desde el celular. Tu sitio se ve y funciona impecable en cualquier pantalla.</p>
+          <p data-en>Most people browse on their phone. Your site looks and works flawlessly on any screen.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contacto">
-    <div class="contact-container">
-      <div class="contact-info reveal">
-        <h2 data-es>¿Listo para zarpar?</h2><h2 data-en>Ready to set sail?</h2>
-        <p data-es>Cuéntanos sobre tu proyecto y hagámoslo realidad. Respondemos en menos de 24 horas.</p>
-        <p data-en>Tell us about your project and let's make it happen. We reply in under 24 hours.</p>
-        <div class="contact-channels">
-          <a href="https://wa.me/526241181978">
-            <span class="ch-icon">💬</span>
-            <span>WhatsApp<small data-es>Escríbenos directo · respuesta rápida</small><small data-en>Message us directly · fast reply</small></span>
-          </a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener">
-            <span class="ch-icon">📸</span>
-            <span>Instagram<small data-es>Mira nuestros últimos proyectos</small><small data-en>See our latest projects</small></span>
-          </a>
+  <!-- ══ SHOWCASE ══ -->
+  <section class="showcase">
+    <div class="wrap">
+      <div class="showcase-head reveal">
+        <div class="eyebrow center light" data-es>Trabajo real</div>
+        <div class="eyebrow center light" data-en>Real work</div>
+        <h2 data-es>Sitios que ya están en línea, generando contactos</h2>
+        <h2 data-en>Sites already live and bringing in contacts</h2>
+        <p data-es>Cada proyecto se diseña a la medida del negocio y su público en Los Cabos.</p>
+        <p data-en>Every project is tailored to the business and its audience in Los Cabos.</p>
+      </div>
+      <div class="showcase-visual reveal">
+        <img src="Images/hero-mockup.png" alt="Proyectos de Mar de Sitios en distintos dispositivos" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PORTFOLIO ══ -->
+  <section class="portfolio" id="portafolio">
+    <div class="wrap">
+      <div class="portfolio-head reveal">
+        <div>
+          <div class="eyebrow" data-es>Proyectos</div><div class="eyebrow" data-en>Selected work</div>
+          <h2 class="section-title" data-es>Nuestra estela</h2><h2 class="section-title" data-en>Our wake</h2>
+        </div>
+        <a href="portafolio.html" class="btn btn-outline" data-es>Ver todo el portafolio</a>
+        <a href="portafolio.html" class="btn btn-outline" data-en>View full portfolio</a>
+      </div>
+      <div class="portfolio-grid reveal">
+        <a href="https://loscabosmotors.com" target="_blank" rel="noopener" class="pcard feature">
+          <img src="Images/pagecabosmotors.png" alt="Los Cabos Motors" />
+          <div class="pcard-overlay">
+            <div class="pcard-sector" data-es>Automotriz</div><div class="pcard-sector" data-en>Automotive</div>
+            <h3>Los Cabos Motors</h3>
+            <p data-es>Sitio de compra-venta de autos de alta gama, con fichas de vehículos, galería y contacto directo por WhatsApp.</p>
+            <p data-en>High-end car marketplace with vehicle listings, gallery and direct WhatsApp contact.</p>
+            <span class="go" data-es>Ver sitio</span><span class="go" data-en>View site</span>
+          </div>
+        </a>
+        <a href="https://gabrielhenkel.com/" target="_blank" rel="noopener" class="pcard">
+          <img src="Images/pagegabrielhenkel.png" alt="La Hacienda de las Rosas — Gabriel Henkel" />
+          <div class="pcard-overlay">
+            <div class="pcard-sector" data-es>Editorial</div><div class="pcard-sector" data-en>Publishing</div>
+            <h3>La Hacienda de las Rosas</h3>
+            <p data-es>Landing bilingüe para la novela de Gabriel Henkel, con cuenta regresiva y estética de hacienda vintage.</p>
+            <p data-en>Bilingual landing page for Gabriel Henkel's novel, with a release countdown and vintage hacienda styling.</p>
+            <span class="go" data-es>Ver sitio</span><span class="go" data-en>View site</span>
+          </div>
+        </a>
+        <a href="https://ridewmecabo.com" target="_blank" rel="noopener" class="pcard">
+          <img src="Images/pagerwmc.png" alt="Ride W Me Cabo" />
+          <div class="pcard-overlay">
+            <div class="pcard-sector" data-es>Turismo y transporte</div><div class="pcard-sector" data-en>Tourism & transport</div>
+            <h3>Ride W Me Cabo</h3>
+            <p data-es>Transporte privado para turistas, con enfoque en reservar fácil y transmitir confianza.</p>
+            <p data-en>Private transport for travelers, focused on easy booking and building trust.</p>
+            <span class="go" data-es>Ver sitio</span><span class="go" data-en>View site</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PRICING ══ -->
+  <section class="pricing" id="paquetes">
+    <div class="wrap">
+      <div class="pricing-head reveal">
+        <div class="eyebrow center" data-es>Paquetes</div><div class="eyebrow center" data-en>Packages</div>
+        <h2 class="section-title" data-es>Elige el punto de partida para tu sitio</h2>
+        <h2 class="section-title" data-en>Choose the right starting point for your site</h2>
+        <p data-es>Precios en pesos mexicanos. Cada paquete base incluye un idioma; abajo encuentras adicionales y mantenimiento.</p>
+        <p data-en>Prices in Mexican pesos. Each base package includes one language; add-ons and maintenance are listed below.</p>
+      </div>
+
+      <!-- THREE MAIN CARDS -->
+      <div class="plans reveal">
+        <!-- ESENCIAL -->
+        <article class="plan">
+          <div class="plan-name" data-es>Esencial</div><div class="plan-name" data-en>Essential</div>
+          <div class="plan-price">$5,900 <small>MXN</small></div>
+          <div class="plan-terms" data-es>Pago único</div><div class="plan-terms" data-en>One-time</div>
+          <p class="plan-desc" data-es>Una presentación profesional para que tus clientes conozcan tu negocio y te contacten fácilmente.</p>
+          <p class="plan-desc" data-en>A professional presentation so clients get to know your business and reach you with ease.</p>
+          <ul class="plan-feats">
+            <li data-es>Una página con hasta 5 secciones</li><li data-en>One page with up to 5 sections</li>
+            <li data-es>Colores, tipografía y contenido con tu marca</li><li data-en>Colors, fonts and content in your brand</li>
+            <li data-es>Adaptable a celular, tablet y computadora</li><li data-en>Adapts to phone, tablet and desktop</li>
+            <li data-es>Botón a WhatsApp y enlaces a redes</li><li data-en>WhatsApp button and social links</li>
+            <li data-es>Galería de hasta 10 fotografías</li><li data-en>Gallery of up to 10 photos</li>
+            <li data-es>Títulos y descripción básicos para buscadores</li><li data-en>Basic titles & description for search</li>
+            <li data-es>Una ronda de ajustes</li><li data-en>One revision round</li>
+          </ul>
+          <a href="https://wa.me/526241181978?text=Hola,%20quiero%20mi%20sitio%20Esencial%20de%20Mar%20de%20Sitios" class="btn btn-teal" data-es>Quiero mi sitio Esencial</a>
+          <a href="https://wa.me/526241181978?text=Hi,%20I%20want%20the%20Essential%20site%20from%20Mar%20de%20Sitios" class="btn btn-teal" data-en>I want the Essential site</a>
+          <div class="plan-delivery" data-es>Entrega estimada: 5–7 días hábiles</div>
+          <div class="plan-delivery" data-en>Estimated delivery: 5–7 business days</div>
+        </article>
+
+        <!-- PROFESIONAL -->
+        <article class="plan featured">
+          <span class="plan-flag" data-es>★ Más solicitado</span><span class="plan-flag" data-en>★ Most popular</span>
+          <div class="plan-name" data-es>Profesional</div><div class="plan-name" data-en>Professional</div>
+          <div class="plan-price">$12,900 <small>MXN</small></div>
+          <div class="plan-terms" data-es>Pago único</div><div class="plan-terms" data-en>One-time</div>
+          <p class="plan-desc" data-es>Un sitio completo para presentar tus servicios y recibir solicitudes de clientes.</p>
+          <p class="plan-desc" data-en>A complete site to present your services and receive client requests.</p>
+          <ul class="plan-feats">
+            <li data-es>Hasta 4 páginas: inicio, nosotros, servicios y contacto</li><li data-en>Up to 4 pages: home, about, services, contact</li>
+            <li data-es>Diseño personalizado para tu marca</li><li data-en>Custom design for your brand</li>
+            <li data-es>Formulario de contacto conectado a un correo</li><li data-en>Contact form connected to an email</li>
+            <li data-es>WhatsApp, redes sociales y mapa de ubicación</li><li data-en>WhatsApp, social media and location map</li>
+            <li data-es>Galería de hasta 20 fotografías</li><li data-en>Gallery of up to 20 photos</li>
+            <li data-es>Optimización básica de imágenes y SEO inicial</li><li data-en>Basic image optimization and initial SEO</li>
+            <li data-es>Dos rondas de ajustes</li><li data-en>Two revision rounds</li>
+          </ul>
+          <a href="https://wa.me/526241181978?text=Hola,%20quiero%20mi%20sitio%20Profesional%20de%20Mar%20de%20Sitios" class="btn btn-teal" data-es>Quiero mi sitio Profesional</a>
+          <a href="https://wa.me/526241181978?text=Hi,%20I%20want%20the%20Professional%20site%20from%20Mar%20de%20Sitios" class="btn btn-teal" data-en>I want the Professional site</a>
+          <div class="plan-delivery" data-es>Entrega estimada: 8–12 días hábiles</div>
+          <div class="plan-delivery" data-en>Estimated delivery: 8–12 business days</div>
+        </article>
+
+        <!-- INMOBILIARIO -->
+        <article class="plan">
+          <div class="plan-name" data-es>Inmobiliario</div><div class="plan-name" data-en>Real Estate</div>
+          <div class="plan-price">$17,900 <small>MXN</small></div>
+          <div class="plan-terms" data-es>Pago único</div><div class="plan-terms" data-en>One-time</div>
+          <p class="plan-desc" data-es>Tu marca personal y tus propiedades en un sitio diseñado para recibir consultas y solicitudes de visitas.</p>
+          <p class="plan-desc" data-en>Your personal brand and listings in a site built to receive inquiries and visit requests.</p>
+          <ul class="plan-feats">
+            <li data-es>Cuatro páginas: inicio, sobre el agente, propiedades y contacto</li><li data-en>Four pages: home, about the agent, properties, contact</li>
+            <li data-es>Diseño personalizado para el agente o inmobiliaria</li><li data-en>Custom design for the agent or agency</li>
+            <li data-es>Carga inicial de hasta 8 propiedades</li><li data-en>Initial upload of up to 8 properties</li>
+            <li data-es>Ficha por propiedad: descripción, precio, características y hasta 5 fotos</li><li data-en>Listing page each: description, price, features and up to 5 photos</li>
+            <li data-es>Filtros básicos por venta/renta y tipo</li><li data-en>Basic filters by sale/rent and type</li>
+            <li data-es>WhatsApp en cada ficha con el nombre de la propiedad</li><li data-en>WhatsApp on each listing with the property name</li>
+            <li data-es>Formulario para solicitar información o visita</li><li data-en>Form to request info or a visit</li>
+            <li data-es>Optimización básica de imágenes y SEO inicial · Dos rondas de ajustes</li><li data-en>Basic image optimization & initial SEO · Two revision rounds</li>
+          </ul>
+          <p class="plan-note" data-es>Las actualizaciones de inventario se contratan por separado. El panel para administrar propiedades está disponible mediante cotización.</p>
+          <p class="plan-note" data-en>Inventory updates are contracted separately. A property-management panel is available on quote.</p>
+          <a href="https://wa.me/526241181978?text=Hola,%20quiero%20mi%20sitio%20Inmobiliario%20de%20Mar%20de%20Sitios" class="btn btn-teal" data-es>Quiero mi sitio Inmobiliario</a>
+          <a href="https://wa.me/526241181978?text=Hi,%20I%20want%20the%20Real%20Estate%20site%20from%20Mar%20de%20Sitios" class="btn btn-teal" data-en>I want the Real Estate site</a>
+          <div class="plan-delivery" data-es>Entrega estimada: 12–18 días hábiles</div>
+          <div class="plan-delivery" data-en>Estimated delivery: 12–18 business days</div>
+        </article>
+      </div>
+
+      <!-- ADVANCED + MAINTENANCE -->
+      <div class="extras reveal">
+        <div class="advanced">
+          <div class="plan-name" data-es>Desarrollo avanzado</div><div class="plan-name" data-en>Advanced development</div>
+          <h3 data-es>Para proyectos a medida</h3><h3 data-en>For tailor-made projects</h3>
+          <div class="a-price" data-es>Desde $27,900 MXN · Cotización según alcance</div>
+          <div class="a-price" data-en>From $27,900 MXN · Quote based on scope</div>
+          <p data-es>Para proyectos que requieren administración de contenido, reservas o conexiones con otras plataformas.</p>
+          <p data-en>For projects that need content management, bookings or connections to other platforms.</p>
+          <ul class="a-feats">
+            <li data-es>Panel para publicar y actualizar contenido</li><li data-en>Panel to publish and update content</li>
+            <li data-es>Sistemas de reservas</li><li data-en>Booking systems</li>
+            <li data-es>Tienda en línea</li><li data-en>Online store</li>
+            <li data-es>Integraciones con CRM</li><li data-en>CRM integrations</li>
+            <li data-es>Formularios y automatizaciones especiales</li><li data-en>Special forms and automations</li>
+          </ul>
+          <p class="a-clar" data-es>El precio y las funcionalidades incluidas se definen en una propuesta personalizada.</p>
+          <p class="a-clar" data-en>Price and included features are defined in a personalized proposal.</p>
+          <a href="https://wa.me/526241181978?text=Hola,%20quiero%20cotizar%20un%20proyecto%20de%20Desarrollo%20Avanzado" class="btn btn-gold" data-es>Cotizar mi proyecto</a>
+          <a href="https://wa.me/526241181978?text=Hi,%20I%20want%20a%20quote%20for%20an%20Advanced%20Development%20project" class="btn btn-gold" data-en>Quote my project</a>
+        </div>
+
+        <div class="maintenance">
+          <div class="plan-name" data-es>Mantenimiento opcional</div><div class="plan-name" data-en>Optional maintenance</div>
+          <div class="m-price">$990 <small data-es>MXN / mes</small><small data-en>MXN / month</small></div>
+          <p class="m-sub" data-es>Para mantener tu sitio al día, sin preocupaciones.</p>
+          <p class="m-sub" data-en>To keep your site current, worry-free.</p>
+          <ul>
+            <li data-es>Revisión mensual de enlaces y formularios</li><li data-en>Monthly check of links and forms</li>
+            <li data-es>Respaldo de los archivos del sitio</li><li data-en>Backup of your site files</li>
+            <li data-es>Hasta una hora mensual de cambios menores</li><li data-en>Up to one hour of minor changes monthly</li>
+            <li data-es>Atención por WhatsApp en horario laboral</li><li data-en>WhatsApp support during business hours</li>
+          </ul>
+          <p class="m-note" data-es>Las horas no se acumulan. Nuevas páginas, funciones y carga de propiedades se cotizan aparte.</p>
+          <p class="m-note" data-en>Hours don't roll over. New pages, features and property uploads are quoted separately.</p>
         </div>
       </div>
 
-      <form class="contact-form reveal" action="https://formsubmit.co/tu_correo@ejemplo.com" method="POST">
-        <label data-es>Nombre</label><label data-en>Name</label>
-        <input type="text" name="name" placeholder="Tu nombre" required />
-        <label data-es>Correo</label><label data-en>Email</label>
-        <input type="email" name="email" placeholder="tu@correo.com" required />
-        <label data-es>Cuéntanos tu idea</label><label data-en>Tell us your idea</label>
-        <textarea name="message" rows="4" placeholder="¿Cómo podemos ayudarte?" required></textarea>
-        <button type="submit" data-es>Enviar propuesta</button>
-        <button type="submit" data-en>Send proposal</button>
+      <!-- ADD-ONS -->
+      <div class="addons reveal">
+        <div class="addons-head">
+          <h3 data-es>Personaliza tu proyecto</h3><h3 data-en>Customize your project</h3>
+          <p data-es>Adicionales que puedes sumar a cualquier paquete.</p>
+          <p data-en>Extras you can add to any package.</p>
+        </div>
+        <div class="addons-list">
+          <div class="addon">
+            <div class="a-name" data-es>Página adicional<span>Estructura similar a las existentes</span></div>
+            <div class="a-name" data-en>Extra page<span>Similar structure to existing pages</span></div>
+            <div class="a-cost" data-es>desde $1,500</div><div class="a-cost" data-en>from $1,500</div>
+          </div>
+          <div class="addon">
+            <div class="a-name" data-es>Segundo idioma<span>Según cantidad de contenido y traducción</span></div>
+            <div class="a-name" data-en>Second language<span>Based on content volume and translation</span></div>
+            <div class="a-cost" data-es>desde $4,500</div><div class="a-cost" data-en>from $4,500</div>
+          </div>
+          <div class="addon">
+            <div class="a-name" data-es>Carga de propiedad adicional<span>Con tu información y hasta 5 fotos</span></div>
+            <div class="a-name" data-en>Extra property upload<span>With your info and up to 5 photos</span></div>
+            <div class="a-cost">$450</div>
+          </div>
+          <div class="addon">
+            <div class="a-name" data-es>Integración de agenda o reservas<span>Herramienta externa; suscripciones aparte</span></div>
+            <div class="a-name" data-en>Scheduling or booking integration<span>External tool; subscriptions separate</span></div>
+            <div class="a-cost" data-es>desde $2,500</div><div class="a-cost" data-en>from $2,500</div>
+          </div>
+          <div class="addon" style="grid-column: 1 / -1;">
+            <div class="a-name" data-es>Redacción de textos, fotografía, identidad de marca e integraciones especiales<span>Servicios a la medida de tu proyecto</span></div>
+            <div class="a-name" data-en>Copywriting, photography, brand identity and special integrations<span>Services tailored to your project</span></div>
+            <div class="a-cost" data-es>Cotización</div><div class="a-cost" data-en>On quote</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONDITIONS -->
+      <div class="conditions reveal">
+        <h4 data-es>Condiciones</h4><h4 data-en>Terms</h4>
+        <ul data-es>
+          <li>Los paquetes base incluyen un idioma.</li>
+          <li>El cliente proporciona logotipo, textos, fotografías y datos.</li>
+          <li>Dominio, hospedaje, correo, licencias y suscripciones se cotizan aparte.</li>
+          <li>50% de anticipo y 50% antes de la publicación final.</li>
+          <li>Los plazos comienzan al recibir el anticipo y el contenido completo; las esperas de aprobación pueden mover la fecha de entrega.</li>
+          <li>Cada ronda de ajustes es una lista consolidada de cambios dentro del alcance contratado.</li>
+          <li>Se incluyen 30 días de corrección de errores de la entrega. Cambios nuevos se cotizan aparte.</li>
+        </ul>
+        <ul data-en>
+          <li>Base packages include one language.</li>
+          <li>The client provides logo, text, photos and details.</li>
+          <li>Domain, hosting, email, licenses and subscriptions are quoted separately.</li>
+          <li>50% deposit and 50% before final publication.</li>
+          <li>Timelines start once the deposit and full content are received; approval waits may move the delivery date.</li>
+          <li>Each revision round is one consolidated list of changes within the contracted scope.</li>
+          <li>30 days of bug fixes after delivery are included. New changes are quoted separately.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROCESS ══ -->
+  <section class="process" id="proceso">
+    <div class="wrap">
+      <div class="process-head reveal">
+        <div class="eyebrow light" data-es>Cómo trabajamos</div><div class="eyebrow light" data-en>How we work</div>
+        <h2 data-es>De la idea al sitio publicado</h2><h2 data-en>From idea to a published site</h2>
+        <p data-es>Un proceso claro en cuatro pasos, para que sepas qué sigue en todo momento.</p>
+        <p data-en>A clear four-step process, so you always know what comes next.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <div class="s-num">01</div>
+          <h3 data-es>Conversamos</h3><h3 data-en>We talk</h3>
+          <p data-es>Nos cuentas tu idea y objetivos. Definimos alcance, estilo y contenido.</p>
+          <p data-en>You share your idea and goals. We define scope, style and content.</p>
+        </div>
+        <div class="step">
+          <div class="s-num">02</div>
+          <h3 data-es>Diseñamos</h3><h3 data-en>We design</h3>
+          <p data-es>Creamos la propuesta visual a la medida de tu marca y tu público.</p>
+          <p data-en>We craft the visual proposal tailored to your brand and audience.</p>
+        </div>
+        <div class="step">
+          <div class="s-num">03</div>
+          <h3 data-es>Ajustamos</h3><h3 data-en>We refine</h3>
+          <p data-es>Revisamos juntos y pulimos los detalles dentro del alcance acordado.</p>
+          <p data-en>We review together and polish details within the agreed scope.</p>
+        </div>
+        <div class="step">
+          <div class="s-num">04</div>
+          <h3 data-es>Publicamos</h3><h3 data-en>We launch</h3>
+          <p data-es>Dejamos tu sitio en línea y listo para recibir a tus clientes.</p>
+          <p data-en>We put your site online, ready to welcome your clients.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TESTIMONIALS ══ -->
+  <section class="testimonials">
+    <div class="wrap">
+      <div class="testimonials-head reveal">
+        <div class="eyebrow center" data-es>Testimonios</div><div class="eyebrow center" data-en>Testimonials</div>
+        <h2 data-es>Lo que dicen los negocios que confiaron</h2><h2 data-en>What the businesses who trusted us say</h2>
+      </div>
+      <div class="tgrid reveal">
+        <div class="tcard">
+          <span class="quote">"</span>
+          <p data-es>Mi primera página web superó lo que tenía en mente. Se ve elegante y transmite justo el estilo de mis autos.</p>
+          <p data-en>My first website went beyond what I had in mind. It looks elegant and captures exactly the style of my cars.</p>
+          <div class="t-author">Manuel Serrato</div>
+          <div class="t-role" data-es>Fundador, Los Cabos Motors</div><div class="t-role" data-en>Founder, Los Cabos Motors</div>
+        </div>
+        <div class="tcard">
+          <span class="quote">"</span>
+          <p data-es>Muy rápido y claro. Aportó ideas mientras armábamos la página y quedó perfecta para mi marca personal.</p>
+          <p data-en>Fast and clear. He brought ideas as we built the page and it turned out perfect for my personal brand.</p>
+          <div class="t-author">Benito Meraz</div>
+          <div class="t-role" data-es>Emprendedor digital</div><div class="t-role" data-en>Digital entrepreneur</div>
+        </div>
+        <div class="tcard">
+          <span class="quote">"</span>
+          <p data-es>Entendió lo que mi proyecto necesitaba y lo tradujo en un sitio bilingüe que se ve profesional.</p>
+          <p data-en>He understood what my project needed and turned it into a bilingual site that looks professional.</p>
+          <div class="t-author">Gabriel Henkel</div>
+          <div class="t-role" data-es>Autor, La Hacienda de las Rosas</div><div class="t-role" data-en>Author, La Hacienda de las Rosas</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="faq-grid">
+        <div class="faq-intro reveal">
+          <div class="eyebrow" data-es>Preguntas frecuentes</div><div class="eyebrow" data-en>FAQ</div>
+          <h2 class="section-title" data-es>Lo que suelen preguntarnos</h2><h2 class="section-title" data-en>What clients usually ask</h2>
+          <p data-es>Si tienes otra duda, escríbenos por WhatsApp y con gusto te orientamos.</p>
+          <p data-en>If you have another question, message us on WhatsApp and we'll gladly help.</p>
+          <a href="https://wa.me/526241181978" class="btn btn-teal" data-es>Escríbenos por WhatsApp</a>
+          <a href="https://wa.me/526241181978" class="btn btn-teal" data-en>Message us on WhatsApp</a>
+        </div>
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <button class="faq-q"><span data-es>¿Qué necesito entregar para empezar?</span><span data-en>What do I need to provide to start?</span><span class="plus"></span></button>
+            <div class="faq-a"><p data-es>Tu logotipo, los textos, las fotografías y los datos de contacto. Si aún no los tienes listos, podemos ayudarte con redacción, fotografía o identidad de marca como servicio adicional.</p><p data-en>Your logo, text, photos and contact details. If they're not ready yet, we can help with copywriting, photography or brand identity as an add-on.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q"><span data-es>¿Cuánto tarda mi sitio?</span><span data-en>How long does my site take?</span><span class="plus"></span></button>
+            <div class="faq-a"><p data-es>Entre 5 y 18 días hábiles según el paquete. Los plazos comienzan cuando recibimos el anticipo y el contenido completo; las esperas de aprobación pueden mover la fecha.</p><p data-en>Between 5 and 18 business days depending on the package. Timelines start once we receive the deposit and full content; approval waits can shift the date.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q"><span data-es>¿Cómo funcionan los pagos?</span><span data-en>How do payments work?</span><span class="plus"></span></button>
+            <div class="faq-a"><p data-es>50% de anticipo para comenzar y 50% antes de publicar el sitio final. Los precios son en pesos mexicanos.</p><p data-en>50% deposit to begin and 50% before the final site goes live. Prices are in Mexican pesos.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q"><span data-es>¿El dominio y el hospedaje están incluidos?</span><span data-en>Are domain and hosting included?</span><span class="plus"></span></button>
+            <div class="faq-a"><p data-es>Se cotizan aparte, igual que el correo empresarial, licencias y suscripciones. Te guiamos para contratarlos y dejarlos configurados.</p><p data-en>They're quoted separately, along with business email, licenses and subscriptions. We guide you to set them up correctly.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q"><span data-es>¿Puedo actualizar el sitio después?</span><span data-en>Can I update the site later?</span><span class="plus"></span></button>
+            <div class="faq-a"><p data-es>Sí. Incluimos 30 días de corrección de errores tras la entrega. Para cambios continuos está el mantenimiento mensual, y nuevas páginas o funciones se cotizan aparte.</p><p data-en>Yes. We include 30 days of bug fixes after delivery. For ongoing changes there's monthly maintenance, and new pages or features are quoted separately.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q"><span data-es>¿Aparecerá mi sitio en Google?</span><span data-en>Will my site show up on Google?</span><span class="plus"></span></button>
+            <div class="faq-a"><p data-es>Configuramos las bases de SEO inicial (títulos, descripciones y estructura) para que tu sitio pueda ser indexado. El posicionamiento depende de varios factores y no se garantizan posiciones específicas.</p><p data-en>We set the initial SEO basics (titles, descriptions and structure) so your site can be indexed. Ranking depends on many factors and specific positions aren't guaranteed.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section class="contact" id="contacto">
+    <div class="contact-info">
+      <div class="eyebrow light" data-es>Contacto</div><div class="eyebrow light" data-en>Contact</div>
+      <h2 data-es>Cuéntanos sobre tu proyecto</h2><h2 data-en>Tell us about your project</h2>
+      <p data-es>Respondemos en menos de 24 horas. Cuéntanos qué necesitas y te enviamos una propuesta a tu medida.</p>
+      <p data-en>We reply in under 24 hours. Tell us what you need and we'll send a tailored proposal.</p>
+      <a href="https://wa.me/526241181978" class="cdetail">
+        <span class="ci"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <div><span>WhatsApp</span><p>+52 624 118 1978</p></div>
+      </a>
+      <a href="mailto:serratoleyva@gmail.com" class="cdetail">
+        <span class="ci"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg></span>
+        <div><span>Email</span><p>serratoleyva@gmail.com</p></div>
+      </a>
+      <div class="cdetail">
+        <span class="ci"><svg viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <div><span data-es>Ubicación</span><span data-en>Location</span><p data-es>Los Cabos, Baja California Sur, México</p><p data-en>Los Cabos, Baja California Sur, Mexico</p></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3 data-es>Solicita tu cotización</h3><h3 data-en>Request your quote</h3>
+      <p class="cf-sub" data-es>Completa el formulario y te contactamos pronto.</p>
+      <p class="cf-sub" data-en>Fill out the form and we'll be in touch shortly.</p>
+      <form action="https://formsubmit.co/serratoleyva@gmail.com" method="POST">
+        <div class="fgroup">
+          <label data-es>Nombre</label><label data-en>Name</label>
+          <input type="text" name="name" required placeholder="" />
+        </div>
+        <div class="fgroup">
+          <label data-es>Correo o WhatsApp</label><label data-en>Email or WhatsApp</label>
+          <input type="text" name="contact" required />
+        </div>
+        <div class="fgroup">
+          <label data-es>Paquete de interés</label><label data-en>Package of interest</label>
+          <select name="package">
+            <option data-es>Aún no estoy seguro</option><option data-en>Not sure yet</option>
+            <option>Esencial / Essential — $5,900</option>
+            <option>Profesional / Professional — $12,900</option>
+            <option>Inmobiliario / Real Estate — $17,900</option>
+            <option data-es>Desarrollo avanzado</option><option data-en>Advanced development</option>
+          </select>
+        </div>
+        <div class="fgroup">
+          <label data-es>Cuéntanos tu idea</label><label data-en>Tell us your idea</label>
+          <textarea name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-teal" data-es>Enviar solicitud</button>
+        <button type="submit" class="btn btn-teal" data-en>Send request</button>
       </form>
     </div>
   </section>
 
+  <!-- ══ FOOTER ══ -->
   <footer>
-    <div class="footer-grid">
-      <a href="index.html" class="brand"><span class="wave">🌊</span> Mar de <span>Sitios</span></a>
-      <div class="footer-links">
-        <a href="#inicio" data-es>Inicio</a><a href="#inicio" data-en>Home</a>
-        <a href="portafolio.html" data-es>Portafolio</a><a href="portafolio.html" data-en>Portfolio</a>
-        <a href="#precios" data-es>Planes</a><a href="#precios" data-en>Pricing</a>
-        <a href="https://wa.me/526241181978">WhatsApp</a>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="fb-name">Mar de <b>Sitios</b></div>
+          <p data-es>Estudio de diseño y desarrollo web en Los Cabos. Creación y venta de páginas web personalizadas.</p>
+          <p data-en>Web design and development studio in Los Cabos. Custom websites, built and sold with care.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4 data-es>Navegación</h4><h4 data-en>Navigate</h4>
+            <a href="#beneficios" data-es>Servicios</a><a href="#beneficios" data-en>Services</a>
+            <a href="#portafolio" data-es>Proyectos</a><a href="#portafolio" data-en>Work</a>
+            <a href="#paquetes" data-es>Paquetes</a><a href="#paquetes" data-en>Pricing</a>
+            <a href="portafolio.html" data-es>Portafolio</a><a href="portafolio.html" data-en>Portfolio</a>
+          </div>
+          <div class="footer-col">
+            <h4 data-es>Contacto</h4><h4 data-en>Contact</h4>
+            <a href="https://wa.me/526241181978">WhatsApp</a>
+            <a href="mailto:serratoleyva@gmail.com">Email</a>
+            <a href="#contacto" data-es>Cotizar proyecto</a><a href="#contacto" data-en>Get a quote</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Mar de Sitios — <span data-es>Innovación web desde Los Cabos, B.C.S.</span><span data-en>Web innovation from Los Cabos, B.C.S.</span></p>
+        <p>Los Cabos · Baja California Sur · México</p>
       </div>
     </div>
-    <p class="footer-copy">© 2026 Mar de Sitios — <span data-es>Innovación web desde Los Cabos, B.C.S.</span><span data-en>Web innovation from Los Cabos, B.C.S.</span></p>
   </footer>
 
   <script>
-    function setLang(lang) {
+    // Language
+    function setLang(lang){
       document.body.classList.toggle('en', lang === 'en');
       document.documentElement.lang = lang;
-      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      try { localStorage.setItem('mds-lang', lang); } catch(e) {}
+      var es = document.getElementById('btn-es'), en = document.getElementById('btn-en');
+      if(es&&en){ es.classList.toggle('active', lang==='es'); en.classList.toggle('active', lang==='en'); }
+      try{ localStorage.setItem('mds-lang', lang);}catch(e){}
     }
-    (function() {
-      var saved = 'es';
-      try { saved = localStorage.getItem('mds-lang') || 'es'; } catch(e) {}
-      setLang(saved);
-    })();
+    (function(){ var s='es'; try{ s=localStorage.getItem('mds-lang')||'es'; }catch(e){} setLang(s); })();
 
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    // Nav scroll state
+    var nav = document.getElementById('nav');
+    function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 40); }
+    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+    // Mobile menu
+    var burger = document.getElementById('burger'), navRight = document.getElementById('navRight');
+    burger.addEventListener('click', function(){
+      navRight.classList.toggle('open'); nav.classList.toggle('menu-open');
+    });
+    navRight.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ navRight.classList.remove('open'); nav.classList.remove('menu-open'); });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(function(q){
+      q.addEventListener('click', function(){
+        var item = q.parentElement, a = item.querySelector('.faq-a');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function(o){
+          o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null;
+        });
+        if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+      });
+    });
+
+    // Scroll reveal
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, {threshold: 0.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   </script>
 </body>
 </html>
