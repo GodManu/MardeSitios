@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Ruta Pacífica · Demo de transporte | Mar de Sitios</title>
+  <meta name="description" content="Demo de sitio web para transporte turístico en Los Cabos, creado por Mar de Sitios: servicios, flota y reserva con cotizador por WhatsApp." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0d1013" />
+  <link rel="icon" type="image/svg+xml" href="../Images/favicon.svg" />
+  <link rel="preload" href="img/aeropuerto.webp" as="image" />
+  <style>
+    @font-face{font-family:Manrope;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format("woff2")}
+    @font-face{font-family:Manrope;font-weight:500;font-display:swap;src:url(fonts/manrope-latin-500-normal.woff2) format("woff2")}
+    @font-face{font-family:Manrope;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format("woff2")}
+    @font-face{font-family:Manrope;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-700-normal.woff2) format("woff2")}
+    @font-face{font-family:Manrope;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-800-normal.woff2) format("woff2")}
+    :root{--bg:#0d1013;--bg2:#14181c;--card:#1a1f24;--line:rgba(255,255,255,.1);--txt:#f3f1ec;--mut:#9aa3a9;--amber:#f2a93b;--amber2:#ffc66d;--light:#f6f4ef;--ink:#15191c;--r:18px;--ease:cubic-bezier(.16,1,.3,1);--g:clamp(18px,5vw,56px)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:90px}
+    body{font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    button,input,select{font:inherit;color:inherit}
+    :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+    html:not([lang="en"]) body [lang="en"]{display:none!important}
+    html[lang="en"] body [lang="es"]{display:none!important}
+    .wrap{max-width:1240px;margin:0 auto;padding:0 var(--g)}
+    [hidden]{display:none!important}
+
+    .demo-bar{position:relative;z-index:60;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;padding:9px 16px;background:linear-gradient(90deg,#c9a24c,#e2c27b);color:#1b1a14;font-size:.78rem;font-weight:600;text-align:center}
+    .demo-bar b{background:#1b1a14;color:#e2c27b;padding:2px 8px;border-radius:6px;font-size:.66rem;letter-spacing:.14em}
+    .demo-bar .short{display:none}
+    .demo-bar a{font-weight:800;text-decoration:underline;text-underline-offset:3px}
+
+    .nav{position:sticky;top:0;z-index:50;background:rgba(13,16,19,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav .wrap{display:flex;align-items:center;gap:22px;height:72px}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.15rem;letter-spacing:-.01em}
+    .logo i{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--amber);color:#1b1a14}
+    .logo i svg{width:20px;height:20px}
+    .logo small{display:block;font-size:.6rem;letter-spacing:.24em;color:var(--mut);font-weight:600;text-transform:uppercase}
+    .links{display:flex;gap:28px;list-style:none;margin-left:auto}
+    .links a{font-size:.88rem;font-weight:600;color:var(--mut);text-decoration:none;transition:color .3s}
+    .links a:hover{color:var(--txt)}
+    .lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+    .lang button{background:none;border:0;cursor:pointer;font-size:.7rem;font-weight:800;padding:5px 10px;border-radius:999px;color:var(--mut)}
+    .lang button[aria-pressed="true"]{background:var(--amber);color:#1b1a14}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:0 22px;border-radius:12px;border:0;cursor:pointer;font-weight:800;font-size:.92rem;text-decoration:none;transition:transform .3s var(--ease),background .3s,box-shadow .3s}
+    .btn svg{width:18px;height:18px}
+    .btn-amber{background:var(--amber);color:#1b1a14;box-shadow:0 12px 30px -12px rgba(242,169,59,.8)}
+    .btn-amber:hover{background:var(--amber2);transform:translateY(-2px)}
+    .btn-ghost{border:1px solid var(--line);color:var(--txt);background:rgba(255,255,255,.04)}
+    .btn-ghost:hover{border-color:var(--amber)}
+    .btn-wa{background:#25d366;color:#08240f;box-shadow:0 12px 30px -12px rgba(37,211,102,.8)}
+    .btn-wa:hover{transform:translateY(-2px);background:#3ee07a}
+    .menu-btn{display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--line);background:none;cursor:pointer;place-items:center}
+    .menu-btn svg{width:22px;height:22px}
+
+    /* hero */
+    .hero{position:relative;min-height:calc(100svh - 110px);display:flex;align-items:center;padding:60px 0 70px;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:url(img/aeropuerto.webp) center 40%/cover no-repeat;transform:scale(1.06);animation:zoom 16s var(--ease) forwards}
+    @keyframes zoom{to{transform:scale(1)}}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(95deg,rgba(13,16,19,.94) 0%,rgba(13,16,19,.74) 42%,rgba(13,16,19,.25) 72%,rgba(13,16,19,.4) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 30%)}
+    .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;width:100%}
+    .kicker{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:999px;background:rgba(242,169,59,.12);border:1px solid rgba(242,169,59,.35);color:var(--amber2);font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .hero h1{margin:22px 0 18px;font-size:clamp(2.6rem,6.2vw,5rem);font-weight:800;line-height:1;letter-spacing:-.035em}
+    .hero h1 span.hl{color:var(--amber)}
+    .hero p.sub{font-size:clamp(1rem,1.4vw,1.15rem);color:#c9cfd3;max-width:44ch;margin-bottom:28px}
+    .trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;font-size:.84rem;color:#c9cfd3}
+    .trust span{display:flex;align-items:center;gap:8px}
+    .trust svg{width:18px;height:18px;color:var(--amber)}
+
+    /* booking */
+    .book{background:rgba(20,24,28,.86);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+    .book h2{font-size:1.25rem;font-weight:800;margin-bottom:4px}
+    .book .note{font-size:.78rem;color:var(--mut);margin-bottom:16px}
+    .tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:5px;border-radius:14px;background:#0f1215;margin-bottom:16px}
+    .tabs button{border:0;background:none;cursor:pointer;padding:10px 4px;border-radius:10px;font-size:.74rem;font-weight:700;color:var(--mut);line-height:1.2;transition:background .3s,color .3s}
+    .tabs button[aria-selected="true"]{background:var(--amber);color:#1b1a14}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .fld{display:grid;gap:6px;margin-bottom:12px}
+    .fld label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+    .fld input,.fld select{width:100%;font-size:16px;padding:12px 13px;border-radius:12px;border:1px solid var(--line);background:#0f1215;color:var(--txt);outline:none;-webkit-appearance:none;appearance:none;color-scheme:dark}
+    .fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239aa3a9' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px;padding-right:36px}
+    .fld input:focus,.fld select:focus{border-color:var(--amber)}
+    .stepper{display:flex;align-items:center;border:1px solid var(--line);border-radius:12px;background:#0f1215;overflow:hidden}
+    .stepper button{width:46px;height:46px;border:0;background:none;cursor:pointer;font-size:1.3rem;color:var(--amber)}
+    .stepper output{flex:1;text-align:center;font-weight:800}
+    .total{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding:16px 0;margin:6px 0 14px;border-top:1px dashed var(--line)}
+    .total small{display:block;font-size:.7rem;color:var(--mut);letter-spacing:.1em;text-transform:uppercase}
+    .total strong{font-size:2.2rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+    .total strong em{font-style:normal;font-size:.9rem;color:var(--mut);margin-left:4px}
+    .book .btn{width:100%}
+    .pay{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;justify-content:center}
+    .pay span{font-size:.68rem;font-weight:700;padding:4px 9px;border-radius:6px;background:#0f1215;border:1px solid var(--line);color:var(--mut)}
+
+    section{padding:clamp(70px,10vw,120px) 0}
+    .head{display:grid;gap:12px;margin-bottom:44px;max-width:640px}
+    .eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+    .h2{font-size:clamp(2rem,4.4vw,3.3rem);font-weight:800;line-height:1.05;letter-spacing:-.03em}
+    .head p{color:var(--mut)}
+
+    .services{background:var(--light);color:var(--ink)}
+    .services .head p{color:#5d666b}
+    .svc{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .svc article{position:relative;padding:28px 24px;border-radius:var(--r);background:#fff;border:1px solid rgba(0,0,0,.07);transition:transform .4s var(--ease),box-shadow .4s}
+    .svc article:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(0,0,0,.35)}
+    .svc i{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:#15191c;color:var(--amber);margin-bottom:22px}
+    .svc i svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .svc h3{font-size:1.2rem;font-weight:800;margin-bottom:6px}
+    .svc p{font-size:.9rem;color:#5d666b}
+    .svc .from{display:block;margin-top:16px;font-size:.8rem;font-weight:700;color:#a06a12}
+
+    .fleet .wrap.split{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+    .suv{position:relative;border-radius:28px;background:radial-gradient(70% 60% at 50% 60%,#2a2f35 0%,#0d1013 70%);padding:40px 20px;overflow:hidden}
+    .suv::after{content:"";position:absolute;left:12%;right:12%;bottom:22%;height:30px;background:radial-gradient(closest-side,rgba(0,0,0,.8),transparent);filter:blur(6px)}
+    .suv img{position:relative;z-index:1;width:100%;mix-blend-mode:screen}
+    .specs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 30px}
+    .specs div{padding:16px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+    .specs b{display:block;font-size:1.5rem;font-weight:800;color:var(--amber)}
+    .specs span{font-size:.82rem;color:var(--mut)}
+
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+    .gallery button{position:relative;border:0;padding:0;cursor:zoom-in;border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--card)}
+    .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+    .gallery button:hover img{transform:scale(1.06)}
+    .gallery span{position:absolute;left:12px;bottom:10px;font-size:.72rem;font-weight:700;background:rgba(13,16,19,.7);padding:4px 9px;border-radius:8px}
+
+    .how{background:var(--bg2)}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;counter-reset:s}
+    .steps li{padding:28px;border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
+    .steps li::before{counter-increment:s;content:"0" counter(s);display:block;font-size:.9rem;font-weight:800;color:var(--amber);margin-bottom:14px}
+    .steps h3{font-size:1.15rem;font-weight:800;margin-bottom:6px}
+    .steps p{font-size:.9rem;color:var(--mut)}
+
+    .rates table{width:100%;border-collapse:collapse;font-size:.95rem}
+    .rates th,.rates td{padding:16px 14px;text-align:left;border-bottom:1px solid var(--line)}
+    .rates th{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:700}
+    .rates td:not(:first-child),.rates th:not(:first-child){text-align:right}
+    .rates td b{color:var(--amber)}
+    .rates .tbl{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card)}
+    .rates .fine{margin-top:12px;font-size:.8rem;color:var(--mut)}
+
+    .cta{position:relative;overflow:hidden;text-align:center;background:url(img/villa.webp) center/cover}
+    .cta::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,16,19,.92),rgba(13,16,19,.75))}
+    .cta .wrap{position:relative;display:grid;justify-items:center;gap:20px}
+    .cta p{color:#c9cfd3;max-width:52ch}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+
+    footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);font-size:.85rem;color:var(--mut)}
+    footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    footer a{color:var(--amber2)}
+
+    .lightbox{position:fixed;inset:0;z-index:100;background:rgba(5,6,8,.92);display:none;align-items:center;justify-content:center;padding:20px}
+    .lightbox.open{display:flex}
+    .lightbox img{max-height:86vh;border-radius:14px}
+    .lightbox button{position:absolute;top:16px;right:16px;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;font-size:1.5rem;cursor:pointer}
+    .wa-float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#fff;box-shadow:0 14px 30px -8px rgba(37,211,102,.6)}
+    .wa-float svg{width:28px;height:28px}
+    .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+    .rv.in{opacity:1;transform:none}
+
+    @media (max-width:1000px){
+      .hero .wrap,.fleet .wrap.split{grid-template-columns:minmax(0,1fr)}
+      .hero .wrap > *{min-width:0}
+      .svc{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+      .steps{grid-template-columns:1fr}
+      .links{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg2);border-bottom:1px solid var(--line);padding:8px var(--g) 18px}
+      .links.open{display:flex}
+      .links a{display:block;padding:14px 0;font-size:1.05rem;color:var(--txt);border-bottom:1px solid var(--line)}
+      .menu-btn{display:grid;margin-left:auto}
+      .nav .btn-amber{display:none}
+    }
+    @media (max-width:560px){
+      .svc{grid-template-columns:1fr}
+      .tabs button{font-size:.68rem}
+      .grid2{grid-template-columns:1fr 1fr}
+      .hero{padding-top:36px}
+      .demo-bar{font-size:.7rem;flex-wrap:nowrap;gap:8px}
+      .demo-bar .long{display:none}.demo-bar .short{display:inline}.demo-bar a:not(.short){display:none}.demo-bar a.short{display:inline!important}
+      .logo small{letter-spacing:.12em}
+      .book{padding:18px}
+      .rates th,.rates td{padding:13px 10px;font-size:.85rem}
+    }
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <div class="demo-bar"><b>DEMO</b><span class="long"><span lang="es">Sitio de muestra creado por Mar de Sitios · Marca, tarifas y datos son ejemplos.</span><span lang="en">Sample site built by Mar de Sitios · Brand, rates and details are examples.</span></span><a class="short" href="../index.html#contacto" style="display:none"><span lang="es">Sitio de muestra · Mar de Sitios →</span><span lang="en">Sample site · Mar de Sitios →</span></a><a href="../index.html#contacto"><span lang="es">Quiero un sitio así →</span><span lang="en">I want a site like this →</span></a></div>
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="logo" href="#inicio"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.5"/></svg></i><span>Ruta Pacífica<small>Los Cabos Transfers</small></span></a>
+      <ul class="links" id="links">
+        <li><a href="#servicios"><span lang="es">Servicios</span><span lang="en">Services</span></a></li>
+        <li><a href="#flota"><span lang="es">Flota</span><span lang="en">Fleet</span></a></li>
+        <li><a href="#tarifas"><span lang="es">Tarifas</span><span lang="en">Rates</span></a></li>
+        <li><a href="#reservar"><span lang="es">Reservar</span><span lang="en">Book</span></a></li>
+      </ul>
+      <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true">ES</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+      <a class="btn btn-amber" href="#reservar"><span lang="es">Reservar</span><span lang="en">Book now</span></a>
+      <button class="menu-btn" type="button" aria-label="Menú" aria-expanded="false" aria-controls="links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <div>
+          <span class="kicker"><span lang="es">Transporte privado · Los Cabos</span><span lang="en">Private transportation · Los Cabos</span></span>
+          <h1><span lang="es">Del aeropuerto a tu villa, <span class="hl">sin esperas.</span></span><span lang="en">From the airport to your villa, <span class="hl">no waiting.</span></span></h1>
+          <p class="sub"><span lang="es">SUVs de lujo con conductor bilingüe. Cotiza en segundos y confirma tu reserva por WhatsApp.</span><span lang="en">Luxury SUVs with bilingual drivers. Get a fare in seconds and confirm your booking on WhatsApp.</span></p>
+          <a class="btn btn-ghost" href="#flota"><span lang="es">Ver la flota</span><span lang="en">See the fleet</span></a>
+          <div class="trust">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><span lang="es">Monitoreo de vuelo</span><span lang="en">Flight tracking</span></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span lang="es">Conductor bilingüe</span><span lang="en">Bilingual driver</span></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M5 9l7-7 7 7"/></svg><span lang="es">Tarifa fija por vehículo</span><span lang="en">Fixed price per vehicle</span></span>
+          </div>
+        </div>
+
+        <form class="book rv" id="reservar" autocomplete="on">
+          <h2><span lang="es">Cotiza y reserva</span><span lang="en">Get a fare & book</span></h2>
+          <p class="note"><span lang="es">Tarifas de ejemplo por SUV (hasta 6 pasajeros).</span><span lang="en">Example rates per SUV (up to 6 passengers).</span></p>
+          <div class="tabs" role="tablist" aria-label="Servicio">
+            <button type="button" role="tab" data-svc="arrival" aria-selected="true"><span lang="es">Llegada</span><span lang="en">Arrival</span></button>
+            <button type="button" role="tab" data-svc="departure" aria-selected="false"><span lang="es">Salida</span><span lang="en">Departure</span></button>
+            <button type="button" role="tab" data-svc="round" aria-selected="false"><span lang="es">Redondo</span><span lang="en">Round trip</span></button>
+            <button type="button" role="tab" data-svc="hourly" aria-selected="false"><span lang="es">Por hora</span><span lang="en">Hourly</span></button>
+          </div>
+          <div class="fld" id="f-zone-wrap"><label for="f-zone"><span lang="es">Destino / zona</span><span lang="en">Destination / area</span></label>
+            <select id="f-zone">
+              <option value="sjd">San José del Cabo</option>
+              <option value="pto">Puerto Los Cabos</option>
+              <option value="cor" selected>Corredor Turístico</option>
+              <option value="csl">Cabo San Lucas</option>
+              <option value="pdg">Pedregal</option>
+              <option value="ec">East Cape</option>
+              <option value="ts">Todos Santos</option>
+            </select>
+          </div>
+          <div class="fld" id="f-hours-wrap" hidden><label for="f-hours"><span lang="es">Horas (mínimo 3)</span><span lang="en">Hours (3 minimum)</span></label>
+            <select id="f-hours"><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option></select>
+          </div>
+          <div class="grid2">
+            <div class="fld"><label for="f-date"><span lang="es">Fecha</span><span lang="en">Date</span></label><input id="f-date" type="date" required /></div>
+            <div class="fld"><label for="f-time"><span lang="es">Hora</span><span lang="en">Time</span></label><input id="f-time" type="time" value="14:00" required /></div>
+          </div>
+          <div class="grid2">
+            <div class="fld"><label><span lang="es">Pasajeros</span><span lang="en">Passengers</span></label>
+              <div class="stepper"><button type="button" data-step="-1" aria-label="−">−</button><output id="f-pax">2</output><button type="button" data-step="1" aria-label="+">+</button></div>
+            </div>
+            <div class="fld"><label for="f-hotel"><span lang="es">Hotel / villa</span><span lang="en">Hotel / villa</span></label><input id="f-hotel" type="text" placeholder="Ej. Villa del Mar" /></div>
+          </div>
+          <div class="total">
+            <div><small><span lang="es">Total estimado</span><span lang="en">Estimated total</span></small><strong id="price">$0<em>USD</em></strong></div>
+            <small id="price-note" style="text-align:right"></small>
+          </div>
+          <button class="btn btn-wa" type="submit"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7z"/></svg><span lang="es">Reservar por WhatsApp</span><span lang="en">Book on WhatsApp</span></button>
+          <div class="pay" aria-label="Métodos de pago"><span>PayPal</span><span lang="es">Tarjeta</span><span lang="en">Card</span><span lang="es">Transferencia</span><span lang="en">Transfer</span><span lang="es">Efectivo</span><span lang="en">Cash</span></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="services" id="servicios">
+      <div class="wrap">
+        <div class="head rv"><span class="eyebrow"><span lang="es">Servicios</span><span lang="en">Services</span></span><h2 class="h2"><span lang="es">Un traslado para cada plan</span><span lang="en">A ride for every plan</span></h2><p><span lang="es">Desde la llegada al aeropuerto hasta una cena en Cabo San Lucas o un día en Todos Santos.</span><span lang="en">From airport arrival to dinner in Cabo San Lucas or a day in Todos Santos.</span></p></div>
+        <div class="svc">
+          <article class="rv"><i><svg viewBox="0 0 24 24"><path d="M2 16h20M6 12l3-7h6l3 7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></i><h3><span lang="es">Aeropuerto → hotel</span><span lang="en">Airport → hotel</span></h3><p><span lang="es">Te esperamos con letrero a la salida, aunque tu vuelo se retrase.</span><span lang="en">We wait for you at arrivals with a sign, even if your flight is late.</span></p><span class="from"><span lang="es">Desde</span><span lang="en">From</span> $85 USD</span></article>
+          <article class="rv"><i><svg viewBox="0 0 24 24"><path d="M3 12h13M12 6l6 6-6 6M21 4v16"/></svg></i><h3><span lang="es">Hotel → aeropuerto</span><span lang="en">Hotel → airport</span></h3><p><span lang="es">Recolección puntual en tu hotel o villa, con tiempo de sobra para documentar.</span><span lang="en">On-time pickup at your hotel or villa, with plenty of time to check in.</span></p><span class="from"><span lang="es">Desde</span><span lang="en">From</span> $85 USD</span></article>
+          <article class="rv"><i><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></svg></i><h3><span lang="es">Viaje redondo</span><span lang="en">Round trip</span></h3><p><span lang="es">Llegada y salida en una sola reserva, con 10% de descuento.</span><span lang="en">Arrival and departure in one booking, with a 10% discount.</span></p><span class="from"><span lang="es">Desde</span><span lang="en">From</span> $153 USD</span></article>
+          <article class="rv"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg></i><h3><span lang="es">Servicio por hora</span><span lang="en">Hourly service</span></h3><p><span lang="es">Conductor a tu disposición para compras, cenas o recorridos.</span><span lang="en">A driver at your disposal for shopping, dinners or sightseeing.</span></p><span class="from">$75 USD / <span lang="es">hora</span><span lang="en">hour</span></span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fleet" id="flota">
+      <div class="wrap split">
+        <div class="suv rv"><img src="img/suv.webp" alt="SUV de lujo para 6 pasajeros" width="717" height="348" loading="lazy" /></div>
+        <div class="rv">
+          <span class="eyebrow"><span lang="es">Flota</span><span lang="en">Fleet</span></span>
+          <h2 class="h2" style="margin-top:12px"><span lang="es">SUV de lujo, lista para Los Cabos</span><span lang="en">Luxury SUV, ready for Los Cabos</span></h2>
+          <div class="specs">
+            <div><b>6</b><span lang="es">pasajeros</span><span lang="en">passengers</span></div>
+            <div><b>6</b><span lang="es">maletas grandes</span><span lang="en">large suitcases</span></div>
+            <div><b>A/C</b><span lang="es">y agua a bordo</span><span lang="en">and water on board</span></div>
+            <div><b>Wi-Fi</b><span lang="es">y cargadores USB</span><span lang="en">and USB chargers</span></div>
+          </div>
+          <a class="btn btn-amber" href="#reservar"><span lang="es">Reservar esta SUV</span><span lang="en">Book this SUV</span></a>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="gallery">
+          <button type="button" class="rv" data-full="img/interior.webp"><img src="img/interior.webp" alt="Interior con pantalla" loading="lazy" /><span lang="es">Interior</span><span lang="en">Interior</span></button>
+          <button type="button" class="rv" data-full="img/interior-2.webp"><img src="img/interior-2.webp" alt="Asientos de piel" loading="lazy" /><span lang="es">Asientos de piel</span><span lang="en">Leather seats</span></button>
+          <button type="button" class="rv" data-full="img/hotel.webp"><img src="img/hotel.webp" alt="Recolección en hotel" loading="lazy" /><span lang="es">Recolección en hotel</span><span lang="en">Hotel pickup</span></button>
+          <button type="button" class="rv" data-full="img/villa.webp"><img src="img/villa.webp" alt="Llegada a villa" loading="lazy" /><span lang="es">Llegada a villa</span><span lang="en">Villa arrival</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="how">
+      <div class="wrap">
+        <div class="head rv"><span class="eyebrow"><span lang="es">Así funciona</span><span lang="en">How it works</span></span><h2 class="h2"><span lang="es">Reservar toma un minuto</span><span lang="en">Booking takes a minute</span></h2></div>
+        <ol class="steps">
+          <li class="rv"><h3><span lang="es">Cotiza</span><span lang="en">Get a fare</span></h3><p><span lang="es">Elige servicio, zona y pasajeros: el total aparece al instante.</span><span lang="en">Pick a service, area and passengers: the total appears instantly.</span></p></li>
+          <li class="rv"><h3><span lang="es">Envía por WhatsApp</span><span lang="en">Send on WhatsApp</span></h3><p><span lang="es">Tu solicitud llega ya escrita, con fecha, hora y hotel.</span><span lang="en">Your request arrives pre-written, with date, time and hotel.</span></p></li>
+          <li class="rv"><h3><span lang="es">Confirma y paga</span><span lang="en">Confirm & pay</span></h3><p><span lang="es">Recibes la confirmación y eliges cómo pagar.</span><span lang="en">You receive confirmation and choose how to pay.</span></p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="rates" id="tarifas">
+      <div class="wrap">
+        <div class="head rv"><span class="eyebrow"><span lang="es">Tarifas</span><span lang="en">Rates</span></span><h2 class="h2"><span lang="es">Precios claros por zona</span><span lang="en">Clear prices by area</span></h2></div>
+        <div class="tbl rv">
+          <table>
+            <thead><tr><th><span lang="es">Zona</span><span lang="en">Area</span></th><th><span lang="es">Sencillo</span><span lang="en">One way</span></th><th><span lang="es">Redondo</span><span lang="en">Round trip</span></th></tr></thead>
+            <tbody id="rates-body"></tbody>
+          </table>
+        </div>
+        <p class="fine rv"><span lang="es">Precios por vehículo en USD. Tarifas de ejemplo para esta demostración.</span><span lang="en">Prices per vehicle in USD. Example rates for this demo.</span></p>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap rv">
+        <span class="eyebrow">Mar de Sitios</span>
+        <h2 class="h2"><span lang="es">¿Tienes una empresa de transporte?</span><span lang="en">Run a transportation company?</span></h2>
+        <p><span lang="es">Este demo muestra lo que podemos crear para tu negocio: tu marca, tus tarifas y reservas que llegan directo a tu WhatsApp.</span><span lang="en">This demo shows what we can build for your business: your brand, your rates and bookings that land straight in your WhatsApp.</span></p>
+        <div class="cta-row">
+          <a class="btn btn-amber" href="../index.html#paquetes"><span lang="es">Ver paquetes</span><span lang="en">See packages</span></a>
+          <a class="btn btn-ghost" href="https://wa.me/526241181978?text=Hola%20Mar%20de%20Sitios%2C%20vi%20el%20demo%20de%20transporte%20y%20quiero%20un%20sitio%20as%C3%AD"><span lang="es">Hablar con Mar de Sitios</span><span lang="en">Talk to Mar de Sitios</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Ruta Pacífica · <span lang="es">marca ficticia de demostración</span><span lang="en">fictional demo brand</span></span>
+      <span><span lang="es">Diseño y desarrollo:</span><span lang="en">Design & development:</span> <a href="../index.html">Mar de Sitios</a></span>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Foto"><button type="button" aria-label="Cerrar">×</button><img alt="" /></div>
+  <a class="wa-float" id="wa-float" href="#" aria-label="WhatsApp"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7z"/></svg></a>
+
+  <script>
+  (function(){
+    var WA="526241181978";
+    var Z={sjd:["San José del Cabo",85],pto:["Puerto Los Cabos",95],cor:["Corredor Turístico",105],csl:["Cabo San Lucas",120],pdg:["Pedregal",130],ec:["East Cape",190],ts:["Todos Santos",260]};
+    var SVC={arrival:{es:"Llegada (aeropuerto → hotel)",en:"Arrival (airport → hotel)"},departure:{es:"Salida (hotel → aeropuerto)",en:"Departure (hotel → airport)"},round:{es:"Viaje redondo",en:"Round trip"},hourly:{es:"Servicio por hora",en:"Hourly service"}};
+    var html=document.documentElement, $=function(s){return document.querySelector(s)}, $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+    var svc="arrival", pax=2;
+    function lang(){return html.lang==="en"?"en":"es"}
+    function setLang(l){html.lang=l;$$(".lang button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.lang===l))});try{localStorage.setItem("mds-lang",l)}catch(e){}calc()}
+    $$(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang)})});
+    var saved="es";try{saved=localStorage.getItem("mds-lang")||"es"}catch(e){}
+
+    // tabla de tarifas
+    var tb=$("#rates-body");
+    Object.keys(Z).forEach(function(k){var tr=document.createElement("tr");tr.innerHTML="<td>"+Z[k][0]+"</td><td><b>$"+Z[k][1]+"</b></td><td>$"+Math.round(Z[k][1]*2*0.9)+"</td>";tb.appendChild(tr)});
+
+    // fecha mínima: mañana
+    var d=new Date();d.setDate(d.getDate()+1);var iso=d.toISOString().slice(0,10);$("#f-date").min=iso;$("#f-date").value=iso;
+
+    function price(){
+      if(svc==="hourly") return 75*(+$("#f-hours").value);
+      var base=Z[$("#f-zone").value][1];
+      return svc==="round"?Math.round(base*2*0.9):base;
+    }
+    function calc(){
+      var p=price(); $("#price").innerHTML="$"+p.toLocaleString("en-US")+"<em>USD</em>";
+      var n=$("#price-note"); var l=lang();
+      n.textContent = svc==="round" ? (l==="es"?"Incluye 10% de descuento":"Includes 10% off") : svc==="hourly" ? "$75 USD / "+(l==="es"?"hora":"hour") : (l==="es"?"Por vehículo":"Per vehicle");
+      $("#f-hotel").placeholder = l==="es"?"Ej. Villa del Mar":"e.g. Villa del Mar";
+    }
+    $$(".tabs button").forEach(function(b){b.addEventListener("click",function(){
+      svc=b.dataset.svc;$$(".tabs button").forEach(function(x){x.setAttribute("aria-selected",String(x===b))});
+      $("#f-hours-wrap").hidden=svc!=="hourly";calc();
+    })});
+    $("#f-zone").addEventListener("change",calc);$("#f-hours").addEventListener("change",calc);
+    $$(".stepper button").forEach(function(b){b.addEventListener("click",function(){pax=Math.max(1,Math.min(6,pax+(+b.dataset.step)));$("#f-pax").textContent=pax})});
+
+    $("#reservar").addEventListener("submit",function(e){
+      e.preventDefault(); var l=lang(), z=Z[$("#f-zone").value][0];
+      var lines = l==="es" ? [
+        "Hola, probé el demo de transporte de Mar de Sitios.","Reserva de ejemplo:",
+        "• Servicio: "+SVC[svc].es, svc==="hourly"?"• Horas: "+$("#f-hours").value:"• Zona: "+z,
+        "• Fecha: "+$("#f-date").value+" "+$("#f-time").value,"• Pasajeros: "+pax,
+        $("#f-hotel").value?"• Hotel/villa: "+$("#f-hotel").value:"","• Total: $"+price()+" USD"
+      ] : [
+        "Hi, I tried the Mar de Sitios transportation demo.","Sample booking:",
+        "• Service: "+SVC[svc].en, svc==="hourly"?"• Hours: "+$("#f-hours").value:"• Area: "+z,
+        "• Date: "+$("#f-date").value+" "+$("#f-time").value,"• Passengers: "+pax,
+        $("#f-hotel").value?"• Hotel/villa: "+$("#f-hotel").value:"","• Total: $"+price()+" USD"
+      ];
+      window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(lines.filter(Boolean).join("\n")),"_blank","noopener");
+    });
+    $("#wa-float").addEventListener("click",function(e){e.preventDefault();window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(lang()==="es"?"Hola, vi el demo de transporte de Mar de Sitios y quiero un sitio así.":"Hi, I saw the Mar de Sitios transportation demo and I want a site like it."),"_blank","noopener")});
+
+    // menú móvil
+    var mb=$(".menu-btn"), links=$("#links");
+    mb.addEventListener("click",function(){var o=links.classList.toggle("open");mb.setAttribute("aria-expanded",String(o))});
+    $$("#links a").forEach(function(a){a.addEventListener("click",function(){links.classList.remove("open");mb.setAttribute("aria-expanded","false")})});
+
+    // galería
+    var lb=$("#lb");
+    $$(".gallery button").forEach(function(b){b.addEventListener("click",function(){lb.querySelector("img").src=b.dataset.full;lb.querySelector("img").alt=b.querySelector("img").alt;lb.classList.add("open");lb.querySelector("button").focus()})});
+    function closeLb(){lb.classList.remove("open")}
+    lb.addEventListener("click",function(e){if(e.target!==lb.querySelector("img"))closeLb()});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape")closeLb()});
+
+    // revelado
+    if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});$$(".rv").forEach(function(el){io.observe(el)})}else{$$(".rv").forEach(function(el){el.classList.add("in")})}
+
+    setLang(saved);
+  })();
+  </script>
+</body>
+</html>

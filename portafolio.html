@@ -1,415 +1,253 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="no-js" data-title-es="Portafolio · Mar de Sitios" data-title-en="Portfolio · Mar de Sitios">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Portafolio · Mar de Sitios</title>
-  <meta name="description" content="Proyectos web de Mar de Sitios en Los Cabos, B.C.S. Automotriz, editorial, turismo y más." />
+  <meta name="description" content="Proyectos de Mar de Sitios: sitios en vivo y demos navegables de sitios inmobiliarios y de transporte en Los Cabos, B.C.S." />
+  <meta name="theme-color" content="#06181c" />
+  <link rel="canonical" href="https://mardesitios.com/portafolio.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mar de Sitios · Diseño web en Los Cabos" />
+  <meta property="og:description" content="Sitios que inspiran confianza y generan contactos. Paquetes desde $5,900 MXN." />
+  <meta property="og:url" content="https://mardesitios.com/portafolio.html" />
+  <meta property="og:image" content="https://mardesitios.com/assets/img/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/svg+xml" href="Images/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="Images/favicon-180.png" />
   <link rel="icon" href="favicon.ico" sizes="any" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --teal: #18787f; --teal-deep: #0d4f54; --teal-soft: #4aa3a8;
-      --ink: #0f2b30; --ink-2: #0a2024;
-      --sand: #efe7d7; --cream: #faf7f0;
-      --gold: #c9a24c; --gold-light: #ddbd73;
-      --text: #16242a; --text-mid: #5b6a70; --text-soft: #8a979c;
-      --line: rgba(15,43,48,0.12); --white: #ffffff;
-      --shadow-soft: 0 24px 60px rgba(15,43,48,0.10);
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
-    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
-
-    .eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: inline-flex; align-items: center; gap: 14px; margin-bottom: 22px; }
-    .eyebrow::before { content: ''; width: 34px; height: 1px; background: var(--gold); display: block; }
-    .eyebrow.center { justify-content: center; }
-    .eyebrow.light { color: var(--gold-light); }
-    .section-title { font-size: clamp(2.1rem, 4vw, 3.2rem); line-height: 1.12; color: var(--ink); letter-spacing: -0.01em; }
-
-    .btn { display: inline-flex; align-items: center; gap: 10px; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; padding: 15px 34px; border-radius: 2px; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: background .3s, color .3s, border-color .3s, transform .3s; }
-    .btn-gold { background: var(--gold); color: var(--ink); }
-    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
-    .btn-teal { background: var(--teal); color: #fff; }
-    .btn-teal:hover { background: var(--teal-deep); transform: translateY(-2px); }
-    .btn-outline { border-color: var(--line); color: var(--ink); background: transparent; }
-    .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
-    .btn-ghost-light { border: 1px solid rgba(255,255,255,0.35); color: #fff; }
-    .btn-ghost-light:hover { border-color: var(--gold); background: rgba(201,162,76,0.12); }
-
-    /* NAV (shared) */
-    nav { position: fixed; inset: 0 0 auto 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; transition: background .4s, padding .4s, box-shadow .4s, border-color .4s; border-bottom: 1px solid transparent; }
-    nav.scrolled { background: rgba(250,247,240,0.92); backdrop-filter: blur(12px); padding: 12px 40px; border-bottom: 1px solid var(--line); }
-    .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .nav-brand .logo-plate { display: flex; align-items: center; justify-content: center; background: var(--cream); border-radius: 50%; padding: 6px; width: 48px; height: 48px; flex-shrink: 0; box-shadow: 0 4px 14px rgba(0,0,0,0.18); transition: all .4s; }
-    nav.scrolled .nav-brand .logo-plate { width: 42px; height: 42px; box-shadow: none; }
-    .nav-brand .logo-plate img { width: 100%; height: 100%; object-fit: contain; display: block; }
-    .nav-brand .bmark { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: #fff; letter-spacing: 0.04em; transition: color .4s; white-space: nowrap; }
-    nav.scrolled .nav-brand .bmark { color: var(--ink); }
-    .nav-brand .bmark b { font-weight: 600; color: var(--gold); }
-    .nav-right { display: flex; align-items: center; gap: 30px; }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; transition: color .3s; }
-    nav.scrolled .nav-links a { color: var(--text-mid); }
-    .nav-links a:hover { color: var(--gold); }
-    nav.scrolled .nav-links a:hover { color: var(--teal); }
-    .nav-cta { font-size: 0.7rem; padding: 11px 22px; }
-    .lang-toggle { display: flex; border: 1px solid rgba(255,255,255,0.4); border-radius: 2px; overflow: hidden; }
-    nav.scrolled .lang-toggle { border-color: var(--line); }
-    .lang-toggle button { background: transparent; border: none; cursor: pointer; padding: 6px 11px; font-family: 'Inter', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; color: rgba(255,255,255,0.75); transition: all .25s; }
-    nav.scrolled .lang-toggle button { color: var(--text-soft); }
-    .lang-toggle button.active { background: var(--gold); color: var(--ink); }
-    .nav-burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
-    .nav-burger span { width: 24px; height: 2px; background: #fff; transition: background .4s; }
-    nav.scrolled .nav-burger span { background: var(--ink); }
-
-    /* HERO */
-    .hero { position: relative; min-height: 64vh; display: flex; align-items: center; padding: 150px 0 90px; overflow: hidden; background: radial-gradient(120% 90% at 80% 10%, rgba(201,162,76,0.10), transparent 55%), linear-gradient(155deg, var(--ink) 0%, var(--ink-2) 60%, #06181b 100%); }
-    .hero::before { content: ''; position: absolute; inset: 0; opacity: .5; background-image: repeating-linear-gradient(0deg, transparent, transparent 46px, rgba(255,255,255,0.025) 47px), repeating-linear-gradient(90deg, transparent, transparent 46px, rgba(255,255,255,0.025) 47px); }
-    .hero .wrap { position: relative; z-index: 2; }
-    .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.05; color: #fff; letter-spacing: -0.01em; margin-bottom: 24px; max-width: 16ch; }
-    .hero h1 .accent { color: var(--gold-light); font-style: italic; }
-    .hero p { font-size: 1.02rem; font-weight: 300; color: rgba(255,255,255,0.72); max-width: 54ch; line-height: 1.85; }
-    .hero-meta { display: flex; gap: 40px; margin-top: 44px; flex-wrap: wrap; }
-    .hero-meta .m { display: flex; flex-direction: column; }
-    .hero-meta .m b { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold-light); font-weight: 500; line-height: 1; }
-    .hero-meta .m span { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 6px; }
-
-    /* PROJECTS — editorial alternating rows */
-    .work { padding: 120px 0; background: var(--cream); }
-    .work-head { max-width: 640px; margin-bottom: 80px; }
-    .work-head .section-title { margin-bottom: 18px; }
-    .work-head p { color: var(--text-mid); font-weight: 300; }
-
-    .project { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; margin-bottom: 110px; }
-    .project:last-child { margin-bottom: 0; }
-    .project.flip .project-media { order: 2; }
-    .project-media { position: relative; border-radius: 4px; overflow: hidden; box-shadow: var(--shadow-soft); background: var(--ink); aspect-ratio: 16 / 11; }
-    .project-media img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .8s ease; }
-    .project-media:hover img { transform: scale(1.04); }
-    .project-num { position: absolute; top: 18px; left: 22px; z-index: 2; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.9); letter-spacing: 0.1em; background: rgba(15,43,48,0.45); backdrop-filter: blur(4px); padding: 4px 12px; border-radius: 2px; }
-    .project-media.no-link { cursor: default; }
-    .project-badge { position: absolute; top: 18px; right: 18px; z-index: 2; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: var(--ink); background: var(--gold-light); padding: 6px 12px; border-radius: 2px; }
-    .project-note { display: inline-flex; align-items: center; gap: 10px; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-soft); font-weight: 600; }
-    .project-note::before { content: ''; width: 22px; height: 1px; background: var(--gold); }
-
-    .project-sector { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); font-weight: 700; margin-bottom: 16px; }
-    .project-body h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); color: var(--ink); line-height: 1.1; margin-bottom: 16px; }
-    .project-body > p { font-size: 0.95rem; color: var(--text-mid); font-weight: 300; line-height: 1.85; margin-bottom: 24px; max-width: 48ch; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
-    .project-tags span { font-size: 0.7rem; letter-spacing: 0.04em; padding: 6px 14px; border: 1px solid var(--line); border-radius: 30px; color: var(--text-mid); }
-    .project-link { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
-    .project-link::after { content: ''; width: 22px; height: 1px; background: var(--gold); transition: width .3s; }
-    .project-link:hover { color: var(--teal); }
-    .project-link:hover::after { width: 36px; }
-
-    /* CTA next project */
-    .next-cta { padding: 110px 0; background: linear-gradient(160deg, var(--teal-deep) 0%, var(--ink) 100%); text-align: center; position: relative; overflow: hidden; }
-    .next-cta::before { content: ''; position: absolute; inset: 0; opacity: .5; background-image: repeating-linear-gradient(0deg, transparent, transparent 46px, rgba(255,255,255,0.03) 47px); }
-    .next-cta .wrap { position: relative; z-index: 2; }
-    .next-cta h2 { font-size: clamp(2rem, 4vw, 3rem); color: #fff; margin-bottom: 18px; }
-    .next-cta p { color: rgba(255,255,255,0.7); font-weight: 300; max-width: 52ch; margin: 0 auto 36px; }
-    .next-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-
-    /* TESTIMONIALS */
-    .testimonials { padding: 110px 0; background: var(--white); }
-    .testimonials-head { text-align: center; margin-bottom: 56px; }
-    .testimonials-head h2 { color: var(--ink); font-size: clamp(2rem, 3.6vw, 2.8rem); }
-    .tgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .tcard { background: var(--cream); border: 1px solid var(--line); border-radius: 4px; padding: 38px 34px; }
-    .tcard .quote { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--gold); line-height: 0.5; margin-bottom: 20px; display: block; height: 22px; }
-    .tcard p { font-size: 0.94rem; color: var(--text); font-weight: 300; font-style: italic; line-height: 1.8; margin-bottom: 26px; }
-    .tcard .t-author { font-weight: 600; color: var(--ink); font-size: 0.9rem; }
-    .tcard .t-role { font-size: 0.76rem; color: var(--text-soft); margin-top: 3px; }
-
-    /* FOOTER (shared) */
-    footer { background: var(--ink-2); padding: 70px 0 30px; }
-    .footer-top { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; padding-bottom: 46px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .footer-brand { max-width: 300px; }
-    .footer-brand .fb-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #fff; letter-spacing: 0.04em; margin-bottom: 14px; }
-    .footer-brand .fb-name b { color: var(--gold); font-weight: 600; }
-    .footer-brand p { font-size: 0.82rem; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.8; }
-    .footer-cols { display: flex; gap: 70px; flex-wrap: wrap; }
-    .footer-col h4 { font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; font-weight: 600; }
-    .footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 12px; font-weight: 300; transition: color .3s; }
-    .footer-col a:hover { color: var(--gold); }
-    .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-    .footer-bottom p { font-size: 0.74rem; color: rgba(255,255,255,0.35); font-weight: 300; }
-
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .reveal { opacity: 1 !important; transform: none !important; } }
-
-    @media (max-width: 960px) {
-      .project, .project.flip { grid-template-columns: 1fr; gap: 28px; margin-bottom: 72px; }
-      .project.flip .project-media { order: 0; }
-    }
-    @media (max-width: 860px) {
-      .wrap { padding: 0 24px; }
-      nav, nav.scrolled { padding: 14px 24px; }
-      .nav-right { position: fixed; inset: 0 0 0 auto; width: min(80vw, 320px); background: var(--ink); flex-direction: column; align-items: flex-start; justify-content: center; gap: 30px; padding: 40px; transform: translateX(100%); transition: transform .4s; box-shadow: -20px 0 50px rgba(0,0,0,0.3); }
-      .nav-right.open { transform: translateX(0); }
-      .nav-links { flex-direction: column; gap: 22px; }
-      .nav-links a, nav.scrolled .nav-links a { color: rgba(255,255,255,0.85); font-size: 0.85rem; }
-      .nav-burger { display: flex; z-index: 210; }
-      .tgrid { grid-template-columns: 1fr; }
-      .work, .testimonials, .next-cta { padding: 80px 0; }
-    }
-
-    body:not(.en) [data-en] { display: none !important; }
-    body.en [data-es] { display: none !important; }
-  </style>
+  <link rel="preload" href="assets/fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/video/olas-poster.jpg" as="image" media="(min-aspect-ratio: 9/10)" />
+  <link rel="stylesheet" href="assets/css/site.css" />
 </head>
 <body>
+  <a class="skip" href="#main"><span lang="es">Saltar al contenido</span><span lang="en">Skip to content</span></a>
+  <div class="progress" aria-hidden="true"></div>
 
-  <nav id="nav">
-    <a href="index.html" class="nav-brand">
-      <span class="logo-plate"><img src="Images/compass-mark.png" alt="Mar de Sitios" onerror="this.parentElement.style.display='none'" /></span>
-      <span class="bmark">Mar de <b>Sitios</b></span>
-    </a>
-    <button class="nav-burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
-    <div class="nav-right" id="navRight">
-      <ul class="nav-links">
-        <li><a href="index.html#beneficios" data-es>Servicios</a><a href="index.html#beneficios" data-en>Services</a></li>
-        <li><a href="portafolio.html" data-es>Proyectos</a><a href="portafolio.html" data-en>Work</a></li>
-        <li><a href="index.html#paquetes" data-es>Paquetes</a><a href="index.html#paquetes" data-en>Pricing</a></li>
-        <li><a href="index.html#proceso" data-es>Proceso</a><a href="index.html#proceso" data-en>Process</a></li>
-        <li><a href="index.html#faq" data-es>Preguntas</a><a href="index.html#faq" data-en>FAQ</a></li>
-      </ul>
-      <div class="lang-toggle">
-        <button id="btn-es" class="active" onclick="setLang('es')">ES</button>
-        <button id="btn-en" onclick="setLang('en')">EN</button>
-      </div>
-      <a href="index.html#contacto" class="btn btn-gold nav-cta" data-es>Cotiza tu proyecto</a>
-      <a href="index.html#contacto" class="btn btn-gold nav-cta" data-en>Get a quote</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero">
+  <!-- ══════════ NAVEGACIÓN ══════════ -->
+  <header class="nav" id="top">
     <div class="wrap">
-      <div class="eyebrow light" data-es>Portafolio</div><div class="eyebrow light" data-en>Portfolio</div>
-      <h1 data-es>Nuestra <span class="accent">estela</span></h1>
-      <h1 data-en>Our <span class="accent">wake</span></h1>
-      <p data-es>Proyectos que ya están en línea, ayudando a negocios de Los Cabos a verse profesionales y recibir contactos. Cada uno, diseñado a la medida.</p>
-      <p data-en>Live projects helping Los Cabos businesses look professional and receive contacts. Each one, tailored from scratch.</p>
-      <div class="hero-meta">
-        <div class="m"><b>4</b><span data-es>Sectores</span><span data-en>Sectors</span></div>
-        <div class="m"><b>ES · EN</b><span data-es>Sitios bilingües</span><span data-en>Bilingual sites</span></div>
-        <div class="m"><b>100%</b><span data-es>A la medida</span><span data-en>Custom-built</span></div>
+      <a class="brand" href="index.html" aria-label="Mar de Sitios — inicio">
+        <span class="brand-plate"><img src="Images/compass-mark.png" alt="" width="34" height="34" /></span>
+        <span class="brand-name">Mar de <b>Sitios</b></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#proyectos"><span lang="es">Proyectos</span><span lang="en">Work</span></a></li>
+        <li><a href="index.html#paquetes"><span lang="es">Paquetes</span><span lang="en">Pricing</span></a></li>
+        <li><a href="index.html#proceso"><span lang="es">Proceso</span><span lang="en">Process</span></a></li>
+        <li><a href="index.html#faq"><span lang="es">Preguntas</span><span lang="en">FAQ</span></a></li>
+      </ul>
+      <div class="nav-tools">
+        <div class="lang" role="group" aria-label="Idioma / Language">
+          <button type="button" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="btn btn-gold btn-sm nav-cta" href="index.html#contacto"><span lang="es">Cotiza tu proyecto</span><span lang="en">Get a quote</span></a>
+        <button class="burger" type="button" aria-label="Menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
 
-  <!-- PROJECTS -->
-  <section class="work">
-    <div class="wrap">
-      <div class="work-head reveal">
-        <div class="eyebrow" data-es>Proyectos destacados</div><div class="eyebrow" data-en>Selected work</div>
-        <h2 class="section-title" data-es>Trabajo real, en línea</h2><h2 class="section-title" data-en>Real work, live online</h2>
-        <p data-es>Una selección de sitios diseñados y desarrollados para marcas de la región.</p>
-        <p data-en>A selection of sites designed and built for brands across the region.</p>
-      </div>
-
-      <!-- 1 · Los Cabos Motors -->
-      <article class="project reveal">
-        <a href="https://loscabosmotors.com" target="_blank" rel="noopener" class="project-media">
-          <span class="project-num">01</span>
-          <img src="Images/pagecabosmotors.png" alt="Los Cabos Motors" />
-        </a>
-        <div class="project-body">
-          <div class="project-sector" data-es>Automotriz · Compra-venta</div><div class="project-sector" data-en>Automotive · Marketplace</div>
-          <h2>Los Cabos Motors</h2>
-          <p data-es>Un sitio elegante y directo para la compra-venta de autos de alta gama. Cada vehículo se presenta con su ficha, galería y precio, y el cliente contacta al instante por WhatsApp.</p>
-          <p data-en>An elegant, direct site for buying and selling high-end cars. Each vehicle gets its own listing, gallery and price, and clients reach out instantly via WhatsApp.</p>
-          <div class="project-tags">
-            <span data-es>Fichas de vehículos</span><span data-en>Vehicle listings</span>
-            <span data-es>Galería</span><span data-en>Gallery</span>
-            <span>WhatsApp</span>
-            <span data-es>Responsive</span><span data-en>Responsive</span>
-          </div>
-          <a href="https://loscabosmotors.com" target="_blank" rel="noopener" class="project-link" data-es>Ver sitio en vivo</a>
-          <a href="https://loscabosmotors.com" target="_blank" rel="noopener" class="project-link" data-en>View live site</a>
+  <!-- ══════════ MENÚ ══════════ -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <div class="menu-bg"></div>
+    <div class="menu-inner">
+      <ol class="menu-list">
+        <li><a href="index.html" data-preview="0"><small>01</small><span class="t"><span lang="es">Inicio</span><span lang="en">Home</span></span></a></li>
+        <li><a href="index.html#proyectos" data-preview="1"><small>02</small><span class="t"><span lang="es">Proyectos</span><span lang="en">Work</span></span></a></li>
+        <li><a href="index.html#paquetes" data-preview="2"><small>03</small><span class="t"><span lang="es">Paquetes</span><span lang="en">Pricing</span></span></a></li>
+        <li><a href="index.html#proceso" data-preview="3"><small>04</small><span class="t"><span lang="es">Proceso</span><span lang="en">Process</span></span></a></li>
+        <li><a href="portafolio.html" data-preview="4"><small>05</small><span class="t"><span lang="es">Portafolio</span><span lang="en">Portfolio</span></span></a></li>
+        <li><a href="index.html#contacto" data-preview="5"><small>06</small><span class="t"><span lang="es">Contacto</span><span lang="en">Contact</span></span></a></li>
+      </ol>
+      <aside class="menu-side">
+        <div class="menu-preview" aria-hidden="true">
+          <img class="on" src="assets/video/olas-poster.jpg" alt="" loading="lazy" />
+          <img src="assets/img/proyectos/loscabosmotors.webp" alt="" loading="lazy" />
+          <img src="assets/img/proyectos/demo-inmobiliaria.webp" alt="" loading="lazy" />
+          <img src="assets/img/proyectos/hacienda.webp" alt="" loading="lazy" />
+          <img src="assets/img/proyectos/demo-transporte.webp" alt="" loading="lazy" />
+          <img src="assets/video/olas-poster.jpg" alt="" loading="lazy" />
         </div>
-      </article>
-
-      <!-- 2 · Gabriel Henkel -->
-      <article class="project flip reveal">
-        <a href="https://gabrielhenkel.com/" target="_blank" rel="noopener" class="project-media">
-          <span class="project-num">02</span>
-          <img src="Images/pagegabrielhenkel.png" alt="La Hacienda de las Rosas — Gabriel Henkel" />
-        </a>
-        <div class="project-body">
-          <div class="project-sector" data-es>Editorial · Literatura</div><div class="project-sector" data-en>Publishing · Literature</div>
-          <h2>La Hacienda de las Rosas</h2>
-          <p data-es>Landing bilingüe para la novela de Gabriel Henkel. Tipografía caligráfica, pétalos de rosa animados y enlaces de compra directa en una estética elegante que envuelve al lector.</p>
-          <p data-en>A bilingual landing page for Gabriel Henkel's novel. Calligraphic type, animated rose petals and direct purchase links in an elegant aesthetic that draws the reader in.</p>
-          <div class="project-tags">
-            <span data-es>Bilingüe</span><span data-en>Bilingual</span>
-            <span data-es>Compra en Amazon</span><span data-en>Buy on Amazon</span>
-            <span data-es>Animaciones</span><span data-en>Animations</span>
-          </div>
-          <a href="https://gabrielhenkel.com/" target="_blank" rel="noopener" class="project-link" data-es>Ver sitio en vivo</a>
-          <a href="https://gabrielhenkel.com/" target="_blank" rel="noopener" class="project-link" data-en>View live site</a>
+        <div class="menu-block menu-demos">
+          <h4><span lang="es">Demos en vivo</span><span lang="en">Live demos</span></h4>
+          <a href="demo-inmobiliaria/"><span><span lang="es">Sitio inmobiliario</span><span lang="en">Real estate site</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <a href="demo-transporte/"><span><span lang="es">Transporte y reservas</span><span lang="en">Transport & bookings</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
         </div>
-      </article>
-
-      <!-- 3 · Ride W Me Cabo -->
-      <article class="project reveal">
-        <a href="https://ridewmecabo.com" target="_blank" rel="noopener" class="project-media">
-          <span class="project-num">03</span>
-          <img src="Images/pagerwmc.png" alt="Ride W Me Cabo" />
-        </a>
-        <div class="project-body">
-          <div class="project-sector" data-es>Turismo · Transporte privado</div><div class="project-sector" data-en>Tourism · Private transport</div>
-          <h2>Ride W Me Cabo</h2>
-          <p data-es>Plataforma clara para servicios de transporte privado dirigidos al turista. El diseño prioriza la facilidad para reservar y transmitir confianza desde el primer momento.</p>
-          <p data-en>A clear platform for private transport aimed at travelers. The design puts easy booking first and builds trust from the very first moment.</p>
-          <div class="project-tags">
-            <span data-es>Reservas</span><span data-en>Booking</span>
-            <span data-es>Turismo</span><span data-en>Tourism</span>
-            <span>WhatsApp</span>
-            <span data-es>Responsive</span><span data-en>Responsive</span>
-          </div>
-          <a href="https://ridewmecabo.com" target="_blank" rel="noopener" class="project-link" data-es>Ver sitio en vivo</a>
-          <a href="https://ridewmecabo.com" target="_blank" rel="noopener" class="project-link" data-en>View live site</a>
+        <div class="menu-block">
+          <h4><span lang="es">Hablemos</span><span lang="en">Let's talk</span></h4>
+          <a href="https://wa.me/526241181978?text=Hola%20Mar%20de%20Sitios%2C%20quiero%20cotizar%20un%20sitio%20web">WhatsApp · +52 624 118 1978</a>
+          <a href="mailto:serratoleyva@gmail.com">serratoleyva@gmail.com</a>
         </div>
-      </article>
-
-      <!-- 4 · Real Estate (sample) -->
-      <article class="project flip reveal">
-        <div class="project-media no-link">
-          <span class="project-num">04</span>
-          <span class="project-badge" data-es>Proyecto de muestra</span><span class="project-badge" data-en>Sample project</span>
-          <img src="Images/pagerealestate.png" alt="Real Estate Page — sitio de bienes raíces de lujo" />
-        </div>
-        <div class="project-body">
-          <div class="project-sector" data-es>Bienes raíces · Lujo</div><div class="project-sector" data-en>Real estate · Luxury</div>
-          <h2>Real Estate Page</h2>
-          <p data-es>Un concepto de sitio para agentes y propiedades de lujo en Los Cabos: portada a pantalla completa, tipografía elegante y una presentación que transmite exclusividad y confianza.</p>
-          <p data-en>A site concept for luxury agents and listings in Los Cabos: a full-screen hero, elegant typography and a presentation that conveys exclusivity and trust.</p>
-          <div class="project-tags">
-            <span data-es>Propiedades</span><span data-en>Listings</span>
-            <span data-es>Diseño de lujo</span><span data-en>Luxury design</span>
-            <span data-es>Pantalla completa</span><span data-en>Full-screen</span>
-            <span data-es>Responsive</span><span data-en>Responsive</span>
-          </div>
-          <span class="project-note" data-es>Ejemplo de diseño · Disponible bajo cotización</span>
-          <span class="project-note" data-en>Design example · Available on request</span>
-        </div>
-      </article>
+      </aside>
     </div>
-  </section>
+  </div>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="wrap">
-      <div class="testimonials-head reveal">
-        <div class="eyebrow center" data-es>Testimonios</div><div class="eyebrow center" data-en>Testimonials</div>
-        <h2 data-es>Confianza en el puerto</h2><h2 data-en>Trusted at port</h2>
-      </div>
-      <div class="tgrid reveal">
-        <div class="tcard">
-          <span class="quote">"</span>
-          <p data-es>Mi primera página web superó lo que tenía en mente. Se ve elegante y transmite justo el estilo de mis autos.</p>
-          <p data-en>My first website went beyond what I had in mind. It looks elegant and captures exactly the style of my cars.</p>
-          <div class="t-author">Manuel Serrato</div>
-          <div class="t-role" data-es>Fundador, Los Cabos Motors</div><div class="t-role" data-en>Founder, Los Cabos Motors</div>
-        </div>
-        <div class="tcard">
-          <span class="quote">"</span>
-          <p data-es>Muy rápido y claro. Aportó ideas mientras armábamos la página y quedó perfecta para mi marca personal.</p>
-          <p data-en>Fast and clear. He brought ideas as we built the page and it turned out perfect for my personal brand.</p>
-          <div class="t-author">Benito Meraz</div>
-          <div class="t-role" data-es>Emprendedor digital</div><div class="t-role" data-en>Digital entrepreneur</div>
-        </div>
-        <div class="tcard">
-          <span class="quote">"</span>
-          <p data-es>Entendió lo que mi proyecto necesitaba y lo tradujo en un sitio bilingüe que se ve profesional.</p>
-          <p data-en>He understood what my project needed and turned it into a bilingual site that looks professional.</p>
-          <div class="t-author">Gabriel Henkel</div>
-          <div class="t-role" data-es>Autor, La Hacienda de las Rosas</div><div class="t-role" data-en>Author, La Hacienda de las Rosas</div>
+  <main id="main">
+    <section class="page-hero">
+      <div class="bg" style="background-image:url(assets/video/olas-poster.jpg)"></div>
+      <div class="wrap">
+        <span class="eyebrow on-dark fade d1"><span lang="es">Portafolio</span><span lang="en">Portfolio</span></span>
+        <h1 class="h-display" lang="es" data-split>Nuestra <em>estela</em></h1>
+        <h1 class="h-display" lang="en" data-split>Our <em>wake</em></h1>
+        <p class="hero-sub fade d2" style="max-width:52ch"><span lang="es">Sitios reales en línea y demos que puedes recorrer como si fueran tuyos. Cada uno, diseñado a la medida del negocio y de su público.</span><span lang="en">Real live sites and demos you can explore as if they were yours. Each one tailored to the business and its audience.</span></p>
+        <div class="facts fade d3" style="margin-top:34px">
+          <div class="fact"><b>2</b><span lang="es">Sitios en vivo</span><span lang="en">Live sites</span></div>
+          <div class="fact"><b>2</b><span lang="es">Demos navegables</span><span lang="en">Interactive demos</span></div>
+          <div class="fact"><b>ES · EN</b><span lang="es">Bilingües</span><span lang="en">Bilingual</span></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- NEXT CTA -->
-  <section class="next-cta">
-    <div class="wrap">
-      <div class="eyebrow center light" data-es>Tu proyecto</div><div class="eyebrow center light" data-en>Your project</div>
-      <h2 data-es>¿Listo para ser el próximo?</h2><h2 data-en>Ready to be next?</h2>
-      <p data-es>Hagamos que tu negocio tenga una página que inspire confianza y genere contactos. Cuéntanos tu idea y te enviamos una propuesta.</p>
-      <p data-en>Let's give your business a site that earns trust and brings in contacts. Tell us your idea and we'll send a proposal.</p>
-      <div class="next-actions">
-        <a href="index.html#paquetes" class="btn btn-gold" data-es>Ver paquetes</a>
-        <a href="index.html#paquetes" class="btn btn-gold" data-en>See pricing</a>
-        <a href="https://wa.me/526241181978?text=Hola,%20vi%20el%20portafolio%20y%20quiero%20una%20página" class="btn btn-ghost-light" data-es>Escríbenos por WhatsApp</a>
-        <a href="https://wa.me/526241181978?text=Hi,%20I%20saw%20the%20portfolio%20and%20I%20want%20a%20website" class="btn btn-ghost-light" data-en>Message us on WhatsApp</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="wrap">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="fb-name">Mar de <b>Sitios</b></div>
-          <p data-es>Estudio de diseño y desarrollo web en Los Cabos. Creación y venta de páginas web personalizadas.</p>
-          <p data-en>Web design and development studio in Los Cabos. Custom websites, built and sold with care.</p>
-        </div>
-        <div class="footer-cols">
-          <div class="footer-col">
-            <h4 data-es>Navegación</h4><h4 data-en>Navigate</h4>
-            <a href="index.html#beneficios" data-es>Servicios</a><a href="index.html#beneficios" data-en>Services</a>
-            <a href="portafolio.html" data-es>Proyectos</a><a href="portafolio.html" data-en>Work</a>
-            <a href="index.html#paquetes" data-es>Paquetes</a><a href="index.html#paquetes" data-en>Pricing</a>
-            <a href="index.html" data-es>Inicio</a><a href="index.html" data-en>Home</a>
+    <section style="background:var(--cream)">
+      <div class="wrap">
+        <article class="case" data-tilt>
+          <div class="case-media pc-media rv">
+            <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>loscabosmotors.com</span></div><div class="browser-shot"><img src="assets/img/proyectos/loscabosmotors.webp" alt="Los Cabos Motors" width="1600" height="1000" loading="lazy" /></div></div>
+            <div class="phone"><img src="assets/img/proyectos/loscabosmotors-movil.webp" alt="" width="390" height="844" loading="lazy" /></div>
           </div>
-          <div class="footer-col">
-            <h4 data-es>Contacto</h4><h4 data-en>Contact</h4>
-            <a href="https://wa.me/526241181978">WhatsApp</a>
-            <a href="mailto:serratoleyva@gmail.com">Email</a>
-            <a href="index.html#contacto" data-es>Cotizar proyecto</a><a href="index.html#contacto" data-en>Get a quote</a>
+          <div class="case-body rv d1">
+            <span class="pc-num">01</span><span class="pc-tag live"><span lang="es">En vivo</span><span lang="en">Live</span></span>
+            <div class="pc-sector"><span lang="es">Automotriz · Compra-venta</span><span lang="en">Automotive · Marketplace</span></div>
+            <h2>Los Cabos Motors</h2>
+            <p><span lang="es">Un catálogo de autos deportivos, importados y nacionales con fichas, precios y WhatsApp en cada vehículo. El sitio ayuda a filtrar a los interesados para coordinar la venta entre comprador y vendedor.</span><span lang="en">A catalog of sports, imported and national cars with listings, prices and WhatsApp on every vehicle. The site helps filter prospects to coordinate the sale between buyer and seller.</span></p>
+            <div class="chips"><span lang="es">Catálogo por categorías</span><span lang="en">Category catalog</span><span lang="es">WhatsApp por auto</span><span lang="en">WhatsApp per car</span><span lang="es">Galerías</span><span lang="en">Galleries</span><span>SEO</span></div>
+            <a class="btn btn-teal btn-sm" href="https://loscabosmotors.com" target="_blank" rel="noopener"><span lang="es">Ver sitio en vivo</span><span lang="en">Visit live site</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
+        </article>
+
+        <article class="case" data-tilt>
+          <div class="case-media pc-media rv">
+            <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>gabrielhenkel.com</span></div><div class="browser-shot"><img src="assets/img/proyectos/hacienda.webp" alt="La Hacienda de las Rosas" width="1600" height="1000" loading="lazy" /></div></div>
+          </div>
+          <div class="case-body rv d1">
+            <span class="pc-num">02</span><span class="pc-tag live"><span lang="es">En vivo</span><span lang="en">Live</span></span>
+            <div class="pc-sector"><span lang="es">Editorial · Lanzamiento de novela</span><span lang="en">Publishing · Book launch</span></div>
+            <h2>La Hacienda de las Rosas</h2>
+            <p><span lang="es">Landing bilingüe para la novela de Gabriel Henkel: tipografía caligráfica, pétalos de rosa animados y enlaces de compra directa en Amazon, en una estética elegante que envuelve al lector.</span><span lang="en">A bilingual landing page for Gabriel Henkel's novel: calligraphic type, animated rose petals and direct purchase links on Amazon, in an elegant aesthetic that draws the reader in.</span></p>
+            <div class="chips"><span lang="es">Bilingüe</span><span lang="en">Bilingual</span><span lang="es">Compra en Amazon</span><span lang="en">Buy on Amazon</span><span lang="es">Animaciones</span><span lang="en">Animations</span></div>
+            <a class="btn btn-teal btn-sm" href="https://gabrielhenkel.com/" target="_blank" rel="noopener"><span lang="es">Ver sitio en vivo</span><span lang="en">Visit live site</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+        </article>
+
+        <article class="case" data-tilt>
+          <div class="case-media pc-media rv">
+            <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>mardesitios.com/demo-inmobiliaria</span></div><div class="browser-shot"><img src="assets/img/proyectos/demo-inmobiliaria.webp" alt="Demo de sitio inmobiliario" width="1600" height="1000" loading="lazy" /></div></div>
+            <div class="phone"><img src="assets/img/proyectos/demo-inmobiliaria-movil.webp" alt="" width="390" height="844" loading="lazy" /></div>
+          </div>
+          <div class="case-body rv d1">
+            <span class="pc-num">03</span><span class="pc-tag demo"><span lang="es">Demo navegable</span><span lang="en">Interactive demo</span></span>
+            <div class="pc-sector"><span lang="es">Bienes raíces · Modelo de muestra</span><span lang="en">Real estate · Sample model</span></div>
+            <h2><span lang="es">Sitio inmobiliario</span><span lang="en">Real estate site</span></h2>
+            <p><span lang="es">Un modelo completo del paquete Inmobiliario: buscador, filtros por venta/renta y tipo, ficha individual con galería, enlace para compartir cada propiedad y WhatsApp que ya menciona la propiedad que le interesa al cliente.</span><span lang="en">A complete model of the Real Estate package: search, sale/rent and type filters, an individual page with gallery, a shareable link for each property and WhatsApp that already names the property the client wants.</span></p>
+            <div class="chips"><span lang="es">Buscador</span><span lang="en">Search</span><span lang="es">Ficha con galería</span><span lang="en">Listing gallery</span><span lang="es">WhatsApp por ficha</span><span lang="en">WhatsApp per listing</span><span>ES · EN</span></div>
+            <div class="pc-actions">
+              <a class="btn btn-teal btn-sm" href="demo-inmobiliaria/"><span lang="es">Explorar demo</span><span lang="en">Explore demo</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="link-arrow" style="color:var(--teal)" href="https://wa.me/526241181978?text=Hola%2C%20vi%20el%20demo%20inmobiliario%20de%20Mar%20de%20Sitios%20y%20quiero%20un%20sitio%20as%C3%AD"><span lang="es">Quiero uno así</span><span lang="en">I want one</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" data-tilt>
+          <div class="case-media pc-media rv">
+            <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>mardesitios.com/demo-transporte</span></div><div class="browser-shot"><img src="assets/img/proyectos/demo-transporte.webp" alt="Demo de sitio de transporte" width="1600" height="1000" loading="lazy" /></div></div>
+            <div class="phone"><img src="assets/img/proyectos/demo-transporte-movil.webp" alt="" width="390" height="844" loading="lazy" /></div>
+          </div>
+          <div class="case-body rv d1">
+            <span class="pc-num">04</span><span class="pc-tag demo"><span lang="es">Demo navegable</span><span lang="en">Interactive demo</span></span>
+            <div class="pc-sector"><span lang="es">Transporte turístico · Modelo de muestra</span><span lang="en">Tourist transport · Sample model</span></div>
+            <h2><span lang="es">Transporte y reservas</span><span lang="en">Transport & bookings</span></h2>
+            <p><span lang="es">Nació de la primera plantilla de transportación que creamos y hoy está renovada: servicios, flota, galería, tabla de tarifas y un cotizador que calcula el total y envía la reserva lista por WhatsApp.</span><span lang="en">Born from the first transportation template we built, now reimagined: services, fleet, gallery, rate table and a quote tool that calculates the total and sends the booking ready on WhatsApp.</span></p>
+            <div class="chips"><span lang="es">Cotizador</span><span lang="en">Fare calculator</span><span lang="es">Reserva por WhatsApp</span><span lang="en">WhatsApp booking</span><span lang="es">Tarifas por zona</span><span lang="en">Rates by area</span><span>ES · EN</span></div>
+            <div class="pc-actions">
+              <a class="btn btn-teal btn-sm" href="demo-transporte/"><span lang="es">Explorar demo</span><span lang="en">Explore demo</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="link-arrow" style="color:var(--teal)" href="https://wa.me/526241181978?text=Hola%2C%20vi%20el%20demo%20de%20transporte%20de%20Mar%20de%20Sitios%20y%20quiero%20un%20sitio%20as%C3%AD"><span lang="es">Quiero uno así</span><span lang="en">I want one</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="testimonials" style="background:#fff">
+      <div class="wrap">
+        <div class="section-head center">
+          <span class="eyebrow center rv"><span lang="es">Testimonios</span><span lang="en">Testimonials</span></span>
+          <h2 class="h2 rv"><span lang="es">Confianza en <em>el puerto</em></span><span lang="en">Trusted <em>at port</em></span></h2>
+        </div>
+        <div class="tgrid">
+          <figure class="tcard rv" style="background:var(--cream)">
+            <svg class="q" viewBox="0 0 24 24" fill="currentColor"><path d="M7.2 6C4.3 7.4 3 9.8 3 13.1V18h6v-6H6.2c.1-2 1-3.4 2.8-4.3zm10 0C14.3 7.4 13 9.8 13 13.1V18h6v-6h-2.8c.1-2 1-3.4 2.8-4.3z"/></svg>
+            <blockquote><span lang="es">Mi primera página web superó lo que tenía en mente. Se ve elegante y transmite justo el estilo de mis autos.</span><span lang="en">My first website went beyond what I had in mind. It looks elegant and captures exactly the style of my cars.</span></blockquote>
+            <figcaption class="t-who"><span class="t-av">MS</span><span><b>Manuel Serrato</b><span lang="es">Fundador, Los Cabos Motors</span><span lang="en">Founder, Los Cabos Motors</span></span></figcaption>
+          </figure>
+          <figure class="tcard rv d1" style="background:var(--cream)">
+            <svg class="q" viewBox="0 0 24 24" fill="currentColor"><path d="M7.2 6C4.3 7.4 3 9.8 3 13.1V18h6v-6H6.2c.1-2 1-3.4 2.8-4.3zm10 0C14.3 7.4 13 9.8 13 13.1V18h6v-6h-2.8c.1-2 1-3.4 2.8-4.3z"/></svg>
+            <blockquote><span lang="es">Muy rápido y claro. Aportó ideas mientras armábamos la página y quedó perfecta para mi marca personal.</span><span lang="en">Very fast and clear. He brought ideas while we built the page and it turned out perfect for my personal brand.</span></blockquote>
+            <figcaption class="t-who"><span class="t-av">BM</span><span><b>Benito Meraz</b><span lang="es">Emprendedor digital</span><span lang="en">Digital entrepreneur</span></span></figcaption>
+          </figure>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2026 Mar de Sitios — <span data-es>Innovación web desde Los Cabos, B.C.S.</span><span data-en>Web innovation from Los Cabos, B.C.S.</span></p>
-        <p>Los Cabos · Baja California Sur · México</p>
+    </section>
+
+    <section class="cta-band on-dark" style="background-image:url(assets/video/olas-poster.jpg)">
+      <div class="wrap">
+        <span class="eyebrow center on-dark rv"><span lang="es">Tu proyecto</span><span lang="en">Your project</span></span>
+        <h2 class="h2 rv"><span lang="es">¿Listo para ser el <em>próximo</em>?</span><span lang="en">Ready to be <em>next</em>?</span></h2>
+        <p class="lead rv"><span lang="es">Cuéntanos tu idea y te enviamos una propuesta clara para tu negocio.</span><span lang="en">Tell us your idea and we'll send a clear proposal for your business.</span></p>
+        <div class="hero-actions rv" style="justify-content:center">
+          <a class="btn btn-gold" href="index.html#paquetes"><span lang="es">Ver paquetes</span><span lang="en">See packages</span></a>
+          <a class="btn btn-glass" href="https://wa.me/526241181978?text=Hola%20Mar%20de%20Sitios%2C%20vi%20su%20portafolio%20y%20quiero%20cotizar"><span lang="es">Escríbenos por WhatsApp</span><span lang="en">Message us on WhatsApp</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="f-top">
+        <div>
+          <a class="brand" href="index.html"><span class="brand-plate"><img src="Images/compass-mark.png" alt="" width="34" height="34" loading="lazy" /></span><span class="brand-name">Mar de <b>Sitios</b></span></a>
+          <p style="margin-top:18px"><span lang="es">Creación y venta de páginas web personalizadas, desde Los Cabos, B.C.S.</span><span lang="en">Custom websites, designed and built in Los Cabos, B.C.S.</span></p>
+        </div>
+        <div>
+          <h4><span lang="es">Navegación</span><span lang="en">Navigate</span></h4>
+          <a href="index.html#proyectos"><span lang="es">Proyectos</span><span lang="en">Work</span></a>
+          <a href="index.html#paquetes"><span lang="es">Paquetes</span><span lang="en">Pricing</span></a>
+          <a href="index.html#proceso"><span lang="es">Proceso</span><span lang="en">Process</span></a>
+          <a href="portafolio.html"><span lang="es">Portafolio</span><span lang="en">Portfolio</span></a>
+        </div>
+        <div>
+          <h4>Demos</h4>
+          <a href="demo-inmobiliaria/"><span lang="es">Sitio inmobiliario</span><span lang="en">Real estate site</span></a>
+          <a href="demo-transporte/"><span lang="es">Transporte y reservas</span><span lang="en">Transport & bookings</span></a>
+        </div>
+        <div>
+          <h4><span lang="es">Contacto</span><span lang="en">Contact</span></h4>
+          <a href="https://wa.me/526241181978">WhatsApp</a>
+          <a href="mailto:serratoleyva@gmail.com">serratoleyva@gmail.com</a>
+          <a href="index.html#contacto"><span lang="es">Cotizar proyecto</span><span lang="en">Get a quote</span></a>
+        </div>
+      </div>
+      <div class="f-word" aria-hidden="true">Mar de <em>Sitios</em></div>
+      <div class="f-bottom">
+        <span>© <span data-year>2026</span> Mar de Sitios</span>
+        <span lang="es">Hecho con calma de mar en Los Cabos, B.C.S.</span><span lang="en">Crafted by the sea in Los Cabos, B.C.S.</span>
       </div>
     </div>
   </footer>
 
-  <script>
-    function setLang(lang){
-      document.body.classList.toggle('en', lang === 'en');
-      document.documentElement.lang = lang;
-      var es=document.getElementById('btn-es'), en=document.getElementById('btn-en');
-      if(es&&en){ es.classList.toggle('active', lang==='es'); en.classList.toggle('active', lang==='en'); }
-      try{ localStorage.setItem('mds-lang', lang);}catch(e){}
-    }
-    (function(){ var s='es'; try{ s=localStorage.getItem('mds-lang')||'es'; }catch(e){} setLang(s); })();
+  <a class="wa-float" href="https://wa.me/526241181978?text=Hola%20Mar%20de%20Sitios%2C%20quiero%20cotizar%20un%20sitio%20web" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.7 6.3 6.3 0 0 0 1.3 3.3 14.4 14.4 0 0 0 5.5 4.9c2 .9 2.8 1 3.9.8.6-.1 1.9-.8 2.2-1.5s.3-1.4.2-1.5-.3-.2-.6-.4z"/></svg>
+  </a>
 
-    var nav=document.getElementById('nav');
-    function onScroll(){ nav.classList.toggle('scrolled', window.scrollY>40); }
-    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  <a class="wa-float" href="https://wa.me/526241181978?text=Hola%20Mar%20de%20Sitios%2C%20quiero%20cotizar%20un%20sitio%20web" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.7 6.3 6.3 0 0 0 1.3 3.3 14.4 14.4 0 0 0 5.5 4.9c2 .9 2.8 1 3.9.8.6-.1 1.9-.8 2.2-1.5s.3-1.4.2-1.5-.3-.2-.6-.4z"/></svg>
+  </a>
 
-    var burger=document.getElementById('burger'), navRight=document.getElementById('navRight');
-    burger.addEventListener('click', function(){ navRight.classList.toggle('open'); });
-    navRight.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ navRight.classList.remove('open'); }); });
-
-    var io=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } }); }, {threshold:0.12});
-    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-  </script>
+  <script src="assets/js/site.js" defer></script>
 </body>
 </html>

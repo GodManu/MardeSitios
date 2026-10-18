@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Casa Pacífica · Demo inmobiliario | Mar de Sitios</title>
+  <meta name="description" content="Demo de sitio inmobiliario creado por Mar de Sitios: propiedades con filtros, ficha con galería y WhatsApp por propiedad." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#14313d" />
+  <link rel="icon" type="image/svg+xml" href="../Images/favicon.svg" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <style>
+    @font-face{font-family:"Cormorant Garamond";font-weight:400;font-display:swap;src:url(../assets/fonts/cormorant-garamond-latin-400-normal.woff2) format("woff2")}
+    @font-face{font-family:"Cormorant Garamond";font-weight:500;font-display:swap;src:url(../assets/fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2")}
+    @font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:400;font-display:swap;src:url(../assets/fonts/cormorant-garamond-latin-400-italic.woff2) format("woff2")}
+    @font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:500;font-display:swap;src:url(../assets/fonts/cormorant-garamond-latin-500-italic.woff2) format("woff2")}
+    @font-face{font-family:Montserrat;font-weight:400;font-display:swap;src:url(fonts/montserrat-latin-400-normal.woff2) format("woff2")}
+    @font-face{font-family:Montserrat;font-weight:500;font-display:swap;src:url(fonts/montserrat-latin-500-normal.woff2) format("woff2")}
+    @font-face{font-family:Montserrat;font-weight:600;font-display:swap;src:url(fonts/montserrat-latin-600-normal.woff2) format("woff2")}
+    :root{--ocean:#14313d;--ocean2:#1d4556;--gold:#c9a84c;--gold2:#e2c97e;--sand:#f1ebdf;--cream:#faf7f1;--ink:#1b2328;--mut:#6b767b;--line:rgba(27,35,40,.12);--serif:"Cormorant Garamond",Georgia,serif;--sans:Montserrat,system-ui,-apple-system,"Segoe UI",sans-serif;--ease:cubic-bezier(.16,1,.3,1);--g:clamp(18px,5vw,64px)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:90px}
+    body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body.lock{overflow:hidden}
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    button,input,select,textarea{font:inherit;color:inherit}
+    :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+    html:not([lang="en"]) body [lang="en"]{display:none!important}
+    html[lang="en"] body [lang="es"]{display:none!important}
+    .wrap{max-width:1280px;margin:0 auto;padding:0 var(--g)}
+    [hidden]{display:none!important}
+    .ph{position:relative;background:linear-gradient(135deg,#1d4556,#14313d 60%,#2b4a43);overflow:hidden}
+    .ph img{width:100%;height:100%;object-fit:cover}
+    .ph.noimg img{opacity:0}
+    .ph.noimg::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e2c97e' stroke-width='1.2'%3E%3Cpath d='M3 11 12 4l9 7M5 10v10h14V10'/%3E%3C/svg%3E") center/42px no-repeat}
+
+    .demo-bar{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;padding:9px 16px;background:var(--ocean);color:#f3ead3;font-size:.74rem;font-weight:500;text-align:center;letter-spacing:.02em}
+    .demo-bar b{background:var(--gold);color:var(--ocean);padding:2px 8px;border-radius:4px;font-size:.62rem;letter-spacing:.16em}
+    .demo-bar .short{display:none}
+    .demo-bar a{color:var(--gold2);font-weight:600}
+
+    .nav{position:absolute;left:0;right:0;z-index:30;transition:background .4s}
+    .nav.fixed{position:fixed;top:0;background:rgba(20,49,61,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+    .nav .wrap{display:flex;align-items:center;gap:26px;height:80px;color:#fff}
+    .logo{font-family:var(--serif);font-size:1.6rem;letter-spacing:.06em;text-decoration:none;line-height:1}
+    .logo em{color:var(--gold2)}
+    .logo small{display:block;font-family:var(--sans);font-size:.56rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:4px}
+    .links{display:flex;gap:30px;list-style:none;margin-left:auto}
+    .links a{font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.85)}
+    .links a:hover{color:var(--gold2)}
+    .lang{display:flex;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:3px}
+    .lang button{background:none;border:0;cursor:pointer;font-size:.64rem;font-weight:600;letter-spacing:.1em;color:rgba(255,255,255,.75);padding:5px 10px;border-radius:999px}
+    .lang button[aria-pressed="true"]{background:var(--gold);color:var(--ocean)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 28px;border:1px solid transparent;cursor:pointer;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease)}
+    .btn svg{width:18px;height:18px}
+    .btn-gold{background:var(--gold);color:var(--ocean)}
+    .btn-gold:hover{background:var(--gold2)}
+    .btn-line{border-color:rgba(255,255,255,.45);color:#fff}
+    .btn-line:hover{border-color:var(--gold2);color:var(--gold2)}
+    .btn-ocean{background:var(--ocean);color:#fff}
+    .btn-ocean:hover{background:var(--ocean2)}
+    .btn-wa{background:#25d366;color:#06230f}
+    .btn-wa:hover{background:#3be07a}
+    .menu-btn{display:none;width:46px;height:46px;border:1px solid rgba(255,255,255,.35);border-radius:50%;background:none;cursor:pointer;place-items:center;color:#fff}
+    .menu-btn svg{width:20px;height:20px}
+
+    .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;overflow:hidden}
+    .hero .ph{position:absolute;inset:0}
+    .hero .ph img{transform:scale(1.08);animation:zoom 18s var(--ease) forwards}
+    @keyframes zoom{to{transform:scale(1)}}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(20,49,61,.82) 0%,rgba(0,0,0,.25) 55%,rgba(201,168,76,.12) 100%),linear-gradient(0deg,rgba(14,32,40,.9) 0%,transparent 45%)}
+    .hero .wrap{position:relative;z-index:1;width:100%;padding-top:140px;padding-bottom:60px}
+    .eyebrow{display:flex;align-items:center;gap:14px;font-size:.68rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold2)}
+    .eyebrow::before{content:"";width:44px;height:1px;background:var(--gold)}
+    .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,8.6vw,7.2rem);line-height:1;margin:22px 0 18px;max-width:12ch}
+    .hero h1 em{display:block;color:var(--gold2)}
+    .hero p{max-width:50ch;color:rgba(255,255,255,.8);font-size:clamp(.92rem,1.2vw,1.02rem);letter-spacing:.02em}
+
+    .search{position:relative;z-index:2;margin-top:42px;display:grid;grid-template-columns:repeat(3,1fr) auto;background:rgba(250,247,241,.97);color:var(--ink);box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+    .search .f{padding:16px 22px;border-right:1px solid var(--line)}
+    .search label{display:block;font-size:.6rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+    .search select{width:100%;border:0;background:transparent;font-size:16px;font-weight:500;padding:4px 0;outline:none;-webkit-appearance:none;appearance:none;cursor:pointer}
+    .search .btn{min-height:100%;padding:0 34px}
+
+    section{padding:clamp(70px,10vw,130px) 0}
+    .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+    .h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.3rem,5vw,4rem);line-height:1.02;color:var(--ocean);margin-top:14px}
+    .h2 em{color:var(--gold)}
+    .eyebrow.dark{color:var(--gold)}
+
+    .filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:28px}
+    .seg{display:flex;border:1px solid var(--line);background:#fff}
+    .seg button,.chip{border:0;background:none;cursor:pointer;padding:11px 18px;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);transition:background .3s,color .3s}
+    .seg button[aria-pressed="true"]{background:var(--ocean);color:#fff}
+    .chip{border:1px solid var(--line);background:#fff}
+    .chip[aria-pressed="true"]{border-color:var(--gold);color:var(--ocean);background:rgba(201,168,76,.14)}
+    .count{margin-left:auto;font-size:.8rem;color:var(--mut)}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+    @media (min-width:1280px){.grid{grid-template-columns:repeat(4,1fr);gap:22px}.card-body{padding:20px}.meta{gap:12px}}
+    .card{position:relative;background:#fff;border:1px solid var(--line);transition:transform .5s var(--ease),box-shadow .5s;animation:pop .6s var(--ease) both}
+    @keyframes pop{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+    .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(20,49,61,.5)}
+    .card .ph{aspect-ratio:4/3}
+    .card .ph img{transition:transform 1.2s var(--ease)}
+    .card:hover .ph img{transform:scale(1.06)}
+    .badge{position:absolute;top:14px;left:14px;z-index:1;padding:6px 12px;font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;background:var(--ocean);color:#fff}
+    .badge.rent{background:var(--gold);color:var(--ocean)}
+    .fav{position:absolute;top:10px;right:10px;z-index:1;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.9);cursor:pointer;display:grid;place-items:center;color:var(--ocean);transition:transform .3s}
+    .fav svg{width:18px;height:18px}
+    .fav[aria-pressed="true"]{color:#d6455b}
+    .fav[aria-pressed="true"] svg{fill:currentColor}
+    .fav:active{transform:scale(.85)}
+    .card-body{padding:22px 22px 24px}
+    .price{font-family:var(--serif);font-size:1.75rem;color:var(--ocean);line-height:1}
+    .price small{font-family:var(--sans);font-size:.66rem;letter-spacing:.12em;color:var(--mut);margin-left:4px}
+    .card h3{font-family:var(--serif);font-weight:500;font-size:1.5rem;margin:8px 0 2px}
+    .zone{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--mut)}
+    .zone svg{width:14px;height:14px;color:var(--gold)}
+    .meta{display:flex;gap:18px;margin-top:16px;padding-top:16px;border-top:1px solid var(--line);font-size:.78rem;color:var(--ink)}
+    .meta span{display:flex;align-items:center;gap:6px}
+    .meta svg{width:16px;height:16px;color:var(--gold)}
+    .card a.stretch{position:absolute;inset:0;z-index:0}
+    .empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--mut)}
+
+    .agent{background:var(--ocean);color:#fff}
+    .agent .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,6vw,90px);align-items:center}
+    .monogram{position:relative;aspect-ratio:4/5;border:1px solid rgba(226,201,126,.4);display:grid;place-items:center;background:radial-gradient(70% 60% at 50% 40%,rgba(226,201,126,.18),transparent 70%)}
+    .monogram span{font-family:var(--serif);font-style:italic;font-size:clamp(6rem,14vw,10rem);color:var(--gold2);line-height:1}
+    .monogram small{position:absolute;bottom:22px;left:0;right:0;text-align:center;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+    .agent .h2{color:#fff}
+    .agent p{color:rgba(255,255,255,.75);max-width:54ch;margin:18px 0}
+    .agent ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin:26px 0 32px}
+    .agent li{position:relative;padding-left:22px;font-size:.88rem;color:rgba(255,255,255,.85)}
+    .agent li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;transform:rotate(45deg);border:1px solid var(--gold2)}
+
+    .zones-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .ztile{position:relative;aspect-ratio:3/4;color:#fff;text-decoration:none;cursor:pointer;border:0;padding:0;text-align:left}
+    .ztile .ph{position:absolute;inset:0}
+    .ztile .ph img{transition:transform 1.2s var(--ease)}
+    .ztile:hover .ph img{transform:scale(1.07)}
+    .ztile::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,32,40,.85),transparent 60%)}
+    .ztile span{position:absolute;left:20px;bottom:18px;z-index:1;font-family:var(--serif);font-size:1.7rem;line-height:1.1}
+    .ztile small{display:block;font-family:var(--sans);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-top:6px}
+
+    .contact{background:var(--sand)}
+    .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);align-items:start}
+    .form{background:#fff;padding:clamp(24px,4vw,40px);border:1px solid var(--line)}
+    .fld{display:grid;gap:6px;margin-bottom:14px}
+    .fld label{font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+    .fld input,.fld select,.fld textarea{width:100%;font-size:16px;padding:12px 0;border:0;border-bottom:1px solid var(--line);background:transparent;outline:none;border-radius:0;-webkit-appearance:none;appearance:none}
+    .fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--gold)}
+    .fld textarea{min-height:90px;resize:vertical}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .form .btn{width:100%;margin-top:6px}
+    .cinfo{display:grid;gap:18px;margin-top:28px}
+    .cinfo div{display:flex;gap:14px;align-items:flex-start}
+    .cinfo svg{width:22px;height:22px;color:var(--gold);flex:none;margin-top:3px}
+    .cinfo b{display:block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);font-weight:600}
+
+    .made{padding:56px 0;background:#0f262f;color:#fff;text-align:center}
+    .made .wrap{display:grid;justify-items:center;gap:14px}
+    .made p{color:rgba(255,255,255,.7);max-width:56ch}
+    .made .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+    footer{padding:30px 0 calc(30px + env(safe-area-inset-bottom,0px));background:#0b1e25;color:rgba(255,255,255,.55);font-size:.78rem}
+    footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    footer a{color:var(--gold2)}
+
+    /* ficha */
+    .modal{position:fixed;inset:0;z-index:80;display:flex;justify-content:flex-end;visibility:hidden;pointer-events:none}
+    .modal .scrim{position:absolute;inset:0;background:rgba(10,24,30,.6);opacity:0;transition:opacity .5s}
+    .panel{position:relative;width:min(960px,100%);height:100%;background:var(--cream);overflow-y:auto;-webkit-overflow-scrolling:touch;transform:translateX(100%);transition:transform .7s var(--ease)}
+    .modal.open{visibility:visible;pointer-events:auto}
+    .modal.open .scrim{opacity:1}
+    .modal.open .panel{transform:none}
+    .close{position:sticky;top:14px;float:right;margin:14px 14px -64px 0;z-index:3;width:50px;height:50px;border-radius:50%;border:0;background:rgba(250,247,241,.95);cursor:pointer;display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+    .close svg{width:20px;height:20px}
+    .gal{position:relative}
+    .gal-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .gal-track::-webkit-scrollbar{display:none}
+    .gal-track .ph{flex:0 0 100%;aspect-ratio:16/10;scroll-snap-align:start}
+    .gal-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:rgba(250,247,241,.9);cursor:pointer;display:grid;place-items:center}
+    .gal-nav svg{width:18px;height:18px}
+    .gal-nav.prev{left:14px}.gal-nav.next{right:14px}
+    .dots{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:center;gap:7px}
+    .dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.55);transition:background .3s,width .3s}
+    .dots i.on{background:#fff;width:22px;border-radius:5px}
+    .pbody{padding:clamp(24px,4vw,46px)}
+    .ptop{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end;padding-bottom:22px;border-bottom:1px solid var(--line)}
+    .pbody h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1;color:var(--ocean)}
+    .pbody .price{font-size:2.2rem}
+    .feats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0}
+    .feats div{background:#fff;padding:16px 14px;text-align:center}
+    .feats b{display:block;font-family:var(--serif);font-size:1.6rem;color:var(--ocean);line-height:1.1}
+    .feats span{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+    .pcols{display:grid;grid-template-columns:1.2fr .8fr;gap:30px}
+    .pdesc{color:#3d4a50}
+    .amen{list-style:none;display:grid;gap:9px;margin-top:20px}
+    .amen li{position:relative;padding-left:22px;font-size:.88rem}
+    .amen li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;transform:rotate(45deg);background:var(--gold)}
+    .visit{background:#fff;border:1px solid var(--line);padding:22px;align-self:start;position:sticky;top:20px}
+    .visit h3{font-family:var(--serif);font-weight:500;font-size:1.5rem;color:var(--ocean);margin-bottom:12px}
+    .visit .btn{width:100%;margin-top:8px}
+    .share{display:block;margin-top:12px;font-size:.74rem;color:var(--mut);text-align:center;background:none;border:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;width:100%}
+
+    .wa-float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#fff;box-shadow:0 14px 30px -8px rgba(37,211,102,.6)}
+    .wa-float svg{width:28px;height:28px}
+    .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+    .rv.in{opacity:1;transform:none}
+    .toast{position:fixed;left:50%;bottom:90px;z-index:90;transform:translate(-50%,20px);opacity:0;background:var(--ocean);color:#fff;padding:12px 18px;font-size:.82rem;transition:opacity .3s,transform .3s;pointer-events:none}
+    .toast.on{opacity:1;transform:translate(-50%,0)}
+
+    @media (max-width:1040px){
+      .grid{grid-template-columns:1fr 1fr}
+      .zones-grid{grid-template-columns:1fr 1fr}
+      .agent .wrap,.contact .wrap{grid-template-columns:1fr}
+      .monogram{aspect-ratio:16/9}
+      .links{display:none}
+      .links.open{display:flex;position:fixed;inset:80px 0 auto 0;flex-direction:column;gap:0;background:rgba(20,49,61,.98);padding:10px var(--g) 20px}
+      .links.open a{display:block;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.8rem}
+      .menu-btn{display:grid;margin-left:auto}
+      .pcols{grid-template-columns:1fr}
+      .visit{position:static}
+    }
+    @media (max-width:700px){
+      .search{grid-template-columns:1fr 1fr}
+      .search .f:nth-child(3){grid-column:1/-1;border-right:0;border-top:1px solid var(--line)}
+      .search .f:nth-child(2){border-right:0}
+      .search .f{padding:12px 16px}
+      .search .btn{grid-column:1/-1;min-height:54px}
+      .grid{grid-template-columns:1fr}
+      .feats{grid-template-columns:1fr 1fr}
+      .agent ul{grid-template-columns:1fr}
+      .two{grid-template-columns:1fr}
+      .count{width:100%;margin-left:0}
+      .hero .wrap{padding-bottom:28px}
+      .gal-nav{display:none}
+      .demo-bar{flex-wrap:nowrap;gap:8px;font-size:.7rem}.demo-bar .long{display:none}.demo-bar .short{display:inline}.demo-bar a:not(.short){display:none}.demo-bar a.short{display:inline!important}
+      .logo small{letter-spacing:.18em}
+      .close{margin:10px 10px -60px 0}
+    }
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <div class="demo-bar"><b>DEMO</b><span class="long"><span lang="es">Sitio de muestra creado por Mar de Sitios · Marca, propiedades y precios son ejemplos.</span><span lang="en">Sample site built by Mar de Sitios · Brand, listings and prices are examples.</span></span><a class="short" href="../index.html#paquetes" style="display:none"><span lang="es">Sitio de muestra · Mar de Sitios →</span><span lang="en">Sample site · Mar de Sitios →</span></a><a href="../index.html#paquetes"><span lang="es">Paquete Inmobiliario →</span><span lang="en">Real Estate package →</span></a></div>
+
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a class="logo" href="#inicio">Casa <em>Pacífica</em><small lang="es">Bienes raíces · Los Cabos</small><small lang="en">Real estate · Los Cabos</small></a>
+      <ul class="links" id="links">
+        <li><a href="#propiedades"><span lang="es">Propiedades</span><span lang="en">Properties</span></a></li>
+        <li><a href="#agente"><span lang="es">Sobre el agente</span><span lang="en">About</span></a></li>
+        <li><a href="#zonas"><span lang="es">Zonas</span><span lang="en">Areas</span></a></li>
+        <li><a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a></li>
+      </ul>
+      <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true">ES</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+      <button class="menu-btn" type="button" aria-label="Menú" aria-expanded="false" aria-controls="links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" style="padding:0">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=2000&q=80&auto=format&fit=crop" alt="" fetchpriority="high" /></div>
+      <div class="wrap">
+        <span class="eyebrow"><span lang="es">Bienes raíces de lujo · Los Cabos, B.C.S.</span><span lang="en">Luxury real estate · Los Cabos, B.C.S.</span></span>
+        <h1><span lang="es">Donde el desierto <em>se encuentra con el mar</em></span><span lang="en">Where the desert <em>meets the sea</em></span></h1>
+        <p><span lang="es">Villas, casas y departamentos seleccionados en los rincones más buscados de Baja California Sur.</span><span lang="en">Hand-picked villas, homes and condos in the most sought-after corners of Baja California Sur.</span></p>
+        <form class="search" id="search">
+          <div class="f"><label for="s-op"><span lang="es">Operación</span><span lang="en">Listing</span></label>
+            <select id="s-op"><option value="all">Todas · All</option><option value="sale">Venta · Sale</option><option value="rent">Renta · Rent</option></select></div>
+          <div class="f"><label for="s-type"><span lang="es">Tipo</span><span lang="en">Type</span></label>
+            <select id="s-type"><option value="all">Todos · All</option><option value="villa">Villa</option><option value="house">Casa · House</option><option value="condo">Departamento · Condo</option><option value="land">Terreno · Land</option></select></div>
+          <div class="f"><label for="s-zone"><span lang="es">Zona</span><span lang="en">Area</span></label>
+            <select id="s-zone"><option value="all">Todas · All</option><option>Cabo San Lucas</option><option>San José del Cabo</option><option>Corredor Turístico</option><option>East Cape</option><option>Todos Santos</option></select></div>
+          <button class="btn btn-gold" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span lang="es">Buscar</span><span lang="en">Search</span></button>
+        </form>
+      </div>
+    </section>
+
+    <section id="propiedades">
+      <div class="wrap">
+        <div class="head rv">
+          <div><span class="eyebrow dark"><span lang="es">Propiedades</span><span lang="en">Properties</span></span><h2 class="h2"><span lang="es">Selección <em>destacada</em></span><span lang="en">Featured <em>selection</em></span></h2></div>
+        </div>
+        <div class="filters">
+          <div class="seg" role="group" aria-label="Operación">
+            <button type="button" data-op="all" aria-pressed="true"><span lang="es">Todas</span><span lang="en">All</span></button>
+            <button type="button" data-op="sale" aria-pressed="false"><span lang="es">Venta</span><span lang="en">Sale</span></button>
+            <button type="button" data-op="rent" aria-pressed="false"><span lang="es">Renta</span><span lang="en">Rent</span></button>
+          </div>
+          <button class="chip" type="button" data-type="villa" aria-pressed="false">Villas</button>
+          <button class="chip" type="button" data-type="house" aria-pressed="false"><span lang="es">Casas</span><span lang="en">Houses</span></button>
+          <button class="chip" type="button" data-type="condo" aria-pressed="false"><span lang="es">Departamentos</span><span lang="en">Condos</span></button>
+          <button class="chip" type="button" data-type="land" aria-pressed="false"><span lang="es">Terrenos</span><span lang="en">Land</span></button>
+          <span class="count" id="count" aria-live="polite"></span>
+        </div>
+        <div class="grid" id="grid"></div>
+      </div>
+    </section>
+
+    <section class="agent" id="agente">
+      <div class="wrap">
+        <div class="monogram rv"><span>CP</span><small lang="es">Tu foto profesional aquí</small><small lang="en">Your professional photo here</small></div>
+        <div class="rv">
+          <span class="eyebrow"><span lang="es">Sobre el agente</span><span lang="en">About the agent</span></span>
+          <h2 class="h2"><span lang="es">Tu marca personal, <em>tu historia</em></span><span lang="en">Your personal brand, <em>your story</em></span></h2>
+          <p><span lang="es">En esta sección va tu experiencia, las zonas que mejor conoces y la razón por la que tus clientes confían en ti. Así los compradores te conocen antes de escribirte.</span><span lang="en">This section holds your experience, the areas you know best and why your clients trust you, so buyers get to know you before they reach out.</span></p>
+          <ul>
+            <li><span lang="es">Asesoría en compra y renta</span><span lang="en">Buying and renting guidance</span></li>
+            <li><span lang="es">Atención en español e inglés</span><span lang="en">Service in Spanish and English</span></li>
+            <li><span lang="es">Acompañamiento en fideicomiso</span><span lang="en">Bank trust (fideicomiso) guidance</span></li>
+            <li><span lang="es">Visitas presenciales o virtuales</span><span lang="en">In-person or virtual tours</span></li>
+          </ul>
+          <a class="btn btn-gold" href="#contacto"><span lang="es">Agenda una llamada</span><span lang="en">Book a call</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="zonas">
+      <div class="wrap">
+        <div class="head rv"><div><span class="eyebrow dark"><span lang="es">Zonas</span><span lang="en">Areas</span></span><h2 class="h2"><span lang="es">Explora por <em>zona</em></span><span lang="en">Explore by <em>area</em></span></h2></div></div>
+        <div class="zones-grid">
+          <button class="ztile rv" type="button" data-zone="Cabo San Lucas"><div class="ph"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=75&auto=format&fit=crop" alt="" loading="lazy" /></div><span>Cabo San Lucas<small lang="es">Marina · Pedregal</small><small lang="en">Marina · Pedregal</small></span></button>
+          <button class="ztile rv" type="button" data-zone="San José del Cabo"><div class="ph"><img src="https://images.unsplash.com/photo-1568041487520-2b1a985a4cdb?w=800&q=75&auto=format&fit=crop" alt="" loading="lazy" /></div><span>San José del Cabo<small lang="es">Centro histórico</small><small lang="en">Historic downtown</small></span></button>
+          <button class="ztile rv" type="button" data-zone="Corredor Turístico"><div class="ph"><img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=800&q=75&auto=format&fit=crop" alt="" loading="lazy" /></div><span><span lang="es">Corredor Turístico</span><span lang="en">Tourist Corridor</span><small lang="es">Frente al mar</small><small lang="en">Oceanfront</small></span></button>
+          <button class="ztile rv" type="button" data-zone="East Cape"><div class="ph"><img src="https://images.unsplash.com/photo-1505873242700-f289a29e1724?w=800&q=75&auto=format&fit=crop" alt="" loading="lazy" /></div><span>East Cape<small lang="es">Naturaleza y calma</small><small lang="en">Nature and calm</small></span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="wrap">
+        <div class="rv">
+          <span class="eyebrow dark"><span lang="es">Contacto</span><span lang="en">Contact</span></span>
+          <h2 class="h2"><span lang="es">Encontremos tu <em>lugar ideal</em></span><span lang="en">Let's find your <em>perfect place</em></span></h2>
+          <p style="color:var(--mut);margin-top:16px;max-width:46ch"><span lang="es">Cuéntanos qué buscas y te enviamos opciones que encajan contigo.</span><span lang="en">Tell us what you're looking for and we'll send options that fit you.</span></p>
+          <div class="cinfo">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span><b lang="es">Oficina</b><b lang="en">Office</b>Los Cabos, Baja California Sur</span></div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b lang="es">Horario</b><b lang="en">Hours</b><span lang="es">Lunes a sábado · 9:00 a 18:00</span><span lang="en">Monday to Saturday · 9 am to 6 pm</span></span></div>
+          </div>
+        </div>
+        <form class="form rv" id="cform">
+          <div class="two">
+            <div class="fld"><label for="c-name"><span lang="es">Nombre</span><span lang="en">Name</span></label><input id="c-name" required autocomplete="name" /></div>
+            <div class="fld"><label for="c-op"><span lang="es">Busco</span><span lang="en">I'm looking to</span></label><select id="c-op"><option value="comprar">Comprar · Buy</option><option value="rentar">Rentar · Rent</option><option value="vender">Vender · Sell</option></select></div>
+          </div>
+          <div class="fld"><label for="c-budget"><span lang="es">Presupuesto aproximado</span><span lang="en">Approximate budget</span></label><select id="c-budget"><option>&lt; $500,000 USD</option><option>$500,000 – $1,500,000 USD</option><option>$1,500,000+ USD</option><option>Renta / Rent</option></select></div>
+          <div class="fld"><label for="c-msg"><span lang="es">Mensaje</span><span lang="en">Message</span></label><textarea id="c-msg"></textarea></div>
+          <button class="btn btn-ocean" type="submit"><span lang="es">Enviar por WhatsApp</span><span lang="en">Send via WhatsApp</span></button>
+        </form>
+      </div>
+    </section>
+
+    <section class="made">
+      <div class="wrap">
+        <span class="eyebrow">Mar de Sitios</span>
+        <h2 class="h2" style="color:#fff"><span lang="es">¿Eres agente o inmobiliaria?</span><span lang="en">Are you an agent or agency?</span></h2>
+        <p><span lang="es">Este demo muestra el paquete Inmobiliario: hasta 8 propiedades con ficha y galería, filtros por venta/renta y tipo, y WhatsApp con el nombre de cada propiedad.</span><span lang="en">This demo shows the Real Estate package: up to 8 listings with detail page and gallery, sale/rent and type filters, and WhatsApp with each property's name.</span></p>
+        <div class="row">
+          <a class="btn btn-gold" href="../index.html#paquetes"><span lang="es">Ver paquete — $17,900 MXN</span><span lang="en">See package — $17,900 MXN</span></a>
+          <a class="btn btn-line" href="https://wa.me/526241181978?text=Hola%20Mar%20de%20Sitios%2C%20vi%20el%20demo%20inmobiliario%20y%20quiero%20un%20sitio%20as%C3%AD"><span lang="es">Quiero un sitio así</span><span lang="en">I want a site like this</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>Casa Pacífica · <span lang="es">marca ficticia de demostración. Fotos: Unsplash.</span><span lang="en">fictional demo brand. Photos: Unsplash.</span></span><span><span lang="es">Diseño y desarrollo:</span><span lang="en">Design & development:</span> <a href="../index.html">Mar de Sitios</a></span></div></footer>
+
+  <!-- ficha de propiedad -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="scrim" data-close></div>
+    <article class="panel" role="dialog" aria-modal="true" aria-labelledby="p-title">
+      <button class="close" type="button" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <div class="gal">
+        <div class="gal-track" id="gal"></div>
+        <button class="gal-nav prev" type="button" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 6-6 6 6 6"/></svg></button>
+        <button class="gal-nav next" type="button" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></button>
+        <div class="dots" id="dots"></div>
+      </div>
+      <div class="pbody">
+        <div class="ptop">
+          <div><span class="eyebrow dark" id="p-kind"></span><h2 id="p-title" style="margin-top:12px"></h2><div class="zone" id="p-zone" style="margin-top:10px"></div></div>
+          <div class="price" id="p-price"></div>
+        </div>
+        <div class="feats" id="p-feats"></div>
+        <div class="pcols">
+          <div><p class="pdesc" id="p-desc"></p><ul class="amen" id="p-amen"></ul></div>
+          <form class="visit" id="visit">
+            <h3><span lang="es">¿Te interesa?</span><span lang="en">Interested?</span></h3>
+            <div class="fld"><label for="v-name"><span lang="es">Nombre</span><span lang="en">Name</span></label><input id="v-name" autocomplete="name" /></div>
+            <div class="fld"><label for="v-date"><span lang="es">Fecha de visita (opcional)</span><span lang="en">Visit date (optional)</span></label><input id="v-date" type="date" /></div>
+            <button class="btn btn-wa" type="submit"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7z"/></svg><span lang="es">Preguntar por WhatsApp</span><span lang="en">Ask on WhatsApp</span></button>
+            <button class="share" type="button" id="share"><span lang="es">Copiar enlace de esta propiedad</span><span lang="en">Copy link to this property</span></button>
+          </form>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <a class="wa-float" id="wa-float" href="#" aria-label="WhatsApp"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7z"/></svg></a>
+
+  <script>
+  (function(){
+    var WA="526241181978";
+    var U=function(id,w){return "https://images.unsplash.com/photo-"+id+"?w="+(w||1200)+"&q=78&auto=format&fit=crop"};
+    var IMG={villa:"1613490493576-7fde63acd811",casa:"1600596542815-ffad4c1539a9",cielo:"1512917774080-9991f1c4c750",interior:"1600607687939-ce8a6c25118c",arena:"1505873242700-f289a29e1724",cortez:"1560448204-e02f11c3d0e2",brisa:"1502672260266-1c1ef2d93688",encanto:"1564013799919-ab600027ffc6",lote:"1500382017468-9049fed747ef",ballena:"1493809842364-78817add7ffb",costa:"1510414842594-a61c69b5ae57",hero:"1582268611958-ebfd161ef9cf"};
+    var T={villa:{es:"Villa",en:"Villa"},house:{es:"Casa",en:"House"},condo:{es:"Departamento",en:"Condo"},land:{es:"Terreno",en:"Land"}};
+    var P=[
+      {id:"villa-horizonte",name:"Villa Horizonte",type:"villa",op:"sale",zone:"Cabo San Lucas",area:"Pedregal",price:3450000,beds:5,baths:5.5,m2:620,lot:900,img:["villa","interior","cielo","casa","ballena"],
+       es:"Villa de arquitectura contemporánea con vista abierta al Pacífico, alberca infinita y terrazas en cada nivel. Pensada para vivir y recibir con privacidad total.",en:"Contemporary villa with open Pacific views, infinity pool and terraces on every level. Built for living and hosting in complete privacy.",
+       am:{es:["Alberca infinita","Vista al mar","Cocina de chef","Seguridad 24/7","Elevador"],en:["Infinity pool","Ocean view","Chef's kitchen","24/7 security","Elevator"]}},
+      {id:"casa-del-mar",name:"Casa del Mar",type:"house",op:"sale",zone:"San José del Cabo",area:"Puerto Los Cabos",price:1890000,beds:4,baths:4.5,m2:410,lot:620,img:["casa","interior","villa","encanto"],
+       es:"Residencia luminosa a minutos de la marina, con jardín, alberca privada y espacios abiertos que conectan interior y exterior.",en:"Bright home minutes from the marina, with garden, private pool and open spaces that connect indoors and outdoors.",
+       am:{es:["Alberca privada","Jardín","Cerca de la marina","Club de playa"],en:["Private pool","Garden","Near the marina","Beach club"]}},
+      {id:"cielo-alto",name:"Cielo Alto",type:"villa",op:"rent",zone:"Corredor Turístico",area:"Corredor Turístico",price:14500,beds:4,baths:4,m2:380,lot:0,img:["cielo","interior","villa","costa"],
+       es:"Villa en renta mensual sobre el corredor, con alberca, palapa y atardeceres frente al Mar de Cortés. Amueblada y lista para habitar.",en:"Villa for monthly rent on the corridor, with pool, palapa and sunsets over the Sea of Cortez. Furnished and move-in ready.",
+       am:{es:["Amueblada","Alberca","Palapa","Servicio de limpieza"],en:["Furnished","Pool","Palapa","Housekeeping"]}},
+      {id:"punta-arena",name:"Punta Arena",type:"land",op:"sale",zone:"East Cape",area:"East Cape",price:640000,beds:0,baths:0,m2:0,lot:2500,img:["arena","costa","lote"],
+       es:"Terreno frente al mar en la costa tranquila del East Cape, ideal para una casa de descanso o un pequeño proyecto boutique.",en:"Oceanfront lot on the quiet East Cape coast, ideal for a getaway home or a small boutique project.",
+       am:{es:["Frente al mar","Escrituras en orden","Acceso pavimentado"],en:["Oceanfront","Clear title","Paved access"]}},
+      {id:"mar-de-cortez",name:"Mar de Cortez",type:"condo",op:"sale",zone:"San José del Cabo",area:"Zona hotelera",price:685000,beds:2,baths:2,m2:145,lot:0,img:["cortez","interior","brisa"],
+       es:"Departamento con terraza y vista al mar en desarrollo con alberca, gimnasio y acceso a playa.",en:"Condo with terrace and ocean view in a community with pool, gym and beach access.",
+       am:{es:["Terraza","Gimnasio","Acceso a playa","Estacionamiento"],en:["Terrace","Gym","Beach access","Parking"]}},
+      {id:"brisa-del-pacifico",name:"Brisa del Pacífico",type:"condo",op:"rent",zone:"Cabo San Lucas",area:"Marina",price:4200,beds:2,baths:2,m2:120,lot:0,img:["brisa","interior","cortez"],
+       es:"Departamento en renta a pasos de la marina y de los mejores restaurantes de Cabo San Lucas.",en:"Condo for rent steps from the marina and the best restaurants in Cabo San Lucas.",
+       am:{es:["Amueblado","Vista a la marina","Alberca común"],en:["Furnished","Marina view","Shared pool"]}},
+      {id:"el-encanto",name:"El Encanto",type:"house",op:"rent",zone:"San José del Cabo",area:"Centro",price:6800,beds:3,baths:3.5,m2:260,lot:400,img:["encanto","interior","casa"],
+       es:"Casa en renta con estilo mexicano contemporáneo, patio central y alberca, cerca del centro histórico.",en:"Contemporary Mexican-style house for rent with a central patio and pool, near the historic downtown.",
+       am:{es:["Patio central","Alberca","Cerca del centro"],en:["Central patio","Pool","Near downtown"]}},
+      {id:"lote-dorado",name:"Lote Dorado",type:"land",op:"sale",zone:"Todos Santos",area:"Todos Santos",price:295000,beds:0,baths:0,m2:0,lot:1800,img:["lote","arena"],
+       es:"Terreno con vista a las montañas en Todos Santos, Pueblo Mágico entre el desierto y el Pacífico.",en:"Lot with mountain views in Todos Santos, a Pueblo Mágico between the desert and the Pacific.",
+       am:{es:["Vista a la montaña","Servicios cercanos"],en:["Mountain view","Utilities nearby"]}}
+    ];
+    var html=document.documentElement, $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+    var state={op:"all",type:"all",zone:"all"}, favs={};
+    try{favs=JSON.parse(localStorage.getItem("cp-favs")||"{}")}catch(e){}
+    function L(){return html.lang==="en"?"en":"es"}
+    function money(p){return "$"+p.price.toLocaleString("en-US")+"<small>USD"+(p.op==="rent"?(L()==="es"?" / mes":" / mo"):"")+"</small>"}
+    function imgEl(key,w,alt,lazy){return '<div class="ph"><img src="'+U(IMG[key],w)+'" alt="'+alt+'"'+(lazy?' loading="lazy"':'')+' onerror="this.parentNode.classList.add(\'noimg\')"></div>'}
+    var ico={pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>',bed:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 14h18M7 9V6h4v3"/></svg>',bath:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4zM6 12V5a2 2 0 0 1 4 0"/></svg>',area:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4zM4 9h5V4"/></svg>',heart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>'};
+    function metaHtml(p){
+      var l=L(); if(p.type==="land") return '<span>'+ico.area+p.lot.toLocaleString("en-US")+' m² '+(l==="es"?"de terreno":"lot")+'</span>';
+      return '<span>'+ico.bed+p.beds+' '+(l==="es"?"rec.":"bd")+'</span><span>'+ico.bath+p.baths+' '+(l==="es"?"baños":"ba")+'</span><span>'+ico.area+p.m2+' m²</span>';
+    }
+    function render(){
+      var g=$("#grid"), l=L();
+      var list=P.filter(function(p){return (state.op==="all"||p.op===state.op)&&(state.type==="all"||p.type===state.type)&&(state.zone==="all"||p.zone===state.zone)});
+      g.innerHTML=list.map(function(p,i){
+        return '<article class="card" style="animation-delay:'+(i*60)+'ms">'+
+          '<span class="badge'+(p.op==="rent"?" rent":"")+'">'+(p.op==="rent"?(l==="es"?"Renta":"For rent"):(l==="es"?"Venta":"For sale"))+'</span>'+
+          '<button class="fav" type="button" data-fav="'+p.id+'" aria-pressed="'+(!!favs[p.id])+'" aria-label="'+(l==="es"?"Guardar":"Save")+' '+p.name+'">'+ico.heart+'</button>'+
+          imgEl(p.img[0],900,p.name,true)+
+          '<div class="card-body"><div class="price">'+money(p)+'</div><h3>'+p.name+'</h3><div class="zone">'+ico.pin+p.area+(p.area!==p.zone?" · "+p.zone:"")+'</div><div class="meta">'+metaHtml(p)+'</div></div>'+
+          '<a class="stretch" href="#'+p.id+'" aria-label="'+(l==="es"?"Ver ficha de ":"View ")+p.name+'"></a></article>';
+      }).join("") || '<p class="empty">'+(l==="es"?"No hay propiedades con estos filtros. Prueba con otra combinación.":"No properties match these filters. Try another combination.")+'</p>';
+      $("#count").textContent=list.length+" "+(l==="es"?(list.length===1?"propiedad":"propiedades"):(list.length===1?"property":"properties"));
+      $$(".fav",g).forEach(function(b){b.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();var id=b.dataset.fav;favs[id]=!favs[id];b.setAttribute("aria-pressed",String(!!favs[id]));try{localStorage.setItem("cp-favs",JSON.stringify(favs))}catch(err){}})});
+    }
+    function syncControls(){
+      $$(".seg button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.op===state.op))});
+      $$(".chip").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.type===state.type))});
+      $("#s-op").value=state.op;$("#s-type").value=state.type;$("#s-zone").value=state.zone;
+    }
+    $$(".seg button").forEach(function(b){b.addEventListener("click",function(){state.op=b.dataset.op;syncControls();render()})});
+    $$(".chip").forEach(function(b){b.addEventListener("click",function(){state.type=state.type===b.dataset.type?"all":b.dataset.type;syncControls();render()})});
+    $("#search").addEventListener("submit",function(e){e.preventDefault();state.op=$("#s-op").value;state.type=$("#s-type").value;state.zone=$("#s-zone").value;syncControls();render();document.getElementById("propiedades").scrollIntoView({behavior:"smooth"})});
+    $$(".ztile").forEach(function(t){t.addEventListener("click",function(){state.zone=t.dataset.zone;state.op="all";state.type="all";syncControls();render();document.getElementById("propiedades").scrollIntoView({behavior:"smooth"})})});
+
+    /* ficha */
+    var modal=$("#modal"), cur=null, slide=0, lastFocus=null;
+    function openP(id){
+      var p=P.filter(function(x){return x.id===id})[0]; if(!p) return; cur=p; var l=L();
+      lastFocus=document.activeElement;
+      $("#gal").innerHTML=p.img.map(function(k,i){return imgEl(k,1600,p.name+" "+(i+1),i>0)}).join("");
+      $("#dots").innerHTML=p.img.map(function(_,i){return '<i class="'+(i===0?"on":"")+'"></i>'}).join("");
+      $("#gal").scrollLeft=0; slide=0;
+      $("#p-kind").innerHTML=T[p.type][l]+" · "+(p.op==="rent"?(l==="es"?"Renta":"For rent"):(l==="es"?"Venta":"For sale"));
+      $("#p-title").textContent=p.name; $("#p-zone").innerHTML=ico.pin+p.area+(p.area!==p.zone?" · "+p.zone:"")+", B.C.S.";
+      $("#p-price").innerHTML=money(p);
+      var f = p.type==="land" ? [[p.lot.toLocaleString("en-US")+" m²",l==="es"?"Terreno":"Lot"],[T[p.type][l],l==="es"?"Tipo":"Type"],[p.zone.split(" ")[0],l==="es"?"Zona":"Area"],["✓",l==="es"?"Escrituras":"Title"]]
+        : [[p.beds,l==="es"?"Recámaras":"Bedrooms"],[p.baths,l==="es"?"Baños":"Baths"],[p.m2+" m²",l==="es"?"Construcción":"Built"],[p.lot?p.lot+" m²":"—",l==="es"?"Terreno":"Lot"]];
+      $("#p-feats").innerHTML=f.map(function(x){return '<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div>'}).join("");
+      $("#p-desc").textContent=p[l]; $("#p-amen").innerHTML=p.am[l].map(function(a){return "<li>"+a+"</li>"}).join("");
+      modal.classList.add("open"); modal.setAttribute("aria-hidden","false"); document.body.classList.add("lock");
+      setTimeout(function(){$(".close",modal).focus()},300);
+      if(location.hash!=="#"+id) history.replaceState(null,"","#"+id);
+    }
+    function closeP(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.classList.remove("lock");cur=null;if(location.hash.length>1&&P.some(function(p){return "#"+p.id===location.hash}))history.replaceState(null,"",location.pathname+location.search);if(lastFocus)lastFocus.focus({preventScroll:true})}
+    $$("[data-close]",modal).forEach(function(b){b.addEventListener("click",closeP)});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape"&&cur)closeP()});
+    function fromHash(){var id=location.hash.slice(1);if(P.some(function(p){return p.id===id}))openP(id)}
+    window.addEventListener("hashchange",fromHash);
+    var gal=$("#gal");
+    function go(n){if(!cur)return;slide=(n+cur.img.length)%cur.img.length;gal.scrollTo({left:gal.clientWidth*slide,behavior:"smooth"})}
+    $(".gal-nav.prev").addEventListener("click",function(){go(slide-1)});$(".gal-nav.next").addEventListener("click",function(){go(slide+1)});
+    gal.addEventListener("scroll",function(){var i=Math.round(gal.scrollLeft/gal.clientWidth);if(i!==slide){slide=i}$$("#dots i").forEach(function(d,k){d.classList.toggle("on",k===i)})},{passive:true});
+    $("#visit").addEventListener("submit",function(e){e.preventDefault();if(!cur)return;var l=L(),n=$("#v-name").value,d=$("#v-date").value;
+      var msg=l==="es"?"Hola, vi el demo inmobiliario de Mar de Sitios. Me interesa la propiedad de ejemplo: "+cur.name+" ("+cur.area+")."+(d?" Visita: "+d+".":"")+(n?" Soy "+n+".":""):"Hi, I saw the Mar de Sitios real estate demo. I'm interested in the sample property: "+cur.name+" ("+cur.area+")."+(d?" Visit: "+d+".":"")+(n?" I'm "+n+".":"");
+      window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg),"_blank","noopener")});
+    function toast(t){var el=$("#toast");el.textContent=t;el.classList.add("on");setTimeout(function(){el.classList.remove("on")},2200)}
+    $("#share").addEventListener("click",function(){var u=location.href.split("#")[0]+"#"+(cur?cur.id:"");var ok=function(){toast(L()==="es"?"Enlace copiado":"Link copied")};if(navigator.clipboard)navigator.clipboard.writeText(u).then(ok,ok);else ok()});
+
+    $("#cform").addEventListener("submit",function(e){e.preventDefault();var l=L();var msg=(l==="es"?"Hola, probé el formulario del demo inmobiliario de Mar de Sitios. ":"Hi, I tried the Mar de Sitios real estate demo form. ")+$("#c-name").value+" · "+$("#c-op").value+" · "+$("#c-budget").value+($("#c-msg").value?" · "+$("#c-msg").value:"");window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg),"_blank","noopener")});
+    $("#wa-float").addEventListener("click",function(e){e.preventDefault();window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(L()==="es"?"Hola, vi el demo inmobiliario de Mar de Sitios y quiero un sitio así.":"Hi, I saw the Mar de Sitios real estate demo and I want a site like it."),"_blank","noopener")});
+
+    /* nav, idioma, menú */
+    var nav=$("#nav"),mb=$(".menu-btn"),links=$("#links");
+    window.addEventListener("scroll",function(){nav.classList.toggle("fixed",window.scrollY>120)},{passive:true});
+    mb.addEventListener("click",function(){var o=links.classList.toggle("open");mb.setAttribute("aria-expanded",String(o));nav.classList.add("fixed")});
+    $$("#links a").forEach(function(a){a.addEventListener("click",function(){links.classList.remove("open");mb.setAttribute("aria-expanded","false")})});
+    function setLang(l){html.lang=l;$$(".lang button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.lang===l))});try{localStorage.setItem("mds-lang",l)}catch(e){}render();if(cur)openP(cur.id)}
+    $$(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang)})});
+    if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});$$(".rv").forEach(function(el){io.observe(el)})}else{$$(".rv").forEach(function(el){el.classList.add("in")})}
+    $$(".hero img, .ztile img").forEach(function(im){im.addEventListener("error",function(){im.parentNode.classList.add("noimg")})});
+    var saved="es";try{saved=localStorage.getItem("mds-lang")||"es"}catch(e){}
+    setLang(saved); fromHash();
+  })();
+  </script>
+</body>
+</html>
