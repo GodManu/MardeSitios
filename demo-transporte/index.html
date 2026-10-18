@@ -77,10 +77,10 @@
     .tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:5px;border-radius:14px;background:#0f1215;margin-bottom:16px}
     .tabs button{border:0;background:none;cursor:pointer;padding:10px 4px;border-radius:10px;font-size:.74rem;font-weight:700;color:var(--mut);line-height:1.2;transition:background .3s,color .3s}
     .tabs button[aria-selected="true"]{background:var(--amber);color:#1b1a14}
-    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
     .fld{display:grid;gap:6px;margin-bottom:12px}
     .fld label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
-    .fld input,.fld select{width:100%;font-size:16px;padding:12px 13px;border-radius:12px;border:1px solid var(--line);background:#0f1215;color:var(--txt);outline:none;-webkit-appearance:none;appearance:none;color-scheme:dark}
+    .fld input,.fld select{width:100%;min-width:0;font-size:16px;padding:12px 13px;border-radius:12px;border:1px solid var(--line);background:#0f1215;color:var(--txt);outline:none;-webkit-appearance:none;appearance:none;color-scheme:dark}
     .fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239aa3a9' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px;padding-right:36px}
     .fld input:focus,.fld select:focus{border-color:var(--amber)}
     .stepper{display:flex;align-items:center;border:1px solid var(--line);border-radius:12px;background:#0f1215;overflow:hidden}
@@ -175,7 +175,7 @@
     @media (max-width:560px){
       .svc{grid-template-columns:1fr}
       .tabs button{font-size:.68rem}
-      .grid2{grid-template-columns:1fr 1fr}
+      .grid2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
       .hero{padding-top:36px}
       .demo-bar{font-size:.7rem;flex-wrap:nowrap;gap:8px}
       .demo-bar .long{display:none}.demo-bar .short{display:inline}.demo-bar a:not(.short){display:none}.demo-bar a.short{display:inline!important}
@@ -183,6 +183,7 @@
       .book{padding:18px}
       .rates th,.rates td{padding:13px 10px;font-size:.85rem}
     }
+    @media (max-width:360px){.grid2{grid-template-columns:1fr}.tabs{grid-template-columns:1fr 1fr}}
     @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
   </style>
 </head>

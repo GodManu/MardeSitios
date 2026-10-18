@@ -308,7 +308,8 @@ body.menu-open .menu-side{opacity:1;transform:none}
    PAQUETES
    ========================================================================== */
 .pricing{padding:clamp(90px,12vw,150px) 0;background:var(--sand);position:relative}
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
+.plan .btn{white-space:normal;text-align:center;line-height:1.3;padding-top:12px;padding-bottom:12px}
 .plan{position:relative;display:flex;flex-direction:column;padding:38px 30px 30px;border-radius:24px;background:#fff;border:1px solid var(--line);transition:transform .5s var(--ease),box-shadow .5s}
 .plan:hover{transform:translateY(-6px);box-shadow:0 40px 70px -40px rgba(13,79,84,.55)}
 .plan.featured{background:linear-gradient(170deg,#0e3a41 0%,#0a252b 100%);color:#fff;border-color:transparent;box-shadow:0 40px 80px -40px rgba(13,79,84,.9)}
@@ -336,7 +337,7 @@ body.menu-open .menu-side{opacity:1;transform:none}
 .plan.featured .plan-delivery{color:rgba(255,255,255,.6)}
 .plan-delivery svg{width:14px;height:14px}
 
-.extras{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;margin-top:22px}
+.extras{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:22px;margin-top:22px}
 .advanced{position:relative;overflow:hidden;padding:clamp(30px,4vw,48px);border-radius:24px;color:#fff;background:linear-gradient(140deg,var(--ink-2),var(--ink))}
 .advanced::after{content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,76,.25),transparent 65%)}
 .advanced > *{position:relative;z-index:1}
@@ -508,7 +509,9 @@ a.c-item:hover{border-color:var(--gold-2);background:rgba(255,255,255,.07);trans
   .hero-cards{display:none}
 }
 @media (max-width:980px){
-  .pcard{grid-template-columns:1fr;position:relative;top:auto!important;min-height:0}
+  .hero h1{font-size:clamp(2.6rem,min(7.6vw,8vh),4.6rem)}
+  .hero-sub{max-width:52ch}
+  .pcard{grid-template-columns:minmax(0,1fr);position:relative;top:auto!important;min-height:0}
   .pc-media{order:-1}
   .plans{grid-template-columns:1fr;max-width:560px;margin:0 auto}
   .extras{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}
@@ -524,7 +527,7 @@ a.c-item:hover{border-color:var(--gold-2);background:rgba(255,255,255,.07);trans
   .f-top{grid-template-columns:1fr 1fr}
   .menu-inner{grid-template-columns:1fr;align-content:start}
   .menu-preview{display:none}
-  .case,.case:nth-child(even){grid-template-columns:1fr}
+  .case,.case:nth-child(even){grid-template-columns:minmax(0,1fr)}
   .case:nth-child(even) .case-media{order:0}
 }
 @media (max-width:640px){
@@ -550,7 +553,7 @@ a.c-item:hover{border-color:var(--gold-2);background:rgba(255,255,255,.07);trans
   .compass-spin{width:56px}
   .benefit-grid{grid-template-columns:1fr}
   .benefit{padding:28px 24px}
-  .phone{width:30%;right:-6px;bottom:-16px;border-radius:18px}
+  .phone{width:30%;right:0;bottom:-16px;border-radius:18px}
   .phone img{border-radius:13px}
   .pcard{padding:18px 18px 24px;border-radius:20px}
   .steps{grid-template-columns:1fr}
@@ -562,6 +565,10 @@ a.c-item:hover{border-color:var(--gold-2);background:rgba(255,255,255,.07);trans
   .plan{padding:34px 22px 24px}
   .menu-list a{gap:14px}
   .wa-float{width:54px;height:54px;right:14px}
+}
+@media (max-width:374px){
+  .brand-name{display:none}
+  .nav-tools{gap:10px}
 }
 @media (hover:none){
   .browser{transform:none!important}
